@@ -42,7 +42,7 @@ import { ContextProxy } from "../config/ContextProxy"
 import { ProviderSettingsManager } from "../config/ProviderSettingsManager"
 import { CustomModesManager } from "../config/CustomModesManager"
 import { buildApiHandler } from "../../api"
-import { ACTION_NAMES } from "../CodeActionProvider"
+import { CodeActionName } from "../CodeActionProvider"
 import { Cline, ClineOptions } from "../Cline"
 import { getNonce } from "./getNonce"
 import { getUri } from "./getUri"
@@ -263,7 +263,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 	public static async handleCodeAction(
 		command: string,
-		promptType: keyof typeof ACTION_NAMES,
+		promptType: CodeActionName,
 		params: Record<string, string | any[]>,
 	): Promise<void> {
 		// Capture telemetry for code action usage
@@ -277,20 +277,11 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 		const { customSupportPrompts } = await visibleProvider.getState()
 
+		// TODO: Improve type safety for promptType.
 		const prompt = supportPrompt.create(promptType, params, customSupportPrompts)
 
 		if (command.endsWith("addToContext")) {
-			await visibleProvider.postMessageToWebview({
-				type: "invoke",
-				invoke: "setChatBoxMessage",
-				text: prompt,
-			})
-
-			return
-		}
-
-		if (visibleProvider.getCurrentCline() && command.endsWith("InCurrentTask")) {
-			await visibleProvider.postMessageToWebview({ type: "invoke", invoke: "sendMessage", text: prompt })
+			await visibleProvider.postMessageToWebview({ type: "invoke", invoke: "setChatBoxMessage", text: prompt })
 			return
 		}
 
@@ -305,6 +296,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		// Capture telemetry for terminal action usage
 		telemetryService.captureCodeActionUsed(promptType)
 		const visibleProvider = await ClineProvider.getInstance()
+
 		if (!visibleProvider) {
 			return
 		}
@@ -314,20 +306,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		const prompt = supportPrompt.create(promptType, params, customSupportPrompts)
 
 		if (command.endsWith("AddToContext")) {
-			await visibleProvider.postMessageToWebview({
-				type: "invoke",
-				invoke: "setChatBoxMessage",
-				text: prompt,
-			})
-			return
-		}
-
-		if (visibleProvider.getCurrentCline() && command.endsWith("InCurrentTask")) {
-			await visibleProvider.postMessageToWebview({
-				type: "invoke",
-				invoke: "sendMessage",
-				text: prompt,
-			})
+			await visibleProvider.postMessageToWebview({ type: "invoke", invoke: "setChatBoxMessage", text: prompt })
 			return
 		}
 
