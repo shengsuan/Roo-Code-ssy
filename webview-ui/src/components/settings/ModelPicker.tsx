@@ -26,7 +26,7 @@ import { ModelInfoView } from "./ModelInfoView"
 
 type ModelIdKey = keyof Pick<
 	ProviderSettings,
-	"glamaModelId" | "openRouterModelId" | "unboundModelId" | "requestyModelId" | "openAiModelId"
+	"glamaModelId" | "openRouterModelId" | "unboundModelId" | "requestyModelId" | "openAiModelId" | "ssyModelId"
 >
 
 interface ModelPickerProps {
@@ -65,7 +65,6 @@ export const ModelPicker = ({
 			if (!modelId) {
 				return
 			}
-
 			setOpen(false)
 			setApiConfigurationField(modelIdKey, modelId)
 

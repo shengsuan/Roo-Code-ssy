@@ -288,11 +288,12 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 			await provider.resetState()
 			break
 		case "requestRouterModels":
-			const [openRouterModels, requestyModels, glamaModels, unboundModels] = await Promise.all([
+			const [openRouterModels, requestyModels, glamaModels, unboundModels, ssyModels] = await Promise.all([
 				getModels("openrouter"),
 				getModels("requesty"),
 				getModels("glama"),
 				getModels("unbound"),
+				getModels("shengsuanyun"),
 			])
 
 			provider.postMessageToWebview({
@@ -302,6 +303,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 					requesty: requestyModels,
 					glama: glamaModels,
 					unbound: unboundModels,
+					shengsuanyun: ssyModels,
 				},
 			})
 			break

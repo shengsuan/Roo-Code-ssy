@@ -25,6 +25,7 @@ import {
 	requestyDefaultModelId,
 	glamaDefaultModelId,
 	unboundDefaultModelId,
+	ssyDefaultModelId,
 } from "@roo/shared/api"
 
 import { useRouterModels } from "./useRouterModels"
@@ -57,6 +58,8 @@ function getSelectedModelId({ provider, apiConfiguration }: { provider: string; 
 			return apiConfiguration?.vsCodeLmModelSelector
 				? `${apiConfiguration.vsCodeLmModelSelector.vendor}/${apiConfiguration.vsCodeLmModelSelector.family}`
 				: ""
+		case "shengsuanyun":
+			return apiConfiguration.ssyModelId ?? ssyDefaultModelId
 		default:
 			return apiConfiguration.apiModelId ?? anthropicDefaultModelId
 	}

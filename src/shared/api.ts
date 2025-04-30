@@ -1400,6 +1400,20 @@ export const vscodeLlmModels = {
 	}
 >
 
+// ShengSuanYun
+// https://router.shengsuanyun.com/model
+export const ssyDefaultModelId: string = "anthropic/claude-3.7-sonnet"
+export const ssyDefaultModelInfo: ModelInfo = {
+	maxTokens: 128_000,
+	contextWindow: 200_000,
+	supportsImages: true,
+	supportsPromptCache: true,
+	inputPrice: 3,
+	outputPrice: 15,
+	cacheWritesPrice: 0,
+	cacheReadsPrice: 0,
+}
+
 /**
  * Constants
  */
@@ -1450,7 +1464,7 @@ export const COMPUTER_USE_MODELS = new Set([
 	"anthropic/claude-3.7-sonnet:thinking",
 ])
 
-const routerNames = ["openrouter", "requesty", "glama", "unbound"] as const
+const routerNames = ["openrouter", "requesty", "glama", "unbound", "shengsuanyun"] as const
 
 export type RouterName = (typeof routerNames)[number]
 

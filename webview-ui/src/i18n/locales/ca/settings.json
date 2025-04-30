@@ -114,6 +114,7 @@
 		"getGlamaApiKey": "Obtenir clau API de Glama",
 		"requestyApiKey": "Clau API de Requesty",
 		"getRequestyApiKey": "Obtenir clau API de Requesty",
+		"getShengSuanYunApiKey": "Obtenir clau API de Sheng Suan Yun",
 		"anthropicApiKey": "Clau API d'Anthropic",
 		"getAnthropicApiKey": "Obtenir clau API d'Anthropic",
 		"anthropicUseAuthToken": "Passar la clau API d'Anthropic com a capçalera d'autorització en lloc de X-Api-Key",

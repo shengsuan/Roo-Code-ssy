@@ -18,6 +18,7 @@ import {
 	unboundDefaultModelId,
 	requestyDefaultModelId,
 	ApiProvider,
+	ssyDefaultModelId,
 } from "@roo/shared/api"
 import { ExtensionMessage } from "@roo/shared/ExtensionMessage"
 
@@ -31,7 +32,7 @@ import {
 	OPENROUTER_DEFAULT_PROVIDER_NAME,
 } from "@src/components/ui/hooks/useOpenRouterModelProviders"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Button } from "@src/components/ui"
-import { getRequestyAuthUrl, getOpenRouterAuthUrl, getGlamaAuthUrl } from "@src/oauth/urls"
+import { getRequestyAuthUrl, getOpenRouterAuthUrl, getGlamaAuthUrl, getShengSuanYunAuthUrl } from "@src/oauth/urls"
 
 import { VSCodeButtonLink } from "../common/VSCodeButtonLink"
 
@@ -71,7 +72,6 @@ const ApiOptions = ({
 	const [ollamaModels, setOllamaModels] = useState<string[]>([])
 	const [lmStudioModels, setLmStudioModels] = useState<string[]>([])
 	const [vsCodeLmModels, setVsCodeLmModels] = useState<LanguageModelChatSelector[]>([])
-
 	const [openAiModels, setOpenAiModels] = useState<Record<string, ModelInfo> | null>(null)
 
 	const [anthropicBaseUrlSelected, setAnthropicBaseUrlSelected] = useState(!!apiConfiguration?.anthropicBaseUrl)
@@ -265,6 +265,11 @@ const ApiOptions = ({
 						setApiConfigurationField("requestyModelId", requestyDefaultModelId)
 					}
 					break
+				case "shengsuanyun":
+					if (!apiConfiguration.ssyModelId) {
+						setApiConfigurationField("ssyModelId", ssyDefaultModelId)
+					}
+					break
 			}
 
 			setApiConfigurationField("apiProvider", value)
@@ -275,6 +280,7 @@ const ApiOptions = ({
 			apiConfiguration.glamaModelId,
 			apiConfiguration.unboundModelId,
 			apiConfiguration.requestyModelId,
+			apiConfiguration.ssyModelId,
 		],
 	)
 
@@ -483,6 +489,35 @@ const ApiOptions = ({
 							style={{ width: "100%" }}
 							appearance="primary">
 							{t("settings:providers.getRequestyApiKey")}
+						</VSCodeButtonLink>
+					)}
+				</>
+			)}
+
+			{selectedProvider === "shengsuanyun" && (
+				<>
+					<VSCodeTextField
+						value={apiConfiguration?.shengsuanyunApiKey || ""}
+						type="password"
+						onInput={handleInputChange("shengsuanyunApiKey")}
+						placeholder={t("settings:providers.getShengSuanYunApiKey")}
+						className="w-full">
+						<div className="flex justify-between items-center mb-1">
+							<label className="block font-medium">{t("settings:providers.getShengSuanYunApiKey")}</label>
+							{apiConfiguration?.shengsuanyunApiKey && (
+								<RequestyBalanceDisplay apiKey={apiConfiguration.shengsuanyunApiKey} />
+							)}
+						</div>
+					</VSCodeTextField>
+					<div className="text-sm text-vscode-descriptionForeground -mt-2">
+						{t("settings:providers.apiKeyStorageNotice")}
+					</div>
+					{!apiConfiguration?.shengsuanyunApiKey && (
+						<VSCodeButtonLink
+							href={getShengSuanYunAuthUrl(uriScheme)}
+							style={{ width: "100%" }}
+							appearance="primary">
+							{t("settings:providers.getShengSuanYunApiKey")}
 						</VSCodeButtonLink>
 					)}
 				</>
@@ -1599,6 +1634,18 @@ const ApiOptions = ({
 					modelIdKey="requestyModelId"
 					serviceName="Requesty"
 					serviceUrl="https://requesty.ai"
+				/>
+			)}
+
+			{selectedProvider === "shengsuanyun" && (
+				<ModelPicker
+					apiConfiguration={apiConfiguration}
+					setApiConfigurationField={setApiConfigurationField}
+					defaultModelId={ssyDefaultModelId}
+					models={routerModels?.shengsuanyun ?? {}}
+					modelIdKey="ssyModelId"
+					serviceName="ShengSuanYun"
+					serviceUrl="https://router.shengsuanyun.com"
 				/>
 			)}
 

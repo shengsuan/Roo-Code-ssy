@@ -382,6 +382,8 @@ export const providerSettingsSchema = z.object({
 	rateLimitSeconds: z.number().optional(),
 	// Fake AI
 	fakeAi: z.unknown().optional(),
+	shengSuanyunApiKey: z.string().optional(),
+	ssyModelId: z.string().optional(),
 })
 
 export type ProviderSettings = z.infer<typeof providerSettingsSchema>
@@ -467,6 +469,9 @@ const providerSettingsRecord: ProviderSettingsRecord = {
 	rateLimitSeconds: undefined,
 	// Fake AI
 	fakeAi: undefined,
+	// ShengSuanyun
+	shengSuanyunApiKey: undefined,
+	ssyModelId: undefined,
 }
 
 export const PROVIDER_SETTINGS_KEYS = Object.keys(providerSettingsRecord) as Keys<ProviderSettings>[]
@@ -652,6 +657,7 @@ export type SecretState = Pick<
 	| "mistralApiKey"
 	| "unboundApiKey"
 	| "requestyApiKey"
+	| "shengSuanyunApiKey"
 >
 
 type SecretStateRecord = Record<Keys<SecretState>, undefined>
@@ -670,6 +676,7 @@ const secretStateRecord: SecretStateRecord = {
 	mistralApiKey: undefined,
 	unboundApiKey: undefined,
 	requestyApiKey: undefined,
+	shengSuanyunApiKey: undefined,
 }
 
 export const SECRET_STATE_KEYS = Object.keys(secretStateRecord) as Keys<SecretState>[]

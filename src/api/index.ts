@@ -23,6 +23,7 @@ import { RequestyHandler } from "./providers/requesty"
 import { HumanRelayHandler } from "./providers/human-relay"
 import { FakeAIHandler } from "./providers/fake-ai"
 import { XAIHandler } from "./providers/xai"
+import { ShengsuanyunHandler } from "./providers/shengsuanyun"
 
 export interface SingleCompletionHandler {
 	completePrompt(prompt: string): Promise<string>
@@ -88,6 +89,8 @@ export function buildApiHandler(configuration: ApiConfiguration): ApiHandler {
 			return new FakeAIHandler(options)
 		case "xai":
 			return new XAIHandler(options)
+		case "shengsuanyun":
+			return new ShengsuanyunHandler(options)
 		default:
 			return new AnthropicHandler(options)
 	}

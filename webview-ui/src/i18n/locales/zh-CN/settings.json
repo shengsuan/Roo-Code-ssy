@@ -120,6 +120,7 @@
 		"deepSeekApiKey": "DeepSeek API 密钥",
 		"getDeepSeekApiKey": "获取 DeepSeek API 密钥",
 		"geminiApiKey": "Gemini API 密钥",
+		"getShengSuanYunApiKey": "胜算云 API 密钥",
 		"getGeminiApiKey": "获取 Gemini API 密钥",
 		"openAiApiKey": "OpenAI API 密钥",
 		"openAiBaseUrl": "OpenAI 基础 URL",

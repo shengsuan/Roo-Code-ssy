@@ -12,6 +12,7 @@ import { getOpenRouterModels } from "./openrouter"
 import { getRequestyModels } from "./requesty"
 import { getGlamaModels } from "./glama"
 import { getUnboundModels } from "./unbound"
+import { getSSYModels } from "./shengsuanyun"
 
 const memoryCache = new NodeCache({ stdTTL: 5 * 60, checkperiod: 5 * 60 })
 
@@ -58,6 +59,9 @@ export const getModels = async (router: RouterName): Promise<ModelRecord> => {
 			break
 		case "unbound":
 			models = await getUnboundModels()
+			break
+		case "shengsuanyun":
+			models = await getSSYModels()
 			break
 	}
 

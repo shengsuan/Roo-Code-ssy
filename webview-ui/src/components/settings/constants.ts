@@ -44,6 +44,7 @@ export const PROVIDERS = [
 	{ value: "requesty", label: "Requesty" },
 	{ value: "human-relay", label: "Human Relay" },
 	{ value: "xai", label: "xAI" },
+	{ value: "shengsuanyun", label: "Sheng Suan Yun" },
 ].sort((a, b) => a.label.localeCompare(b.label))
 
 export const VERTEX_REGIONS = [

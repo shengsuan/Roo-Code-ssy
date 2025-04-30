@@ -120,6 +120,7 @@
 		"getDeepSeekApiKey": "Lấy khóa API DeepSeek",
 		"geminiApiKey": "Khóa API Gemini",
 		"getGeminiApiKey": "Lấy khóa API Gemini",
+		"getShengSuanYunApiKey": "Lấy khóa API Sheng Suan Yun",
 		"openAiApiKey": "Khóa API OpenAI",
 		"openAiBaseUrl": "URL cơ sở",
 		"getOpenAiApiKey": "Lấy khóa API OpenAI",

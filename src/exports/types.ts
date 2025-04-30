@@ -22,6 +22,7 @@ type ProviderSettings = {
 				| "human-relay"
 				| "fake-ai"
 				| "xai"
+				| "shengsuanyun"
 		  )
 		| undefined
 	apiModelId?: string | undefined
@@ -115,6 +116,8 @@ type ProviderSettings = {
 	requestyApiKey?: string | undefined
 	requestyModelId?: string | undefined
 	xaiApiKey?: string | undefined
+	shengsuanyunApiKey?: string | undefined
+	ssyModelId?: string | undefined
 	modelMaxTokens?: number | undefined
 	modelMaxThinkingTokens?: number | undefined
 	includeMaxTokens?: boolean | undefined
@@ -155,6 +158,7 @@ type GlobalSettings = {
 							| "human-relay"
 							| "fake-ai"
 							| "xai"
+							| "shengsuanyun"
 					  )
 					| undefined
 		  }[]

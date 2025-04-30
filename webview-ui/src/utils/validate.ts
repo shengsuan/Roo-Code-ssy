@@ -74,6 +74,11 @@ export function validateApiConfiguration(apiConfiguration: ApiConfiguration): st
 				return i18next.t("settings:validation.modelSelector")
 			}
 			break
+		case "shengsuanyun":
+			if (!apiConfiguration.shengsuanyunApiKey) {
+				return i18next.t("settings:validation.apiKey")
+			}
+			break
 	}
 
 	return undefined
@@ -134,6 +139,9 @@ export function validateModelId(apiConfiguration: ApiConfiguration, routerModels
 			break
 		case "requesty":
 			modelId = apiConfiguration.requestyModelId
+			break
+		case "shengsuanyun":
+			modelId = apiConfiguration.ssyModelId
 			break
 	}
 

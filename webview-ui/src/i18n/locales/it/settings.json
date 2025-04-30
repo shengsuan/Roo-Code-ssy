@@ -113,6 +113,7 @@
 		"useLegacyFormat": "Usa formato API OpenAI legacy",
 		"requestyApiKey": "Chiave API Requesty",
 		"getRequestyApiKey": "Ottieni chiave API Requesty",
+		"getShengSuanYunApiKey": "Ottieni chiave API Sheng Suan Yun",
 		"openRouterTransformsText": "Comprimi prompt e catene di messaggi alla dimensione del contesto (<a>Trasformazioni OpenRouter</a>)",
 		"anthropicApiKey": "Chiave API Anthropic",
 		"getAnthropicApiKey": "Ottieni chiave API Anthropic",

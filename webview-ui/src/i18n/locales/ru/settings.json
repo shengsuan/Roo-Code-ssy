@@ -112,6 +112,7 @@
 		"useHostHeader": "Использовать пользовательский Host-заголовок",
 		"useLegacyFormat": "Использовать устаревший формат OpenAI API",
 		"requestyApiKey": "Requesty API-ключ",
+		"getShengSuanYunApiKey": "Sheng Suan Yun API-ключ",
 		"getRequestyApiKey": "Получить Requesty API-ключ",
 		"openRouterTransformsText": "Сжимать подсказки и цепочки сообщений до размера контекста (<a>OpenRouter Transforms</a>)",
 		"anthropicApiKey": "Anthropic API-ключ",
