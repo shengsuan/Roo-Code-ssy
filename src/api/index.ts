@@ -24,6 +24,8 @@ import { HumanRelayHandler } from "./providers/human-relay"
 import { FakeAIHandler } from "./providers/fake-ai"
 import { XAIHandler } from "./providers/xai"
 import { ShengsuanyunHandler } from "./providers/shengsuanyun"
+import { GroqHandler } from "./providers/groq"
+import { ChutesHandler } from "./providers/chutes"
 
 export interface SingleCompletionHandler {
 	completePrompt(prompt: string): Promise<string>
@@ -91,6 +93,10 @@ export function buildApiHandler(configuration: ApiConfiguration): ApiHandler {
 			return new XAIHandler(options)
 		case "shengsuanyun":
 			return new ShengsuanyunHandler(options)
+		case "groq":
+			return new GroqHandler(options)
+		case "chutes":
+			return new ChutesHandler(options)
 		default:
 			return new AnthropicHandler(options)
 	}

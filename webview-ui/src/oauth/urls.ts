@@ -18,3 +18,7 @@ export function getRequestyAuthUrl(uriScheme?: string) {
 export function getShengSuanYunAuthUrl(uriScheme?: string) {
 	return `https://router.shengsuanyun.com/auth?callback_url=${getCallbackUrl("shengsuanyun", uriScheme)}`
 }
+
+export function getRequestyApiKeyUrl() {
+	return "https://app.requesty.ai/api-keys"
+}
