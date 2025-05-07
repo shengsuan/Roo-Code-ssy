@@ -25,6 +25,7 @@ export const providerNames = [
 	"human-relay",
 	"fake-ai",
 	"xai",
+	"shengsuanyun",
 ] as const
 
 export const providerNamesSchema = z.enum(providerNames)
