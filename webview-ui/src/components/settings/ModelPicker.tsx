@@ -26,7 +26,12 @@ import { ModelInfoView } from "./ModelInfoView"
 
 type ModelIdKey = keyof Pick<
 	ProviderSettings,
-	"glamaModelId" | "openRouterModelId" | "unboundModelId" | "requestyModelId" | "openAiModelId" | "ssyModelId"
+	| "glamaModelId"
+	| "openRouterModelId"
+	| "unboundModelId"
+	| "requestyModelId"
+	| "openAiModelId"
+	| "shengSuanYunModelId"
 >
 
 interface ModelPickerProps {

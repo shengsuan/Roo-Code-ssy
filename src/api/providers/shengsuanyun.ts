@@ -8,8 +8,8 @@ import {
 	PROMPT_CACHING_MODELS,
 	OPTIONAL_PROMPT_CACHING_MODELS,
 	REASONING_MODELS,
-	ssyDefaultModelId,
-	ssyDefaultModelInfo,
+	shengSuanYunDefaultModelId,
+	shengSuanYunDefaultModelInfo,
 } from "../../shared/api"
 import { convertToOpenAiMessages } from "../transform/openai-format"
 import { ApiStreamChunk } from "../transform/stream"
@@ -60,7 +60,7 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 		super()
 		this.options = options
 		const baseURL = "https://router.shengsuanyun.com/api/v1"
-		const apiKey = this.options.shengsuanyunApiKey ?? "not-provided"
+		const apiKey = this.options.shengSuanYunApiKey ?? "not-provided"
 		this.client = new OpenAI({ baseURL, apiKey, defaultHeaders: DEFAULT_HEADERS })
 	}
 
@@ -89,7 +89,7 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 			openAiMessages = convertToR1Format([{ role: "user", content: systemPrompt }, ...messages])
 		}
 
-		const isCacheAvailable = promptCache.supported && (!promptCache.optional || this.options.promptCachingEnabled)
+		const isCacheAvailable = promptCache.supported && (!promptCache.optional || !this.options.promptCachingDisabled)
 
 		// Prompt caching: https://openrouter.ai/docs/prompt-caching
 		// Now with Gemini support: https://openrouter.ai/docs/features/prompt-caching
@@ -196,8 +196,8 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 	}
 
 	override getModel() {
-		const id = this.options.ssyModelId ?? ssyDefaultModelId
-		const info = this.models[id] ?? ssyDefaultModelInfo
+		const id = this.options.shengSuanYunModelId ?? shengSuanYunDefaultModelId
+		const info = this.models[id] ?? shengSuanYunDefaultModelInfo
 
 		const isDeepSeekR1 = id.startsWith("deepseek/deepseek-r1") || id === "perplexity/sonar-reasoning"
 

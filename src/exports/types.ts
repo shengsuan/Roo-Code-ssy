@@ -44,7 +44,6 @@ type ProviderSettings = {
 	awsRegion?: string | undefined
 	awsUseCrossRegionInference?: boolean | undefined
 	awsUsePromptCache?: boolean | undefined
-	awspromptCacheId?: string | undefined
 	awsProfile?: string | undefined
 	awsUseProfile?: boolean | undefined
 	awsCustomArn?: string | undefined
@@ -126,18 +125,18 @@ type ProviderSettings = {
 	xaiApiKey?: string | undefined
 	groqApiKey?: string | undefined
 	chutesApiKey?: string | undefined
-	shengsuanyunApiKey?: string | undefined
-	ssyModelId?: string | undefined
 	modelMaxTokens?: number | undefined
 	modelMaxThinkingTokens?: number | undefined
 	includeMaxTokens?: boolean | undefined
 	reasoningEffort?: ("low" | "medium" | "high") | undefined
-	promptCachingEnabled?: boolean | undefined
+	promptCachingDisabled?: boolean | undefined
 	diffEnabled?: boolean | undefined
 	fuzzyMatchThreshold?: number | undefined
 	modelTemperature?: (number | null) | undefined
 	rateLimitSeconds?: number | undefined
 	fakeAi?: unknown | undefined
+	shengSuanYunApiKey?: string | undefined
+	shengSuanYunModelId?: string | undefined
 }
 
 export type { ProviderSettings }
@@ -255,6 +254,7 @@ type GlobalSettings = {
 				| "it"
 				| "ja"
 				| "ko"
+				| "nl"
 				| "pl"
 				| "pt-BR"
 				| "ru"

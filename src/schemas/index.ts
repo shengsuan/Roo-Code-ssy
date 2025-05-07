@@ -62,6 +62,7 @@ export const languages = [
 	"it",
 	"ja",
 	"ko",
+	"nl",
 	"pl",
 	"pt-BR",
 	"ru",
@@ -367,7 +368,6 @@ export const providerSettingsSchema = z.object({
 	awsRegion: z.string().optional(),
 	awsUseCrossRegionInference: z.boolean().optional(),
 	awsUsePromptCache: z.boolean().optional(),
-	awspromptCacheId: z.string().optional(),
 	awsProfile: z.string().optional(),
 	awsUseProfile: z.boolean().optional(),
 	awsCustomArn: z.string().optional(),
@@ -431,20 +431,21 @@ export const providerSettingsSchema = z.object({
 	// Chutes AI
 	chutesApiKey: z.string().optional(),
 	// Claude 3.7 Sonnet Thinking
-	shengsuanyunApiKey: z.string().optional(),
-	ssyModelId: z.string().optional(),
 	modelMaxTokens: z.number().optional(),
 	modelMaxThinkingTokens: z.number().optional(),
 	// Generic
 	includeMaxTokens: z.boolean().optional(),
 	reasoningEffort: reasoningEffortsSchema.optional(),
-	promptCachingEnabled: z.boolean().optional(),
+	promptCachingDisabled: z.boolean().optional(),
 	diffEnabled: z.boolean().optional(),
 	fuzzyMatchThreshold: z.number().optional(),
 	modelTemperature: z.number().nullish(),
 	rateLimitSeconds: z.number().optional(),
 	// Fake AI
 	fakeAi: z.unknown().optional(),
+	// Sheng Suan Yun
+	shengSuanYunApiKey: z.string().optional(),
+	shengSuanYunModelId: z.string().optional(),
 })
 
 export type ProviderSettings = z.infer<typeof providerSettingsSchema>
@@ -474,7 +475,6 @@ const providerSettingsRecord: ProviderSettingsRecord = {
 	awsRegion: undefined,
 	awsUseCrossRegionInference: undefined,
 	awsUsePromptCache: undefined,
-	awspromptCacheId: undefined,
 	awsProfile: undefined,
 	awsUseProfile: undefined,
 	awsCustomArn: undefined,
@@ -529,7 +529,7 @@ const providerSettingsRecord: ProviderSettingsRecord = {
 	// Generic
 	includeMaxTokens: undefined,
 	reasoningEffort: undefined,
-	promptCachingEnabled: undefined,
+	promptCachingDisabled: undefined,
 	diffEnabled: undefined,
 	fuzzyMatchThreshold: undefined,
 	modelTemperature: undefined,
@@ -538,13 +538,13 @@ const providerSettingsRecord: ProviderSettingsRecord = {
 	fakeAi: undefined,
 	// X.AI (Grok)
 	xaiApiKey: undefined,
-	// ShengSuanYun
-	shengsuanyunApiKey: undefined,
-	ssyModelId: undefined,
 	// Groq
 	groqApiKey: undefined,
 	// Chutes AI
 	chutesApiKey: undefined,
+	// Sheng Suan Yun
+	shengSuanYunApiKey: undefined,
+	shengSuanYunModelId: undefined,
 }
 
 export const PROVIDER_SETTINGS_KEYS = Object.keys(providerSettingsRecord) as Keys<ProviderSettings>[]
@@ -737,7 +737,7 @@ export type SecretState = Pick<
 	| "unboundApiKey"
 	| "requestyApiKey"
 	| "xaiApiKey"
-	| "shengsuanyunApiKey"
+	| "shengSuanYunApiKey"
 	| "groqApiKey"
 	| "chutesApiKey"
 >
@@ -759,7 +759,7 @@ const secretStateRecord: SecretStateRecord = {
 	unboundApiKey: undefined,
 	requestyApiKey: undefined,
 	xaiApiKey: undefined,
-	shengsuanyunApiKey: undefined,
+	shengSuanYunApiKey: undefined,
 	groqApiKey: undefined,
 	chutesApiKey: undefined,
 }

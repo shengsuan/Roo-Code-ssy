@@ -1,6 +1,5 @@
 export function getCallbackUrl(provider: string, uriScheme?: string) {
-	const callbackUrl = `${uriScheme || "vscode"}://rooveterinaryinc.roo-cline/${provider}`
-	return encodeURIComponent(callbackUrl)
+	return encodeURIComponent(`${uriScheme || "vscode"}://rooveterinaryinc.roo-cline/${provider}`)
 }
 
 export function getGlamaAuthUrl(uriScheme?: string) {
@@ -17,8 +16,4 @@ export function getRequestyAuthUrl(uriScheme?: string) {
 
 export function getShengSuanYunAuthUrl(uriScheme?: string) {
 	return `https://router.shengsuanyun.com/auth?callback_url=${getCallbackUrl("shengsuanyun", uriScheme)}`
-}
-
-export function getRequestyApiKeyUrl() {
-	return "https://app.requesty.ai/api-keys"
 }

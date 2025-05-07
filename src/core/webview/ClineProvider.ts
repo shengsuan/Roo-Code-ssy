@@ -13,12 +13,12 @@ import { GlobalState, ProviderSettings, RooCodeSettings } from "../../schemas"
 import { t } from "../../i18n"
 import { setPanel } from "../../activate/registerCommands"
 import {
+	ProviderName,
 	ApiConfiguration,
-	ApiProvider,
 	requestyDefaultModelId,
 	openRouterDefaultModelId,
 	glamaDefaultModelId,
-	ssyDefaultModelId,
+	shengSuanYunDefaultModelId,
 } from "../../shared/api"
 import { findLast } from "../../shared/array"
 import { supportPrompt } from "../../shared/support-prompt"
@@ -76,7 +76,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 	public isViewLaunched = false
 	public settingsImportedAt?: number
-	public readonly latestAnnouncementId = "apr-30-2025-3-15" // Update for v3.15.0 announcement
+	public readonly latestAnnouncementId = "may-06-2025-3-16" // Update for v3.16.0 announcement
 	public readonly providerSettingsManager: ProviderSettingsManager
 	public readonly customModesManager: CustomModesManager
 
@@ -994,7 +994,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 	// ShengSuanYun
 
-	async handleSSYCallback(code: string) {
+	async handleShengSuanYunCallback(code: string) {
 		let { apiConfiguration, currentApiConfigName } = await this.getState()
 		let apiKey: string
 		try {
@@ -1002,7 +1002,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 			if (response.data && response.data.data && response.data.data.api_key) {
 				apiKey = response.data.data.api_key
 			} else {
-				throw new Error("Invalid response from OpenRouter API")
+				throw new Error("Invalid response from ShengSuanYun API")
 			}
 		} catch (error) {
 			this.log(
@@ -1014,8 +1014,8 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		const newConfiguration: ApiConfiguration = {
 			...apiConfiguration,
 			apiProvider: "shengsuanyun",
-			shengsuanyunApiKey: apiKey,
-			ssyModelId: apiConfiguration?.ssyModelId || ssyDefaultModelId,
+			shengSuanYunApiKey: apiKey,
+			shengSuanYunModelId: apiConfiguration?.shengSuanYunModelId || shengSuanYunDefaultModelId,
 		}
 
 		await this.upsertApiConfiguration(currentApiConfigName, newConfiguration)
@@ -1327,7 +1327,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		const customModes = await this.customModesManager.getCustomModes()
 
 		// Determine apiProvider with the same logic as before.
-		const apiProvider: ApiProvider = stateValues.apiProvider ? stateValues.apiProvider : "anthropic"
+		const apiProvider: ProviderName = stateValues.apiProvider ? stateValues.apiProvider : "anthropic"
 
 		// Build the apiConfiguration object combining state values and secrets.
 		const providerSettings = this.contextProxy.getProviderSettings()
@@ -1506,10 +1506,12 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		const appVersion = this.context.extension?.packageJSON?.version
 		const vscodeVersion = vscode.version
 		const platform = process.platform
+		const editorName = vscode.env.appName // Get the editor name (VS Code, Cursor, etc.)
 
 		const properties: Record<string, any> = {
 			vscodeVersion,
 			platform,
+			editorName,
 		}
 
 		// Add extension version

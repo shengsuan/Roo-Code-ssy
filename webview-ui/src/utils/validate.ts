@@ -75,7 +75,7 @@ export function validateApiConfiguration(apiConfiguration: ApiConfiguration): st
 			}
 			break
 		case "shengsuanyun":
-			if (!apiConfiguration.shengsuanyunApiKey) {
+			if (!apiConfiguration.shengSuanYunApiKey) {
 				return i18next.t("settings:validation.apiKey")
 			}
 			break
@@ -141,7 +141,7 @@ export function validateModelId(apiConfiguration: ApiConfiguration, routerModels
 			modelId = apiConfiguration.requestyModelId
 			break
 		case "shengsuanyun":
-			modelId = apiConfiguration.ssyModelId
+			modelId = apiConfiguration.shengSuanYunModelId
 			break
 	}
 

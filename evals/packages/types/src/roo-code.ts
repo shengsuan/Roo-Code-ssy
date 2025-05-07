@@ -55,6 +55,7 @@ export const languages = [
 	"it",
 	"ja",
 	"ko",
+	"nl",
 	"pl",
 	"pt-BR",
 	"ru",
@@ -355,7 +356,6 @@ export const providerSettingsSchema = z.object({
 	awsRegion: z.string().optional(),
 	awsUseCrossRegionInference: z.boolean().optional(),
 	awsUsePromptCache: z.boolean().optional(),
-	awspromptCacheId: z.string().optional(),
 	awsProfile: z.string().optional(),
 	awsUseProfile: z.boolean().optional(),
 	awsCustomArn: z.string().optional(),
@@ -419,15 +419,16 @@ export const providerSettingsSchema = z.object({
 	// Generic
 	includeMaxTokens: z.boolean().optional(),
 	reasoningEffort: reasoningEffortsSchema.optional(),
-	promptCachingEnabled: z.boolean().optional(),
+	promptCachingDisabled: z.boolean().optional(),
 	diffEnabled: z.boolean().optional(),
 	fuzzyMatchThreshold: z.number().optional(),
 	modelTemperature: z.number().nullish(),
 	rateLimitSeconds: z.number().optional(),
 	// Fake AI
 	fakeAi: z.unknown().optional(),
-	shengSuanyunApiKey: z.string().optional(),
-	ssyModelId: z.string().optional(),
+	// Sheng Suan Yun
+	shengSuanYunApiKey: z.string().optional(),
+	shengSuanYunModelId: z.string().optional(),
 })
 
 export type ProviderSettings = z.infer<typeof providerSettingsSchema>
@@ -457,7 +458,6 @@ const providerSettingsRecord: ProviderSettingsRecord = {
 	awsRegion: undefined,
 	awsUseCrossRegionInference: undefined,
 	awsUsePromptCache: undefined,
-	awspromptCacheId: undefined,
 	awsProfile: undefined,
 	awsUseProfile: undefined,
 	awsCustomArn: undefined,
@@ -511,16 +511,16 @@ const providerSettingsRecord: ProviderSettingsRecord = {
 	// Generic
 	includeMaxTokens: undefined,
 	reasoningEffort: undefined,
-	promptCachingEnabled: undefined,
+	promptCachingDisabled: undefined,
 	diffEnabled: undefined,
 	fuzzyMatchThreshold: undefined,
 	modelTemperature: undefined,
 	rateLimitSeconds: undefined,
 	// Fake AI
 	fakeAi: undefined,
-	// ShengSuanyun
-	shengSuanyunApiKey: undefined,
-	ssyModelId: undefined,
+	// ShengSuanYun
+	shengSuanYunApiKey: undefined,
+	shengSuanYunModelId: undefined,
 	xaiApiKey: undefined,
 }
 
@@ -715,7 +715,7 @@ export type SecretState = Pick<
 	| "mistralApiKey"
 	| "unboundApiKey"
 	| "requestyApiKey"
-	| "shengSuanyunApiKey"
+	| "shengSuanYunApiKey"
 	| "xaiApiKey"
 >
 
@@ -735,7 +735,7 @@ const secretStateRecord: SecretStateRecord = {
 	mistralApiKey: undefined,
 	unboundApiKey: undefined,
 	requestyApiKey: undefined,
-	shengSuanyunApiKey: undefined,
+	shengSuanYunApiKey: undefined,
 	xaiApiKey: undefined,
 }
 

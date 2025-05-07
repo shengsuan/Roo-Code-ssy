@@ -1,6 +1,6 @@
 import { ModelInfo, ProviderName, ProviderSettings } from "../schemas"
 
-export type { ModelInfo, ProviderName as ApiProvider }
+export type { ModelInfo, ProviderName }
 
 export type ApiHandlerOptions = Omit<ProviderSettings, "apiProvider" | "id">
 
@@ -502,6 +502,15 @@ export const vertexModels = {
 		inputPrice: 2.5,
 		outputPrice: 15,
 	},
+	"gemini-2.5-pro-preview-05-06": {
+		maxTokens: 65_535,
+		contextWindow: 1_048_576,
+		supportsImages: true,
+		supportsPromptCache: true,
+		isPromptCacheOptional: true,
+		inputPrice: 2.5,
+		outputPrice: 15,
+	},
 	"gemini-2.5-pro-exp-03-25": {
 		maxTokens: 65_535,
 		contextWindow: 1_048_576,
@@ -679,6 +688,31 @@ export const geminiModels = {
 		outputPrice: 0,
 	},
 	"gemini-2.5-pro-preview-03-25": {
+		maxTokens: 65_535,
+		contextWindow: 1_048_576,
+		supportsImages: true,
+		supportsPromptCache: true,
+		isPromptCacheOptional: true,
+		inputPrice: 2.5, // This is the pricing for prompts above 200k tokens.
+		outputPrice: 15,
+		cacheReadsPrice: 0.625,
+		cacheWritesPrice: 4.5,
+		tiers: [
+			{
+				contextWindow: 200_000,
+				inputPrice: 1.25,
+				outputPrice: 10,
+				cacheReadsPrice: 0.31,
+			},
+			{
+				contextWindow: Infinity,
+				inputPrice: 2.5,
+				outputPrice: 15,
+				cacheReadsPrice: 0.625,
+			},
+		],
+	},
+	"gemini-2.5-pro-preview-05-06": {
 		maxTokens: 65_535,
 		contextWindow: 1_048_576,
 		supportsImages: true,
@@ -1402,18 +1436,20 @@ export const vscodeLlmModels = {
 
 // ShengSuanYun
 // https://router.shengsuanyun.com/model
-export const ssyDefaultModelId: string = "anthropic/claude-3.7-sonnet"
-export const ssyDefaultModelInfo: ModelInfo = {
+export const shengSuanYunDefaultModelId: string = "anthropic/claude-3.7-sonnet"
+export const shengSuanYunDefaultModelInfo: ModelInfo = {
 	maxTokens: 128_000,
 	contextWindow: 200_000,
 	supportsImages: true,
+	supportsComputerUse: true,
 	supportsPromptCache: true,
-	inputPrice: 3,
-	outputPrice: 15,
-	cacheWritesPrice: 0,
-	cacheReadsPrice: 0,
+	inputPrice: 3.0,
+	outputPrice: 15.0,
+	cacheWritesPrice: 3.0,
+	cacheReadsPrice: 0.3,
+	description:
+		"Claude 3.7 Sonnet 是一款先进的大型语言模型，具备增强的推理、编码和问题解决能力。它引入了混合推理方法，允许用户在快速响应和针对复杂任务的逐步处理之间进行选择。 查看更多详情 [博客](https://www.anthropic.com/news/claude-3-7-sonnet)",
 }
-
 // Groq
 // https://console.groq.com/docs/models
 export type GroqModelId =
@@ -1686,6 +1722,7 @@ export const PROMPT_CACHING_MODELS = new Set([
 	"anthropic/claude-3.7-sonnet:beta",
 	"anthropic/claude-3.7-sonnet:thinking",
 	"google/gemini-2.5-pro-preview-03-25",
+	"google/gemini-2.5-pro-preview-05-06",
 	"google/gemini-2.0-flash-001",
 	"google/gemini-flash-1.5",
 	"google/gemini-flash-1.5-8b",
@@ -1695,6 +1732,7 @@ export const PROMPT_CACHING_MODELS = new Set([
 // in settings).
 export const OPTIONAL_PROMPT_CACHING_MODELS = new Set([
 	"google/gemini-2.5-pro-preview-03-25",
+	"google/gemini-2.5-pro-preview-05-06",
 	"google/gemini-2.0-flash-001",
 	"google/gemini-flash-1.5",
 	"google/gemini-flash-1.5-8b",

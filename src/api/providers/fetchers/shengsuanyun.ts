@@ -2,7 +2,7 @@ import axios from "axios"
 import { ModelInfo } from "../../../shared/api"
 import { parseApiPrice } from "../../../utils/cost"
 
-export async function getSSYModels(): Promise<Record<string, ModelInfo>> {
+export async function getShengSuanYunModels(): Promise<Record<string, ModelInfo>> {
 	const models: Record<string, ModelInfo> = {}
 	try {
 		const url = "https://router.shengsuanyun.com/api/v1/models/"
