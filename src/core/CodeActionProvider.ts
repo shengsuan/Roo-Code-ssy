@@ -5,11 +5,11 @@ import { EditorUtils } from "./EditorUtils"
 export type CodeActionName = "EXPLAIN" | "FIX" | "IMPROVE" | "ADD_TO_CONTEXT" | "NEW_TASK"
 
 export type CodeActionId =
-	| "roo-cline.explainCode"
-	| "roo-cline.fixCode"
-	| "roo-cline.improveCode"
-	| "roo-cline.addToContext"
-	| "roo-cline.newTask"
+	| "cline-pro.explainCode"
+	| "cline-pro.fixCode"
+	| "cline-pro.improveCode"
+	| "cline-pro.addToContext"
+	| "cline-pro.newTask"
 
 export const ACTION_TITLES: Record<CodeActionName, string> = {
 	EXPLAIN: "Explain with Roo Code",
@@ -20,11 +20,11 @@ export const ACTION_TITLES: Record<CodeActionName, string> = {
 } as const
 
 export const COMMAND_IDS: Record<CodeActionName, CodeActionId> = {
-	EXPLAIN: "roo-cline.explainCode",
-	FIX: "roo-cline.fixCode",
-	IMPROVE: "roo-cline.improveCode",
-	ADD_TO_CONTEXT: "roo-cline.addToContext",
-	NEW_TASK: "roo-cline.newTask",
+	EXPLAIN: "cline-pro.explainCode",
+	FIX: "cline-pro.fixCode",
+	IMPROVE: "cline-pro.improveCode",
+	ADD_TO_CONTEXT: "cline-pro.addToContext",
+	NEW_TASK: "cline-pro.newTask",
 } as const
 
 export class CodeActionProvider implements vscode.CodeActionProvider {
