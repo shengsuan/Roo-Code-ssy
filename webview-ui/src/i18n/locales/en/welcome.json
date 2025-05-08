@@ -9,6 +9,10 @@
 			"description": "Your optimized LLM router",
 			"incentive": "$1 free credit"
 		},
+		"shengsuanyun": {
+			"description": "Smart route multiple large language models",
+			"incentive": "$1 free credit"
+		},
 		"openrouter": {
 			"description": "A unified interface for LLMs"
 		}

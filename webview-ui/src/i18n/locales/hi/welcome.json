@@ -9,6 +9,10 @@
 			"description": "आपका अनुकूलित LLM राउटर",
 			"incentive": "$1 मुफ्त क्रेडिट"
 		},
+		"shengsuanyun": {
+			"description": "बुद्धिमानी भारी भाषा मॉडलों का स्मार्ट समन्वय",
+			"incentive": "$1 मुफ्त क्रेडिट"
+		},
 		"openrouter": {
 			"description": "LLMs के लिए एक एकीकृत इंटरफेस"
 		}

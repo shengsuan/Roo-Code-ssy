@@ -9,6 +9,10 @@
 			"description": "Optimize edilmiş LLM yönlendiricin",
 			"incentive": "$1 ücretsiz kredi"
 		},
+		"shengsuanyun": {
+			"description": "Birden çok büyük dil modelini akıllı bir şekilde planlayın",
+			"incentive": "Hediye için kaydolun, $1 ücretsiz kredi"
+		},
 		"openrouter": {
 			"description": "LLM'ler için birleşik bir arayüz"
 		}

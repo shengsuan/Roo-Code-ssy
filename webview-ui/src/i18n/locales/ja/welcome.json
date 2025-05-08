@@ -9,6 +9,10 @@
 			"description": "最適化されたLLMルーター",
 			"incentive": "$1の無料クレジット"
 		},
+		"shengsuanyun": {
+			"description": "複数の大規模言語モデルをインテリジェントにスケジュール",
+			"incentive": "$1の無料クレジット"
+		},
 		"openrouter": {
 			"description": "LLMsのための統一インターフェース"
 		}

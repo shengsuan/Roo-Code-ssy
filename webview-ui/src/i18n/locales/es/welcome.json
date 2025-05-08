@@ -9,6 +9,10 @@
 			"description": "Tu router LLM optimizado",
 			"incentive": "$1 de crédito gratis"
 		},
+		"shengsuanyun": {
+			"description": "Programación inteligente de múltiples modelos de lenguaje grandes",
+			"incentive": "$1 de crédito gratis"
+		},
 		"openrouter": {
 			"description": "Una interfaz unificada para LLMs"
 		}

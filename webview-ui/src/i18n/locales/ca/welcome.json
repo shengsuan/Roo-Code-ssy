@@ -9,6 +9,10 @@
 			"description": "El teu router LLM optimitzat",
 			"incentive": "$1 de crèdit gratuït"
 		},
+		"shengsuanyun": {
+			"description": "Programació intel·ligent de múltiples models lingüístics grans",
+			"incentive": "$1 de crèdit gratuït"
+		},
 		"openrouter": {
 			"description": "Una interfície unificada per a LLMs"
 		}

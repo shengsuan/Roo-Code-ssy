@@ -9,6 +9,10 @@
 			"description": "최적화된 LLM 라우터",
 			"incentive": "$1 무료 크레딧"
 		},
+		"shengsuanyun": {
+			"description": "여러 대규모 언어 모델을 지능적으로 스케줄링",
+			"incentive": "가입하고 $1 무료 받기"
+		},
 		"openrouter": {
 			"description": "LLM을 위한 통합 인터페이스"
 		}

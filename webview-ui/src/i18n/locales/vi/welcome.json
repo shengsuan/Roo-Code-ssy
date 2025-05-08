@@ -9,6 +9,10 @@
 			"description": "Bộ định tuyến LLM được tối ưu hóa của bạn",
 			"incentive": "$1 tín dụng miễn phí"
 		},
+		"shengsuanyun": {
+			"description": "Nhiều mô hình ngôn ngữ lớn có sẵn",
+			"incentive": "Đăng ký và nhận $ 1 miễn phí"
+		},
 		"openrouter": {
 			"description": "Giao diện thống nhất cho các LLM"
 		}

@@ -9,6 +9,10 @@
 			"description": "Dein optimierter LLM-Router",
 			"incentive": "$1 Guthaben gratis"
 		},
+		"shengsuanyun": {
+			"description": "Intelligente Planung mehrerer großer Sprachmodelle",
+			"incentive": "$1 Guthaben gratis"
+		},
 		"openrouter": {
 			"description": "Eine einheitliche Schnittstelle für LLMs"
 		}

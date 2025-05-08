@@ -9,6 +9,10 @@
 			"description": "Ton routeur LLM optimisé",
 			"incentive": "1$ de crédit gratuit"
 		},
+		"shengsuanyun": {
+			"description": "Ordonnancement intelligent de plusieurs grands modèles linguistiques",
+			"incentive": "1$ de crédit gratuit"
+		},
 		"openrouter": {
 			"description": "Une interface unifiée pour les LLMs"
 		}

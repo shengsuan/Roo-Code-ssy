@@ -1,6 +1,6 @@
 {
 	"extension": {
-		"name": "Roo Code",
+		"name": "Cline 胜算云增强版",
 		"description": "您编辑器中的完整AI开发团队。"
 	},
 	"number_format": {
@@ -87,7 +87,7 @@
 		"enter_valid_path": "请输入有效的路径"
 	},
 	"input": {
-		"task_prompt": "让Roo做什么？",
+		"task_prompt": "让Cline 胜算云增强版做什么？",
 		"task_placeholder": "在这里输入任务"
 	},
 	"settings": {

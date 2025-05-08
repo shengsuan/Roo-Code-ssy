@@ -7,7 +7,7 @@ import ApiOptions from "../settings/ApiOptions"
 import { Tab, TabContent } from "../common/Tab"
 import { Trans } from "react-i18next"
 import { useAppTranslation } from "@src/i18n/TranslationContext"
-import { getRequestyAuthUrl, getOpenRouterAuthUrl } from "@src/oauth/urls"
+import { getRequestyAuthUrl, getOpenRouterAuthUrl, getShengSuanYunAuthUrl } from "@src/oauth/urls"
 import RooHero from "./RooHero"
 import knuthShuffle from "knuth-shuffle-seeded"
 
@@ -58,6 +58,13 @@ const WelcomeView = () => {
 									description: t("welcome:routers.requesty.description"),
 									incentive: t("welcome:routers.requesty.incentive"),
 									authUrl: getRequestyAuthUrl(uriScheme),
+								},
+								{
+									slug: "shengsuanyun",
+									name: "ShengSuanYun",
+									description: t("welcome:routers.shengsuanyun.description"),
+									incentive: t("welcome:routers.shengsuanyun.incentive"),
+									authUrl: getShengSuanYunAuthUrl(uriScheme),
 								},
 								{
 									slug: "openrouter",

@@ -9,6 +9,10 @@
 			"description": "您的最佳化 LLM 路由器",
 			"incentive": "$1 免費額度"
 		},
+		"shengsuanyun": {
+			"description": "智能调度多个大语言模型",
+			"incentive": "注册送 ￥10 免费额度"
+		},
 		"openrouter": {
 			"description": "LLM 的統一介面"
 		}
