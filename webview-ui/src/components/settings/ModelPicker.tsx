@@ -31,6 +31,7 @@ type ModelIdKey = keyof Pick<
 	| "unboundModelId"
 	| "requestyModelId"
 	| "openAiModelId"
+	| "litellmModelId"
 	| "shengSuanYunModelId"
 >
 
