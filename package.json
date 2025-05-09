@@ -3,7 +3,7 @@
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
 	"publisher": "RooVeterinaryInc",
-	"version": "3.16.0",
+	"version": "3.16.3",
 	"icon": "assets/icons/icon.png",
 	"galleryBanner": {
 		"color": "#617A91",
@@ -442,7 +442,7 @@
 		"@typescript-eslint/parser": "^7.11.0",
 		"@vscode/test-electron": "^2.5.2",
 		"@vscode/vsce": "^3.3.2",
-		"esbuild": "^0.24.0",
+		"esbuild": "^0.25.0",
 		"eslint": "^8.57.0",
 		"execa": "^9.5.2",
 		"glob": "^11.0.1",
