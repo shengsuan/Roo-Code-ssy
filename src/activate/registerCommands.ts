@@ -14,7 +14,7 @@ import { handleNewTask } from "./handleTask"
 export function getVisibleProviderOrLog(outputChannel: vscode.OutputChannel): ClineProvider | undefined {
 	const visibleProvider = ClineProvider.getVisibleInstance()
 	if (!visibleProvider) {
-		outputChannel.appendLine("Cannot find any visible Roo Code instances.")
+		outputChannel.appendLine("Cannot find any visible Cline Pro instances.")
 		return undefined
 	}
 	return visibleProvider
@@ -154,7 +154,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 				const panel = getPanel()
 
 				if (!panel) {
-					await vscode.commands.executeCommand("workbench.view.extension.roo-cline-ActivityBar")
+					await vscode.commands.executeCommand("workbench.view.extension.cline-pro-ActivityBar")
 				} else if (panel === tabPanel) {
 					panel.reveal(vscode.ViewColumn.Active, false)
 				} else if (panel === sidebarPanel) {
@@ -165,7 +165,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 				outputChannel.appendLine(`Error focusing input: ${error}`)
 			}
 		},
-		"roo.acceptInput": () => {
+		"cline-pro.acceptInput": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -196,7 +196,7 @@ export const openClineInNewTab = async ({ context, outputChannel }: Omit<Registe
 
 	const targetCol = hasVisibleEditors ? Math.max(lastCol + 1, 1) : vscode.ViewColumn.Two
 
-	const newPanel = vscode.window.createWebviewPanel(ClineProvider.tabPanelId, "Roo Code", targetCol, {
+	const newPanel = vscode.window.createWebviewPanel(ClineProvider.tabPanelId, "Cline Pro", targetCol, {
 		enableScripts: true,
 		retainContextWhenHidden: true,
 		localResourceRoots: [context.extensionUri],
@@ -208,8 +208,8 @@ export const openClineInNewTab = async ({ context, outputChannel }: Omit<Registe
 	// TODO: Use better svg icon with light and dark variants (see
 	// https://stackoverflow.com/questions/58365687/vscode-extension-iconpath).
 	newPanel.iconPath = {
-		light: vscode.Uri.joinPath(context.extensionUri, "assets", "icons", "panel_light.png"),
-		dark: vscode.Uri.joinPath(context.extensionUri, "assets", "icons", "panel_dark.png"),
+		light: vscode.Uri.joinPath(context.extensionUri, "assets", "images", "panel_light.png"),
+		dark: vscode.Uri.joinPath(context.extensionUri, "assets", "images", "panel_dark.png"),
 	}
 
 	await tabProvider.resolveWebviewView(newPanel)

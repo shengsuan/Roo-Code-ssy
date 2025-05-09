@@ -16,7 +16,7 @@ import { ApiStreamChunk } from "../transform/stream"
 import { convertToR1Format } from "../transform/r1-format"
 
 import { getModelParams, SingleCompletionHandler } from "../index"
-import { DEFAULT_HEADERS, DEEP_SEEK_DEFAULT_TEMPERATURE } from "./constants"
+import { DEEP_SEEK_DEFAULT_TEMPERATURE } from "./constants"
 import { BaseProvider } from "./base-provider"
 import { getModels } from "./fetchers/cache"
 
@@ -61,7 +61,14 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 		this.options = options
 		const baseURL = "https://router.shengsuanyun.com/api/v1"
 		const apiKey = this.options.shengSuanYunApiKey ?? "not-provided"
-		this.client = new OpenAI({ baseURL, apiKey, defaultHeaders: DEFAULT_HEADERS })
+		this.client = new OpenAI({
+			baseURL,
+			apiKey,
+			defaultHeaders: {
+				"HTTP-Referer": "https://github.com/shengsuan/Roo-Code-ssy",
+				"X-Title": "Cline 胜算云增强版",
+			},
+		})
 	}
 
 	override async *createMessage(
@@ -148,45 +155,48 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 			...((this.options.openRouterUseMiddleOutTransform ?? true) && { transforms: ["middle-out"] }),
 			...(REASONING_MODELS.has(modelId) && reasoningEffort && { reasoning: { effort: reasoningEffort } }),
 		}
+		try {
+			const stream = await this.client.chat.completions.create(completionParams)
+			let lastUsage: CompletionUsage | undefined = undefined
 
-		const stream = await this.client.chat.completions.create(completionParams)
+			for await (const chunk of stream) {
+				// OpenRouter returns an error object instead of the OpenAI SDK throwing an error.
+				if ("error" in chunk) {
+					const error = chunk.error as { message?: string; code?: number }
+					console.error(`OpenRouter API Error: ${error?.code} - ${error?.message}`)
+					throw new Error(`OpenRouter API Error ${error?.code}: ${error?.message}`)
+				}
 
-		let lastUsage: CompletionUsage | undefined = undefined
+				const delta = chunk.choices[0]?.delta
 
-		for await (const chunk of stream) {
-			// OpenRouter returns an error object instead of the OpenAI SDK throwing an error.
-			if ("error" in chunk) {
-				const error = chunk.error as { message?: string; code?: number }
-				console.error(`OpenRouter API Error: ${error?.code} - ${error?.message}`)
-				throw new Error(`OpenRouter API Error ${error?.code}: ${error?.message}`)
+				if ("reasoning" in delta && delta.reasoning && typeof delta.reasoning === "string") {
+					yield { type: "reasoning", text: delta.reasoning }
+				}
+
+				if (delta?.content) {
+					yield { type: "text", text: delta.content }
+				}
+
+				if (chunk.usage) {
+					lastUsage = chunk.usage
+				}
 			}
 
-			const delta = chunk.choices[0]?.delta
-
-			if ("reasoning" in delta && delta.reasoning && typeof delta.reasoning === "string") {
-				yield { type: "reasoning", text: delta.reasoning }
+			if (lastUsage) {
+				yield {
+					type: "usage",
+					inputTokens: lastUsage.prompt_tokens || 0,
+					outputTokens: lastUsage.completion_tokens || 0,
+					// Waiting on OpenRouter to figure out what this represents in the Gemini case
+					// and how to best support it.
+					// cacheReadTokens: lastUsage.prompt_tokens_details?.cached_tokens,
+					reasoningTokens: lastUsage.completion_tokens_details?.reasoning_tokens,
+					totalCost: lastUsage.cost || 0,
+				}
 			}
-
-			if (delta?.content) {
-				yield { type: "text", text: delta.content }
-			}
-
-			if (chunk.usage) {
-				lastUsage = chunk.usage
-			}
-		}
-
-		if (lastUsage) {
-			yield {
-				type: "usage",
-				inputTokens: lastUsage.prompt_tokens || 0,
-				outputTokens: lastUsage.completion_tokens || 0,
-				// Waiting on OpenRouter to figure out what this represents in the Gemini case
-				// and how to best support it.
-				// cacheReadTokens: lastUsage.prompt_tokens_details?.cached_tokens,
-				reasoningTokens: lastUsage.completion_tokens_details?.reasoning_tokens,
-				totalCost: lastUsage.cost || 0,
-			}
+		} catch (err) {
+			console.error("chat error: ", err)
+			console.log("completionParams: ", completionParams)
 		}
 	}
 

@@ -2,9 +2,9 @@
 	"name": "cline-pro",
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
-	"publisher": "RooVeterinaryInc",
+	"publisher": "shengsuan-cloud",
 	"version": "3.16.0",
-	"icon": "assets/icons/icon.png",
+	"icon": "assets/images/shengsuanyun.png",
 	"galleryBanner": {
 		"color": "#617A91",
 		"theme": "dark"
@@ -42,7 +42,7 @@
 		"sonnet",
 		"ai",
 		"llama",
-		"roo code",
+		"Cline Pro",
 		"roocode",
 		"ShengSuanYun",
 		"胜算云"
@@ -66,14 +66,14 @@
 		"viewsContainers": {
 			"activitybar": [
 				{
-					"id": "roo-cline-ActivityBar",
+					"id": "cline-pro-ActivityBar",
 					"title": "%views.activitybar.title%",
-					"icon": "assets/icons/icon.svg"
+					"icon": "assets/images/panel_light.png"
 				}
 			]
 		},
 		"views": {
-			"roo-cline-ActivityBar": [
+			"cline-pro-ActivityBar": [
 				{
 					"type": "webview",
 					"id": "cline-pro.SidebarProvider",
@@ -168,7 +168,7 @@
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "roo.acceptInput",
+				"command": "cline-pro.acceptInput",
 				"title": "%command.acceptInput.title%",
 				"category": "%configuration.title%"
 			}

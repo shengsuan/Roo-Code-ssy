@@ -384,7 +384,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 
 			// Also update workspace settings.
 			await vscode.workspace
-				.getConfiguration("roo-cline")
+				.getConfiguration("cline-pro")
 				.update("allowedCommands", message.commands, vscode.ConfigurationTarget.Global)
 
 			break

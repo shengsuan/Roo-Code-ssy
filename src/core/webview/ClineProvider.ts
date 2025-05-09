@@ -641,7 +641,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 						window.IMAGES_BASE_URI = "${imagesUri}"
 						window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 					</script>
-					<title>Roo Code</title>
+					<title>Cline Pro</title>
 				</head>
 				<body>
 					<div id="root"></div>
@@ -735,7 +735,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 				window.IMAGES_BASE_URI = "${imagesUri}"
 				window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 			</script>
-            <title>Roo Code</title>
+            <title>Cline Pro</title>
           </head>
           <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -890,20 +890,20 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		let mcpServersDir: string
 		if (process.platform === "win32") {
 			// Windows: %APPDATA%\Roo-Code\MCP
-			mcpServersDir = path.join(os.homedir(), "AppData", "Roaming", "Roo-Code", "MCP")
+			mcpServersDir = path.join(os.homedir(), "AppData", "Roaming", "cline-pro", "MCP")
 		} else if (process.platform === "darwin") {
 			// macOS: ~/Documents/Cline/MCP
 			mcpServersDir = path.join(os.homedir(), "Documents", "Cline", "MCP")
 		} else {
 			// Linux: ~/.local/share/Cline/MCP
-			mcpServersDir = path.join(os.homedir(), ".local", "share", "Roo-Code", "MCP")
+			mcpServersDir = path.join(os.homedir(), ".local", "share", "cline-pro", "MCP")
 		}
 
 		try {
 			await fs.mkdir(mcpServersDir, { recursive: true })
 		} catch (error) {
 			// Fallback to a relative path if directory creation fails
-			return path.join(os.homedir(), ".roo-code", "mcp")
+			return path.join(os.homedir(), ".cline-pro", "mcp")
 		}
 		return mcpServersDir
 	}
@@ -998,7 +998,10 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		let { apiConfiguration, currentApiConfigName } = await this.getState()
 		let apiKey: string
 		try {
-			const response = await axios.post("https://api.shengsuanyun.com/auth/keys", { code })
+			const response = await axios.post("https://api.shengsuanyun.com/auth/keys", {
+				code,
+				callback_url: "vscode://shengsuan-cloud.cline-pro/shengsuanyun",
+			})
 			if (response.data && response.data.data && response.data.data.api_key) {
 				apiKey = response.data.data.api_key
 			} else {
@@ -1229,7 +1232,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 		const telemetryKey = process.env.POSTHOG_API_KEY
 		const machineId = vscode.env.machineId
-		const allowedCommands = vscode.workspace.getConfiguration("roo-cline").get<string[]>("allowedCommands") || []
+		const allowedCommands = vscode.workspace.getConfiguration("cline-pro").get<string[]>("allowedCommands") || []
 		const cwd = this.cwd
 
 		// Check if there's a system prompt override for the current mode

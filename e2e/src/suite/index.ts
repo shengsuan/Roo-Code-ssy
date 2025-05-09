@@ -12,7 +12,7 @@ declare global {
 }
 
 export async function run() {
-	const extension = vscode.extensions.getExtension<RooCodeAPI>("RooVeterinaryInc.roo-cline")
+	const extension = vscode.extensions.getExtension<RooCodeAPI>("shengsuan-cloud.cline-pro")
 
 	if (!extension) {
 		throw new Error("Extension not found")

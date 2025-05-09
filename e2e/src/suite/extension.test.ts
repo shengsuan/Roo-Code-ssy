@@ -1,7 +1,7 @@
 import * as assert from "assert"
 import * as vscode from "vscode"
 
-suite("Roo Code Extension", () => {
+suite("Cline Pro Extension", () => {
 	test("Commands should be registered", async () => {
 		const expectedCommands = [
 			"cline-pro.plusButtonClicked",

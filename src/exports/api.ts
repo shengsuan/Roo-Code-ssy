@@ -112,7 +112,7 @@ export class API extends EventEmitter<RooCodeEvents> implements RooCodeAPI {
 
 			if (configuration.allowedCommands) {
 				await vscode.workspace
-					.getConfiguration("roo-cline")
+					.getConfiguration("cline-pro")
 					.update("allowedCommands", configuration.allowedCommands, vscode.ConfigurationTarget.Global)
 			}
 		}

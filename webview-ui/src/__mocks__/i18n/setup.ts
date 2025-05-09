@@ -5,7 +5,7 @@ import { initReactI18next } from "react-i18next"
 const translations: Record<string, Record<string, any>> = {
 	en: {
 		chat: {
-			greeting: "What can Roo do for you?",
+			greeting: "What can Cline Pro do for you?",
 		},
 		settings: {
 			autoApprove: {
@@ -20,14 +20,14 @@ const translations: Record<string, Record<string, any>> = {
 	},
 	es: {
 		chat: {
-			greeting: "¿Qué puede hacer Roo por ti?",
+			greeting: "¿Qué puede hacer Cline Pro por ti?",
 		},
 	},
 }
 
 // Initialize i18next for React
 i18next.use(initReactI18next).init({
-	lng: "en",
+	lng: "zh-CN",
 	fallbackLng: "en",
 	debug: false,
 	interpolation: {

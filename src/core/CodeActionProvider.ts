@@ -12,11 +12,11 @@ export type CodeActionId =
 	| "cline-pro.newTask"
 
 export const ACTION_TITLES: Record<CodeActionName, string> = {
-	EXPLAIN: "Explain with Roo Code",
-	FIX: "Fix with Roo Code",
-	IMPROVE: "Improve with Roo Code",
-	ADD_TO_CONTEXT: "Add to Roo Code",
-	NEW_TASK: "New Roo Code Task",
+	EXPLAIN: "Explain with Cline Pro",
+	FIX: "Fix with Cline Pro",
+	IMPROVE: "Improve with Cline Pro",
+	ADD_TO_CONTEXT: "Add to Cline Pro",
+	NEW_TASK: "New Cline Pro Task",
 } as const
 
 export const COMMAND_IDS: Record<CodeActionName, CodeActionId> = {
