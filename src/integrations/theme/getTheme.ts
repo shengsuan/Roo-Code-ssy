@@ -141,5 +141,5 @@ export function mergeJson(
 }
 
 function getExtensionUri(): vscode.Uri {
-	return vscode.extensions.getExtension("shengsuan-cloud.cline-pro")!.extensionUri
+	return vscode.extensions.getExtension("shengsuan-cloud.roo-code-pro")!.extensionUri
 }

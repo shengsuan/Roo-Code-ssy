@@ -2,23 +2,20 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • <b>Polski</b> • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Współtworzenie Cline Pro
+# Współtworzenie Roo Code Pro
 
-Cline Pro to projekt napędzany przez społeczność i bardzo cenimy każdy wkład. Aby zapewnić płynny i skuteczny proces dla wszystkich, **działamy według zasady "[Issue-First](#2-kluczowa-zasada-podejście-issue-first)".** Oznacza to, że każda praca powinna być powiązana z GitHub Issue _przed_ zgłoszeniem Pull Requesta (szczegóły w naszej [Polityce PR](#polityka-pull-request-pr)). Przeczytaj ten przewodnik uważnie, aby dowiedzieć się, jak możesz współtworzyć.
-Ten przewodnik opisuje, jak współtworzyć Cline Pro – czy to naprawiając błędy, dodając funkcje, czy ulepszając dokumentację.
+Roo Code Pro to projekt napędzany przez społeczność i bardzo cenimy każdy wkład. Aby zapewnić płynny i skuteczny proces dla wszystkich, **działamy według zasady "[Issue-First](#2-kluczowa-zasada-podejście-issue-first)".** Oznacza to, że każda praca powinna być powiązana z GitHub Issue _przed_ zgłoszeniem Pull Requesta (szczegóły w naszej [Polityce PR](#polityka-pull-request-pr)). Przeczytaj ten przewodnik uważnie, aby dowiedzieć się, jak możesz współtworzyć.
+Ten przewodnik opisuje, jak współtworzyć Roo Code Pro – czy to naprawiając błędy, dodając funkcje, czy ulepszając dokumentację.
 
 ## Spis treści
 
 - [I. Zanim zaczniesz współtworzyć](#i-zanim-zaczniesz-współtworzyć)
     - [1. Kodeks postępowania](#1-kodeks-postępowania)
     - [2. Zrozumienie roadmapy projektu](#2-zrozumienie-roadmapy-projektu)
-        - [Wsparcie providerów](#wsparcie-providerów)
-        - [Wsparcie modeli](#wsparcie-modeli)
-        - [Wsparcie systemów](#wsparcie-systemów)
-        - [Dokumentacja](#dokumentacja)
-        - [Stabilność](#stabilność)
-        - [Internacjonalizacja](#internacjonalizacja)
-    - [3. Dołącz do społeczności Cline Pro](#3-dołącz-do-społeczności-roo-code)
+        - [Niezawodność przede wszystkim](#niezawodność-przede-wszystkim)
+        - [Ulepszone doświadczenie użytkownika](#ulepszone-doświadczenie-użytkownika)
+        - [Wiodąca pozycja w wydajności agentów](#wiodąca-pozycja-w-wydajności-agentów)
+    - [3. Dołącz do społeczności Roo Code](#3-dołącz-do-społeczności-roo-code)
 - [II. Znajdowanie i planowanie swojego wkładu](#ii-znajdowanie-i-planowanie-swojego-wkładu)
     - [1. Typy wkładów](#1-typy-wkładów)
     - [2. Kluczowa zasada: podejście Issue-First](#2-kluczowa-zasada-podejście-issue-first)
@@ -49,71 +46,41 @@ Wszyscy współtwórcy muszą przestrzegać naszego [Kodeksu postępowania](http
 
 ### 2. Zrozumienie roadmapy projektu
 
-Cline Pro ma jasną roadmapę rozwoju, która wyznacza nasze priorytety i przyszły kierunek. Zrozumienie roadmapy pomoże ci:
+Roo Code Pro ma jasną roadmapę rozwoju, która wyznacza nasze priorytety i przyszły kierunek. Zrozumienie roadmapy pomoże ci:
 
 - Dopasować swój wkład do celów projektu
 - Znaleźć obszary, w których twoja wiedza będzie najbardziej wartościowa
 - Zrozumieć kontekst niektórych decyzji projektowych
 - Zainspirować się do nowych funkcji wspierających naszą wizję
 
-Obecna roadmapa skupia się na sześciu kluczowych filarach:
+Skupiamy się na tym, aby Roo Code stało się najlepszym wyborem dla programistów pracujących z narzędziami programistycznymi opartymi na AI. Oto jak to osiągniemy:
 
-#### Wsparcie providerów
+#### Niezawodność przede wszystkim
 
-Chcemy dobrze wspierać jak najwięcej providerów:
+- Zapewnienie, że edycja różnic i wykonywanie poleceń są konsekwentnie niezawodne
+- Zmniejszenie punktów tarcia, które zniechęcają do regularnego użytkowania
+- Gwarancja płynnego działania we wszystkich językach i na wszystkich platformach
+- Rozszerzenie solidnego wsparcia dla szerokiej gamy dostawców i modeli AI
 
-- Więcej wsparcia "OpenAI Compatible"
-- xAI, Microsoft Azure AI, Alibaba Cloud Qwen, IBM Watsonx, Together AI, DeepInfra, Fireworks AI, Cohere, Perplexity AI, FriendliAI, Replicate
-- Ulepszone wsparcie dla Ollama i LM Studio
+#### Ulepszone doświadczenie użytkownika
 
-#### Wsparcie modeli
+- Uproszczenie interfejsu użytkownika dla większej przejrzystości i intuicyjności
+- Ciągłe doskonalenie przepływu pracy, aby spełnić wysokie oczekiwania, jakie programiści mają wobec codziennie używanych narzędzi
 
-Chcemy, aby Roo działał na jak największej liczbie modeli, w tym lokalnych:
+#### Wiodąca pozycja w wydajności agentów
 
-- Wsparcie modeli lokalnych przez niestandardowe prompty systemowe i workflowy
-- Benchmarki, ewaluacje i przypadki testowe
-
-#### Wsparcie systemów
-
-Chcemy, aby Roo działał dobrze na każdym komputerze:
-
-- Integracja terminala międzyplatformowego
-- Silne i spójne wsparcie dla Mac, Windows i Linux
-
-#### Dokumentacja
-
-Chcemy kompleksowej, dostępnej dokumentacji dla wszystkich użytkowników i współtwórców:
-
-- Rozszerzone przewodniki użytkownika i samouczki
-- Jasna dokumentacja API
-- Lepsze wskazówki dla współtwórców
-- Wielojęzyczne zasoby dokumentacyjne
-- Interaktywne przykłady i fragmenty kodu
-
-#### Stabilność
-
-Chcemy znacznie zmniejszyć liczbę błędów i zwiększyć automatyczne testowanie:
-
-- Przełącznik debugowania logów
-- Przycisk "Kopiuj informacje o maszynie/zadaniu" do zgłoszeń błędów/wsparcia
-
-#### Internacjonalizacja
-
-Chcemy, aby Roo mówił językiem każdego:
-
-- 我们希望 Cline Pro 说每个人的语言
-- Queremos que Cline Pro hable el idioma de todos
-- हम चाहते हैं कि Cline Pro हर किसी की भाषा बोले
-- نريد أن يتحدث Cline Pro لغة الجميع
+- Ustanowienie kompleksowych punktów odniesienia (evals) do mierzenia produktywności w rzeczywistym świecie
+- Ułatwienie wszystkim łatwego uruchamiania i interpretowania tych ocen
+- Dostarczanie ulepszeń Roo Code, które wykazują wyraźny wzrost wyników ocen
 
 Szczególnie mile widziane są wkłady, które realizują cele roadmapy. Jeśli pracujesz nad czymś zgodnym z tymi filarami, wspomnij o tym w opisie PR.
 
-### 3. Dołącz do społeczności Cline Pro
+### 3. Dołącz do społeczności Roo Code Pro
 
-Nawiązanie kontaktu ze społecznością Cline Pro to świetny sposób na rozpoczęcie:
+Nawiązanie kontaktu ze społecznością Roo Code Pro to świetny sposób na rozpoczęcie:
 
 - **Główna metoda**:
-    1.  Dołącz do [społeczności Cline Pro na Discordzie](https://discord.gg/roocode).
+    1.  Dołącz do [społeczności Roo Code Pro na Discordzie](https://discord.gg/roocode).
     2.  Po dołączeniu wyślij wiadomość prywatną (DM) do **Hannes Rudolph** (Discord: `hrudolph`), aby omówić swoje zainteresowanie i uzyskać wskazówki.
 - **Alternatywa dla doświadczonych współtwórców**: Jeśli dobrze znasz podejście Issue-First, możesz działać bezpośrednio przez GitHub, śledząc [tablicę Kanban](https://github.com/orgs/RooVetGit/projects/1) i komunikując się przez issues i pull requesty.
 
@@ -150,8 +117,8 @@ To podejście pomaga nam śledzić pracę, upewnić się, że zmiany są pożąd
 
 ### 3. Decydowanie, nad czym pracować
 
-- **Good First Issues**: Sprawdź sekcję "Issue [Unassigned]" w naszym [projekcie Cline Pro Issues](https://github.com/orgs/RooVetGit/projects/1) na GitHubie.
-- **Dokumentacja**: Choć ten `CONTRIBUTING.md` to główny przewodnik dla wkładów kodowych, jeśli chcesz współtworzyć inną dokumentację (np. przewodniki użytkownika lub API), sprawdź [repozytorium Cline Pro Docs](https://github.com/RooVetGit/Roo-Code-Docs) lub zapytaj na Discordzie.
+- **Good First Issues**: Sprawdź sekcję "Issue [Unassigned]" w naszym [projekcie Roo Code Pro Issues](https://github.com/orgs/RooVetGit/projects/1) na GitHubie.
+- **Dokumentacja**: Choć ten `CONTRIBUTING.md` to główny przewodnik dla wkładów kodowych, jeśli chcesz współtworzyć inną dokumentację (np. przewodniki użytkownika lub API), sprawdź [repozytorium Roo Code Pro Docs](https://github.com/RooVetGit/Roo-Code-Docs) lub zapytaj na Discordzie.
 - **Proponowanie nowych funkcji**:
     1.  **Wstępny pomysł/dyskusja**: Ogólne lub początkowe pomysły omawiaj w [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests).
     2.  **Formalna propozycja**: Dla konkretnych, gotowych do rozważenia propozycji utwórz issue "Detailed Feature Proposal" z szablonu na naszej [stronie issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose). To kluczowy element naszego **podejścia Issue-First**.
@@ -176,7 +143,7 @@ Postępuj według tych kroków, aby kodować i zgłaszać swój wkład.
     - Sklonuj swojego forka lokalnie: `git clone https://github.com/TWÓJ_UŻYTKOWNIK/Roo-Code.git`
 2.  **Zainstaluj zależności**: `npm run install:all`
 3.  **Uruchom Webview (Dev Mode)**: `npm run dev` (dla aplikacji Vite/React z HMR)
-4.  **Debuguj rozszerzenie**: Wciśnij `F5` w VS Code (lub **Run** → **Start Debugging**), aby otworzyć nowe okno Extension Development Host z Cline Pro.
+4.  **Debuguj rozszerzenie**: Wciśnij `F5` w VS Code (lub **Run** → **Start Debugging**), aby otworzyć nowe okno Extension Development Host z Roo Code Pro.
 
 Zmiany w webview (`webview-ui`) pojawią się natychmiast dzięki Hot Module Replacement. Zmiany w głównym rozszerzeniu (`src`) wymagają ponownego uruchomienia Extension Development Host.
 

@@ -2,23 +2,30 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • <b>简体中文</b> • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# 参与 Cline Pro 贡献
+# 参与 Roo Code Pro 贡献
 
-Cline Pro 是一个由社区驱动的项目，我们非常重视每一位贡献者。为了让每个人的贡献流程顺畅高效，**我们采用“[Issue-First](#2-关键原则-issue-first-方式)”原则。** 这意味着所有工作都必须在提交 Pull Request _之前_ 关联到一个 GitHub Issue（详情见[PR 政策](#pull-request-pr-政策)）。请认真阅读本指南，了解如何参与贡献。
-本指南介绍了如何为 Cline Pro 做出贡献，无论是修复 bug、添加新功能还是完善文档。
+Roo Code Pro 是一个由社区驱动的项目，我们非常重视每一位贡献者。为了让每个人的贡献流程顺畅高效，**我们采用“[Issue-First](#2-关键原则-issue-first-方式)”原则。** 这意味着所有工作都必须在提交 Pull Request _之前_ 关联到一个 GitHub Issue（详情见[PR 政策](#pull-request-pr-政策)）。请认真阅读本指南，了解如何参与贡献。
+本指南介绍了如何为 Roo Code Pro 做出贡献，无论是修复 bug、添加新功能还是完善文档。
 
 ## 目录
 
 - [I. 贡献前须知](#i-贡献前须知)
     - [1. 行为准则](#1-行为准则)
     - [2. 了解项目路线图](#2-了解项目路线图)
+<<<<<<< HEAD
         - [Provider 支持](#provider-支持)
         - [模型支持](#模型支持)
         - [系统支持](#系统支持)
         - [文档](#文档)
         - [稳定性](#稳定性)
         - [国际化](#国际化)
-    - [3. 加入 Cline Pro 社区](#3-加入-roo-code-社区)
+    - [3. 加入 Roo Code Pro 社区](#3-加入-roo-code-社区)
+=======
+        - [可靠性优先](#可靠性优先)
+        - [增强用户体验](#增强用户体验)
+        - [引领代理性能](#引领代理性能)
+    - [3. 加入 Roo Code 社区](#3-加入-roo-code-社区)
+>>>>>>> 7d755367411806184c611c092d30cd9f4e516ff3
 - [II. 寻找与规划你的贡献](#ii-寻找与规划你的贡献)
     - [1. 贡献类型](#1-贡献类型)
     - [2. 关键原则：Issue-First 方式](#2-关键原则-issue-first-方式)
@@ -49,27 +56,30 @@ Cline Pro 是一个由社区驱动的项目，我们非常重视每一位贡献�
 
 ### 2. 了解项目路线图
 
-Cline Pro 有清晰的发展路线图，指引我们的优先级和未来方向。了解路线图有助于你：
+Roo Code Pro 有清晰的发展路线图，指引我们的优先级和未来方向。了解路线图有助于你：
 
 - 让你的贡献与项目目标保持一致
 - 找到你最擅长的领域
 - 理解某些设计决策的背景
 - 获得新功能灵感，助力项目愿景
 
-当前路线图聚焦六大核心：
+我们专注于将 Roo Code 打造成开发者使用 AI 驱动编码工具时的首选。这是我们的实现路径：
 
-#### Provider 支持
+#### 可靠性优先
 
-我们希望支持尽可能多的 Provider：
+- 确保差异编辑和命令执行始终可靠
+- 减少阻碍常规使用的摩擦点
+- 确保在所有语言环境和平台上流畅运行
+- 扩展对各种 AI 提供商和模型的强大支持
 
-- 更强的“OpenAI 兼容”支持
-- xAI、Microsoft Azure AI、Alibaba Cloud Qwen、IBM Watsonx、Together AI、DeepInfra、Fireworks AI、Cohere、Perplexity AI、FriendliAI、Replicate
-- 增强 Ollama 和 LM Studio 支持
+#### 增强用户体验
 
-#### 模型支持
+- 简化 UI/UX，提高清晰度和直观性
+- 持续改进工作流程，满足开发者对日常工具的高期望
 
-我们希望 Roo 能在尽可能多的模型（包括本地模型）上运行：
+#### 引领代理性能
 
+<<<<<<< HEAD
 - 通过自定义系统提示词和工作流支持本地模型
 - Benchmark 测试与用例
 
@@ -99,21 +109,26 @@ Cline Pro 有清晰的发展路线图，指引我们的优先级和未来方向�
 
 #### 国际化
 
-我们希望 Cline Pro 说每个人的语言：
+我们希望 Roo Code Pro 说每个人的语言：
 
-- 我们希望 Cline Pro 说每个人的语言
-- Queremos que Cline Pro hable el idioma de todos
-- हम चाहते हैं कि Cline Pro हर किसी की भाषा बोले
-- نريد أن يتحدث Cline Pro لغة الجميع
+- 我们希望 Roo Code Pro 说每个人的语言
+- Queremos que Roo Code Pro hable el idioma de todos
+- हम चाहते हैं कि Roo Code Pro हर किसी की भाषा बोले
+- نريد أن يتحدث Roo Code Pro لغة الجميع
+=======
+- 建立全面的评估基准（evals）来衡量实际工作中的生产力
+- 让每个人都能轻松运行和解读这些评估
+- 提供 Roo Code 改进，展示明确的评分提升
+>>>>>>> 7d755367411806184c611c092d30cd9f4e516ff3
 
 特别欢迎推进路线图目标的贡献。如果你的工作与这些方向相关，请在 PR 描述中说明。
 
-### 3. 加入 Cline Pro 社区
+### 3. 加入 Roo Code Pro 社区
 
-加入 Cline Pro 社区是一个很好的起点：
+加入 Roo Code Pro 社区是一个很好的起点：
 
 - **主要方式**：
-    1.  加入 [Cline Pro Discord 社区](https://discord.gg/roocode)。
+    1.  加入 [Roo Code Pro Discord 社区](https://discord.gg/roocode)。
     2.  加入后，私信 **Hannes Rudolph**（Discord: `hrudolph`），表达你的兴趣并获取指导。
 - **有经验的贡献者可选**：如果你熟悉 Issue-First 方式，可以直接通过 GitHub 跟进 [看板](https://github.com/orgs/RooVetGit/projects/1)，通过 issue 和 pull request 沟通。
 
@@ -150,8 +165,8 @@ Cline Pro 有清晰的发展路线图，指引我们的优先级和未来方向�
 
 ### 3. 决定要做什么
 
-- **Good First Issues**：查看 GitHub [Cline Pro Issues 项目](https://github.com/orgs/RooVetGit/projects/1) 的“未分配 Issue”部分。
-- **文档**：虽然本 `CONTRIBUTING.md` 是代码贡献主指南，但如想参与其他文档（如用户指南、API 文档），请查阅 [Cline Pro Docs 仓库](https://github.com/RooVetGit/Roo-Code-Docs) 或在 Discord 社区咨询。
+- **Good First Issues**：查看 GitHub [Roo Code Pro Issues 项目](https://github.com/orgs/RooVetGit/projects/1) 的“未分配 Issue”部分。
+- **文档**：虽然本 `CONTRIBUTING.md` 是代码贡献主指南，但如想参与其他文档（如用户指南、API 文档），请查阅 [Roo Code Pro Docs 仓库](https://github.com/RooVetGit/Roo-Code-Docs) 或在 Discord 社区咨询。
 - **提出新功能**：
     1.  **初步想法/讨论**：广泛或初步想法可在 [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests) 讨论。
     2.  **正式提案**：具体、可执行的建议请用 [issues 页面](https://github.com/RooVetGit/Roo-Code/issues/new/choose) 的“Detailed Feature Proposal”模板新建 issue。这是 **Issue-First 方式** 的关键环节。
@@ -176,7 +191,7 @@ Cline Pro 有清晰的发展路线图，指引我们的优先级和未来方向�
     - 本地克隆你的 fork：`git clone https://github.com/你的用户名/Roo-Code.git`
 2.  **安装依赖**：`npm run install:all`
 3.  **运行 Webview（开发模式）**：`npm run dev`（适用于 Vite/React 应用，支持 HMR）
-4.  **调试扩展**：在 VS Code 按 `F5`（或 **Run** → **Start Debugging**），打开 Cline Pro 的 Extension Development Host 窗口
+4.  **调试扩展**：在 VS Code 按 `F5`（或 **Run** → **Start Debugging**），打开 Roo Code Pro 的 Extension Development Host 窗口
 
 webview（`webview-ui`）的更改会通过热更新（HMR）即时生效。核心扩展（`src`）的更改需重启 Extension Development Host。
 

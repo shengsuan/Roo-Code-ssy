@@ -2,7 +2,7 @@
 
 [日本語](../ja/CONTRIBUTING.md) • <b>한국어</b> • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Cline Pro 기여 가이드
+# Roo Code Pro 기여 가이드
 
 Cline Pro는 커뮤니티 주도의 프로젝트이며, 모든 기여를 소중하게 생각합니다. 모두를 위한 원활하고 효과적인 프로세스를 위해 **"[Issue-First](#2-핵심-원칙-issue-first-접근법)" 원칙**을 따릅니다. 즉, 모든 작업은 Pull Request를 제출하기 _전에_ 반드시 GitHub Issue와 연결되어야 합니다(자세한 내용은 [PR 정책](#pull-request-pr-정책) 참고). 이 가이드를 꼼꼼히 읽고 기여 방법을 이해해 주세요.
 이 가이드는 Cline Pro에 버그 수정, 기능 추가, 문서 개선 등 다양한 방식으로 기여하는 방법을 안내합니다.
@@ -12,13 +12,20 @@ Cline Pro는 커뮤니티 주도의 프로젝트이며, 모든 기여를 소중�
 - [I. 기여 전 준비](#i-기여-전-준비)
     - [1. 행동 강령](#1-행동-강령)
     - [2. 프로젝트 로드맵 이해](#2-프로젝트-로드맵-이해)
+<<<<<<< HEAD
         - [프로바이더 지원](#프로바이더-지원)
         - [모델 지원](#모델-지원)
         - [시스템 지원](#시스템-지원)
         - [문서화](#문서화)
         - [안정성](#안정성)
         - [국제화](#국제화)
-    - [3. Cline Pro 커뮤니티 참여](#3-roo-code-커뮤니티-참여)
+    - [3. Roo Code Pro 커뮤니티 참여](#3-roo-code-커뮤니티-참여)
+=======
+        - [신뢰성 우선](#신뢰성-우선)
+        - [향상된 사용자 경험](#향상된-사용자-경험)
+        - [에이전트 성능 선도](#에이전트-성능-선도)
+    - [3. Roo Code 커뮤니티 참여](#3-roo-code-커뮤니티-참여)
+>>>>>>> 7d755367411806184c611c092d30cd9f4e516ff3
 - [II. 기여 내용 찾기 및 계획 세우기](#ii-기여-내용-찾기-및-계획-세우기)
     - [1. 기여 유형](#1-기여-유형)
     - [2. 핵심 원칙: Issue-First 접근법](#2-핵심-원칙-issue-first-접근법)
@@ -56,20 +63,23 @@ Cline Pro는 명확한 개발 로드맵을 가지고 있으며, 우리의 우선
 - 특정 설계 결정의 배경을 이해할 수 있음
 - 비전을 지원하는 새로운 기능에 대한 영감을 얻을 수 있음
 
-현재 로드맵은 6가지 핵심 기둥에 중점을 둡니다:
+우리는 Roo Code를 AI 기반 코딩 도구를 구축하는 개발자들의 최고 선택지로 만드는 데 집중하고 있습니다. 다음은 이를 달성하기 위한 방법입니다:
 
-#### 프로바이더 지원
+#### 신뢰성 우선
 
-더 많은 프로바이더를 잘 지원하는 것이 목표입니다:
+- diff 편집과 명령 실행의 일관된 신뢰성 보장
+- 정기적 사용을 방해하는 마찰점 감소
+- 모든 언어 환경과 플랫폼에서의 원활한 작동 보장
+- 다양한 AI 제공업체 및 모델에 대한 강력한 지원 확대
 
-- 더 다양한 "OpenAI Compatible" 지원
-- xAI, Microsoft Azure AI, Alibaba Cloud Qwen, IBM Watsonx, Together AI, DeepInfra, Fireworks AI, Cohere, Perplexity AI, FriendliAI, Replicate
-- Ollama 및 LM Studio 지원 강화
+#### 향상된 사용자 경험
 
-#### 모델 지원
+- 명확성과 직관성을 위한 UI/UX 간소화
+- 개발자들이 일상적으로 사용하는 도구에 기대하는 높은 기준을 충족하기 위한 지속적인 워크플로우 개선
 
-Roo가 더 많은 모델(로컬 모델 포함)에서 잘 동작하도록 하고 싶습니다:
+#### 에이전트 성능 선도
 
+<<<<<<< HEAD
 - 커스텀 시스템 프롬프트 및 워크플로우를 통한 로컬 모델 지원
 - 벤치마킹, 평가, 테스트 케이스
 
@@ -101,19 +111,24 @@ Roo가 모든 컴퓨터에서 잘 동작하도록 하고 싶습니다:
 
 Roo가 모두의 언어를 사용할 수 있도록 하고 싶습니다:
 
-- 我们希望 Cline Pro 说每个人的语言
-- Queremos que Cline Pro hable el idioma de todos
-- हम चाहते हैं कि Cline Pro हर किसी की भाषा बोले
-- نريد أن يتحدث Cline Pro لغة الجميع
+- 我们希望 Roo Code Pro 说每个人的语言
+- Queremos que Roo Code Pro hable el idioma de todos
+- हम चाहते हैं कि Roo Code Pro हर किसी की भाषा बोले
+- نريد أن يتحدث Roo Code Pro لغة الجميع
+=======
+- 실제 생산성을 측정하는 포괄적인 평가 기준(evals) 수립
+- 누구나 이러한 평가를 쉽게 실행하고 해석할 수 있도록 지원
+- 평가 점수의 명확한 향상을 보여주는 Roo Code 개선 제공
+>>>>>>> 7d755367411806184c611c092d30cd9f4e516ff3
 
 로드맵 목표를 앞당기는 기여는 특히 환영합니다. 위 기둥과 관련된 작업을 한다면 PR 설명에 꼭 언급해 주세요.
 
-### 3. Cline Pro 커뮤니티 참여
+### 3. Roo Code Pro 커뮤니티 참여
 
-Cline Pro 커뮤니티와 소통하는 것은 시작하기에 좋은 방법입니다:
+Roo Code Pro 커뮤니티와 소통하는 것은 시작하기에 좋은 방법입니다:
 
 - **주요 방법**:
-    1.  [Cline Pro Discord 커뮤니티](https://discord.gg/roocode)에 가입하세요.
+    1.  [Roo Code Pro Discord 커뮤니티](https://discord.gg/roocode)에 가입하세요.
     2.  가입 후 **Hannes Rudolph**(Discord: `hrudolph`)에게 DM을 보내 관심을 알리고 안내를 받으세요.
 - **경험자용 대안**: Issue-First 접근법에 익숙하다면 [Kanban 보드](https://github.com/orgs/RooVetGit/projects/1)를 따라가며 GitHub에서 Issue 및 Pull Request로 직접 참여할 수 있습니다.
 
@@ -151,7 +166,7 @@ Cline Pro 커뮤니티와 소통하는 것은 시작하기에 좋은 방법입�
 ### 3. 작업 선택하기
 
 - **Good First Issues**: GitHub의 [Issue [Unassigned] 섹션](https://github.com/orgs/RooVetGit/projects/1) 참고
-- **문서화**: 이 `CONTRIBUTING.md`는 코드 기여의 주요 가이드지만, 다른 문서(사용자 가이드, API 문서 등)에 기여하고 싶다면 [Cline Pro Docs 저장소](https://github.com/RooVetGit/Roo-Code-Docs)를 참고하거나 Discord 커뮤니티에 문의하세요.
+- **문서화**: 이 `CONTRIBUTING.md`는 코드 기여의 주요 가이드지만, 다른 문서(사용자 가이드, API 문서 등)에 기여하고 싶다면 [Roo Code Pro Docs 저장소](https://github.com/RooVetGit/Roo-Code-Docs)를 참고하거나 Discord 커뮤니티에 문의하세요.
 - **새 기능 제안**:
     1.  **초기 아이디어/논의**: 큰 틀의 아이디어나 초기 제안은 [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests)에서 시작하세요.
     2.  **공식 제안**: 구체적이고 실행 가능한 제안은 [Issues 페이지](https://github.com/RooVetGit/Roo-Code/issues/new/choose)에서 "Detailed Feature Proposal" 템플릿으로 Issue를 만드세요. 이는 **Issue-First 접근법**의 핵심입니다.

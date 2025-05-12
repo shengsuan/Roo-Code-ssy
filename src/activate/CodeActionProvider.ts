@@ -5,26 +5,26 @@ import { EditorUtils } from "../integrations/editor/EditorUtils"
 export type CodeActionName = "EXPLAIN" | "FIX" | "IMPROVE" | "ADD_TO_CONTEXT" | "NEW_TASK"
 
 export type CodeActionId =
-	| "cline-pro.explainCode"
-	| "cline-pro.fixCode"
-	| "cline-pro.improveCode"
-	| "cline-pro.addToContext"
-	| "cline-pro.newTask"
+	| "roo-code-pro.explainCode"
+	| "roo-code-pro.fixCode"
+	| "roo-code-pro.improveCode"
+	| "roo-code-pro.addToContext"
+	| "roo-code-pro.newTask"
 
 export const ACTION_TITLES: Record<CodeActionName, string> = {
-	EXPLAIN: "Explain with Cline Pro",
-	FIX: "Fix with Cline Pro",
-	IMPROVE: "Improve with Cline Pro",
-	ADD_TO_CONTEXT: "Add to Cline Pro",
-	NEW_TASK: "New Cline Pro Task",
+	EXPLAIN: "Explain with Roo Code Pro",
+	FIX: "Fix with Roo Code Pro",
+	IMPROVE: "Improve with Roo Code Pro",
+	ADD_TO_CONTEXT: "Add to Roo Code Pro",
+	NEW_TASK: "New Roo Code Pro Task",
 } as const
 
 export const COMMAND_IDS: Record<CodeActionName, CodeActionId> = {
-	EXPLAIN: "cline-pro.explainCode",
-	FIX: "cline-pro.fixCode",
-	IMPROVE: "cline-pro.improveCode",
-	ADD_TO_CONTEXT: "cline-pro.addToContext",
-	NEW_TASK: "cline-pro.newTask",
+	EXPLAIN: "roo-code-pro.explainCode",
+	FIX: "roo-code-pro.fixCode",
+	IMPROVE: "roo-code-pro.improveCode",
+	ADD_TO_CONTEXT: "roo-code-pro.addToContext",
+	NEW_TASK: "roo-code-pro.newTask",
 } as const
 
 export class CodeActionProvider implements vscode.CodeActionProvider {

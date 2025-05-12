@@ -470,11 +470,11 @@ Some content here.
 
 ## License
 
-[Apache 2.0 © 2025 Cline Pro, Inc.](./LICENSE)
+[Apache 2.0 © 2025 Roo Code Pro, Inc.](./LICENSE)
 
 ---
 
-**Enjoy Cline Pro!** Whether you keep it on a short leash or let it roam autonomously, we can't wait to see what you build.`
+**Enjoy Roo Code Pro!** Whether you keep it on a short leash or let it roam autonomously, we can't wait to see what you build.`
 
 		const captures = parseMarkdown(content)
 		expect(captures).toBeDefined()

@@ -12,7 +12,7 @@ declare global {
 }
 
 export async function run() {
-	const extension = vscode.extensions.getExtension<RooCodeAPI>("shengsuan-cloud.cline-pro")
+	const extension = vscode.extensions.getExtension<RooCodeAPI>("shengsuan-cloud.roo-code-pro")
 
 	if (!extension) {
 		throw new Error("Extension not found")
@@ -26,7 +26,7 @@ export async function run() {
 		openRouterModelId: "google/gemini-2.0-flash-001",
 	})
 
-	await vscode.commands.executeCommand("cline-pro.SidebarProvider.focus")
+	await vscode.commands.executeCommand("roo-code-pro.SidebarProvider.focus")
 	await waitFor(() => api.isReady())
 
 	// Expose the API to the tests.

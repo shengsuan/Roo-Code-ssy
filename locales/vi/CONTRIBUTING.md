@@ -2,23 +2,20 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • <b>Tiếng Việt</b> • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Đóng góp cho Cline Pro
+# Đóng góp cho Roo Code Pro
 
-Cline Pro là một dự án do cộng đồng dẫn dắt và chúng mình rất trân trọng mọi đóng góp. Để đảm bảo quy trình diễn ra suôn sẻ và hiệu quả cho tất cả mọi người, **chúng mình áp dụng nguyên tắc "[Issue-First](#2-nguyên-tắc-chính-cách-tiếp-cận-issue-first)".** Điều này có nghĩa là mọi công việc đều phải liên kết với một Issue trên GitHub _trước khi_ gửi Pull Request (xem [Chính sách PR](#chính-sách-pull-request-pr) để biết chi tiết). Hãy đọc kỹ hướng dẫn này để hiểu cách đóng góp.
-Hướng dẫn này giải thích cách đóng góp cho Cline Pro, dù bạn sửa lỗi, thêm tính năng mới hay cải thiện tài liệu.
+Roo Code Pro là một dự án do cộng đồng dẫn dắt và chúng mình rất trân trọng mọi đóng góp. Để đảm bảo quy trình diễn ra suôn sẻ và hiệu quả cho tất cả mọi người, **chúng mình áp dụng nguyên tắc "[Issue-First](#2-nguyên-tắc-chính-cách-tiếp-cận-issue-first)".** Điều này có nghĩa là mọi công việc đều phải liên kết với một Issue trên GitHub _trước khi_ gửi Pull Request (xem [Chính sách PR](#chính-sách-pull-request-pr) để biết chi tiết). Hãy đọc kỹ hướng dẫn này để hiểu cách đóng góp.
+Hướng dẫn này giải thích cách đóng góp cho Roo Code Pro, dù bạn sửa lỗi, thêm tính năng mới hay cải thiện tài liệu.
 
 ## Mục lục
 
 - [I. Trước khi đóng góp](#i-trước-khi-đóng-góp)
     - [1. Quy tắc ứng xử](#1-quy-tắc-ứng-xử)
     - [2. Hiểu lộ trình phát triển dự án](#2-hiểu-lộ-trình-phát-triển-dự-án)
-        - [Hỗ trợ nhà cung cấp](#hỗ-trợ-nhà-cung-cấp)
-        - [Hỗ trợ mô hình](#hỗ-trợ-mô-hình)
-        - [Hỗ trợ hệ thống](#hỗ-trợ-hệ-thống)
-        - [Tài liệu](#tài-liệu)
-        - [Ổn định](#ổn-định)
-        - [Quốc tế hóa](#quốc-tế-hóa)
-    - [3. Tham gia cộng đồng Cline Pro](#3-tham-gia-cộng-đồng-roo-code)
+        - [Độ tin cậy là ưu tiên hàng đầu](#độ-tin-cậy-là-ưu-tiên-hàng-đầu)
+        - [Nâng cao trải nghiệm người dùng](#nâng-cao-trải-nghiệm-người-dùng)
+        - [Dẫn đầu về hiệu suất agent](#dẫn-đầu-về-hiệu-suất-agent)
+    - [3. Tham gia cộng đồng Roo Code](#3-tham-gia-cộng-đồng-roo-code)
 - [II. Tìm kiếm & lên kế hoạch đóng góp](#ii-tìm-kiếm--lên-kế-hoạch-đóng-góp)
     - [1. Các loại đóng góp](#1-các-loại-đóng-góp)
     - [2. Nguyên tắc chính: Cách tiếp cận Issue-First](#2-nguyên-tắc-chính-cách-tiếp-cận-issue-first)
@@ -49,71 +46,41 @@ Tất cả thành viên đóng góp phải tuân thủ [Quy tắc ứng xử](ht
 
 ### 2. Hiểu lộ trình phát triển dự án
 
-Cline Pro có lộ trình phát triển rõ ràng, định hướng ưu tiên và tương lai của dự án. Hiểu lộ trình này giúp bạn:
+Roo Code Pro có lộ trình phát triển rõ ràng, định hướng ưu tiên và tương lai của dự án. Hiểu lộ trình này giúp bạn:
 
 - Định hướng đóng góp phù hợp với mục tiêu dự án
 - Xác định lĩnh vực bạn có thể đóng góp tốt nhất
 - Hiểu bối cảnh đằng sau các quyết định thiết kế
 - Lấy cảm hứng cho các tính năng mới phù hợp với tầm nhìn của dự án
 
-Lộ trình hiện tại tập trung vào 6 trụ cột chính:
+Chúng mình tập trung vào việc biến Roo Code thành lựa chọn hàng đầu cho các nhà phát triển làm việc với công cụ lập trình dựa trên AI. Dưới đây là cách chúng mình sẽ thực hiện:
 
-#### Hỗ trợ nhà cung cấp
+#### Độ tin cậy là ưu tiên hàng đầu
 
-Chúng mình muốn hỗ trợ càng nhiều nhà cung cấp càng tốt:
+- Đảm bảo việc chỉnh sửa diff và thực thi lệnh luôn đáng tin cậy
+- Giảm thiểu các điểm cản trở khiến người dùng ngại sử dụng thường xuyên
+- Đảm bảo hoạt động mượt mà trên mọi ngôn ngữ và nền tảng
+- Mở rộng hỗ trợ mạnh mẽ cho nhiều nhà cung cấp và mô hình AI đa dạng
 
-- Hỗ trợ "Tương thích OpenAI" nhiều hơn
-- xAI, Microsoft Azure AI, Alibaba Cloud Qwen, IBM Watsonx, Together AI, DeepInfra, Fireworks AI, Cohere, Perplexity AI, FriendliAI, Replicate
-- Tăng cường hỗ trợ Ollama và LM Studio
+#### Nâng cao trải nghiệm người dùng
 
-#### Hỗ trợ mô hình
+- Đơn giản hóa giao diện người dùng để tăng tính rõ ràng và trực quan
+- Liên tục cải thiện quy trình làm việc để đáp ứng kỳ vọng cao của các nhà phát triển đối với công cụ sử dụng hàng ngày
 
-Chúng mình muốn Roo hoạt động tốt trên nhiều mô hình nhất có thể, kể cả mô hình cục bộ:
+#### Dẫn đầu về hiệu suất agent
 
-- Hỗ trợ mô hình cục bộ qua prompt hệ thống và workflow tùy chỉnh
-- Đánh giá benchmark và test case
-
-#### Hỗ trợ hệ thống
-
-Chúng mình muốn Roo chạy tốt trên mọi máy tính:
-
-- Tích hợp terminal đa nền tảng
-- Hỗ trợ mạnh mẽ và ổn định cho Mac, Windows, Linux
-
-#### Tài liệu
-
-Chúng mình muốn có tài liệu đầy đủ, dễ tiếp cận cho mọi người dùng và cộng tác viên:
-
-- Hướng dẫn và tài liệu mở rộng
-- Tài liệu API rõ ràng
-- Hướng dẫn tốt hơn cho cộng tác viên
-- Tài nguyên tài liệu đa ngôn ngữ
-- Ví dụ tương tác và đoạn mã mẫu
-
-#### Ổn định
-
-Chúng mình muốn giảm đáng kể số lỗi và tăng cường kiểm thử tự động:
-
-- Công tắc bật/tắt log debug
-- Nút "Sao chép thông tin máy/tác vụ" cho yêu cầu hỗ trợ/bug
-
-#### Quốc tế hóa
-
-Chúng mình muốn Roo nói được ngôn ngữ của mọi người:
-
-- 我们希望 Cline Pro 说每个人的语言
-- Queremos que Cline Pro hable el idioma de todos
-- हम चाहते हैं कि Cline Pro हर किसी की भाषा बोले
-- نريد أن يتحدث Cline Pro لغة الجميع
+- Thiết lập các tiêu chuẩn đánh giá toàn diện (evals) để đo lường năng suất trong thực tế
+- Giúp mọi người dễ dàng chạy và hiểu các đánh giá này
+- Cung cấp các cải tiến cho Roo Code thể hiện rõ sự tăng trưởng trong điểm đánh giá
 
 Chúng mình đặc biệt hoan nghênh các đóng góp giúp tiến gần hơn tới mục tiêu lộ trình. Nếu bạn làm việc liên quan đến các trụ cột này, hãy đề cập trong mô tả PR.
 
-### 3. Tham gia cộng đồng Cline Pro
+### 3. Tham gia cộng đồng Roo Code Pro
 
-Kết nối với cộng đồng Cline Pro là cách tuyệt vời để bắt đầu:
+Kết nối với cộng đồng Roo Code Pro là cách tuyệt vời để bắt đầu:
 
 - **Cách chính**:
-    1.  Tham gia [cộng đồng Cline Pro trên Discord](https://discord.gg/roocode).
+    1.  Tham gia [cộng đồng Roo Code Pro trên Discord](https://discord.gg/roocode).
     2.  Sau khi tham gia, gửi tin nhắn trực tiếp (DM) cho **Hannes Rudolph** (Discord: `hrudolph`) để trao đổi về mong muốn đóng góp và nhận hướng dẫn.
 - **Dành cho cộng tác viên giàu kinh nghiệm**: Nếu bạn quen với cách tiếp cận issue-first, có thể tham gia trực tiếp trên GitHub bằng cách theo dõi [bảng Kanban](https://github.com/orgs/RooVetGit/projects/1) và trao đổi qua issues, pull requests.
 
@@ -150,8 +117,8 @@ Cách này giúp chúng mình theo dõi công việc, đảm bảo thay đổi l
 
 ### 3. Quyết định việc cần làm
 
-- **Good First Issues**: Xem mục "Issue [Unassigned]" trên [Dự án Cline Pro Issues](https://github.com/orgs/RooVetGit/projects/1) trên GitHub.
-- **Tài liệu**: Dù `CONTRIBUTING.md` là hướng dẫn chính cho đóng góp mã nguồn, nếu bạn muốn đóng góp cho tài liệu khác (hướng dẫn người dùng, API...), hãy xem [repo Cline Pro Docs](https://github.com/RooVetGit/Roo-Code-Docs) hoặc hỏi trên Discord.
+- **Good First Issues**: Xem mục "Issue [Unassigned]" trên [Dự án Roo Code Pro Issues](https://github.com/orgs/RooVetGit/projects/1) trên GitHub.
+- **Tài liệu**: Dù `CONTRIBUTING.md` là hướng dẫn chính cho đóng góp mã nguồn, nếu bạn muốn đóng góp cho tài liệu khác (hướng dẫn người dùng, API...), hãy xem [repo Roo Code Pro Docs](https://github.com/RooVetGit/Roo-Code-Docs) hoặc hỏi trên Discord.
 - **Đề xuất tính năng mới**:
     1.  **Ý tưởng/thảo luận ban đầu**: Với ý tưởng chung hoặc mới, hãy bắt đầu thảo luận ở [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests).
     2.  **Đề xuất chính thức**: Với đề xuất cụ thể, sẵn sàng thực hiện, hãy tạo issue "Detailed Feature Proposal" bằng template trên [trang issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose). Đây là phần quan trọng của **cách tiếp cận Issue-First**.
@@ -176,7 +143,7 @@ Làm theo các bước sau để lập trình và gửi đóng góp.
     - Clone repo về máy: `git clone https://github.com/TEN_TAI_KHOAN/Roo-Code.git`
 2.  **Cài đặt phụ thuộc**: `npm run install:all`
 3.  **Chạy Webview (Dev Mode)**: `npm run dev` (cho app Vite/React với HMR)
-4.  **Debug extension**: Nhấn `F5` trong VS Code (hoặc **Run** → **Start Debugging**) để mở cửa sổ Extension Development Host với Cline Pro đã nạp.
+4.  **Debug extension**: Nhấn `F5` trong VS Code (hoặc **Run** → **Start Debugging**) để mở cửa sổ Extension Development Host với Roo Code Pro đã nạp.
 
 Thay đổi ở webview (`webview-ui`) sẽ xuất hiện ngay nhờ Hot Module Replacement. Thay đổi ở extension chính (`src`) cần khởi động lại Extension Development Host.
 

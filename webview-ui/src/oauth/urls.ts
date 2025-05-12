@@ -1,5 +1,5 @@
 export function getCallbackUrl(provider: string, uriScheme?: string) {
-	return encodeURIComponent(`${uriScheme || "vscode"}://shengsuan-cloud.cline-pro/${provider}`)
+	return encodeURIComponent(`${uriScheme || "vscode"}://shengsuan-cloud.roo-code-pro/${provider}`)
 }
 
 export function getGlamaAuthUrl(uriScheme?: string) {

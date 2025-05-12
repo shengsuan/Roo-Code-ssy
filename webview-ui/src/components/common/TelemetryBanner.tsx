@@ -7,7 +7,6 @@ import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { Trans } from "react-i18next"
 
 const BannerContainer = styled.div`
-	background-color: var(--vscode-banner-background);
 	padding: 12px 20px;
 	display: flex;
 	flex-direction: column;

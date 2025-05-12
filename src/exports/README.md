@@ -1,6 +1,6 @@
-# Cline Pro API
+# Roo Code Pro API
 
-The Cline Pro extension exposes an API that can be used by other extensions. To use this API in your extension:
+The Roo Code Pro extension exposes an API that can be used by other extensions. To use this API in your extension:
 
 1. Copy `src/extension-api/roo-code.d.ts` to your extension's source directory.
 2. Include `roo-code.d.ts` in your extension's compilation.
@@ -20,7 +20,7 @@ if (!api) {
 }
 
 // Start a new task with an initial message.
-await api.startNewTask("Hello, Cline Pro API! Let's make a new project...")
+await api.startNewTask("Hello, Roo Code Pro API! Let's make a new project...")
 
 // Start a new task with an initial message and images.
 await api.startNewTask("Use this design language", ["data:image/webp;base64,..."])

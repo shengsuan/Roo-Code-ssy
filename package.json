@@ -1,9 +1,9 @@
 {
-	"name": "cline-pro",
+	"name": "roo-code-pro",
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
 	"publisher": "shengsuan-cloud",
-	"version": "3.16.3",
+	"version": "3.16.5",
 	"icon": "assets/images/shengsuanyun.png",
 	"galleryBanner": {
 		"color": "#617A91",
@@ -42,8 +42,8 @@
 		"sonnet",
 		"ai",
 		"llama",
-		"Cline Pro",
 		"roocode",
+		"Roo Code Pro",
 		"ShengSuanYun",
 		"胜算云"
 	],
@@ -55,120 +55,120 @@
 	"contributes": {
 		"submenus": [
 			{
-				"id": "cline-pro.contextMenu",
+				"id": "roo-code-pro.contextMenu",
 				"label": "%views.contextMenu.label%"
 			},
 			{
-				"id": "cline-pro.terminalMenu",
+				"id": "roo-code-pro.terminalMenu",
 				"label": "%views.terminalMenu.label%"
 			}
 		],
 		"viewsContainers": {
 			"activitybar": [
 				{
-					"id": "cline-pro-ActivityBar",
+					"id": "roo-code-pro-ActivityBar",
 					"title": "%views.activitybar.title%",
 					"icon": "assets/images/panel_light.png"
 				}
 			]
 		},
 		"views": {
-			"cline-pro-ActivityBar": [
+			"roo-code-pro-ActivityBar": [
 				{
 					"type": "webview",
-					"id": "cline-pro.SidebarProvider",
+					"id": "roo-code-pro.SidebarProvider",
 					"name": ""
 				}
 			]
 		},
 		"commands": [
 			{
-				"command": "cline-pro.plusButtonClicked",
+				"command": "roo-code-pro.plusButtonClicked",
 				"title": "%command.newTask.title%",
 				"icon": "$(add)"
 			},
 			{
-				"command": "cline-pro.mcpButtonClicked",
+				"command": "roo-code-pro.mcpButtonClicked",
 				"title": "%command.mcpServers.title%",
 				"icon": "$(server)"
 			},
 			{
-				"command": "cline-pro.promptsButtonClicked",
+				"command": "roo-code-pro.promptsButtonClicked",
 				"title": "%command.prompts.title%",
 				"icon": "$(notebook)"
 			},
 			{
-				"command": "cline-pro.historyButtonClicked",
+				"command": "roo-code-pro.historyButtonClicked",
 				"title": "%command.history.title%",
 				"icon": "$(history)"
 			},
 			{
-				"command": "cline-pro.popoutButtonClicked",
+				"command": "roo-code-pro.popoutButtonClicked",
 				"title": "%command.openInEditor.title%",
 				"icon": "$(link-external)"
 			},
 			{
-				"command": "cline-pro.settingsButtonClicked",
+				"command": "roo-code-pro.settingsButtonClicked",
 				"title": "%command.settings.title%",
 				"icon": "$(settings-gear)"
 			},
 			{
-				"command": "cline-pro.openInNewTab",
+				"command": "roo-code-pro.openInNewTab",
 				"title": "%command.openInNewTab.title%",
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "cline-pro.explainCode",
+				"command": "roo-code-pro.explainCode",
 				"title": "%command.explainCode.title%",
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "cline-pro.fixCode",
+				"command": "roo-code-pro.fixCode",
 				"title": "%command.fixCode.title%",
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "cline-pro.improveCode",
+				"command": "roo-code-pro.improveCode",
 				"title": "%command.improveCode.title%",
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "cline-pro.addToContext",
+				"command": "roo-code-pro.addToContext",
 				"title": "%command.addToContext.title%",
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "cline-pro.newTask",
+				"command": "roo-code-pro.newTask",
 				"title": "%command.newTask.title%",
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "cline-pro.terminalAddToContext",
+				"command": "roo-code-pro.terminalAddToContext",
 				"title": "%command.terminal.addToContext.title%",
 				"category": "Terminal"
 			},
 			{
-				"command": "cline-pro.terminalFixCommand",
+				"command": "roo-code-pro.terminalFixCommand",
 				"title": "%command.terminal.fixCommand.title%",
 				"category": "Terminal"
 			},
 			{
-				"command": "cline-pro.terminalExplainCommand",
+				"command": "roo-code-pro.terminalExplainCommand",
 				"title": "%command.terminal.explainCommand.title%",
 				"category": "Terminal"
 			},
 			{
-				"command": "cline-pro.setCustomStoragePath",
+				"command": "roo-code-pro.setCustomStoragePath",
 				"title": "%command.setCustomStoragePath.title%",
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "cline-pro.focusInput",
+				"command": "roo-code-pro.focusInput",
 				"title": "%command.focusInput.title%",
 				"category": "%configuration.title%"
 			},
 			{
-				"command": "cline-pro.acceptInput",
+				"command": "roo-code-pro.acceptInput",
 				"title": "%command.acceptInput.title%",
 				"category": "%configuration.title%"
 			}
@@ -176,113 +176,113 @@
 		"menus": {
 			"editor/context": [
 				{
-					"submenu": "cline-pro.contextMenu",
+					"submenu": "roo-code-pro.contextMenu",
 					"group": "navigation"
 				}
 			],
-			"cline-pro.contextMenu": [
+			"roo-code-pro.contextMenu": [
 				{
-					"command": "cline-pro.addToContext",
+					"command": "roo-code-pro.addToContext",
 					"group": "1_actions@1"
 				},
 				{
-					"command": "cline-pro.explainCode",
+					"command": "roo-code-pro.explainCode",
 					"group": "1_actions@2"
 				},
 				{
-					"command": "cline-pro.improveCode",
+					"command": "roo-code-pro.improveCode",
 					"group": "1_actions@3"
 				}
 			],
 			"terminal/context": [
 				{
-					"submenu": "cline-pro.terminalMenu",
+					"submenu": "roo-code-pro.terminalMenu",
 					"group": "navigation"
 				}
 			],
-			"cline-pro.terminalMenu": [
+			"roo-code-pro.terminalMenu": [
 				{
-					"command": "cline-pro.terminalAddToContext",
+					"command": "roo-code-pro.terminalAddToContext",
 					"group": "1_actions@1"
 				},
 				{
-					"command": "cline-pro.terminalFixCommand",
+					"command": "roo-code-pro.terminalFixCommand",
 					"group": "1_actions@2"
 				},
 				{
-					"command": "cline-pro.terminalExplainCommand",
+					"command": "roo-code-pro.terminalExplainCommand",
 					"group": "1_actions@3"
 				}
 			],
 			"view/title": [
 				{
-					"command": "cline-pro.plusButtonClicked",
+					"command": "roo-code-pro.plusButtonClicked",
 					"group": "navigation@1",
-					"when": "view == cline-pro.SidebarProvider"
+					"when": "view == roo-code-pro.SidebarProvider"
 				},
 				{
-					"command": "cline-pro.promptsButtonClicked",
+					"command": "roo-code-pro.promptsButtonClicked",
 					"group": "navigation@2",
-					"when": "view == cline-pro.SidebarProvider"
+					"when": "view == roo-code-pro.SidebarProvider"
 				},
 				{
-					"command": "cline-pro.mcpButtonClicked",
+					"command": "roo-code-pro.mcpButtonClicked",
 					"group": "navigation@3",
-					"when": "view == cline-pro.SidebarProvider"
+					"when": "view == roo-code-pro.SidebarProvider"
 				},
 				{
-					"command": "cline-pro.historyButtonClicked",
+					"command": "roo-code-pro.historyButtonClicked",
 					"group": "navigation@4",
-					"when": "view == cline-pro.SidebarProvider"
+					"when": "view == roo-code-pro.SidebarProvider"
 				},
 				{
-					"command": "cline-pro.popoutButtonClicked",
+					"command": "roo-code-pro.popoutButtonClicked",
 					"group": "navigation@5",
-					"when": "view == cline-pro.SidebarProvider"
+					"when": "view == roo-code-pro.SidebarProvider"
 				},
 				{
-					"command": "cline-pro.settingsButtonClicked",
+					"command": "roo-code-pro.settingsButtonClicked",
 					"group": "navigation@6",
-					"when": "view == cline-pro.SidebarProvider"
+					"when": "view == roo-code-pro.SidebarProvider"
 				}
 			],
 			"editor/title": [
 				{
-					"command": "cline-pro.plusButtonClicked",
+					"command": "roo-code-pro.plusButtonClicked",
 					"group": "navigation@1",
-					"when": "activeWebviewPanelId == cline-pro.TabPanelProvider"
+					"when": "activeWebviewPanelId == roo-code-pro.TabPanelProvider"
 				},
 				{
-					"command": "cline-pro.promptsButtonClicked",
+					"command": "roo-code-pro.promptsButtonClicked",
 					"group": "navigation@2",
-					"when": "activeWebviewPanelId == cline-pro.TabPanelProvider"
+					"when": "activeWebviewPanelId == roo-code-pro.TabPanelProvider"
 				},
 				{
-					"command": "cline-pro.mcpButtonClicked",
+					"command": "roo-code-pro.mcpButtonClicked",
 					"group": "navigation@3",
-					"when": "activeWebviewPanelId == cline-pro.TabPanelProvider"
+					"when": "activeWebviewPanelId == roo-code-pro.TabPanelProvider"
 				},
 				{
-					"command": "cline-pro.historyButtonClicked",
+					"command": "roo-code-pro.historyButtonClicked",
 					"group": "navigation@4",
-					"when": "activeWebviewPanelId == cline-pro.TabPanelProvider"
+					"when": "activeWebviewPanelId == roo-code-pro.TabPanelProvider"
 				},
 				{
-					"command": "cline-pro.popoutButtonClicked",
+					"command": "roo-code-pro.popoutButtonClicked",
 					"group": "navigation@5",
-					"when": "activeWebviewPanelId == cline-pro.TabPanelProvider"
+					"when": "activeWebviewPanelId == roo-code-pro.TabPanelProvider"
 				},
 				{
-					"command": "cline-pro.settingsButtonClicked",
+					"command": "roo-code-pro.settingsButtonClicked",
 					"group": "navigation@6",
-					"when": "activeWebviewPanelId == cline-pro.TabPanelProvider"
+					"when": "activeWebviewPanelId == roo-code-pro.TabPanelProvider"
 				}
 			]
 		},
 		"configuration": {
 			"title": "%configuration.title%",
 			"properties": {
-				"cline-pro.allowedCommands": {
+				"roo-code-pro.allowedCommands": {
 					"type": "array",
 					"items": {
 						"type": "string"
@@ -297,7 +297,7 @@
 					],
 					"description": "%commands.allowedCommands.description%"
 				},
-				"cline-pro.vsCodeLmModelSelector": {
+				"roo-code-pro.vsCodeLmModelSelector": {
 					"type": "object",
 					"properties": {
 						"vendor": {
@@ -311,7 +311,7 @@
 					},
 					"description": "%settings.vsCodeLmModelSelector.description%"
 				},
-				"cline-pro.customStoragePath": {
+				"roo-code-pro.customStoragePath": {
 					"type": "string",
 					"default": "",
 					"description": "%settings.customStoragePath.description%"
@@ -423,7 +423,7 @@
 		"vscode-material-icons": "^0.1.1",
 		"web-tree-sitter": "^0.22.6",
 		"workerpool": "^9.2.0",
-		"zod": "^3.24.2"
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.27.10",
@@ -461,7 +461,7 @@
 		"ts-jest": "^29.2.5",
 		"tsup": "^8.4.0",
 		"tsx": "^4.19.3",
-		"typescript": "5.8.3",
+		"typescript": "^5.4.5",
 		"vitest": "^3.1.3",
 		"zod-to-ts": "^1.2.0"
 	},

@@ -10,7 +10,7 @@ export interface ClineProviderInterface {
 }
 
 /**
- * PostHogClient handles telemetry event tracking for the Cline Pro extension
+ * PostHogClient handles telemetry event tracking for the Roo Code Pro extension
  * Uses PostHog analytics to track user interactions and system events
  * Respects user privacy settings and VSCode's global telemetry configuration
  */

@@ -1,4 +1,4 @@
-name: Code QA Cline Pro
+name: Code QA Roo Code Pro
 
 on:
   workflow_dispatch:

@@ -12,7 +12,7 @@
 </div>
 <br>
 <div align="center">
-  <h1>Cline Pro (voorheen Roo Cline)</h1>
+  <h1>Roo Code Pro (voorheen Roo Cline)</h1>
   <p align="center">
   <img src="https://media.githubusercontent.com/media/RooVetGit/Roo-Code/main/assets/docs/demo.gif" width="100%" />
   </p>
@@ -33,7 +33,7 @@
 
 </div>
 
-**Cline Pro** is een AI-gestuurde **autonome codeeragent** die in je editor leeft. Het kan:
+**Roo Code Pro** is een AI-gestuurde **autonome codeeragent** die in je editor leeft. Het kan:
 
 - Communiceren in natuurlijke taal
 - Bestanden direct in je werkruimte lezen en schrijven
@@ -42,15 +42,15 @@
 - Integreren met elke OpenAI-compatibele of aangepaste API/model
 - Zijn "persoonlijkheid" en mogelijkheden aanpassen via **Aangepaste Modi**
 
-Of je nu op zoek bent naar een flexibele codeerpartner, een systeemarchitect, of gespecialiseerde rollen zoals QA-engineer of productmanager, Cline Pro helpt je efficiënter software te bouwen.
+Of je nu op zoek bent naar een flexibele codeerpartner, een systeemarchitect, of gespecialiseerde rollen zoals QA-engineer of productmanager, Roo Code Pro helpt je efficiënter software te bouwen.
 
 Bekijk de [CHANGELOG](../../CHANGELOG.md) voor gedetailleerde updates en fixes.
 
 ---
 
-## 🎉 Cline Pro 3.16 Uitgebracht
+## 🎉 Roo Code Pro 3.16 Uitgebracht
 
-Cline Pro 3.16 brengt nieuwe functies en verbeteringen op basis van jullie feedback!
+Roo Code Pro 3.16 brengt nieuwe functies en verbeteringen op basis van jullie feedback!
 
 - **Groq en Chutes API-providers** - Ondersteuning toegevoegd voor Groq en Chutes API-providers, waardoor je meer modelopties hebt.
 - **Klikbare codereferenties** - Codereferenties in modelantwoorden navigeren nu direct naar bronregels.
@@ -59,7 +59,7 @@ Cline Pro 3.16 brengt nieuwe functies en verbeteringen op basis van jullie feedb
 
 ---
 
-## Wat kan Cline Pro?
+## Wat kan Roo Code Pro?
 
 - 🚀 **Genereer code** vanuit natuurlijke taalbeschrijvingen
 - 🔧 **Refactor & Debug** bestaande code
@@ -70,7 +70,7 @@ Cline Pro 3.16 brengt nieuwe functies en verbeteringen op basis van jullie feedb
 
 ## Snelstart
 
-1. [Installeer Cline Pro](https://docs.roocode.com/getting-started/installing)
+1. [Installeer Roo Code Pro](https://docs.roocode.com/getting-started/installing)
 2. [Verbind je AI-provider](https://docs.roocode.com/getting-started/connecting-api-provider)
 3. [Probeer je eerste taak](https://docs.roocode.com/getting-started/your-first-task)
 
@@ -78,7 +78,7 @@ Cline Pro 3.16 brengt nieuwe functies en verbeteringen op basis van jullie feedb
 
 ### Meerdere Modi
 
-Cline Pro past zich aan jouw behoeften aan met gespecialiseerde [modi](https://docs.roocode.com/basic-usage/using-modes):
+Roo Code Pro past zich aan jouw behoeften aan met gespecialiseerde [modi](https://docs.roocode.com/basic-usage/using-modes):
 
 - **Code-modus:** Voor algemene coderingstaken
 - **Architect-modus:** Voor planning en technisch leiderschap
@@ -88,18 +88,18 @@ Cline Pro past zich aan jouw behoeften aan met gespecialiseerde [modi](https://d
 
 ### Slimme Tools
 
-Cline Pro wordt geleverd met krachtige [tools](https://docs.roocode.com/basic-usage/how-tools-work) die kunnen:
+Roo Code Pro wordt geleverd met krachtige [tools](https://docs.roocode.com/basic-usage/how-tools-work) die kunnen:
 
 - Bestanden in je project lezen en schrijven
 - Commando's uitvoeren in je VS Code-terminal
 - Een webbrowser aansturen
 - Externe tools gebruiken via [MCP (Model Context Protocol)](https://docs.roocode.com/advanced-usage/mcp)
 
-MCP breidt de mogelijkheden van Cline Pro uit door je in staat te stellen onbeperkt aangepaste tools toe te voegen. Integreer met externe API's, maak verbinding met databases of creëer gespecialiseerde ontwikkeltools - MCP biedt het framework om Cline Pro uit te breiden naar jouw specifieke wensen.
+MCP breidt de mogelijkheden van Roo Code Pro uit door je in staat te stellen onbeperkt aangepaste tools toe te voegen. Integreer met externe API's, maak verbinding met databases of creëer gespecialiseerde ontwikkeltools - MCP biedt het framework om Roo Code Pro uit te breiden naar jouw specifieke wensen.
 
 ### Aanpassen
 
-Laat Cline Pro werken zoals jij wilt met:
+Laat Roo Code Pro werken zoals jij wilt met:
 
 - [Aangepaste instructies](https://docs.roocode.com/advanced-usage/custom-instructions) voor gepersonaliseerd gedrag
 - [Aangepaste modi](https://docs.roocode.com/advanced-usage/custom-modes) voor specialistische taken
@@ -143,7 +143,7 @@ npm run dev
 ```
 
 4. **Debuggen**:
-   Druk op `F5` (of **Run** → **Start Debugging**) in VSCode om een nieuwe sessie met Cline Pro te openen.
+   Druk op `F5` (of **Run** → **Start Debugging**) in VSCode om een nieuwe sessie met Roo Code Pro te openen.
 
 Wijzigingen aan de webview verschijnen direct. Wijzigingen aan de core-extensie vereisen een herstart van de extensiehost.
 
@@ -165,7 +165,7 @@ We gebruiken [changesets](https://github.com/changesets/changesets) voor versieb
 
 ## Disclaimer
 
-**Let op**: Cline Pro, Inc geeft **geen** garanties of waarborgen met betrekking tot enige code, modellen of andere tools die worden geleverd of beschikbaar worden gesteld in verband met Cline Pro, bijbehorende tools van derden, of enige resulterende output. Je neemt **alle risico's** die gepaard gaan met het gebruik van dergelijke tools of output; deze tools worden geleverd op een **"AS IS"** en **"AS AVAILABLE"** basis. Risico's kunnen onder meer zijn: inbreuk op intellectueel eigendom, cyberkwetsbaarheden of -aanvallen, vooringenomenheid, onnauwkeurigheden, fouten, defecten, virussen, uitval, verlies of schade aan eigendommen en/of persoonlijk letsel. Je bent zelf volledig verantwoordelijk voor het gebruik van dergelijke tools of output (inclusief, maar niet beperkt tot, de legaliteit, geschiktheid en resultaten daarvan).
+**Let op**: Roo Code Pro, Inc geeft **geen** garanties of waarborgen met betrekking tot enige code, modellen of andere tools die worden geleverd of beschikbaar worden gesteld in verband met Roo Code Pro, bijbehorende tools van derden, of enige resulterende output. Je neemt **alle risico's** die gepaard gaan met het gebruik van dergelijke tools of output; deze tools worden geleverd op een **"AS IS"** en **"AS AVAILABLE"** basis. Risico's kunnen onder meer zijn: inbreuk op intellectueel eigendom, cyberkwetsbaarheden of -aanvallen, vooringenomenheid, onnauwkeurigheden, fouten, defecten, virussen, uitval, verlies of schade aan eigendommen en/of persoonlijk letsel. Je bent zelf volledig verantwoordelijk voor het gebruik van dergelijke tools of output (inclusief, maar niet beperkt tot, de legaliteit, geschiktheid en resultaten daarvan).
 
 ---
 
@@ -177,7 +177,7 @@ We houden van bijdragen uit de community! Begin met het lezen van onze [CONTRIBU
 
 ## Bijdragers
 
-Dank aan alle bijdragers die Cline Pro beter hebben gemaakt!
+Dank aan alle bijdragers die Roo Code Pro beter hebben gemaakt!
 
 <!-- START CONTRIBUTORS SECTION - AUTO-GENERATED, DO NOT EDIT MANUALLY -->
 
@@ -213,8 +213,8 @@ Dank aan alle bijdragers die Cline Pro beter hebben gemaakt!
 
 ## Licentie
 
-[Apache 2.0 © 2025 Cline Pro, Inc.](../../LICENSE)
+[Apache 2.0 © 2025 Roo Code Pro, Inc.](../../LICENSE)
 
 ---
 
-**Veel plezier met Cline Pro!** Of je het nu kort houdt of autonoom laat werken, we zijn benieuwd wat je bouwt. Heb je vragen of ideeën voor functies, kom dan langs op onze [Reddit-community](https://www.reddit.com/r/RooCode/) of [Discord](https://discord.gg/roocode). Veel programmeerplezier!
+**Veel plezier met Roo Code Pro!** Of je het nu kort houdt of autonoom laat werken, we zijn benieuwd wat je bouwt. Heb je vragen of ideeën voor functies, kom dan langs op onze [Reddit-community](https://www.reddit.com/r/RooCode/) of [Discord](https://discord.gg/roocode). Veel programmeerplezier!

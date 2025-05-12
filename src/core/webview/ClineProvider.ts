@@ -9,10 +9,12 @@ import axios from "axios"
 import pWaitFor from "p-wait-for"
 import * as vscode from "vscode"
 
-import type { GlobalState, ProviderName, ProviderSettings, RooCodeSettings } from "../../schemas"
+import { GlobalState, ProviderSettings, RooCodeSettings } from "../../schemas"
 import { t } from "../../i18n"
 import { setPanel } from "../../activate/registerCommands"
 import {
+	ProviderName,
+	ApiConfiguration,
 	requestyDefaultModelId,
 	openRouterDefaultModelId,
 	glamaDefaultModelId,
@@ -60,8 +62,8 @@ export type ClineProviderEvents = {
 }
 
 export class ClineProvider extends EventEmitter<ClineProviderEvents> implements vscode.WebviewViewProvider {
-	public static readonly sideBarId = "cline-pro.SidebarProvider" // used in package.json as the view's id. This value cannot be changed due to how vscode caches views based on their id, and updating the id would break existing instances of the extension.
-	public static readonly tabPanelId = "cline-pro.TabPanelProvider"
+	public static readonly sideBarId = "roo-code-pro.SidebarProvider" // used in package.json as the view's id. This value cannot be changed due to how vscode caches views based on their id, and updating the id would break existing instances of the extension.
+	public static readonly tabPanelId = "roo-code-pro.TabPanelProvider"
 	private static activeInstances: Set<ClineProvider> = new Set()
 	private disposables: vscode.Disposable[] = []
 	private view?: vscode.WebviewView | vscode.WebviewPanel
@@ -231,7 +233,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 		// If no visible provider, try to show the sidebar view
 		if (!visibleProvider) {
-			await vscode.commands.executeCommand("cline-pro.SidebarProvider.focus")
+			await vscode.commands.executeCommand("roo-code-pro.SidebarProvider.focus")
 			// Wait briefly for the view to become visible
 			await delay(100)
 			visibleProvider = ClineProvider.getVisibleInstance()
@@ -639,7 +641,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 						window.IMAGES_BASE_URI = "${imagesUri}"
 						window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 					</script>
-					<title>Cline Pro</title>
+					<title>Roo Code Pro</title>
 				</head>
 				<body>
 					<div id="root"></div>
@@ -733,7 +735,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 				window.IMAGES_BASE_URI = "${imagesUri}"
 				window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 			</script>
-            <title>Cline Pro</title>
+            <title>Roo Code Pro</title>
           </head>
           <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -761,6 +763,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 	 * @param newMode The mode to switch to
 	 */
 	public async handleModeSwitch(newMode: Mode) {
+		// Capture mode switch telemetry event
 		const cline = this.getCurrentCline()
 
 		if (cline) {
@@ -777,19 +780,24 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		// Update listApiConfigMeta first to ensure UI has latest data
 		await this.updateGlobalState("listApiConfigMeta", listApiConfig)
 
-		// If this mode has a saved config, use it.
+		// If this mode has a saved config, use it
 		if (savedConfigId) {
-			const profile = listApiConfig.find(({ id }) => id === savedConfigId)
+			const config = listApiConfig?.find((c) => c.id === savedConfigId)
 
-			if (profile?.name) {
-				await this.activateProviderProfile({ name: profile.name })
+			if (config?.name) {
+				const apiConfig = await this.providerSettingsManager.loadConfig(config.name)
+
+				await Promise.all([
+					this.updateGlobalState("currentApiConfigName", config.name),
+					this.updateApiConfiguration(apiConfig),
+				])
 			}
 		} else {
-			// If no saved config for this mode, save current config as default.
+			// If no saved config for this mode, save current config as default
 			const currentApiConfigName = this.getGlobalState("currentApiConfigName")
 
 			if (currentApiConfigName) {
-				const config = listApiConfig.find((c) => c.name === currentApiConfigName)
+				const config = listApiConfig?.find((c) => c.name === currentApiConfigName)
 
 				if (config?.id) {
 					await this.providerSettingsManager.setModeConfig(newMode, config.id)
@@ -797,18 +805,6 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 			}
 		}
 
-		await this.postStateToWebview()
-	}
-
-	async activateProviderProfile(args: { name: string } | { id: string }) {
-		const { name, ...providerSettings } = await this.providerSettingsManager.activateProfile(args)
-
-		await Promise.all([
-			this.contextProxy.setValue("listApiConfigMeta", await this.providerSettingsManager.listConfig()),
-			this.contextProxy.setValue("currentApiConfigName", name),
-		])
-
-		await this.updateApiConfiguration(providerSettings)
 		await this.postStateToWebview()
 	}
 
@@ -894,20 +890,20 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		let mcpServersDir: string
 		if (process.platform === "win32") {
 			// Windows: %APPDATA%\Roo-Code\MCP
-			mcpServersDir = path.join(os.homedir(), "AppData", "Roaming", "cline-pro", "MCP")
+			mcpServersDir = path.join(os.homedir(), "AppData", "Roaming", "roo-code-pro", "MCP")
 		} else if (process.platform === "darwin") {
 			// macOS: ~/Documents/Cline/MCP
 			mcpServersDir = path.join(os.homedir(), "Documents", "Cline", "MCP")
 		} else {
 			// Linux: ~/.local/share/Cline/MCP
-			mcpServersDir = path.join(os.homedir(), ".local", "share", "cline-pro", "MCP")
+			mcpServersDir = path.join(os.homedir(), ".local", "share", "roo-code-pro", "MCP")
 		}
 
 		try {
 			await fs.mkdir(mcpServersDir, { recursive: true })
 		} catch (error) {
 			// Fallback to a relative path if directory creation fails
-			return path.join(os.homedir(), ".cline-pro", "mcp")
+			return path.join(os.homedir(), ".roo-code-pro", "mcp")
 		}
 		return mcpServersDir
 	}
@@ -941,7 +937,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 			throw error
 		}
 
-		const newConfiguration: ProviderSettings = {
+		const newConfiguration: ApiConfiguration = {
 			...apiConfiguration,
 			apiProvider: "openrouter",
 			openRouterApiKey: apiKey,
@@ -971,7 +967,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 		const { apiConfiguration, currentApiConfigName } = await this.getState()
 
-		const newConfiguration: ProviderSettings = {
+		const newConfiguration: ApiConfiguration = {
 			...apiConfiguration,
 			apiProvider: "glama",
 			glamaApiKey: apiKey,
@@ -986,7 +982,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 	async handleRequestyCallback(code: string) {
 		let { apiConfiguration, currentApiConfigName } = await this.getState()
 
-		const newConfiguration: ProviderSettings = {
+		const newConfiguration: ApiConfiguration = {
 			...apiConfiguration,
 			apiProvider: "requesty",
 			requestyApiKey: code,
@@ -1004,7 +1000,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		try {
 			const response = await axios.post("https://api.shengsuanyun.com/auth/keys", {
 				code,
-				callback_url: "vscode://shengsuan-cloud.cline-pro/shengsuanyun",
+				callback_url: "vscode://shengsuan-cloud.roo-code-pro/shengsuanyun",
 			})
 			if (response.data && response.data.data && response.data.data.api_key) {
 				apiKey = response.data.data.api_key
@@ -1030,7 +1026,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 	// Save configuration
 
-	async upsertApiConfiguration(configName: string, apiConfiguration: ProviderSettings) {
+	async upsertApiConfiguration(configName: string, apiConfiguration: ApiConfiguration) {
 		try {
 			await this.providerSettingsManager.saveConfig(configName, apiConfiguration)
 			const listApiConfig = await this.providerSettingsManager.listConfig()
@@ -1236,7 +1232,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 		const telemetryKey = process.env.POSTHOG_API_KEY
 		const machineId = vscode.env.machineId
-		const allowedCommands = vscode.workspace.getConfiguration("cline-pro").get<string[]>("allowedCommands") || []
+		const allowedCommands = vscode.workspace.getConfiguration("roo-code-pro").get<string[]>("allowedCommands") || []
 		const cwd = this.cwd
 
 		// Check if there's a system prompt override for the current mode

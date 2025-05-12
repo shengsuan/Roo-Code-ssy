@@ -4,7 +4,7 @@ import type { ClineMessage } from "../../../src/exports/roo-code"
 
 import { waitUntilCompleted } from "./utils"
 
-suite("Cline Pro Modes", () => {
+suite("Roo Code Pro Modes", () => {
 	test("Should handle switching modes correctly", async () => {
 		const api = globalThis.api
 

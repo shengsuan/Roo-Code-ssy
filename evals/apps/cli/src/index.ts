@@ -73,7 +73,7 @@ const run = async (toolbox: GluegunToolbox) => {
 		run = await createRun({
 			model: rooCodeDefaults.openRouterModelId!,
 			pid: process.pid,
-			socketPath: path.resolve(os.tmpdir(), `cline-pro-evals-${crypto.randomUUID().slice(0, 8)}.sock`),
+			socketPath: path.resolve(os.tmpdir(), `roo-code-pro-evals-${crypto.randomUUID().slice(0, 8)}.sock`),
 		})
 
 		if (language === "all") {
@@ -102,7 +102,7 @@ const run = async (toolbox: GluegunToolbox) => {
 		throw new Error("No tasks found.")
 	}
 
-	await execa({ cwd: exercisesPath })`git config user.name "Cline Pro"`
+	await execa({ cwd: exercisesPath })`git config user.name "Roo Code Pro"`
 	await execa({ cwd: exercisesPath })`git config user.email "support@roocode.com"`
 	await execa({ cwd: exercisesPath })`git checkout -f`
 	await execa({ cwd: exercisesPath })`git clean -fd`

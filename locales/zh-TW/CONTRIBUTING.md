@@ -2,23 +2,20 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • <b>繁體中文</b>
 
-# 參與 Cline Pro 貢獻
+# 參與 Roo Code Pro 貢獻
 
-Cline Pro 是一個由社群驅動的專案，我們非常重視每一位貢獻者。為了讓每個人的貢獻流程順暢且有效率，**我們採用「[Issue-First](#2-關鍵原則-issue-first-方式)」原則。** 這代表所有工作都必須在提交 Pull Request _之前_ 先關聯一個 GitHub Issue（詳情請見[PR 政策](#pull-request-pr-政策)）。請仔細閱讀本指南，了解如何參與貢獻。
-本指南說明如何為 Cline Pro 做出貢獻，無論是修正 bug、加入新功能或完善文件。
+Roo Code Pro 是一個由社群驅動的專案，我們非常重視每一位貢獻者。為了讓每個人的貢獻流程順暢且有效率，**我們採用「[Issue-First](#2-關鍵原則-issue-first-方式)」原則。** 這代表所有工作都必須在提交 Pull Request _之前_ 先關聯一個 GitHub Issue（詳情請見[PR 政策](#pull-request-pr-政策)）。請仔細閱讀本指南，了解如何參與貢獻。
+本指南說明如何為 Roo Code Pro 做出貢獻，無論是修正 bug、加入新功能或完善文件。
 
 ## 目錄
 
 - [I. 貢獻前須知](#i-貢獻前須知)
     - [1. 行為準則](#1-行為準則)
     - [2. 了解專案藍圖](#2-了解專案藍圖)
-        - [Provider 支援](#provider-支援)
-        - [模型支援](#模型支援)
-        - [系統支援](#系統支援)
-        - [文件](#文件)
-        - [穩定性](#穩定性)
-        - [國際化](#國際化)
-    - [3. 加入 Cline Pro 社群](#3-加入-roo-code-社群)
+        - [可靠性優先](#可靠性優先)
+        - [增強使用者體驗](#增強使用者體驗)
+        - [引領代理效能](#引領代理效能)
+    - [3. 加入 Roo Code 社群](#3-加入-roo-code-社群)
 - [II. 尋找與規劃你的貢獻](#ii-尋找與規劃你的貢獻)
     - [1. 貢獻類型](#1-貢獻類型)
     - [2. 關鍵原則：Issue-First 方式](#2-關鍵原則-issue-first-方式)
@@ -49,71 +46,41 @@ Cline Pro 是一個由社群驅動的專案，我們非常重視每一位貢獻�
 
 ### 2. 了解專案藍圖
 
-Cline Pro 有明確的開發藍圖，指引我們的優先順序與未來方向。了解藍圖有助於你：
+Roo Code Pro 有明確的開發藍圖，指引我們的優先順序與未來方向。了解藍圖有助於你：
 
 - 讓你的貢獻與專案目標一致
 - 找到你最擅長的領域
 - 理解某些設計決策的背景
 - 激發新功能靈感，推動專案願景
 
-目前藍圖聚焦六大核心：
+我們專注於將 Roo Code 打造成開發者使用 AI 驅動編碼工具時的首選。這是我們的實現路徑：
 
-#### Provider 支援
+#### 可靠性優先
 
-我們希望支援越多 Provider 越好：
+- 確保差異編輯和命令執行始終可靠
+- 減少阻礙常規使用的摩擦點
+- 確保在所有語言環境和平台上順暢運行
+- 擴展對各種 AI 供應商和模型的強大支援
 
-- 更強的「OpenAI 相容」支援
-- xAI、Microsoft Azure AI、Alibaba Cloud Qwen、IBM Watsonx、Together AI、DeepInfra、Fireworks AI、Cohere、Perplexity AI、FriendliAI、Replicate
-- 強化 Ollama 與 LM Studio 支援
+#### 增強使用者體驗
 
-#### 模型支援
+- 簡化 UI/UX，提高清晰度和直覺性
+- 持續改進工作流程，滿足開發者對日常工具的高期望
 
-我們希望 Roo 能在越多模型（包含本地模型）上運作：
+#### 引領代理效能
 
-- 透過自訂系統提示詞與工作流程支援本地模型
-- Benchmark 測試與案例
-
-#### 系統支援
-
-我們希望 Roo 能在所有電腦上順暢運作：
-
-- 跨平台終端機整合
-- 強大且一致地支援 Mac、Windows、Linux
-
-#### 文件
-
-我們希望為所有使用者與貢獻者提供完整、易用的文件：
-
-- 擴充使用者指南與教學
-- 清楚的 API 文件
-- 更好的貢獻者指引
-- 多語言文件資源
-- 互動式範例與程式碼片段
-
-#### 穩定性
-
-我們希望大幅減少 bug 數量並提升自動化測試覆蓋：
-
-- 除錯日誌開關
-- 「機器/工作資訊」一鍵複製按鈕，方便 bug/支援請求
-
-#### 國際化
-
-我們希望 Cline Pro 能說每個人的語言：
-
-- 我們希望 Cline Pro 說每個人的語言
-- Queremos que Cline Pro hable el idioma de todos
-- हम चाहते हैं कि Cline Pro हर किसी की भाषा बोले
-- نريد أن يتحدث Cline Pro لغة الجميع
+- 建立全面的評估基準（evals）來衡量實際工作中的生產力
+- 讓每個人都能輕鬆執行和解讀這些評估
+- 提供 Roo Code 改進，展示明確的評分提升
 
 特別歡迎推動藍圖目標的貢獻。如果你的工作與這些方向相關，請在 PR 描述中說明。
 
-### 3. 加入 Cline Pro 社群
+### 3. 加入 Roo Code Pro 社群
 
-加入 Cline Pro 社群是很好的起點：
+加入 Roo Code Pro 社群是很好的起點：
 
 - **主要方式**：
-    1.  加入 [Cline Pro Discord 社群](https://discord.gg/roocode)。
+    1.  加入 [Roo Code Pro Discord 社群](https://discord.gg/roocode)。
     2.  加入後，私訊 **Hannes Rudolph**（Discord: `hrudolph`），表達你的興趣並獲得指導。
 - **有經驗的貢獻者可選**：如果你熟悉 Issue-First 方式，可以直接透過 GitHub 跟進 [看板](https://github.com/orgs/RooVetGit/projects/1)，用 issue 與 pull request 溝通。
 
@@ -150,8 +117,8 @@ Cline Pro 有明確的開發藍圖，指引我們的優先順序與未來方向�
 
 ### 3. 決定要做什麼
 
-- **Good First Issues**：查看 GitHub [Cline Pro Issues 專案](https://github.com/orgs/RooVetGit/projects/1) 的「未分配 Issue」區塊。
-- **文件**：雖然本 `CONTRIBUTING.md` 是程式碼貢獻主指南，但如想參與其他文件（如使用者指南、API 文件），請參考 [Cline Pro Docs 倉庫](https://github.com/RooVetGit/Roo-Code-Docs) 或在 Discord 社群詢問。
+- **Good First Issues**：查看 GitHub [Roo Code Pro Issues 專案](https://github.com/orgs/RooVetGit/projects/1) 的「未分配 Issue」區塊。
+- **文件**：雖然本 `CONTRIBUTING.md` 是程式碼貢獻主指南，但如想參與其他文件（如使用者指南、API 文件），請參考 [Roo Code Pro Docs 倉庫](https://github.com/RooVetGit/Roo-Code-Docs) 或在 Discord 社群詢問。
 - **提出新功能**：
     1.  **初步想法/討論**：廣泛或初步想法可在 [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests) 討論。
     2.  **正式提案**：具體、可執行的建議請用 [issues 頁面](https://github.com/RooVetGit/Roo-Code/issues/new/choose) 的「Detailed Feature Proposal」模板新建 issue。這是 **Issue-First 方式** 的關鍵環節。
@@ -176,7 +143,7 @@ Cline Pro 有明確的開發藍圖，指引我們的優先順序與未來方向�
     - 本地 clone 你的 fork：`git clone https://github.com/你的帳號/Roo-Code.git`
 2.  **安裝相依套件**：`npm run install:all`
 3.  **執行 Webview（開發模式）**：`npm run dev`（適用於 Vite/React 應用，支援 HMR）
-4.  **除錯擴充功能**：在 VS Code 按 `F5`（或 **Run** → **Start Debugging**），開啟 Cline Pro 的 Extension Development Host 視窗
+4.  **除錯擴充功能**：在 VS Code 按 `F5`（或 **Run** → **Start Debugging**），開啟 Roo Code Pro 的 Extension Development Host 視窗
 
 webview（`webview-ui`）的變更會即時熱更新（HMR）。核心擴充（`src`）的變更需重啟 Extension Development Host。
 

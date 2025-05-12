@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 
-import { ProviderSettings, RouterModels, shengSuanYunDefaultModelId } from "@roo/shared/api"
+import { ApiConfiguration, RouterModels, shengSuanYunDefaultModelId } from "@roo/shared/api"
 
 import { vscode } from "@src/utils/vscode"
 import { useAppTranslation } from "@src/i18n/TranslationContext"
@@ -11,8 +11,8 @@ import { VSCodeTextField } from "@vscode/webview-ui-toolkit/react"
 import { inputEventTransform } from "../transforms"
 
 type ShengSuanYunProps = {
-	apiConfiguration: ProviderSettings
-	setApiConfigurationField: (field: keyof ProviderSettings, value: ProviderSettings[keyof ProviderSettings]) => void
+	apiConfiguration: ApiConfiguration
+	setApiConfigurationField: (field: keyof ApiConfiguration, value: ApiConfiguration[keyof ApiConfiguration]) => void
 	routerModels?: RouterModels
 	refetchRouterModels: () => void
 }
@@ -28,9 +28,9 @@ export const ShengSuanYun = ({
 	const [didRefetch, setDidRefetch] = useState<boolean>()
 
 	const handleInputChange = useCallback(
-		<K extends keyof ProviderSettings, E>(
+		<K extends keyof ApiConfiguration, E>(
 			field: K,
-			transform: (event: E) => ProviderSettings[K] = inputEventTransform,
+			transform: (event: E) => ApiConfiguration[K] = inputEventTransform,
 		) =>
 			(event: E | Event) => {
 				setApiConfigurationField(field, transform(event as E))

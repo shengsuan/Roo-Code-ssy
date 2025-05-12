@@ -14,7 +14,7 @@ import { handleNewTask } from "./handleTask"
 export function getVisibleProviderOrLog(outputChannel: vscode.OutputChannel): ClineProvider | undefined {
 	const visibleProvider = ClineProvider.getVisibleInstance()
 	if (!visibleProvider) {
-		outputChannel.appendLine("Cannot find any visible Cline Pro instances.")
+		outputChannel.appendLine("Cannot find any visible Roo Code Pro instances.")
 		return undefined
 	}
 	return visibleProvider
@@ -64,8 +64,8 @@ export const registerCommands = (options: RegisterCommandOptions) => {
 
 const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOptions) => {
 	return {
-		"cline-pro.activationCompleted": () => {},
-		"cline-pro.plusButtonClicked": async () => {
+		"roo-code-pro.activationCompleted": () => {},
+		"roo-code-pro.plusButtonClicked": async () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -78,7 +78,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 			await visibleProvider.postStateToWebview()
 			await visibleProvider.postMessageToWebview({ type: "action", action: "chatButtonClicked" })
 		},
-		"cline-pro.mcpButtonClicked": () => {
+		"roo-code-pro.mcpButtonClicked": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -89,7 +89,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 
 			visibleProvider.postMessageToWebview({ type: "action", action: "mcpButtonClicked" })
 		},
-		"cline-pro.promptsButtonClicked": () => {
+		"roo-code-pro.promptsButtonClicked": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -100,13 +100,13 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 
 			visibleProvider.postMessageToWebview({ type: "action", action: "promptsButtonClicked" })
 		},
-		"cline-pro.popoutButtonClicked": () => {
+		"roo-code-pro.popoutButtonClicked": () => {
 			telemetryService.captureTitleButtonClicked("popout")
 
 			return openClineInNewTab({ context, outputChannel })
 		},
-		"cline-pro.openInNewTab": () => openClineInNewTab({ context, outputChannel }),
-		"cline-pro.settingsButtonClicked": () => {
+		"roo-code-pro.openInNewTab": () => openClineInNewTab({ context, outputChannel }),
+		"roo-code-pro.settingsButtonClicked": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -119,7 +119,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 			// Also explicitly post the visibility message to trigger scroll reliably
 			visibleProvider.postMessageToWebview({ type: "action", action: "didBecomeVisible" })
 		},
-		"cline-pro.historyButtonClicked": () => {
+		"roo-code-pro.historyButtonClicked": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -130,7 +130,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 
 			visibleProvider.postMessageToWebview({ type: "action", action: "historyButtonClicked" })
 		},
-		"cline-pro.showHumanRelayDialog": (params: { requestId: string; promptText: string }) => {
+		"roo-code-pro.showHumanRelayDialog": (params: { requestId: string; promptText: string }) => {
 			const panel = getPanel()
 
 			if (panel) {
@@ -141,20 +141,20 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 				})
 			}
 		},
-		"cline-pro.registerHumanRelayCallback": registerHumanRelayCallback,
-		"cline-pro.unregisterHumanRelayCallback": unregisterHumanRelayCallback,
-		"cline-pro.handleHumanRelayResponse": handleHumanRelayResponse,
-		"cline-pro.newTask": handleNewTask,
-		"cline-pro.setCustomStoragePath": async () => {
+		"roo-code-pro.registerHumanRelayCallback": registerHumanRelayCallback,
+		"roo-code-pro.unregisterHumanRelayCallback": unregisterHumanRelayCallback,
+		"roo-code-pro.handleHumanRelayResponse": handleHumanRelayResponse,
+		"roo-code-pro.newTask": handleNewTask,
+		"roo-code-pro.setCustomStoragePath": async () => {
 			const { promptForCustomStoragePath } = await import("../shared/storagePathManager")
 			await promptForCustomStoragePath()
 		},
-		"cline-pro.focusInput": async () => {
+		"roo-code-pro.focusInput": async () => {
 			try {
 				const panel = getPanel()
 
 				if (!panel) {
-					await vscode.commands.executeCommand("workbench.view.extension.cline-pro-ActivityBar")
+					await vscode.commands.executeCommand("workbench.view.extension.roo-code-pro-ActivityBar")
 				} else if (panel === tabPanel) {
 					panel.reveal(vscode.ViewColumn.Active, false)
 				} else if (panel === sidebarPanel) {
@@ -165,7 +165,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 				outputChannel.appendLine(`Error focusing input: ${error}`)
 			}
 		},
-		"cline-pro.acceptInput": () => {
+		"roo-code-pro.acceptInput": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -196,7 +196,7 @@ export const openClineInNewTab = async ({ context, outputChannel }: Omit<Registe
 
 	const targetCol = hasVisibleEditors ? Math.max(lastCol + 1, 1) : vscode.ViewColumn.Two
 
-	const newPanel = vscode.window.createWebviewPanel(ClineProvider.tabPanelId, "Cline Pro", targetCol, {
+	const newPanel = vscode.window.createWebviewPanel(ClineProvider.tabPanelId, "Roo Code Pro", targetCol, {
 		enableScripts: true,
 		retainContextWhenHidden: true,
 		localResourceRoots: [context.extensionUri],

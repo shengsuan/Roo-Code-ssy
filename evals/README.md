@@ -1,10 +1,10 @@
-# Run Cline Pro Evals
+# Run Roo Code Pro Evals
 
 ## Get Started
 
 NOTE: This is MacOS only for now!
 
-Clone the Cline Pro repo:
+Clone the Roo Code Pro repo:
 
 ```sh
 git clone https://github.com/RooVetGit/Roo-Code.git

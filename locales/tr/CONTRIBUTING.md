@@ -2,23 +2,20 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • <b>Türkçe</b> • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Cline Pro'a Katkıda Bulunma
+# Roo Code Pro'a Katkıda Bulunma
 
-Cline Pro, topluluk odaklı bir projedir ve her katkıyı çok önemsiyoruz. Herkes için sorunsuz ve etkili bir süreç sağlamak için **"[Issue-First](#2-temel-ilke-issue-first-yaklaşımı)" yaklaşımıyla çalışıyoruz.** Yani, tüm çalışmalar bir Pull Request gönderilmeden _önce_ bir GitHub Issue'ya bağlı olmalı (ayrıntılar için [PR Politikamıza](#pull-request-pr-politikası) bakabilirsin). Nasıl katkı sağlayacağını anlamak için lütfen bu rehberi dikkatlice oku.
-Bu rehber, Cline Pro'a nasıl katkı sağlayabileceğini; ister hata düzelt, ister yeni özellik ekle, ister dokümantasyonu geliştir, adım adım açıklar.
+Roo Code Pro, topluluk odaklı bir projedir ve her katkıyı çok önemsiyoruz. Herkes için sorunsuz ve etkili bir süreç sağlamak için **"[Issue-First](#2-temel-ilke-issue-first-yaklaşımı)" yaklaşımıyla çalışıyoruz.** Yani, tüm çalışmalar bir Pull Request gönderilmeden _önce_ bir GitHub Issue'ya bağlı olmalı (ayrıntılar için [PR Politikamıza](#pull-request-pr-politikası) bakabilirsin). Nasıl katkı sağlayacağını anlamak için lütfen bu rehberi dikkatlice oku.
+Bu rehber, Roo Code Pro'a nasıl katkı sağlayabileceğini; ister hata düzelt, ister yeni özellik ekle, ister dokümantasyonu geliştir, adım adım açıklar.
 
 ## İçindekiler
 
 - [I. Katkıdan Önce](#i-katkıdan-önce)
     - [1. Davranış Kuralları](#1-davranış-kuralları)
     - [2. Proje Yol Haritasını Anlamak](#2-proje-yol-haritasını-anlamak)
-        - [Sağlayıcı Desteği](#sağlayıcı-desteği)
-        - [Model Desteği](#model-desteği)
-        - [Sistem Desteği](#sistem-desteği)
-        - [Dokümantasyon](#dokümantasyon)
-        - [Stabilite](#stabilite)
-        - [Uluslararasılaştırma](#uluslararasılaştırma)
-    - [3. Cline Pro Topluluğuna Katıl](#3-roo-code-topluluğuna-katıl)
+        - [Güvenilirlik Öncelikli](#güvenilirlik-öncelikli)
+        - [Geliştirilmiş Kullanıcı Deneyimi](#geliştirilmiş-kullanıcı-deneyimi)
+        - [Ajan Performansında Liderlik](#ajan-performansında-liderlik)
+    - [3. Roo Code Topluluğuna Katıl](#3-roo-code-topluluğuna-katıl)
 - [II. Katkı Bulma & Planlama](#ii-katkı-bulma--planlama)
     - [1. Katkı Türleri](#1-katkı-türleri)
     - [2. Temel İlke: Issue-First Yaklaşımı](#2-temel-ilke-issue-first-yaklaşımı)
@@ -49,71 +46,41 @@ Tüm katkı sağlayanlar [Davranış Kuralları](https://github.com/RooVetGit/Ro
 
 ### 2. Proje Yol Haritasını Anlamak
 
-Cline Pro'un önceliklerimizi ve gelecekteki yönümüzü belirleyen net bir geliştirme yol haritası var. Yol haritasını anlamak sana şunları sağlar:
+Roo Code Pro'un önceliklerimizi ve gelecekteki yönümüzü belirleyen net bir geliştirme yol haritası var. Yol haritasını anlamak sana şunları sağlar:
 
 - Katkılarını proje hedefleriyle uyumlu hale getirmek
 - Uzmanlığının en değerli olacağı alanları bulmak
 - Bazı tasarım kararlarının arka planını anlamak
 - Vizyonumuzu destekleyen yeni özellikler için ilham almak
 
-Mevcut yol haritamız altı ana sütuna odaklanıyor:
+Roo Code'u, yapay zeka destekli kodlama araçlarıyla çalışan geliştiriciler için en iyi seçenek haline getirmeye odaklanıyoruz. İşte bunu nasıl başaracağız:
 
-#### Sağlayıcı Desteği
+#### Güvenilirlik Öncelikli
 
-Mümkün olduğunca çok sağlayıcıyı iyi desteklemek istiyoruz:
+- Diff düzenleme ve komut yürütme işlemlerinin sürekli olarak güvenilir olmasını sağlamak
+- Düzenli kullanımı engelleyen sürtünme noktalarını azaltmak
+- Tüm dillerde ve platformlarda sorunsuz çalışmayı garanti etmek
+- Çok çeşitli yapay zeka sağlayıcıları ve modelleri için güçlü desteği genişletmek
 
-- Daha fazla "OpenAI Compatible" desteği
-- xAI, Microsoft Azure AI, Alibaba Cloud Qwen, IBM Watsonx, Together AI, DeepInfra, Fireworks AI, Cohere, Perplexity AI, FriendliAI, Replicate
-- Ollama ve LM Studio için geliştirilmiş destek
+#### Geliştirilmiş Kullanıcı Deneyimi
 
-#### Model Desteği
+- Daha fazla netlik ve sezgisellik için kullanıcı arayüzünü basitleştirmek
+- Geliştiricilerin günlük kullanım araçları için beklediği yüksek standartları karşılamak üzere iş akışını sürekli iyileştirmek
 
-Roo'nun mümkün olduğunca çok modelde (yerel modeller dahil) çalışmasını istiyoruz:
+#### Ajan Performansında Liderlik
 
-- Özel sistem promptları ve iş akışlarıyla yerel model desteği
-- Benchmarking, değerlendirmeler ve test vakaları
-
-#### Sistem Desteği
-
-Roo'nun her bilgisayarda iyi çalışmasını istiyoruz:
-
-- Platformlar arası terminal entegrasyonu
-- Mac, Windows ve Linux için güçlü ve tutarlı destek
-
-#### Dokümantasyon
-
-Tüm kullanıcılar ve katkı sağlayanlar için kapsamlı, erişilebilir dokümantasyon istiyoruz:
-
-- Genişletilmiş kullanıcı rehberleri ve eğitimler
-- Açık API dokümantasyonu
-- Daha iyi katkı sağlayan rehberliği
-- Çok dilli dokümantasyon kaynakları
-- Etkileşimli örnekler ve kod parçacıkları
-
-#### Stabilite
-
-Hata sayısını önemli ölçüde azaltmak ve otomatik testleri artırmak istiyoruz:
-
-- Hata ayıklama log anahtarı
-- Hata/destek talepleri için "Makine/Görev Bilgisi Kopyala" butonu
-
-#### Uluslararasılaştırma
-
-Roo'nun herkesin dilini konuşmasını istiyoruz:
-
-- 我们希望 Cline Pro 说每个人的语言
-- Queremos que Cline Pro hable el idioma de todos
-- हम चाहते हैं कि Cline Pro हर किसी की भाषा बोले
-- نريد أن يتحدث Cline Pro لغة الجميع
+- Gerçek dünyadaki üretkenliği ölçmek için kapsamlı değerlendirme kriterleri (evals) oluşturmak
+- Herkesin bu değerlendirmeleri kolayca çalıştırıp yorumlamasını sağlamak
+- Değerlendirme puanlarında net artışlar gösteren Roo Code iyileştirmeleri sunmak
 
 Yol haritası hedeflerimizi ilerleten katkılar özellikle memnuniyetle karşılanır. Bu sütunlarla uyumlu bir şey üzerinde çalışıyorsan, lütfen PR açıklamanda belirt.
 
-### 3. Cline Pro Topluluğuna Katıl
+### 3. Roo Code Pro Topluluğuna Katıl
 
-Cline Pro topluluğuyla bağlantı kurmak başlamak için harika bir yoldur:
+Roo Code Pro topluluğuyla bağlantı kurmak başlamak için harika bir yoldur:
 
 - **Ana yöntem**:
-    1.  [Cline Pro Discord topluluğuna](https://discord.gg/roocode) katıl.
+    1.  [Roo Code Pro Discord topluluğuna](https://discord.gg/roocode) katıl.
     2.  Katıldıktan sonra **Hannes Rudolph**'a (Discord: `hrudolph`) DM gönder, ilgini belirt ve rehberlik al.
 - **Deneyimli katkı sağlayanlar için alternatif**: Issue-First yaklaşımına alışkınsan, doğrudan GitHub üzerinden [Kanban panosunu](https://github.com/orgs/RooVetGit/projects/1) takip ederek ve issue ile pull request'lerle iletişim kurarak katılabilirsin.
 
@@ -150,8 +117,8 @@ Bu yaklaşım, çalışmaları takip etmemize, değişikliklerin istenip istenme
 
 ### 3. Ne Üzerinde Çalışacağına Karar Verme
 
-- **Good First Issues**: GitHub'daki [Cline Pro Issues Projesi](https://github.com/orgs/RooVetGit/projects/1)'nin "Issue [Unassigned]" bölümüne bak.
-- **Dokümantasyon**: Bu `CONTRIBUTING.md` kod katkısı için ana rehberdir, ancak başka dokümantasyonlara (kullanıcı rehberleri veya API dokümanları gibi) katkı sağlamak istiyorsan [Cline Pro Docs deposuna](https://github.com/RooVetGit/Roo-Code-Docs) bak veya Discord topluluğunda sor.
+- **Good First Issues**: GitHub'daki [Roo Code Pro Issues Projesi](https://github.com/orgs/RooVetGit/projects/1)'nin "Issue [Unassigned]" bölümüne bak.
+- **Dokümantasyon**: Bu `CONTRIBUTING.md` kod katkısı için ana rehberdir, ancak başka dokümantasyonlara (kullanıcı rehberleri veya API dokümanları gibi) katkı sağlamak istiyorsan [Roo Code Pro Docs deposuna](https://github.com/RooVetGit/Roo-Code-Docs) bak veya Discord topluluğunda sor.
 - **Yeni özellikler önermek**:
     1.  **İlk fikir/tartışma**: Genel veya ilk özellik fikirleri için [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests)'da tartışma başlat.
     2.  **Resmi öneri**: Spesifik, uygulanabilir öneriler için [issue sayfamızda](https://github.com/RooVetGit/Roo-Code/issues/new/choose) "Detailed Feature Proposal" şablonunu kullanarak issue oluştur. Bu, **Issue-First Yaklaşımı**'nın anahtarıdır.
@@ -176,7 +143,7 @@ Kod yazarken ve gönderirken bu adımları takip et.
     - Forkunu yerel olarak klonla: `git clone https://github.com/KULLANICI_ADIN/Roo-Code.git`
 2.  **Bağımlılıkları yükle**: `npm run install:all`
 3.  **Webview (Geliştirici Modu) çalıştır**: `npm run dev` (Vite/React uygulaması için HMR ile)
-4.  **Eklentiyi debug et**: VS Code'da `F5` tuşuna bas (veya **Run** → **Start Debugging**) ve Cline Pro yüklü yeni bir Extension Development Host penceresi aç.
+4.  **Eklentiyi debug et**: VS Code'da `F5` tuşuna bas (veya **Run** → **Start Debugging**) ve Roo Code Pro yüklü yeni bir Extension Development Host penceresi aç.
 
 Webview (`webview-ui`) değişiklikleri Hot Module Replacement sayesinde anında görünür. Ana eklenti (`src`) değişiklikleri için Extension Development Host'u yeniden başlatmak gerekir.
 

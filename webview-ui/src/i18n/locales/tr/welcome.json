@@ -1,6 +1,6 @@
 {
-	"greeting": "Merhaba, ben Cline Pro!",
-	"introduction": "<strong>Cline Pro, önde gelen otonom kodlama aracıdır.</strong> Daha önce hiç görmediğin şekilde mimari tasarım yapmaya, kod yazmaya, hata ayıklamaya ve üretkenliğini artırmaya hazırlan. Devam etmek için Cline Pro'un bir API anahtarına ihtiyacı var.",
+	"greeting": "Merhaba, ben Roo Code Pro!",
+	"introduction": "<strong>Roo Code Pro, önde gelen otonom kodlama aracıdır.</strong> Daha önce hiç görmediğin şekilde mimari tasarım yapmaya, kod yazmaya, hata ayıklamaya ve üretkenliğini artırmaya hazırlan. Devam etmek için Roo Code Pro'un bir API anahtarına ihtiyacı var.",
 	"notice": "Başlamak için bu eklentinin bir API sağlayıcısına ihtiyacı var.",
 	"start": "Hadi başlayalım!",
 	"chooseProvider": "Başlamak için bir API sağlayıcısı seç:",
@@ -20,7 +20,7 @@
 	"startRouter": "Yönlendirici Üzerinden Hızlı Kurulum",
 	"startCustom": "Kendi API Anahtarını Kullan",
 	"telemetry": {
-		"title": "Cline Pro'u Geliştirmeye Yardım Et",
+		"title": "Roo Code Pro'u Geliştirmeye Yardım Et",
 		"anonymousTelemetry": "Hataları düzeltmemize ve eklentiyi geliştirmemize yardımcı olmak için anonim hata ve kullanım verileri gönder. Hiçbir zaman kod, metin veya kişisel bilgi gönderilmez.",
 		"changeSettings": "Bunu her zaman <settingsLink>ayarlar</settingsLink>ın altından değiştirebilirsin",
 		"settings": "ayarlar",

@@ -1,6 +1,6 @@
 # VSCode Integration Tests
 
-This document describes the integration test setup for the Cline Pro VSCode extension.
+This document describes the integration test setup for the Roo Code Pro VSCode extension.
 
 ## Overview
 

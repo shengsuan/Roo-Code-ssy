@@ -16,7 +16,7 @@ import { ApiHandler, buildApiHandler } from "../../api"
 import { ApiStream } from "../../api/transform/stream"
 
 // shared
-import { ProviderSettings } from "../../shared/api"
+import { ApiConfiguration } from "../../shared/api"
 import { findLastIndex } from "../../shared/array"
 import { combineApiRequests } from "../../shared/combineApiRequests"
 import { combineCommandSequences } from "../../shared/combineCommandSequences"
@@ -92,7 +92,7 @@ export type ClineEvents = {
 
 export type TaskOptions = {
 	provider: ClineProvider
-	apiConfiguration: ProviderSettings
+	apiConfiguration: ApiConfiguration
 	customInstructions?: string
 	enableDiff?: boolean
 	enableCheckpoints?: boolean
@@ -130,7 +130,7 @@ export class Task extends EventEmitter<ClineEvents> {
 	customInstructions?: string
 
 	// API
-	readonly apiConfiguration: ProviderSettings
+	readonly apiConfiguration: ApiConfiguration
 	api: ApiHandler
 	private promptCacheKey: string
 	private lastApiRequestTime?: number
@@ -945,7 +945,7 @@ export class Task extends EventEmitter<ClineEvents> {
 				"mistake_limit_reached",
 				this.api.getModel().id.includes("claude")
 					? `This may indicate a failure in his thought process or inability to use a tool properly, which can be mitigated with some user guidance (e.g. "Try breaking down the task into smaller steps").`
-					: "Cline Pro uses complex prompts and iterative task execution that may be challenging for less capable models. For best results, it's recommended to use Claude 3.7 Sonnet for its advanced agentic coding capabilities.",
+					: "Roo Code Pro uses complex prompts and iterative task execution that may be challenging for less capable models. For best results, it's recommended to use Claude 3.7 Sonnet for its advanced agentic coding capabilities.",
 			)
 
 			if (response === "messageResponse") {
