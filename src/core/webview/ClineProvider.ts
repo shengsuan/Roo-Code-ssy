@@ -62,8 +62,8 @@ export type ClineProviderEvents = {
 }
 
 export class ClineProvider extends EventEmitter<ClineProviderEvents> implements vscode.WebviewViewProvider {
-	public static readonly sideBarId = "roo-code-pro.SidebarProvider" // used in package.json as the view's id. This value cannot be changed due to how vscode caches views based on their id, and updating the id would break existing instances of the extension.
-	public static readonly tabPanelId = "roo-code-pro.TabPanelProvider"
+	public static readonly sideBarId = "roo-vibecoding.SidebarProvider" // used in package.json as the view's id. This value cannot be changed due to how vscode caches views based on their id, and updating the id would break existing instances of the extension.
+	public static readonly tabPanelId = "roo-vibecoding.TabPanelProvider"
 	private static activeInstances: Set<ClineProvider> = new Set()
 	private disposables: vscode.Disposable[] = []
 	private view?: vscode.WebviewView | vscode.WebviewPanel
@@ -233,7 +233,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 		// If no visible provider, try to show the sidebar view
 		if (!visibleProvider) {
-			await vscode.commands.executeCommand("roo-code-pro.SidebarProvider.focus")
+			await vscode.commands.executeCommand("roo-vibecoding.SidebarProvider.focus")
 			// Wait briefly for the view to become visible
 			await delay(100)
 			visibleProvider = ClineProvider.getVisibleInstance()
@@ -641,7 +641,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 						window.IMAGES_BASE_URI = "${imagesUri}"
 						window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 					</script>
-					<title>Roo Code Pro</title>
+					<title>Roo Vibecoding</title>
 				</head>
 				<body>
 					<div id="root"></div>
@@ -735,7 +735,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 				window.IMAGES_BASE_URI = "${imagesUri}"
 				window.MATERIAL_ICONS_BASE_URI = "${materialIconsUri}"
 			</script>
-            <title>Roo Code Pro</title>
+            <title>Roo Vibecoding</title>
           </head>
           <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -890,20 +890,20 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		let mcpServersDir: string
 		if (process.platform === "win32") {
 			// Windows: %APPDATA%\Roo-Code\MCP
-			mcpServersDir = path.join(os.homedir(), "AppData", "Roaming", "roo-code-pro", "MCP")
+			mcpServersDir = path.join(os.homedir(), "AppData", "Roaming", "roo-vibecoding", "MCP")
 		} else if (process.platform === "darwin") {
 			// macOS: ~/Documents/Cline/MCP
 			mcpServersDir = path.join(os.homedir(), "Documents", "Cline", "MCP")
 		} else {
 			// Linux: ~/.local/share/Cline/MCP
-			mcpServersDir = path.join(os.homedir(), ".local", "share", "roo-code-pro", "MCP")
+			mcpServersDir = path.join(os.homedir(), ".local", "share", "roo-vibecoding", "MCP")
 		}
 
 		try {
 			await fs.mkdir(mcpServersDir, { recursive: true })
 		} catch (error) {
 			// Fallback to a relative path if directory creation fails
-			return path.join(os.homedir(), ".roo-code-pro", "mcp")
+			return path.join(os.homedir(), ".roo-vibecoding", "mcp")
 		}
 		return mcpServersDir
 	}
@@ -1000,7 +1000,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		try {
 			const response = await axios.post("https://api.shengsuanyun.com/auth/keys", {
 				code,
-				callback_url: "vscode://shengsuan-cloud.roo-code-pro/shengsuanyun",
+				callback_url: "vscode://shengsuan-cloud.roo-vibecoding/shengsuanyun",
 			})
 			if (response.data && response.data.data && response.data.data.api_key) {
 				apiKey = response.data.data.api_key
@@ -1232,7 +1232,8 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 
 		const telemetryKey = process.env.POSTHOG_API_KEY
 		const machineId = vscode.env.machineId
-		const allowedCommands = vscode.workspace.getConfiguration("roo-code-pro").get<string[]>("allowedCommands") || []
+		const allowedCommands =
+			vscode.workspace.getConfiguration("roo-vibecoding").get<string[]>("allowedCommands") || []
 		const cwd = this.cwd
 
 		// Check if there's a system prompt override for the current mode

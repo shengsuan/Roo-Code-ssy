@@ -50,7 +50,7 @@ describe("TerminalProcess", () => {
 			shellIntegration: {
 				executeCommand: jest.fn(),
 			},
-			name: "Roo Code Pro",
+			name: "Roo Vibecoding",
 			processId: Promise.resolve(123),
 			creationOptions: {},
 			exitStatus: undefined,

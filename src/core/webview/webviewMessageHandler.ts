@@ -384,7 +384,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 
 			// Also update workspace settings.
 			await vscode.workspace
-				.getConfiguration("roo-code-pro")
+				.getConfiguration("roo-vibecoding")
 				.update("allowedCommands", message.commands, vscode.ConfigurationTarget.Global)
 
 			break
@@ -1285,7 +1285,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 			break
 		case "humanRelayResponse":
 			if (message.requestId && message.text) {
-				vscode.commands.executeCommand("roo-code-pro.handleHumanRelayResponse", {
+				vscode.commands.executeCommand("roo-vibecoding.handleHumanRelayResponse", {
 					requestId: message.requestId,
 					text: message.text,
 					cancelled: false,
@@ -1295,7 +1295,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 
 		case "humanRelayCancel":
 			if (message.requestId) {
-				vscode.commands.executeCommand("roo-code-pro.handleHumanRelayResponse", {
+				vscode.commands.executeCommand("roo-vibecoding.handleHumanRelayResponse", {
 					requestId: message.requestId,
 					cancelled: true,
 				})

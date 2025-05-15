@@ -12,7 +12,7 @@
 </div>
 <br>
 <div align="center">
-  <h2>Roo Code Pro 커뮤니티에 참여하세요</h2>
+  <h2>Roo Vibecoding 커뮤니티에 참여하세요</h2>
   <p>개발자들과 연결하고, 아이디어를 기여하고, 최신 AI 기반 코딩 도구를 계속 확인하세요.</p>
   
   <a href="https://discord.gg/roocode" target="_blank"><img src="https://img.shields.io/badge/Discord%20참여-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord 참여"></a>
@@ -23,7 +23,7 @@
 <br>
 
 <div align="center">
-<h1>Roo Code Pro (이전 Roo Cline)</h1>
+<h1>Roo Vibecoding (이전 Roo Cline)</h1>
 
 <a href="https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline" target="_blank"><img src="https://img.shields.io/badge/VS%20Marketplace에서%20다운로드-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Marketplace에서 다운로드"></a>
 <a href="https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop" target="_blank"><img src="https://img.shields.io/badge/기능%20요청-yellow?style=for-the-badge" alt="기능 요청"></a>
@@ -32,7 +32,7 @@
 
 </div>
 
-**Roo Code Pro**는 에디터 내에서 작동하는 AI 기반 **자율 코딩 에이전트**입니다. 다음과 같은 기능을 제공합니다:
+**Roo Vibecoding**는 에디터 내에서 작동하는 AI 기반 **자율 코딩 에이전트**입니다. 다음과 같은 기능을 제공합니다:
 
 - 자연어로 의사소통
 - 워크스페이스에서 직접 파일 읽기 및 쓰기
@@ -47,9 +47,9 @@
 
 ---
 
-## 🎉 Roo Code Pro 3.16 출시
+## 🎉 Roo Vibecoding 3.16 출시
 
-Roo Code Pro 3.16이 사용자 피드백을 바탕으로 새로운 기능과 개선 사항을 제공합니다!
+Roo Vibecoding 3.16이 사용자 피드백을 바탕으로 새로운 기능과 개선 사항을 제공합니다!
 
 - **Groq 및 Chutes API 제공자** - Groq 및 Chutes API 제공자 지원을 추가하여 모델 옵션을 확장했습니다.
 - **클릭 가능한 코드 참조** - 모델 응답의 코드 참조가 이제 소스 코드 라인으로 직접 이동할 수 있습니다.
@@ -69,7 +69,7 @@ Roo Code Pro 3.16이 사용자 피드백을 바탕으로 새로운 기능과 개
 
 ## 빠른 시작
 
-1. [Roo Code Pro 설치](https://docs.roocode.com/getting-started/installing)
+1. [Roo Vibecoding 설치](https://docs.roocode.com/getting-started/installing)
 2. [AI 제공자 연결](https://docs.roocode.com/getting-started/connecting-api-provider)
 3. [첫 번째 작업 시도](https://docs.roocode.com/getting-started/your-first-task)
 
@@ -164,7 +164,7 @@ code --install-extension bin/roo-cline-<version>.vsix
 
 ## 면책 조항
 
-**참고하세요** Roo Code Pro, Inc는 Roo Code Pro와 관련하여 제공되거나 사용 가능한 모든 코드, 모델 또는 기타 도구, 관련 타사 도구 또는 결과 출력물에 대해 **어떠한** 진술이나 보증도 하지 **않습니다**. 이러한 도구나 출력물 사용과 관련된 **모든 위험**을 감수합니다; 이러한 도구는 **"있는 그대로"** 및 **"사용 가능한 대로"** 제공됩니다. 이러한 위험에는 지적 재산권 침해, 사이버 취약성 또는 공격, 편향, 부정확성, 오류, 결함, 바이러스, 다운타임, 재산 손실 또는 손상 및/또는 개인 상해가 포함될 수 있습니다(단, 이에 국한되지 않음). 귀하는 이러한 도구나 출력물 사용에 대해 전적으로 책임을 집니다(합법성, 적절성 및 결과를 포함하되 이에 국한되지 않음).
+**참고하세요** Roo Vibecoding, Inc는 Roo Code Pro와 관련하여 제공되거나 사용 가능한 모든 코드, 모델 또는 기타 도구, 관련 타사 도구 또는 결과 출력물에 대해 **어떠한** 진술이나 보증도 하지 **않습니다**. 이러한 도구나 출력물 사용과 관련된 **모든 위험**을 감수합니다; 이러한 도구는 **"있는 그대로"** 및 **"사용 가능한 대로"** 제공됩니다. 이러한 위험에는 지적 재산권 침해, 사이버 취약성 또는 공격, 편향, 부정확성, 오류, 결함, 바이러스, 다운타임, 재산 손실 또는 손상 및/또는 개인 상해가 포함될 수 있습니다(단, 이에 국한되지 않음). 귀하는 이러한 도구나 출력물 사용에 대해 전적으로 책임을 집니다(합법성, 적절성 및 결과를 포함하되 이에 국한되지 않음).
 
 ---
 
@@ -251,7 +251,7 @@ Roo Code Pro를 더 좋게 만드는 데 도움을 준 모든 기여자에게 �
 
 ## 라이선스
 
-[Apache 2.0 © 2025 Roo Code Pro, Inc.](../LICENSE)
+[Apache 2.0 © 2025 Roo Vibecoding, Inc.](../LICENSE)
 
 ---
 

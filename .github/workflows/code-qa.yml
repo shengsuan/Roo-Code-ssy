@@ -1,4 +1,4 @@
-name: Code QA Roo Code Pro
+name: Code QA Roo Vibecoding
 
 on:
   workflow_dispatch:

@@ -23,7 +23,7 @@ function asObjectSafe(value: any): object {
 
 		return {}
 	} catch (error) {
-		console.warn("Roo Code Pro <Language Model API>: Failed to parse object:", error)
+		console.warn("Roo Vibecoding <Language Model API>: Failed to parse object:", error)
 		return {}
 	}
 }

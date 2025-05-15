@@ -2,10 +2,10 @@
 
 <b>日本語</b> • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Roo Code Pro への貢献
+# Roo Vibecoding への貢献
 
-Roo Code Pro はコミュニティ主導のプロジェクトであり、すべての貢献を大切にしています。みんながスムーズかつ効果的に参加できるように、**「[Issue-First](#2-重要な原則-issue-firstアプローチ)」方式で運営しています。** つまり、すべての作業は Pull Request を出す _前に_ GitHub Issue に紐付ける必要があります（詳細は[PRポリシー](#pull-request-pr-ポリシー)を参照）。このガイドをよく読んで、貢献方法を理解してください。
-このガイドは、バグ修正、新機能追加、ドキュメント改善など、Roo Code Pro への貢献方法を説明します。
+Roo Vibecoding はコミュニティ主導のプロジェクトであり、すべての貢献を大切にしています。みんながスムーズかつ効果的に参加できるように、**「[Issue-First](#2-重要な原則-issue-firstアプローチ)」方式で運営しています。** つまり、すべての作業は Pull Request を出す _前に_ GitHub Issue に紐付ける必要があります（詳細は[PRポリシー](#pull-request-pr-ポリシー)を参照）。このガイドをよく読んで、貢献方法を理解してください。
+このガイドは、バグ修正、新機能追加、ドキュメント改善など、Roo Vibecoding への貢献方法を説明します。
 
 ## 目次
 
@@ -46,7 +46,7 @@ Roo Code Pro はコミュニティ主導のプロジェクトであり、すべ�
 
 ### 2. プロジェクトロードマップの理解
 
-Roo Code Pro には明確な開発ロードマップがあり、優先順位や今後の方向性を示しています。ロードマップを理解することで、以下のことができます：
+Roo Vibecoding には明確な開発ロードマップがあり、優先順位や今後の方向性を示しています。ロードマップを理解することで、以下のことができます：
 
 - 貢献をプロジェクトの目標に合わせられる
 - 自分のスキルが最も活かせる分野を見つけられる
@@ -75,12 +75,12 @@ Roo Code Pro には明確な開発ロードマップがあり、優先順位や�
 
 ロードマップの目標を推進する貢献は特に歓迎します。これらの柱に沿った作業をしている場合は、PRの説明でぜひ言及してください。
 
-### 3. Roo Code Pro コミュニティに参加する
+### 3. Roo Vibecoding コミュニティに参加する
 
-Roo Code Pro コミュニティとつながるのは、始めるのに最適な方法です：
+Roo Vibecoding コミュニティとつながるのは、始めるのに最適な方法です：
 
 - **メインの方法**：
-    1.  [Roo Code Pro Discord コミュニティ](https://discord.gg/roocode)に参加する。
+    1.  [Roo Vibecoding Discord コミュニティ](https://discord.gg/roocode)に参加する。
     2.  参加後、**Hannes Rudolph**（Discord: `hrudolph`）にDMを送り、興味を伝えてアドバイスをもらう。
 - **経験者向けの代替案**：Issue-First アプローチに慣れている場合は、[Kanbanボード](https://github.com/orgs/RooVetGit/projects/1)を使い、GitHub上でIssueやPull Requestを通じて直接参加できます。
 
@@ -118,7 +118,7 @@ Roo Code Pro コミュニティとつながるのは、始めるのに最適な�
 ### 3. 何に取り組むか決める
 
 - **Good First Issues**：GitHubの[「Issue [Unassigned]」セクション](https://github.com/orgs/RooVetGit/projects/1)をチェック
-- **ドキュメント**：この `CONTRIBUTING.md` はコード貢献の主なガイドですが、他のドキュメント（ユーザーガイドやAPIドキュメントなど）に貢献したい場合は、[Roo Code Pro Docsリポジトリ](https://github.com/RooVetGit/Roo-Code-Docs)を参照するか、Discordコミュニティで質問してください。
+- **ドキュメント**：この `CONTRIBUTING.md` はコード貢献の主なガイドですが、他のドキュメント（ユーザーガイドやAPIドキュメントなど）に貢献したい場合は、[Roo Vibecoding Docsリポジトリ](https://github.com/RooVetGit/Roo-Code-Docs)を参照するか、Discordコミュニティで質問してください。
 - **新機能の提案**：
     1.  **初期アイデア/議論**：大まかなアイデアや初期の提案は[GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests)で始めてください。
     2.  **正式な提案**：具体的で実装可能な提案は[Issuesページ](https://github.com/RooVetGit/Roo-Code/issues/new/choose)の「Detailed Feature Proposal」テンプレートでIssueを作成してください。これは**Issue-Firstアプローチ**の重要な部分です。

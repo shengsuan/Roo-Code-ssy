@@ -14,7 +14,7 @@ import { handleNewTask } from "./handleTask"
 export function getVisibleProviderOrLog(outputChannel: vscode.OutputChannel): ClineProvider | undefined {
 	const visibleProvider = ClineProvider.getVisibleInstance()
 	if (!visibleProvider) {
-		outputChannel.appendLine("Cannot find any visible Roo Code Pro instances.")
+		outputChannel.appendLine("Cannot find any visible Roo Vibecoding instances.")
 		return undefined
 	}
 	return visibleProvider
@@ -64,8 +64,8 @@ export const registerCommands = (options: RegisterCommandOptions) => {
 
 const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOptions) => {
 	return {
-		"roo-code-pro.activationCompleted": () => {},
-		"roo-code-pro.plusButtonClicked": async () => {
+		"roo-vibecoding.activationCompleted": () => {},
+		"roo-vibecoding.plusButtonClicked": async () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -78,7 +78,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 			await visibleProvider.postStateToWebview()
 			await visibleProvider.postMessageToWebview({ type: "action", action: "chatButtonClicked" })
 		},
-		"roo-code-pro.mcpButtonClicked": () => {
+		"roo-vibecoding.mcpButtonClicked": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -89,7 +89,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 
 			visibleProvider.postMessageToWebview({ type: "action", action: "mcpButtonClicked" })
 		},
-		"roo-code-pro.promptsButtonClicked": () => {
+		"roo-vibecoding.promptsButtonClicked": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -100,13 +100,13 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 
 			visibleProvider.postMessageToWebview({ type: "action", action: "promptsButtonClicked" })
 		},
-		"roo-code-pro.popoutButtonClicked": () => {
+		"roo-vibecoding.popoutButtonClicked": () => {
 			telemetryService.captureTitleButtonClicked("popout")
 
 			return openClineInNewTab({ context, outputChannel })
 		},
-		"roo-code-pro.openInNewTab": () => openClineInNewTab({ context, outputChannel }),
-		"roo-code-pro.settingsButtonClicked": () => {
+		"roo-vibecoding.openInNewTab": () => openClineInNewTab({ context, outputChannel }),
+		"roo-vibecoding.settingsButtonClicked": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -119,7 +119,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 			// Also explicitly post the visibility message to trigger scroll reliably
 			visibleProvider.postMessageToWebview({ type: "action", action: "didBecomeVisible" })
 		},
-		"roo-code-pro.historyButtonClicked": () => {
+		"roo-vibecoding.historyButtonClicked": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -130,7 +130,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 
 			visibleProvider.postMessageToWebview({ type: "action", action: "historyButtonClicked" })
 		},
-		"roo-code-pro.showHumanRelayDialog": (params: { requestId: string; promptText: string }) => {
+		"roo-vibecoding.showHumanRelayDialog": (params: { requestId: string; promptText: string }) => {
 			const panel = getPanel()
 
 			if (panel) {
@@ -141,20 +141,20 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 				})
 			}
 		},
-		"roo-code-pro.registerHumanRelayCallback": registerHumanRelayCallback,
-		"roo-code-pro.unregisterHumanRelayCallback": unregisterHumanRelayCallback,
-		"roo-code-pro.handleHumanRelayResponse": handleHumanRelayResponse,
-		"roo-code-pro.newTask": handleNewTask,
-		"roo-code-pro.setCustomStoragePath": async () => {
+		"roo-vibecoding.registerHumanRelayCallback": registerHumanRelayCallback,
+		"roo-vibecoding.unregisterHumanRelayCallback": unregisterHumanRelayCallback,
+		"roo-vibecoding.handleHumanRelayResponse": handleHumanRelayResponse,
+		"roo-vibecoding.newTask": handleNewTask,
+		"roo-vibecoding.setCustomStoragePath": async () => {
 			const { promptForCustomStoragePath } = await import("../shared/storagePathManager")
 			await promptForCustomStoragePath()
 		},
-		"roo-code-pro.focusInput": async () => {
+		"roo-vibecoding.focusInput": async () => {
 			try {
 				const panel = getPanel()
 
 				if (!panel) {
-					await vscode.commands.executeCommand("workbench.view.extension.roo-code-pro-ActivityBar")
+					await vscode.commands.executeCommand("workbench.view.extension.roo-vibecoding-ActivityBar")
 				} else if (panel === tabPanel) {
 					panel.reveal(vscode.ViewColumn.Active, false)
 				} else if (panel === sidebarPanel) {
@@ -165,7 +165,7 @@ const getCommandsMap = ({ context, outputChannel, provider }: RegisterCommandOpt
 				outputChannel.appendLine(`Error focusing input: ${error}`)
 			}
 		},
-		"roo-code-pro.acceptInput": () => {
+		"roo-vibecoding.acceptInput": () => {
 			const visibleProvider = getVisibleProviderOrLog(outputChannel)
 
 			if (!visibleProvider) {
@@ -196,7 +196,7 @@ export const openClineInNewTab = async ({ context, outputChannel }: Omit<Registe
 
 	const targetCol = hasVisibleEditors ? Math.max(lastCol + 1, 1) : vscode.ViewColumn.Two
 
-	const newPanel = vscode.window.createWebviewPanel(ClineProvider.tabPanelId, "Roo Code Pro", targetCol, {
+	const newPanel = vscode.window.createWebviewPanel(ClineProvider.tabPanelId, "Roo Vibecoding", targetCol, {
 		enableScripts: true,
 		retainContextWhenHidden: true,
 		localResourceRoots: [context.extensionUri],

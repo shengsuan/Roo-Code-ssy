@@ -303,7 +303,7 @@ export function NewRun() {
 										<div className="flex items-center gap-1 p-2 border-b">
 											<CircleCheck className="size-4 text-ring" />
 											<div className="text-sm">
-												Imported valid Roo Code Pro settings. Showing differences from default
+												Imported valid Roo Vibecoding settings. Showing differences from default
 												settings.
 											</div>
 										</div>

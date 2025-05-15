@@ -2,10 +2,10 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • <b>Türkçe</b> • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Roo Code Pro'a Katkıda Bulunma
+# Roo Vibecoding'a Katkıda Bulunma
 
-Roo Code Pro, topluluk odaklı bir projedir ve her katkıyı çok önemsiyoruz. Herkes için sorunsuz ve etkili bir süreç sağlamak için **"[Issue-First](#2-temel-ilke-issue-first-yaklaşımı)" yaklaşımıyla çalışıyoruz.** Yani, tüm çalışmalar bir Pull Request gönderilmeden _önce_ bir GitHub Issue'ya bağlı olmalı (ayrıntılar için [PR Politikamıza](#pull-request-pr-politikası) bakabilirsin). Nasıl katkı sağlayacağını anlamak için lütfen bu rehberi dikkatlice oku.
-Bu rehber, Roo Code Pro'a nasıl katkı sağlayabileceğini; ister hata düzelt, ister yeni özellik ekle, ister dokümantasyonu geliştir, adım adım açıklar.
+Roo Vibecoding, topluluk odaklı bir projedir ve her katkıyı çok önemsiyoruz. Herkes için sorunsuz ve etkili bir süreç sağlamak için **"[Issue-First](#2-temel-ilke-issue-first-yaklaşımı)" yaklaşımıyla çalışıyoruz.** Yani, tüm çalışmalar bir Pull Request gönderilmeden _önce_ bir GitHub Issue'ya bağlı olmalı (ayrıntılar için [PR Politikamıza](#pull-request-pr-politikası) bakabilirsin). Nasıl katkı sağlayacağını anlamak için lütfen bu rehberi dikkatlice oku.
+Bu rehber, Roo Vibecoding'a nasıl katkı sağlayabileceğini; ister hata düzelt, ister yeni özellik ekle, ister dokümantasyonu geliştir, adım adım açıklar.
 
 ## İçindekiler
 
@@ -46,7 +46,7 @@ Tüm katkı sağlayanlar [Davranış Kuralları](https://github.com/RooVetGit/Ro
 
 ### 2. Proje Yol Haritasını Anlamak
 
-Roo Code Pro'un önceliklerimizi ve gelecekteki yönümüzü belirleyen net bir geliştirme yol haritası var. Yol haritasını anlamak sana şunları sağlar:
+Roo Vibecoding'un önceliklerimizi ve gelecekteki yönümüzü belirleyen net bir geliştirme yol haritası var. Yol haritasını anlamak sana şunları sağlar:
 
 - Katkılarını proje hedefleriyle uyumlu hale getirmek
 - Uzmanlığının en değerli olacağı alanları bulmak
@@ -75,12 +75,12 @@ Roo Code'u, yapay zeka destekli kodlama araçlarıyla çalışan geliştiriciler
 
 Yol haritası hedeflerimizi ilerleten katkılar özellikle memnuniyetle karşılanır. Bu sütunlarla uyumlu bir şey üzerinde çalışıyorsan, lütfen PR açıklamanda belirt.
 
-### 3. Roo Code Pro Topluluğuna Katıl
+### 3. Roo Vibecoding Topluluğuna Katıl
 
-Roo Code Pro topluluğuyla bağlantı kurmak başlamak için harika bir yoldur:
+Roo Vibecoding topluluğuyla bağlantı kurmak başlamak için harika bir yoldur:
 
 - **Ana yöntem**:
-    1.  [Roo Code Pro Discord topluluğuna](https://discord.gg/roocode) katıl.
+    1.  [Roo Vibecoding Discord topluluğuna](https://discord.gg/roocode) katıl.
     2.  Katıldıktan sonra **Hannes Rudolph**'a (Discord: `hrudolph`) DM gönder, ilgini belirt ve rehberlik al.
 - **Deneyimli katkı sağlayanlar için alternatif**: Issue-First yaklaşımına alışkınsan, doğrudan GitHub üzerinden [Kanban panosunu](https://github.com/orgs/RooVetGit/projects/1) takip ederek ve issue ile pull request'lerle iletişim kurarak katılabilirsin.
 
@@ -117,8 +117,8 @@ Bu yaklaşım, çalışmaları takip etmemize, değişikliklerin istenip istenme
 
 ### 3. Ne Üzerinde Çalışacağına Karar Verme
 
-- **Good First Issues**: GitHub'daki [Roo Code Pro Issues Projesi](https://github.com/orgs/RooVetGit/projects/1)'nin "Issue [Unassigned]" bölümüne bak.
-- **Dokümantasyon**: Bu `CONTRIBUTING.md` kod katkısı için ana rehberdir, ancak başka dokümantasyonlara (kullanıcı rehberleri veya API dokümanları gibi) katkı sağlamak istiyorsan [Roo Code Pro Docs deposuna](https://github.com/RooVetGit/Roo-Code-Docs) bak veya Discord topluluğunda sor.
+- **Good First Issues**: GitHub'daki [Roo Vibecoding Issues Projesi](https://github.com/orgs/RooVetGit/projects/1)'nin "Issue [Unassigned]" bölümüne bak.
+- **Dokümantasyon**: Bu `CONTRIBUTING.md` kod katkısı için ana rehberdir, ancak başka dokümantasyonlara (kullanıcı rehberleri veya API dokümanları gibi) katkı sağlamak istiyorsan [Roo Vibecoding Docs deposuna](https://github.com/RooVetGit/Roo-Code-Docs) bak veya Discord topluluğunda sor.
 - **Yeni özellikler önermek**:
     1.  **İlk fikir/tartışma**: Genel veya ilk özellik fikirleri için [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests)'da tartışma başlat.
     2.  **Resmi öneri**: Spesifik, uygulanabilir öneriler için [issue sayfamızda](https://github.com/RooVetGit/Roo-Code/issues/new/choose) "Detailed Feature Proposal" şablonunu kullanarak issue oluştur. Bu, **Issue-First Yaklaşımı**'nın anahtarıdır.
@@ -143,7 +143,7 @@ Kod yazarken ve gönderirken bu adımları takip et.
     - Forkunu yerel olarak klonla: `git clone https://github.com/KULLANICI_ADIN/Roo-Code.git`
 2.  **Bağımlılıkları yükle**: `npm run install:all`
 3.  **Webview (Geliştirici Modu) çalıştır**: `npm run dev` (Vite/React uygulaması için HMR ile)
-4.  **Eklentiyi debug et**: VS Code'da `F5` tuşuna bas (veya **Run** → **Start Debugging**) ve Roo Code Pro yüklü yeni bir Extension Development Host penceresi aç.
+4.  **Eklentiyi debug et**: VS Code'da `F5` tuşuna bas (veya **Run** → **Start Debugging**) ve Roo Vibecoding yüklü yeni bir Extension Development Host penceresi aç.
 
 Webview (`webview-ui`) değişiklikleri Hot Module Replacement sayesinde anında görünür. Ana eklenti (`src`) değişiklikleri için Extension Development Host'u yeniden başlatmak gerekir.
 

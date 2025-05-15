@@ -5,26 +5,26 @@ import { EditorUtils } from "../integrations/editor/EditorUtils"
 export type CodeActionName = "EXPLAIN" | "FIX" | "IMPROVE" | "ADD_TO_CONTEXT" | "NEW_TASK"
 
 export type CodeActionId =
-	| "roo-code-pro.explainCode"
-	| "roo-code-pro.fixCode"
-	| "roo-code-pro.improveCode"
-	| "roo-code-pro.addToContext"
-	| "roo-code-pro.newTask"
+	| "roo-vibecoding.explainCode"
+	| "roo-vibecoding.fixCode"
+	| "roo-vibecoding.improveCode"
+	| "roo-vibecoding.addToContext"
+	| "roo-vibecoding.newTask"
 
 export const ACTION_TITLES: Record<CodeActionName, string> = {
-	EXPLAIN: "Explain with Roo Code Pro",
-	FIX: "Fix with Roo Code Pro",
-	IMPROVE: "Improve with Roo Code Pro",
-	ADD_TO_CONTEXT: "Add to Roo Code Pro",
-	NEW_TASK: "New Roo Code Pro Task",
+	EXPLAIN: "Explain with Roo Vibecoding",
+	FIX: "Fix with Roo Vibecoding",
+	IMPROVE: "Improve with Roo Vibecoding",
+	ADD_TO_CONTEXT: "Add to Roo Vibecoding",
+	NEW_TASK: "New Roo Vibecoding Task",
 } as const
 
 export const COMMAND_IDS: Record<CodeActionName, CodeActionId> = {
-	EXPLAIN: "roo-code-pro.explainCode",
-	FIX: "roo-code-pro.fixCode",
-	IMPROVE: "roo-code-pro.improveCode",
-	ADD_TO_CONTEXT: "roo-code-pro.addToContext",
-	NEW_TASK: "roo-code-pro.newTask",
+	EXPLAIN: "roo-vibecoding.explainCode",
+	FIX: "roo-vibecoding.fixCode",
+	IMPROVE: "roo-vibecoding.improveCode",
+	ADD_TO_CONTEXT: "roo-vibecoding.addToContext",
+	NEW_TASK: "roo-vibecoding.newTask",
 } as const
 
 export class CodeActionProvider implements vscode.CodeActionProvider {

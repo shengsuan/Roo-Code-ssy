@@ -2,10 +2,10 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • <b>简体中文</b> • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# 参与 Roo Code Pro 贡献
+# 参与 Roo Vibecoding 贡献
 
-Roo Code Pro 是一个由社区驱动的项目，我们非常重视每一位贡献者。为了让每个人的贡献流程顺畅高效，**我们采用“[Issue-First](#2-关键原则-issue-first-方式)”原则。** 这意味着所有工作都必须在提交 Pull Request _之前_ 关联到一个 GitHub Issue（详情见[PR 政策](#pull-request-pr-政策)）。请认真阅读本指南，了解如何参与贡献。
-本指南介绍了如何为 Roo Code Pro 做出贡献，无论是修复 bug、添加新功能还是完善文档。
+Roo Vibecoding 是一个由社区驱动的项目，我们非常重视每一位贡献者。为了让每个人的贡献流程顺畅高效，**我们采用“[Issue-First](#2-关键原则-issue-first-方式)”原则。** 这意味着所有工作都必须在提交 Pull Request _之前_ 关联到一个 GitHub Issue（详情见[PR 政策](#pull-request-pr-政策)）。请认真阅读本指南，了解如何参与贡献。
+本指南介绍了如何为 Roo Vibecoding 做出贡献，无论是修复 bug、添加新功能还是完善文档。
 
 ## 目录
 
@@ -19,7 +19,7 @@ Roo Code Pro 是一个由社区驱动的项目，我们非常重视每一位贡�
         - [文档](#文档)
         - [稳定性](#稳定性)
         - [国际化](#国际化)
-    - [3. 加入 Roo Code Pro 社区](#3-加入-roo-code-社区)
+    - [3. 加入 Roo Vibecoding 社区](#3-加入-roo-code-社区)
 =======
         - [可靠性优先](#可靠性优先)
         - [增强用户体验](#增强用户体验)
@@ -56,7 +56,7 @@ Roo Code Pro 是一个由社区驱动的项目，我们非常重视每一位贡�
 
 ### 2. 了解项目路线图
 
-Roo Code Pro 有清晰的发展路线图，指引我们的优先级和未来方向。了解路线图有助于你：
+Roo Vibecoding 有清晰的发展路线图，指引我们的优先级和未来方向。了解路线图有助于你：
 
 - 让你的贡献与项目目标保持一致
 - 找到你最擅长的领域
@@ -109,12 +109,12 @@ Roo Code Pro 有清晰的发展路线图，指引我们的优先级和未来方�
 
 #### 国际化
 
-我们希望 Roo Code Pro 说每个人的语言：
+我们希望 Roo Vibecoding 说每个人的语言：
 
-- 我们希望 Roo Code Pro 说每个人的语言
-- Queremos que Roo Code Pro hable el idioma de todos
-- हम चाहते हैं कि Roo Code Pro हर किसी की भाषा बोले
-- نريد أن يتحدث Roo Code Pro لغة الجميع
+- 我们希望 Roo Vibecoding 说每个人的语言
+- Queremos que Roo Vibecoding hable el idioma de todos
+- हम चाहते हैं कि Roo Vibecoding हर किसी की भाषा बोले
+- نريد أن يتحدث Roo Vibecoding لغة الجميع
 =======
 - 建立全面的评估基准（evals）来衡量实际工作中的生产力
 - 让每个人都能轻松运行和解读这些评估
@@ -123,12 +123,12 @@ Roo Code Pro 有清晰的发展路线图，指引我们的优先级和未来方�
 
 特别欢迎推进路线图目标的贡献。如果你的工作与这些方向相关，请在 PR 描述中说明。
 
-### 3. 加入 Roo Code Pro 社区
+### 3. 加入 Roo Vibecoding 社区
 
-加入 Roo Code Pro 社区是一个很好的起点：
+加入 Roo Vibecoding 社区是一个很好的起点：
 
 - **主要方式**：
-    1.  加入 [Roo Code Pro Discord 社区](https://discord.gg/roocode)。
+    1.  加入 [Roo Vibecoding Discord 社区](https://discord.gg/roocode)。
     2.  加入后，私信 **Hannes Rudolph**（Discord: `hrudolph`），表达你的兴趣并获取指导。
 - **有经验的贡献者可选**：如果你熟悉 Issue-First 方式，可以直接通过 GitHub 跟进 [看板](https://github.com/orgs/RooVetGit/projects/1)，通过 issue 和 pull request 沟通。
 
@@ -165,8 +165,8 @@ Roo Code Pro 有清晰的发展路线图，指引我们的优先级和未来方�
 
 ### 3. 决定要做什么
 
-- **Good First Issues**：查看 GitHub [Roo Code Pro Issues 项目](https://github.com/orgs/RooVetGit/projects/1) 的“未分配 Issue”部分。
-- **文档**：虽然本 `CONTRIBUTING.md` 是代码贡献主指南，但如想参与其他文档（如用户指南、API 文档），请查阅 [Roo Code Pro Docs 仓库](https://github.com/RooVetGit/Roo-Code-Docs) 或在 Discord 社区咨询。
+- **Good First Issues**：查看 GitHub [Roo Vibecoding Issues 项目](https://github.com/orgs/RooVetGit/projects/1) 的“未分配 Issue”部分。
+- **文档**：虽然本 `CONTRIBUTING.md` 是代码贡献主指南，但如想参与其他文档（如用户指南、API 文档），请查阅 [Roo Vibecoding Docs 仓库](https://github.com/RooVetGit/Roo-Code-Docs) 或在 Discord 社区咨询。
 - **提出新功能**：
     1.  **初步想法/讨论**：广泛或初步想法可在 [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests) 讨论。
     2.  **正式提案**：具体、可执行的建议请用 [issues 页面](https://github.com/RooVetGit/Roo-Code/issues/new/choose) 的“Detailed Feature Proposal”模板新建 issue。这是 **Issue-First 方式** 的关键环节。
@@ -191,7 +191,7 @@ Roo Code Pro 有清晰的发展路线图，指引我们的优先级和未来方�
     - 本地克隆你的 fork：`git clone https://github.com/你的用户名/Roo-Code.git`
 2.  **安装依赖**：`npm run install:all`
 3.  **运行 Webview（开发模式）**：`npm run dev`（适用于 Vite/React 应用，支持 HMR）
-4.  **调试扩展**：在 VS Code 按 `F5`（或 **Run** → **Start Debugging**），打开 Roo Code Pro 的 Extension Development Host 窗口
+4.  **调试扩展**：在 VS Code 按 `F5`（或 **Run** → **Start Debugging**），打开 Roo Vibecoding 的 Extension Development Host 窗口
 
 webview（`webview-ui`）的更改会通过热更新（HMR）即时生效。核心扩展（`src`）的更改需重启 Extension Development Host。
 

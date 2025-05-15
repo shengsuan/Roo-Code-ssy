@@ -102,7 +102,7 @@ export class API extends EventEmitter<RooCodeEvents> implements RooCodeAPI {
 			provider = await openClineInNewTab({ context: this.context, outputChannel: this.outputChannel })
 			this.registerListeners(provider)
 		} else {
-			await vscode.commands.executeCommand("roo-code-pro.SidebarProvider.focus")
+			await vscode.commands.executeCommand("roo-vibecoding.SidebarProvider.focus")
 
 			provider = this.sidebarProvider
 		}
@@ -112,7 +112,7 @@ export class API extends EventEmitter<RooCodeEvents> implements RooCodeAPI {
 
 			if (configuration.allowedCommands) {
 				await vscode.workspace
-					.getConfiguration("roo-code-pro")
+					.getConfiguration("roo-vibecoding")
 					.update("allowedCommands", configuration.allowedCommands, vscode.ConfigurationTarget.Global)
 			}
 		}

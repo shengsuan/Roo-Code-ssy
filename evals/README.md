@@ -1,10 +1,10 @@
-# Run Roo Code Pro Evals
+# Run Roo Vibecoding Evals
 
 ## Get Started
 
 NOTE: This is MacOS only for now!
 
-Clone the Roo Code Pro repo:
+Clone the Roo Vibecoding repo:
 
 ```sh
 git clone https://github.com/RooVetGit/Roo-Code.git

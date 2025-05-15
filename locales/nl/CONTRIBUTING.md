@@ -2,10 +2,10 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Bijdragen aan Roo Code Pro
+# Bijdragen aan Roo Vibecoding
 
-Roo Code Pro is een door de community gedreven project en we waarderen elke bijdrage enorm. Om het proces voor iedereen soepel en effectief te laten verlopen, **werken we volgens een "[Issue-First](#2-belangrijk-principe-issue-first-aanpak)" principe.** Dit betekent dat al het werk gekoppeld moet zijn aan een GitHub Issue _voordat_ er een Pull Request wordt ingediend (zie ons [PR-beleid](#pull-request-pr-beleid) voor details). Lees deze gids zorgvuldig door om te begrijpen hoe je kunt bijdragen.
-Deze gids beschrijft hoe je kunt bijdragen aan Roo Code Pro, of je nu bugs oplost, functies toevoegt of documentatie verbetert.
+Roo Vibecoding is een door de community gedreven project en we waarderen elke bijdrage enorm. Om het proces voor iedereen soepel en effectief te laten verlopen, **werken we volgens een "[Issue-First](#2-belangrijk-principe-issue-first-aanpak)" principe.** Dit betekent dat al het werk gekoppeld moet zijn aan een GitHub Issue _voordat_ er een Pull Request wordt ingediend (zie ons [PR-beleid](#pull-request-pr-beleid) voor details). Lees deze gids zorgvuldig door om te begrijpen hoe je kunt bijdragen.
+Deze gids beschrijft hoe je kunt bijdragen aan Roo Vibecoding, of je nu bugs oplost, functies toevoegt of documentatie verbetert.
 
 ## Inhoudsopgave
 
@@ -46,7 +46,7 @@ Alle bijdragers moeten zich houden aan onze [Gedragscode](https://github.com/Roo
 
 ### 2. De project-roadmap begrijpen
 
-Roo Code Pro heeft een duidelijke ontwikkel-roadmap die onze prioriteiten en toekomstige richting bepaalt. Door de roadmap te begrijpen kun je:
+Roo Vibecoding heeft een duidelijke ontwikkel-roadmap die onze prioriteiten en toekomstige richting bepaalt. Door de roadmap te begrijpen kun je:
 
 - Je bijdragen afstemmen op de projectdoelen
 - Gebieden vinden waar jouw expertise het meest waardevol is
@@ -75,12 +75,12 @@ We richten ons erop om Roo Code de beste keuze te maken voor ontwikkelaars die m
 
 We verwelkomen vooral bijdragen die onze roadmap-doelen bevorderen. Als je werkt aan iets dat aansluit bij deze pijlers, vermeld dit dan in je PR-beschrijving.
 
-### 3. Word lid van de Roo Code Pro-community
+### 3. Word lid van de Roo Vibecoding-community
 
-Contact maken met de Roo Code Pro-community is een geweldige manier om te beginnen:
+Contact maken met de Roo Vibecoding-community is een geweldige manier om te beginnen:
 
 - **Hoofdmethode**:
-    1.  Word lid van de [Roo Code Pro Discord-community](https://discord.gg/roocode).
+    1.  Word lid van de [Roo Vibecoding Discord-community](https://discord.gg/roocode).
     2.  Stuur vervolgens een direct bericht (DM) naar **Hannes Rudolph** (Discord: `hrudolph`) om je interesse te bespreken en advies te krijgen.
 - **Alternatief voor ervaren bijdragers**: Als je vertrouwd bent met de Issue-First-aanpak, kun je direct via GitHub meedoen door het [Kanban-bord](https://github.com/orgs/RooVetGit/projects/1) te volgen en te communiceren via issues en pull requests.
 
@@ -117,8 +117,8 @@ Deze aanpak helpt ons om werk te volgen, te zorgen dat wijzigingen gewenst zijn 
 
 ### 3. Bepalen waar je aan werkt
 
-- **Good First Issues**: Bekijk de sectie "Issue [Unassigned]" van ons [Roo Code Pro Issues-project](https://github.com/orgs/RooVetGit/projects/1) op GitHub.
-- **Documentatie**: Hoewel deze `CONTRIBUTING.md` de hoofdgids is voor codebijdragen, als je wilt bijdragen aan andere documentatie (zoals gebruikershandleidingen of API-documentatie), bekijk dan de [Roo Code Pro Docs-repository](https://github.com/RooVetGit/Roo-Code-Docs) of vraag het in de Discord-community.
+- **Good First Issues**: Bekijk de sectie "Issue [Unassigned]" van ons [Roo Vibecoding Issues-project](https://github.com/orgs/RooVetGit/projects/1) op GitHub.
+- **Documentatie**: Hoewel deze `CONTRIBUTING.md` de hoofdgids is voor codebijdragen, als je wilt bijdragen aan andere documentatie (zoals gebruikershandleidingen of API-documentatie), bekijk dan de [Roo Vibecoding Docs-repository](https://github.com/RooVetGit/Roo-Code-Docs) of vraag het in de Discord-community.
 - **Nieuwe functies voorstellen**:
     1.  **Eerste idee/discussie**: Voor brede of eerste ideeën, start een gesprek in [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests).
     2.  **Formeel voorstel**: Voor specifieke, uitvoerbare voorstellen, maak een "Detailed Feature Proposal"-issue aan met de template op onze [issues-pagina](https://github.com/RooVetGit/Roo-Code/issues/new/choose). Dit is een belangrijk onderdeel van onze **Issue-First-aanpak**.
@@ -143,7 +143,7 @@ Volg deze stappen voor het coderen en indienen van je werk.
     - Clone je fork lokaal: `git clone https://github.com/JOUW_GEBRUIKERSNAAM/Roo-Code.git`
 2.  **Installeer afhankelijkheden**: `npm run install:all`
 3.  **Start Webview (Dev Mode)**: `npm run dev` (voor de Vite/React-app met HMR)
-4.  **Debug de extensie**: Druk op `F5` in VS Code (of **Run** → **Start Debugging**) om een nieuw Extension Development Host-venster met Roo Code Pro te openen.
+4.  **Debug de extensie**: Druk op `F5` in VS Code (of **Run** → **Start Debugging**) om een nieuw Extension Development Host-venster met Roo Vibecoding te openen.
 
 Wijzigingen in webview (`webview-ui`) verschijnen direct dankzij Hot Module Replacement. Wijzigingen aan de core-extensie (`src`) vereisen een herstart van de Extension Development Host.
 
