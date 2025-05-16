@@ -12,7 +12,7 @@ English • [Català](locales/ca/README.md) • [Deutsch](locales/de/README.md) 
 </div>
 <br>
 <div align="center">
-  <h1>Roo Vibecoding (prev. Roo Cline)</h1>
+  <h1>Roo Code Chinese SSY (prev. Roo Cline)</h1>
   <p align="center">
   <img src="https://media.githubusercontent.com/media/RooVetGit/Roo-Code/main/assets/docs/demo.gif" width="100%" />
   </p>
@@ -34,7 +34,7 @@ English • [Català](locales/ca/README.md) • [Deutsch](locales/de/README.md) 
 
 </div>
 
-**Roo Vibecoding** is an AI-powered **autonomous coding agent** that lives in your editor. It can:
+**Roo Code Chinese SSY** is an AI-powered **autonomous coding agent** that lives in your editor. It can:
 
 - Communicate in natural language
 - Read and write files directly in your workspace
@@ -43,21 +43,15 @@ English • [Català](locales/ca/README.md) • [Deutsch](locales/de/README.md) 
 - Integrate with any OpenAI-compatible or custom API/model
 - Adapt its “personality” and capabilities through **Custom Modes**
 
-Whether you’re seeking a flexible coding partner, a system architect, or specialized roles like a QA engineer or product manager, Roo Vibecoding can help you build software more efficiently.
+Whether you’re seeking a flexible coding partner, a system architect, or specialized roles like a QA engineer or product manager, Roo Code Chinese SSY can help you build software more efficiently.
 
 Check out the [CHANGELOG](CHANGELOG.md) for detailed updates and fixes.
 
 ---
 
-<<<<<<< HEAD
-## 🎉 Roo Vibecoding 3.16 Released
-
-Roo Vibecoding 3.16 brings new features and improvements based on your feedback!
-=======
 ## 🎉 Roo Code 3.17 Released
 
 Roo Code 3.17 brings powerful new features and improvements based on your feedback!
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 - **Implicit Caching for Gemini** - Gemini API calls are now automatically cached, reducing API costs.
 - **Smarter Mode Selection** - Mode definitions can now include guidance on when each mode should be used, enabling better orchestration.
@@ -65,7 +59,7 @@ Roo Code 3.17 brings powerful new features and improvements based on your feedba
 
 ---
 
-## What Can Roo Vibecoding Do?
+## What Can Roo Code Chinese SSY Do?
 
 - 🚀 **Generate Code** from natural language descriptions
 - 🔧 **Refactor & Debug** existing code
@@ -76,7 +70,7 @@ Roo Code 3.17 brings powerful new features and improvements based on your feedba
 
 ## Quick Start
 
-1. [Install Roo Vibecoding](https://docs.roocode.com/getting-started/installing)
+1. [Install Roo Code Chinese SSY](https://docs.roocode.com/getting-started/installing)
 2. [Connect Your AI Provider](https://docs.roocode.com/getting-started/connecting-api-provider)
 3. [Try Your First Task](https://docs.roocode.com/getting-started/your-first-task)
 
@@ -84,7 +78,7 @@ Roo Code 3.17 brings powerful new features and improvements based on your feedba
 
 ### Multiple Modes
 
-Roo Vibecoding adapts to your needs with specialized [modes](https://docs.roocode.com/basic-usage/using-modes):
+Roo Code Chinese SSY adapts to your needs with specialized [modes](https://docs.roocode.com/basic-usage/using-modes):
 
 - **Code Mode:** For general-purpose coding tasks
 - **Architect Mode:** For planning and technical leadership
@@ -94,18 +88,18 @@ Roo Vibecoding adapts to your needs with specialized [modes](https://docs.roocod
 
 ### Smart Tools
 
-Roo Vibecoding comes with powerful [tools](https://docs.roocode.com/basic-usage/how-tools-work) that can:
+Roo Code Chinese SSY comes with powerful [tools](https://docs.roocode.com/basic-usage/how-tools-work) that can:
 
 - Read and write files in your project
 - Execute commands in your VS Code terminal
 - Control a web browser
 - Use external tools via [MCP (Model Context Protocol)](https://docs.roocode.com/advanced-usage/mcp)
 
-MCP extends Roo Vibecoding's capabilities by allowing you to add unlimited custom tools. Integrate with external APIs, connect to databases, or create specialized development tools - MCP provides the framework to expand Roo Vibecoding's functionality to meet your specific needs.
+MCP extends Roo Code Chinese SSY's capabilities by allowing you to add unlimited custom tools. Integrate with external APIs, connect to databases, or create specialized development tools - MCP provides the framework to expand Roo Code Chinese SSY's functionality to meet your specific needs.
 
 ### Customization
 
-Make Roo Vibecoding work your way with:
+Make Roo Code Chinese SSY work your way with:
 
 - [Custom Instructions](https://docs.roocode.com/advanced-usage/custom-instructions) for personalized behavior
 - [Custom Modes](https://docs.roocode.com/advanced-usage/custom-modes) for specialized tasks
@@ -149,7 +143,7 @@ npm run dev
 ```
 
 4. **Debug**:
-   Press `F5` (or **Run** → **Start Debugging**) in VSCode to open a new session with Roo Vibecoding loaded.
+   Press `F5` (or **Run** → **Start Debugging**) in VSCode to open a new session with Roo Code Chinese SSY loaded.
 
 Changes to the webview will appear immediately. Changes to the core extension will require a restart of the extension host.
 
@@ -171,7 +165,7 @@ We use [changesets](https://github.com/changesets/changesets) for versioning and
 
 ## Disclaimer
 
-**Please note** that Roo Vibecoding, Inc does **not** make any representations or warranties regarding any code, models, or other tools provided or made available in connection with Roo Vibecoding, any associated third-party tools, or any resulting outputs. You assume **all risks** associated with the use of any such tools or outputs; such tools are provided on an **"AS IS"** and **"AS AVAILABLE"** basis. Such risks may include, without limitation, intellectual property infringement, cyber vulnerabilities or attacks, bias, inaccuracies, errors, defects, viruses, downtime, property loss or damage, and/or personal injury. You are solely responsible for your use of any such tools or outputs (including, without limitation, the legality, appropriateness, and results thereof).
+**Please note** that Roo Code Chinese SSY, Inc does **not** make any representations or warranties regarding any code, models, or other tools provided or made available in connection with Roo Code Chinese SSY, any associated third-party tools, or any resulting outputs. You assume **all risks** associated with the use of any such tools or outputs; such tools are provided on an **"AS IS"** and **"AS AVAILABLE"** basis. Such risks may include, without limitation, intellectual property infringement, cyber vulnerabilities or attacks, bias, inaccuracies, errors, defects, viruses, downtime, property loss or damage, and/or personal injury. You are solely responsible for your use of any such tools or outputs (including, without limitation, the legality, appropriateness, and results thereof).
 
 ---
 
@@ -183,7 +177,7 @@ We love community contributions! Get started by reading our [CONTRIBUTING.md](CO
 
 ## Contributors
 
-Thanks to all our contributors who have helped make Roo Vibecoding better!
+Thanks to all our contributors who have helped make Roo Code Chinese SSY better!
 
 <!-- START CONTRIBUTORS SECTION - AUTO-GENERATED, DO NOT EDIT MANUALLY -->
 
@@ -220,8 +214,8 @@ Thanks to all our contributors who have helped make Roo Vibecoding better!
 
 ## License
 
-[Apache 2.0 © 2025 Roo Vibecoding, Inc.](./LICENSE)
+[Apache 2.0 © 2025 Roo Code Chinese SSY, Inc.](./LICENSE)
 
 ---
 
-**Enjoy Roo Vibecoding!** Whether you keep it on a short leash or let it roam autonomously, we can’t wait to see what you build. If you have questions or feature ideas, drop by our [Reddit community](https://www.reddit.com/r/RooCode/) or [Discord](https://discord.gg/roocode). Happy coding!
+**Enjoy Roo Code Chinese SSY!** Whether you keep it on a short leash or let it roam autonomously, we can’t wait to see what you build. If you have questions or feature ideas, drop by our [Reddit community](https://www.reddit.com/r/RooCode/) or [Discord](https://discord.gg/roocode). Happy coding!

@@ -5,7 +5,7 @@ import { initReactI18next } from "react-i18next"
 const translations: Record<string, Record<string, any>> = {
 	en: {
 		chat: {
-			greeting: "What can Roo Vibecoding do for you?",
+			greeting: "What can Roo Code Chinese SSY do for you?",
 		},
 		settings: {
 			autoApprove: {
@@ -20,7 +20,7 @@ const translations: Record<string, Record<string, any>> = {
 	},
 	es: {
 		chat: {
-			greeting: "¿Qué puede hacer Roo Vibecoding por ti?",
+			greeting: "¿Qué puede hacer Roo Code Chinese SSY por ti?",
 		},
 	},
 }

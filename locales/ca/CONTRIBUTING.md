@@ -2,7 +2,7 @@
 
 [日本語](../ja/CONTRIBUTING.md) • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Contribuir a Roo Vibecoding
+# Contribuir a Roo Code Chinese SSY
 
 Roo Code és un projecte impulsat per la comunitat i valorem molt cada contribució. Per simplificar la col·laboració, treballem amb un enfoc [Issue-First](#enfoc-issue-first), que significa que tots els [Pull Requests (PRs)](#enviar-un-pull-request) han d'estar primer vinculats a una Issue de GitHub. Si us plau, llegeix aquesta guia amb atenció.
 
@@ -21,11 +21,7 @@ Tots els col·laboradors han de complir el nostre [Codi de conducta](./CODE_OF_C
 
 ### 2. Fulla de ruta del projecte
 
-<<<<<<< HEAD
-Roo Vibecoding té una fulla de ruta clara que guia les nostres prioritats i direcció futura. Entendre-la t'ajuda a:
-=======
 La nostra fulla de ruta orienta la direcció del projecte. Alinea les teves contribucions amb aquests objectius clau:
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 ### Fiabilitat primer
 
@@ -47,21 +43,12 @@ La nostra fulla de ruta orienta la direcció del projecte. Alinea les teves cont
 
 Esmenta la relació amb aquestes àrees als teus PRs.
 
-### 3. Uneix-te a la comunitat Roo Vibecoding
+### 3. Uneix-te a la comunitat Roo Code Chinese SSY
 
-<<<<<<< HEAD
-Connectar amb la comunitat Roo Vibecoding és una excel·lent manera de començar:
-
-- **Mètode principal**:
-    1.  Uneix-te a la [comunitat Roo Vibecoding a Discord](https://discord.gg/roocode).
-    2.  Un cop dins, envia un missatge directe (DM) a **Hannes Rudolph** (Discord: `hrudolph`) per comentar el teu interès i rebre orientació.
-- **Alternativa per a col·laboradors experimentats**: Si et sents còmode amb l'enfoc issue-first, pots participar directament a GitHub seguint el [tauler Kanban](https://github.com/orgs/RooVetGit/projects/1) i comunicant-te mitjançant issues i pull requests.
-=======
 - **Principal:** Uneix-te al nostre [Discord](https://discord.gg/roocode) i envia un DM a **Hannes Rudolph (`hrudolph`)**.
 - **Alternativa:** Els col·laboradors experimentats poden participar directament via [GitHub Projects](https://github.com/orgs/RooVetGit/projects/1).
 
 ## Trobar i planificar la teva contribució
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 ### Tipus de contribucions
 
@@ -92,50 +79,14 @@ Totes les contribucions han de començar amb una Issue de GitHub.
 - Crea nous informes d'errors utilitzant la [plantilla "Bug Report"](https://github.com/RooVetGit/Roo-Code/issues/new/choose).
 - **Vulnerabilitats de seguretat:** Informa de manera privada via [security advisories](https://github.com/RooVetGit/Roo-Code/security/advisories/new).
 
-<<<<<<< HEAD
-- **Good First Issues**: Consulta la secció "Issue [Unassigned]" del nostre [Projecte Roo Vibecoding Issues](https://github.com/orgs/RooVetGit/projects/1) a GitHub.
-- **Documentació**: Tot i que aquest `CONTRIBUTING.md` és la guia principal per a contribucions de codi, si t'interessa contribuir a altra documentació (com guies d'usuari o API), revisa el [repositori Roo Vibecoding Docs](https://github.com/RooVetGit/Roo-Code-Docs) o pregunta a la comunitat de Discord.
-- **Proposar noves funcionalitats**:
-    1.  **Idea inicial/discussió**: Per a idees generals o inicials, inicia una conversa a [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests).
-    2.  **Proposta formal**: Per a propostes específiques i llestes per a consideració, crea una issue de "Detailed Feature Proposal" utilitzant la plantilla a la nostra [pàgina d'issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose). Això és clau en el nostre **enfoc Issue-First**.
-=======
 ## Procés de desenvolupament i enviament
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 ### Configuració de desenvolupament
 
 1. **Fork & Clona:**
 
-<<<<<<< HEAD
-1.  **Cerca issues existents**: Revisa [GitHub Issues](https://github.com/RooVetGit/Roo-Code/issues) per veure si ja està reportat.
-2.  **Crea una nova issue**: Si és únic, utilitza la plantilla "Bug Report" a la nostra [pàgina d'issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose).
-
-> 🔐 **Vulnerabilitats de seguretat**: Si descobreixes una vulnerabilitat de seguretat, informa-la de manera privada utilitzant l'[eina d'avisos de seguretat de GitHub](https://github.com/RooVetGit/Roo-Code/security/advisories/new). No creïs una issue pública per a vulnerabilitats de seguretat.
-
-## III. Procés de desenvolupament i enviament
-
-Segueix aquests passos per programar i enviar la teva feina.
-
-### 1. Configuració de desenvolupament
-
-1.  **Fork & Clona**:
-    - Fes un fork del repositori a GitHub.
-    - Clona el teu fork localment: `git clone https://github.com/EL_TEU_USUARI/Roo-Code.git`
-2.  **Instal·la les dependències**: `npm run install:all`
-3.  **Executa Webview (mode dev)**: `npm run dev` (per a l'app Vite/React amb HMR)
-4.  **Depura l'extensió**: Prem `F5` a VS Code (o **Run** → **Start Debugging**) per obrir una nova finestra Extension Development Host amb Roo Vibecoding carregat.
-
-Els canvis a webview (`webview-ui`) apareixeran immediatament gràcies a Hot Module Replacement. Els canvis a l'extensió principal (`src`) requeriran reiniciar l'Extension Development Host.
-
-Alternativament, per construir i instal·lar un paquet `.vsix`:
-
-```sh
-npm run build
-code --install-extension bin/roo-cline-<versió>.vsix
-=======
 ```
 git clone https://github.com/EL_TEU_USUARI/Roo-Code.git
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 ```
 
 2. **Instal·la dependències:**

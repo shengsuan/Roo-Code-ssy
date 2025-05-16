@@ -85,7 +85,7 @@ async function testPowerShellCommand(
 			executeCommand: jest.fn(),
 			cwd: vscode.Uri.file("/test/path"),
 		},
-		name: "Roo Vibecoding",
+		name: "Roo Code Chinese SSY",
 		processId: Promise.resolve(123),
 		creationOptions: {},
 		exitStatus: undefined,

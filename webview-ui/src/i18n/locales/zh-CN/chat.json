@@ -1,5 +1,5 @@
 {
-	"greeting": "欢迎使用 Roo 编程利器",
+	"greeting": "欢迎使用 Roo Code-中文版胜算云",
 	"task": {
 		"title": "任务",
 		"seeMore": "展开",
@@ -109,7 +109,7 @@
 	"diffError": {
 		"title": "编辑失败"
 	},
-	"troubleMessage": "Roo Code Pro遇到问题...",
+	"troubleMessage": "Roo Code-中文版胜算云遇到问题...",
 	"apiRequest": {
 		"title": "API请求",
 		"failed": "API请求失败",
@@ -135,7 +135,7 @@
 		"current": "当前"
 	},
 	"instructions": {
-		"wantsToFetch": "Roo 编程利器想要获取详细指示以协助当前任务"
+		"wantsToFetch": "Roo Code-中文版胜算云想要获取详细指示以协助当前任务"
 	},
 	"fileOperations": {
 		"wantsToRead": "需要读取文件:",
@@ -155,8 +155,8 @@
 		"didViewTopLevel": "已查看目录文件列表:",
 		"wantsToViewRecursive": "需要查看目录所有文件:",
 		"didViewRecursive": "已查看目录所有文件:",
-		"wantsToViewDefinitions": "Roo 编程利器想查看此目录中使用的源代码定义名称:",
-		"didViewDefinitions": "Roo 编程利器已查看此目录中使用的源代码定义名称:",
+		"wantsToViewDefinitions": "Roo Code-中文版胜算云想查看此目录中使用的源代码定义名称:",
+		"didViewDefinitions": "Roo Code-中文版胜算云已查看此目录中使用的源代码定义名称:",
 		"wantsToSearch": "需要搜索内容: {{regex}}",
 		"didSearch": "已完成内容搜索: {{regex}}"
 	},
@@ -164,8 +164,8 @@
 	"response": "响应",
 	"arguments": "参数",
 	"mcp": {
-		"wantsToUseTool": "Roo 编程利器想在{{serverName}} MCP上使用工具:",
-		"wantsToAccessResource": "Roo 编程利器想访问{{serverName}} MCP服务上的资源:"
+		"wantsToUseTool": "Roo Code-中文版胜算云想在{{serverName}} MCP上使用工具:",
+		"wantsToAccessResource": "Roo Code-中文版胜算云想访问{{serverName}} MCP服务上的资源:"
 	},
 	"modes": {
 		"wantsToSwitch": "即将切换至{{mode}}模式",
@@ -174,8 +174,8 @@
 		"didSwitchWithReason": "已切换至{{mode}}模式（原因：{{reason}}）"
 	},
 	"subtasks": {
-		"wantsToCreate": "Roo 编程利器想在<code>{{mode}}</code>模式下创建新子任务:",
-		"wantsToFinish": "Roo 编程利器想完成此子任务",
+		"wantsToCreate": "Roo Code-中文版胜算云想在<code>{{mode}}</code>模式下创建新子任务:",
+		"wantsToFinish": "Roo Code-中文版胜算云想完成此子任务",
 		"newTaskContent": "子任务说明",
 		"completionContent": "子任务已完成",
 		"resultContent": "子任务结果",
@@ -183,7 +183,7 @@
 		"completionInstructions": "子任务已完成！您可以查看结果并提出修改或下一步建议。如果一切正常，请确认以将结果返回给主任务。"
 	},
 	"questions": {
-		"hasQuestion": "Roo 编程利器有一个问题:"
+		"hasQuestion": "Roo Code-中文版胜算云有一个问题:"
 	},
 	"taskCompleted": "任务完成",
 	"powershell": {
@@ -202,8 +202,8 @@
 		"copyToInput": "复制到输入框（或按住Shift点击）"
 	},
 	"announcement": {
-		"title": "🎉 Roo 编程利器3.16 已发布",
-		"description": "Roo 编程利器3.16 带来基于您反馈的新功能和改进。",
+		"title": "🎉 Roo Code-中文版胜算云3.16 已发布",
+		"description": "Roo Code-中文版胜算云3.16 带来基于您反馈的新功能和改进。",
 		"whatsNew": "新特性",
 		"feature1": "<bold>Gemini 的隐式缓存</bold>: Gemini API 调用现在会自动缓存，降低 API 费用",
 		"feature2": "<bold>更智能的模式选择</bold>: 模式定义现在可以包含何时使用每种模式的指导，实现更好的协调",
@@ -212,7 +212,7 @@
 		"detailsDiscussLinks": "在 <discordLink>Discord</discordLink> 和 <redditLink>Reddit</redditLink> 获取更多详情并参与讨论 🚀"
 	},
 	"browser": {
-		"rooWantsToUse": "Roo 编程利器想使用浏览器:",
+		"rooWantsToUse": "Roo Code-中文版胜算云想使用浏览器:",
 		"consoleLogs": "控制台日志",
 		"noNewLogs": "(没有新日志)",
 		"screenshot": "浏览器截图",
@@ -245,7 +245,7 @@
 	"systemPromptWarning": "警告：自定义系统提示词覆盖已激活。这可能严重破坏功能并导致不可预测的行为。",
 	"shellIntegration": {
 		"title": "命令执行警告",
-		"description": "您的命令正在没有 VSCode 终端 shell 集成的情况下执行。要隐藏此警告，您可以在 <settingsLink>Roo 编程利器设置</settingsLink>的 <strong>Terminal</strong> 部分禁用 shell 集成，或使用下方链接排查 VSCode 终端集成问题。",
+		"description": "您的命令正在没有 VSCode 终端 shell 集成的情况下执行。要隐藏此警告，您可以在 <settingsLink>Roo Code-中文版胜算云设置</settingsLink>的 <strong>Terminal</strong> 部分禁用 shell 集成，或使用下方链接排查 VSCode 终端集成问题。",
 		"troubleshooting": "点击此处查看 shell 集成文档。"
 	}
 }

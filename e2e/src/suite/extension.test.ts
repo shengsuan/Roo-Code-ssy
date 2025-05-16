@@ -1,7 +1,7 @@
 import * as assert from "assert"
 import * as vscode from "vscode"
 
-suite("Roo Vibecoding Extension", () => {
+suite("Roo Code Chinese SSY Extension", () => {
 	test("Commands should be registered", async () => {
 		const expectedCommands = [
 			"roo-vibecoding.plusButtonClicked",

@@ -12,11 +12,11 @@ export type CodeActionId =
 	| "roo-vibecoding.newTask"
 
 export const ACTION_TITLES: Record<CodeActionName, string> = {
-	EXPLAIN: "Explain with Roo Vibecoding",
-	FIX: "Fix with Roo Vibecoding",
-	IMPROVE: "Improve with Roo Vibecoding",
-	ADD_TO_CONTEXT: "Add to Roo Vibecoding",
-	NEW_TASK: "New Roo Vibecoding Task",
+	EXPLAIN: "Explain with Roo Code Chinese SSY",
+	FIX: "Fix with Roo Code Chinese SSY",
+	IMPROVE: "Improve with Roo Code Chinese SSY",
+	ADD_TO_CONTEXT: "Add to Roo Code Chinese SSY",
+	NEW_TASK: "New Roo Code Chinese SSY Task",
 } as const
 
 export const COMMAND_IDS: Record<CodeActionName, CodeActionId> = {

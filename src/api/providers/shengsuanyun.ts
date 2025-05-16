@@ -21,6 +21,7 @@ import { getModelParams, SingleCompletionHandler } from "../index"
 import { DEFAULT_HEADERS, DEEP_SEEK_DEFAULT_TEMPERATURE } from "./constants"
 import { BaseProvider } from "./base-provider"
 import { getModels } from "./fetchers/modelCache"
+import { console } from "node:inspector"
 
 // Add custom interface for ShengSuanYun params (same as OpenRouter's params)
 type ShengSuanYunChatCompletionParams = OpenAI.Chat.ChatCompletionCreateParams & {
@@ -48,19 +49,16 @@ interface CompletionUsage {
 	cost?: number
 }
 
-export class ShengsuanyunHandler extends BaseProvider implements SingleCompletionHandler {
+export class ShengSuanYunHandler extends BaseProvider implements SingleCompletionHandler {
 	protected options: ApiHandlerOptions
 	private client: OpenAI
 	protected models: ModelRecord = {}
-	protected endpoints: ModelRecord = {}
 
 	constructor(options: ApiHandlerOptions) {
 		super()
 		this.options = options
-
 		const baseURL = "https://router.shengsuanyun.com/api/v1"
 		const apiKey = this.options.shengSuanYunApiKey ?? "not-provided"
-
 		this.client = new OpenAI({ baseURL, apiKey, defaultHeaders: DEFAULT_HEADERS })
 	}
 
@@ -68,16 +66,8 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 		systemPrompt: string,
 		messages: Anthropic.Messages.MessageParam[],
 	): AsyncGenerator<ApiStreamChunk> {
-		let {
-			id: modelId,
-			maxTokens,
-			thinking,
-			temperature,
-			topP,
-			reasoningEffort,
-			promptCache,
-		} = await this.fetchModel()
-
+		this.models = await getModels("shengsuanyun")
+		let { id: modelId, maxTokens, thinking, temperature, topP, reasoningEffort, promptCache } = this.getModel()
 		// Convert Anthropic messages to OpenAI format.
 		let openAiMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
 			{ role: "system", content: systemPrompt },
@@ -151,11 +141,6 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 		}
 	}
 
-	public async fetchModel() {
-		this.models = await getModels("shengsuanyun")
-		return this.getModel()
-	}
-
 	getModel() {
 		const id = this.options.shengSuanYunModelId ?? shengSuanYunDefaultModelId
 		let info = this.models[id] ?? shengSuanYunDefaultModelInfo
@@ -177,8 +162,7 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 	}
 
 	async completePrompt(prompt: string) {
-		let { id: modelId, maxTokens, thinking, temperature } = await this.fetchModel()
-
+		let { id: modelId, maxTokens, thinking, temperature } = this.getModel()
 		const completionParams: ShengSuanYunChatCompletionParams = {
 			model: modelId,
 			max_tokens: maxTokens,

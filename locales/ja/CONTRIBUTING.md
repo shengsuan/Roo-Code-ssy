@@ -2,7 +2,7 @@
 
 <b>日本語</b> • [한국어](../ko/CONTRIBUTING.md) • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Roo Vibecoding への貢献
+# Roo Code Chinese SSY への貢献
 
 Roo Code はコミュニティ主導のプロジェクトであり、すべての貢献を大切にしています。協力をスムーズにするため、[Issue-First](#issue-first-アプローチ)方式を採用しています。これはすべての[Pull Request (PR)](#pull-request-の提出)がまずGitHub Issueに紐付けられる必要があることを意味します。このガイドをよく読んでください。
 
@@ -43,7 +43,7 @@ Roo Code はコミュニティ主導のプロジェクトであり、すべて�
 
 PRでこれらの領域との関連性に言及してください。
 
-### 3. Roo Vibecoding コミュニティに参加する
+### 3. Roo Code Chinese SSY コミュニティに参加する
 
 - **主な方法：** [Discord](https://discord.gg/roocode)に参加し、**Hannes Rudolph (`hrudolph`)**にDMを送る。
 - **代替手段：** 経験豊富なコントリビューターは[GitHub Projects](https://github.com/orgs/RooVetGit/projects/1)を通じて直接参加できます。

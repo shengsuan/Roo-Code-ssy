@@ -2,7 +2,7 @@
 
 [日本語](../ja/CONTRIBUTING.md) • <b>한국어</b> • [Polski](../pl/CONTRIBUTING.md) • [Português (BR)](../pt-BR/CONTRIBUTING.md) • [Türkçe](../tr/CONTRIBUTING.md) • [Tiếng Việt](../vi/CONTRIBUTING.md) • [简体中文](../zh-CN/CONTRIBUTING.md) • [繁體中文](../zh-TW/CONTRIBUTING.md)
 
-# Roo Vibecoding 기여 가이드
+# Roo Code Chinese SSY 기여 가이드
 
 <<<<<<< HEAD
 Cline Pro는 커뮤니티 주도의 프로젝트이며, 모든 기여를 소중하게 생각합니다. 모두를 위한 원활하고 효과적인 프로세스를 위해 **"[Issue-First](#2-핵심-원칙-issue-first-접근법)" 원칙**을 따릅니다. 즉, 모든 작업은 Pull Request를 제출하기 _전에_ 반드시 GitHub Issue와 연결되어야 합니다(자세한 내용은 [PR 정책](#pull-request-pr-정책) 참고). 이 가이드를 꼼꼼히 읽고 기여 방법을 이해해 주세요.
@@ -20,7 +20,7 @@ Cline Pro는 커뮤니티 주도의 프로젝트이며, 모든 기여를 소중�
         - [문서화](#문서화)
         - [안정성](#안정성)
         - [국제화](#국제화)
-    - [3. Roo Vibecoding 커뮤니티 참여](#3-roo-code-커뮤니티-참여)
+    - [3. Roo Code Chinese SSY 커뮤니티 참여](#3-roo-code-커뮤니티-참여)
 =======
         - [신뢰성 우선](#신뢰성-우선)
         - [향상된 사용자 경험](#향상된-사용자-경험)
@@ -117,10 +117,10 @@ Roo가 모든 컴퓨터에서 잘 동작하도록 하고 싶습니다:
 
 Roo가 모두의 언어를 사용할 수 있도록 하고 싶습니다:
 
-- 我们希望 Roo Vibecoding 说每个人的语言
-- Queremos que Roo Vibecoding hable el idioma de todos
-- हम चाहते हैं कि Roo Vibecoding हर किसी की भाषा बोले
-- نريد أن يتحدث Roo Vibecoding لغة الجميع
+- 我们希望 Roo Code Chinese SSY 说每个人的语言
+- Queremos que Roo Code Chinese SSY hable el idioma de todos
+- हम चाहते हैं कि Roo Code Chinese SSY हर किसी की भाषा बोले
+- نريد أن يتحدث Roo Code Chinese SSY لغة الجميع
 =======
 - 실제 생산성을 측정하는 포괄적인 평가 기준(evals) 수립
 - 누구나 이러한 평가를 쉽게 실행하고 해석할 수 있도록 지원
@@ -133,13 +133,13 @@ Roo가 모두의 언어를 사용할 수 있도록 하고 싶습니다:
 
 PR에서 이러한 영역과의 연관성을 언급하세요.
 
-### 3. Roo Vibecoding 커뮤니티 참여
+### 3. Roo Code Chinese SSY 커뮤니티 참여
 
 <<<<<<< HEAD
-Roo Vibecoding 커뮤니티와 소통하는 것은 시작하기에 좋은 방법입니다:
+Roo Code Chinese SSY 커뮤니티와 소통하는 것은 시작하기에 좋은 방법입니다:
 
 - **주요 방법**:
-    1.  [Roo Vibecoding Discord 커뮤니티](https://discord.gg/roocode)에 가입하세요.
+    1.  [Roo Code Chinese SSY Discord 커뮤니티](https://discord.gg/roocode)에 가입하세요.
     2.  가입 후 **Hannes Rudolph**(Discord: `hrudolph`)에게 DM을 보내 관심을 알리고 안내를 받으세요.
 - **경험자용 대안**: Issue-First 접근법에 익숙하다면 [Kanban 보드](https://github.com/orgs/RooVetGit/projects/1)를 따라가며 GitHub에서 Issue 및 Pull Request로 직접 참여할 수 있습니다.
 =======
@@ -180,7 +180,7 @@ Roo Vibecoding 커뮤니티와 소통하는 것은 시작하기에 좋은 방법
 
 <<<<<<< HEAD
 - **Good First Issues**: GitHub의 [Issue [Unassigned] 섹션](https://github.com/orgs/RooVetGit/projects/1) 참고
-- **문서화**: 이 `CONTRIBUTING.md`는 코드 기여의 주요 가이드지만, 다른 문서(사용자 가이드, API 문서 등)에 기여하고 싶다면 [Roo Vibecoding Docs 저장소](https://github.com/RooVetGit/Roo-Code-Docs)를 참고하거나 Discord 커뮤니티에 문의하세요.
+- **문서화**: 이 `CONTRIBUTING.md`는 코드 기여의 주요 가이드지만, 다른 문서(사용자 가이드, API 문서 등)에 기여하고 싶다면 [Roo Code Chinese SSY Docs 저장소](https://github.com/RooVetGit/Roo-Code-Docs)를 참고하거나 Discord 커뮤니티에 문의하세요.
 - **새 기능 제안**:
     1.  **초기 아이디어/논의**: 큰 틀의 아이디어나 초기 제안은 [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests)에서 시작하세요.
     2.  **공식 제안**: 구체적이고 실행 가능한 제안은 [Issues 페이지](https://github.com/RooVetGit/Roo-Code/issues/new/choose)에서 "Detailed Feature Proposal" 템플릿으로 Issue를 만드세요. 이는 **Issue-First 접근법**의 핵심입니다.

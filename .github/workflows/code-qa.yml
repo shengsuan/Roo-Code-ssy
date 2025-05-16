@@ -1,4 +1,4 @@
-name: Code QA Roo Vibecoding
+name: Code QA Roo Code Chinese SSY
 
 on:
   workflow_dispatch:

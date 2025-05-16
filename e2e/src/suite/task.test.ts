@@ -4,7 +4,7 @@ import type { ClineMessage } from "../../../src/exports/roo-code"
 
 import { waitUntilCompleted } from "./utils"
 
-suite("Roo Vibecoding Task", () => {
+suite("Roo Code Chinese SSY Task", () => {
 	test("Should handle prompt and response correctly", async () => {
 		const api = globalThis.api
 

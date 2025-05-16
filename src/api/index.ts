@@ -23,7 +23,7 @@ import { RequestyHandler } from "./providers/requesty"
 import { HumanRelayHandler } from "./providers/human-relay"
 import { FakeAIHandler } from "./providers/fake-ai"
 import { XAIHandler } from "./providers/xai"
-import { ShengsuanyunHandler } from "./providers/shengsuanyun"
+import { ShengSuanYunHandler } from "./providers/shengsuanyun"
 import { GroqHandler } from "./providers/groq"
 import { ChutesHandler } from "./providers/chutes"
 import { LiteLLMHandler } from "./providers/litellm"
@@ -93,7 +93,7 @@ export function buildApiHandler(configuration: ProviderSettings): ApiHandler {
 		case "xai":
 			return new XAIHandler(options)
 		case "shengsuanyun":
-			return new ShengsuanyunHandler(options)
+			return new ShengSuanYunHandler(options)
 		case "groq":
 			return new GroqHandler(options)
 		case "chutes":

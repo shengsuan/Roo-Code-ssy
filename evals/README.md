@@ -1,10 +1,10 @@
-# Run Roo Vibecoding Evals
+# Run Roo Code Chinese SSY Evals
 
 ## Get Started
 
 NOTE: This is MacOS only for now!
 
-Clone the Roo Vibecoding repo:
+Clone the Roo Code Chinese SSY repo:
 
 ```sh
 git clone https://github.com/RooVetGit/Roo-Code.git
