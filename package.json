@@ -3,7 +3,7 @@
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
 	"publisher": "shengsuan-cloud",
-	"version": "3.17.1",
+	"version": "3.17.2",
 	"icon": "assets/images/shengsuanyun.png",
 	"galleryBanner": {
 		"color": "#617A91",
