@@ -4,129 +4,109 @@
 
 # Contribuire a Roo Vibecoding
 
-Roo Vibecoding è un progetto guidato dalla community e apprezziamo molto ogni contributo. Per garantire un processo fluido ed efficace per tutti, **operiamo secondo un approccio "[Issue-First](#2-principio-chiave-approccio-issue-first)".** Questo significa che ogni lavoro deve essere collegato a una Issue GitHub _prima_ di inviare una Pull Request (vedi la nostra [Politica PR](#politica-di-pull-request-pr) per i dettagli). Leggi attentamente questa guida per capire come contribuire.
-Questa guida spiega come contribuire a Roo Vibecoding, che tu stia correggendo bug, aggiungendo funzionalità o migliorando la documentazione.
+Roo Code è un progetto guidato dalla community e apprezziamo molto ogni contributo. Per semplificare la collaborazione, operiamo secondo un approccio [Issue-First](#approccio-issue-first), il che significa che tutte le [Pull Request (PR)](#inviare-una-pull-request) devono prima essere collegate a una Issue GitHub. Ti preghiamo di leggere attentamente questa guida.
 
 ## Indice
 
-- [I. Prima di contribuire](#i-prima-di-contribuire)
-    - [1. Codice di condotta](#1-codice-di-condotta)
-    - [2. Comprendere la roadmap del progetto](#2-comprendere-la-roadmap-del-progetto)
-        - [Affidabilità prima di tutto](#affidabilità-prima-di-tutto)
-        - [Esperienza utente migliorata](#esperienza-utente-migliorata)
-        - [Leadership nelle prestazioni degli agenti](#leadership-nelle-prestazioni-degli-agenti)
-    - [3. Unisciti alla community Roo Code](#3-unisciti-alla-community-roo-code)
-- [II. Trovare e pianificare il tuo contributo](#ii-trovare-e-pianificare-il-tuo-contributo)
-    - [1. Tipi di contributi](#1-tipi-di-contributi)
-    - [2. Principio chiave: Approccio Issue-First](#2-principio-chiave-approccio-issue-first)
-    - [3. Decidere su cosa lavorare](#3-decidere-su-cosa-lavorare)
-    - [4. Segnalare bug o problemi](#4-segnalare-bug-o-problemi)
-- [III. Processo di sviluppo e invio](#iii-processo-di-sviluppo-e-invio)
-    - [1. Configurazione dello sviluppo](#1-configurazione-dello-sviluppo)
-    - [2. Linee guida per scrivere codice](#2-linee-guida-per-scrivere-codice)
-    - [3. Inviare codice: Processo di Pull Request (PR)](#3-inviare-codice-processo-di-pull-request-pr)
-        - [Pull Request in bozza](#pull-request-in-bozza)
-        - [Descrizione della Pull Request](#descrizione-della-pull-request)
-        - [Politica di Pull Request (PR)](#politica-di-pull-request-pr)
-            - [Obiettivo](#obiettivo)
-            - [Approccio Issue-First](#approccio-issue-first)
-            - [Condizioni per PR aperte](#condizioni-per-pr-aperte)
-            - [Procedura](#procedura)
-            - [Responsabilità](#responsabilità)
-- [IV. Legale](#iv-legale)
-    - [Accordo di contributo](#accordo-di-contributo)
+- [Prima di contribuire](#prima-di-contribuire)
+- [Trovare e pianificare il tuo contributo](#trovare-e-pianificare-il-tuo-contributo)
+- [Processo di sviluppo e invio](#processo-di-sviluppo-e-invio)
+- [Legale](#legale)
 
-## I. Prima di contribuire
-
-Per prima cosa, familiarizza con i nostri standard di community e la direzione del progetto.
+## Prima di contribuire
 
 ### 1. Codice di condotta
 
-Tutti i collaboratori devono rispettare il nostro [Codice di condotta](https://github.com/RooVetGit/Roo-Code/blob/main/CODE_OF_CONDUCT.md). Leggilo prima di contribuire.
+Tutti i collaboratori devono rispettare il nostro [Codice di condotta](./CODE_OF_CONDUCT.md).
 
-### 2. Comprendere la roadmap del progetto
+### 2. Roadmap del progetto
 
+<<<<<<< HEAD
 Roo Vibecoding ha una roadmap di sviluppo chiara che guida le nostre priorità e la direzione futura. Comprenderla ti aiuta a:
+=======
+La nostra roadmap guida la direzione del progetto. Allinea i tuoi contributi con questi obiettivi chiave:
+>>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
-- Allineare i tuoi contributi agli obiettivi del progetto
-- Individuare le aree dove la tua esperienza è più preziosa
-- Capire il contesto dietro alcune decisioni di design
-- Trovare ispirazione per nuove funzionalità che supportano la nostra visione
-
-Ci concentriamo nel rendere Roo Code la scelta migliore per gli sviluppatori che lavorano con strumenti di codifica basati sull'IA. Ecco come lo faremo:
-
-#### Affidabilità prima di tutto
+### Affidabilità prima di tutto
 
 - Garantire che l'editing delle differenze e l'esecuzione dei comandi siano costantemente affidabili
 - Ridurre i punti di attrito che scoraggiano l'uso regolare
 - Garantire un funzionamento fluido in tutte le lingue e su tutte le piattaforme
 - Ampliare il supporto robusto per una vasta gamma di provider e modelli di IA
 
-#### Esperienza utente migliorata
+### Esperienza utente migliorata
 
 - Semplificare l'interfaccia utente per maggiore chiarezza e intuitività
-- Migliorare continuamente il flusso di lavoro per soddisfare le elevate aspettative che gli sviluppatori hanno per gli strumenti di uso quotidiano
+- Migliorare continuamente il flusso di lavoro per soddisfare le elevate aspettative degli sviluppatori
 
-#### Leadership nelle prestazioni degli agenti
+### Leadership nelle prestazioni degli agenti
 
 - Stabilire parametri di valutazione completi (evals) per misurare la produttività nel mondo reale
 - Rendere facile per tutti eseguire e interpretare queste valutazioni
-- Fornire miglioramenti a Roo Code che dimostrino chiari aumenti nei punteggi di valutazione
+- Fornire miglioramenti che dimostrino chiari aumenti nei punteggi di valutazione
 
-Accogliamo con particolare favore i contributi che fanno avanzare gli obiettivi della nostra roadmap. Se stai lavorando su qualcosa che si allinea con questi pilastri, menzionalo nella descrizione della tua PR.
+Menziona l'allineamento con queste aree nelle tue PR.
 
 ### 3. Unisciti alla community Roo Vibecoding
 
+<<<<<<< HEAD
 Entrare in contatto con la community Roo Vibecoding è un ottimo modo per iniziare:
 
 - **Metodo principale**:
     1.  Unisciti alla [community Roo Vibecoding su Discord](https://discord.gg/roocode).
     2.  Una volta dentro, invia un messaggio diretto (DM) a **Hannes Rudolph** (Discord: `hrudolph`) per discutere il tuo interesse e ricevere consigli.
 - **Alternativa per collaboratori esperti**: Se ti senti a tuo agio con l'approccio issue-first, puoi partecipare direttamente tramite GitHub seguendo la [Kanban board](https://github.com/orgs/RooVetGit/projects/1) e comunicando tramite issues e pull request.
+=======
+- **Principale:** Unisciti al nostro [Discord](https://discord.gg/roocode) e invia un DM a **Hannes Rudolph (`hrudolph`)**.
+- **Alternativa:** I collaboratori esperti possono partecipare direttamente tramite [GitHub Projects](https://github.com/orgs/RooVetGit/projects/1).
 
-## II. Trovare e pianificare il tuo contributo
+## Trovare e pianificare il tuo contributo
+>>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
-Individua su cosa vuoi lavorare e come affrontarlo.
+### Tipi di contributi
 
-### 1. Tipi di contributi
+- **Correzione bug:** Risolvere problemi nel codice.
+- **Nuove funzionalità:** Aggiungere nuove funzionalità.
+- **Documentazione:** Migliorare guide e chiarezza.
 
-Accettiamo vari tipi di contributi:
+### Approccio Issue-First
 
-- **Correzione bug**: Risolvere problemi nel codice esistente.
-- **Nuove funzionalità**: Aggiungere nuove funzionalità.
-- **Documentazione**: Migliorare guide, esempi o correggere errori di battitura.
+Tutti i contributi devono iniziare con una Issue GitHub.
 
-### 2. Principio chiave: Approccio Issue-First
+- **Verificare le issue esistenti:** Cerca su [GitHub Issues](https://github.com/RooVetGit/Roo-Code/issues).
+- **Creare una issue:** Usa i template appropriati:
+    - **Bug:** Template "Bug Report".
+    - **Funzionalità:** Template "Detailed Feature Proposal". Approvazione richiesta prima di iniziare.
+- **Reclamare issue:** Commenta e attendi l'assegnazione ufficiale.
 
-**Tutti i contributi devono iniziare con una Issue GitHub.** Questo è fondamentale per garantire l'allineamento ed evitare sforzi inutili.
+**Le PR senza issue approvate potrebbero essere chiuse.**
 
-- **Cerca o crea una Issue**:
-    - Prima di iniziare, cerca su [GitHub Issues](https://github.com/RooVetGit/Roo-Code/issues) se esiste già una issue per il tuo contributo.
-    - Se esiste e non è assegnata, commenta per esprimere il tuo interesse. Un maintainer te la assegnerà.
-    - Se non esiste, creane una nuova usando il template appropriato sulla nostra [pagina delle issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose):
-        - Per i bug, usa il template "Bug Report".
-        - Per nuove funzionalità, usa il template "Detailed Feature Proposal". Attendi l'approvazione di un maintainer (soprattutto @hannesrudolph) prima di iniziare a implementare.
-        - **Nota**: Idee generali o discussioni preliminari sulle funzionalità possono iniziare su [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests). Quando l'idea è più concreta, crea una issue "Detailed Feature Proposal".
-- **Claim e assegnazione**:
-    - Indica chiaramente la tua intenzione di lavorare su una issue commentando.
-    - Attendi che un maintainer te la assegni ufficialmente su GitHub. Così evitiamo che più persone lavorino sulla stessa cosa.
-- **Conseguenze del mancato rispetto**:
-    - Le Pull Request (PR) inviate senza una issue corrispondente, pre-approvata e assegnata possono essere chiuse senza revisione completa. Questa politica serve a garantire che i contributi siano allineati con le priorità del progetto e a rispettare il tempo di tutti.
+### Decidere su cosa lavorare
 
-Questo approccio ci aiuta a tracciare il lavoro, garantire che i cambiamenti siano desiderati e coordinare efficacemente gli sforzi.
+- Controlla il [Progetto GitHub](https://github.com/orgs/RooVetGit/projects/1) per "Good First Issues" non assegnate.
+- Per la documentazione, visita [Roo Code Docs](https://github.com/RooVetGit/Roo-Code-Docs).
 
-### 3. Decidere su cosa lavorare
+### Segnalare bug
 
+- Controlla prima i report esistenti.
+- Crea nuovi report di bug usando il [template "Bug Report"](https://github.com/RooVetGit/Roo-Code/issues/new/choose).
+- **Problemi di sicurezza:** Segnala privatamente tramite [security advisories](https://github.com/RooVetGit/Roo-Code/security/advisories/new).
+
+<<<<<<< HEAD
 - **Good First Issues**: Consulta la sezione "Issue [Unassigned]" del nostro [progetto Roo Vibecoding Issues](https://github.com/orgs/RooVetGit/projects/1) su GitHub.
 - **Documentazione**: Anche se questo `CONTRIBUTING.md` è la guida principale per i contributi al codice, se vuoi contribuire ad altra documentazione (come guide utente o API), consulta il [repo Roo Vibecoding Docs](https://github.com/RooVetGit/Roo-Code-Docs) o chiedi nella community Discord.
 - **Proporre nuove funzionalità**:
     1.  **Idea/discussione iniziale**: Per idee generali o iniziali, avvia una discussione su [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests).
     2.  **Proposta formale**: Per proposte specifiche e pronte per la valutazione, crea una issue "Detailed Feature Proposal" usando il template sulla nostra [pagina delle issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose). Questo è fondamentale nel nostro **approccio Issue-First**.
+=======
+## Processo di sviluppo e invio
+>>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
-### 4. Segnalare bug o problemi
+### Configurazione dello sviluppo
 
-Se trovi un bug:
+1. **Fork & Clona:**
 
+<<<<<<< HEAD
 1.  **Cerca issues esistenti**: Controlla su [GitHub Issues](https://github.com/RooVetGit/Roo-Code/issues) se è già stato segnalato.
 2.  **Crea una nuova issue**: Se è unico, usa il template "Bug Report" sulla nostra [pagina delle issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose).
 
@@ -152,91 +132,47 @@ In alternativa, per costruire e installare un pacchetto `.vsix`:
 ```sh
 npm run build
 code --install-extension bin/roo-cline-<version>.vsix
+=======
+```
+git clone https://github.com/TUO_USERNAME/Roo-Code.git
+>>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
 ```
 
-(Sostituisci `<version>` con il numero di versione reale del file generato).
+2. **Installa le dipendenze:**
 
-### 2. Linee guida per scrivere codice
+```
+npm run install:all
+```
 
-- **PR focalizzate**: Una funzionalità/fix per PR.
-- **Qualità del codice**:
-    - Superare i check CI (lint, formattazione)
-    - Correggere avvisi o errori ESLint (`npm run lint`)
-    - Rispondere al feedback degli strumenti automatici di code review
-    - Seguire le best practice TypeScript e mantenere la sicurezza dei tipi
-- **Testing**:
-    - Aggiungere test per nuove funzionalità
-    - Eseguire `npm test` per assicurarsi che tutto passi
-    - Aggiornare i test esistenti se il tuo cambiamento li influenza
-- **Messaggi di commit**:
-    - Scrivere messaggi chiari e descrittivi
-    - Fare riferimento alle issues rilevanti usando `#numero-issue` (es: `Fixes #123`)
-- **Checklist prima di inviare PR**:
-    - Rebase della tua branch sull'ultimo `main` dell'upstream
-    - Assicurati che il codice compili (`npm run build`)
-    - Verifica che tutti i test passino (`npm test`)
-    - Rimuovi qualsiasi codice di debug o `console.log`
+3. **Debug:** Apri con VS Code (`F5`).
 
-### 3. Inviare codice: Processo di Pull Request (PR)
+### Linee guida per scrivere codice
 
-#### Pull Request in bozza
+- Una PR focalizzata per funzionalità o correzione.
+- Segui le best practice di ESLint e TypeScript.
+- Scrivi commit chiari e descrittivi che fanno riferimento alle issue (es. `Fixes #123`).
+- Fornisci test approfonditi (`npm test`).
+- Fai rebase sul branch `main` più recente prima dell'invio.
 
-Usa PR in bozza per lavori non ancora pronti per una revisione completa ma per cui vuoi:
+### Inviare una Pull Request
 
-- Eseguire i check automatici (CI)
-- Ricevere feedback precoce dai maintainer o altri collaboratori
-- Segnalare che il lavoro è in corso
+- Inizia come **PR in bozza** se cerchi feedback anticipato.
+- Descrivi chiaramente le tue modifiche seguendo il Template di Pull Request.
+- Fornisci screenshot/video per modifiche UI.
+- Indica se sono necessari aggiornamenti alla documentazione.
 
-Segna una PR come "Pronta per la revisione" solo quando tutti i check sono superati e pensi che soddisfi i criteri delle "Linee guida per scrivere codice" e della "Descrizione della Pull Request".
+### Politica di Pull Request
 
-#### Descrizione della Pull Request
+- Deve fare riferimento a issue pre-approvate e assegnate.
+- Le PR che non rispettano la politica potrebbero essere chiuse.
+- Le PR dovrebbero superare i test CI, allinearsi con la roadmap e avere documentazione chiara.
 
-La descrizione della tua PR deve essere completa e seguire la struttura del nostro [Template di Pull Request](.github/pull_request_template.md). Punti chiave:
+### Processo di revisione
 
-- Un link alla Issue GitHub approvata che affronta
-- Descrizione chiara delle modifiche apportate e del loro scopo
-- Passaggi dettagliati per testare le modifiche
-- Elenco di eventuali breaking changes
-- **Per modifiche UI, fornisci screenshot o video prima/dopo**
-- **Indica se la tua PR richiede aggiornamenti alla documentazione utente e quali documenti/sezioni sono interessati**
+- **Triage quotidiano:** Controlli rapidi da parte dei maintainer.
+- **Revisione settimanale approfondita:** Valutazione completa.
+- **Itera rapidamente** in base al feedback.
 
-#### Politica di Pull Request (PR)
+## Legale
 
-##### Obiettivo
-
-Mantenere un backlog di PR pulito, focalizzato e gestibile.
-
-##### Approccio Issue-First
-
-- **Richiesto**: Prima di iniziare, deve esistere una Issue GitHub approvata e assegnata (sia "Bug Report" che "Detailed Feature Proposal").
-- **Approvazione**: Le Issues, soprattutto per cambiamenti importanti, devono essere riviste e approvate dai maintainer (in particolare @hannesrudolph) _prima_ di iniziare a programmare.
-- **Riferimento**: Le PR devono fare riferimento esplicito a queste Issues pre-approvate nella descrizione.
-- **Conseguenze**: Il mancato rispetto di questo processo può comportare la chiusura della PR senza revisione completa.
-
-##### Condizioni per PR aperte
-
-- **Pronta per il merge**: Supera tutti i test CI, è allineata con la roadmap (se applicabile), è collegata a una Issue approvata e assegnata, ha documentazione/commenti chiari, include immagini/video prima/dopo per modifiche UI
-- **Da chiudere**: Fallimenti CI, conflitti di merge importanti, disallineamento con gli obiettivi del progetto o inattività prolungata (>30 giorni senza aggiornamenti dopo feedback)
-
-##### Procedura
-
-1.  **Qualificazione e assegnazione Issue**: @hannesrudolph (o altri maintainer) esaminano e assegnano le nuove ed esistenti Issues.
-2.  **Triage iniziale PR (giornaliero)**: I maintainer fanno una rapida revisione dei nuovi PR per filtrare urgenze o problemi critici.
-3.  **Revisione approfondita PR (settimanale)**: I maintainer esaminano a fondo i PR per valutarne la prontezza, l'allineamento con la Issue approvata e la qualità generale.
-4.  **Feedback dettagliato e iterazione**: In base alla revisione, i maintainer forniscono feedback (Approve, Request Changes, Reject). I collaboratori sono tenuti a rispondere e migliorare se necessario.
-5.  **Fase decisionale**: I PR approvati vengono uniti. I PR con problemi irrisolvibili o non allineati possono essere chiusi con spiegazione.
-6.  **Follow-up**: Gli autori dei PR chiusi possono risolvere i problemi e aprirne di nuovi se necessario.
-
-##### Responsabilità
-
-- **Qualificazione Issue & rispetto del processo (@hannesrudolph & maintainer)**: Assicurarsi che tutti i contributi seguano l'approccio Issue-First. Guidare i collaboratori nel processo.
-- **Maintainer (Dev Team)**: Revisionare i PR, fornire feedback tecnico, prendere decisioni di approvazione/rifiuto, unire i PR.
-- **Collaboratori**: Assicurarsi che i PR siano collegati a una Issue approvata e assegnata, rispettino le linee guida di qualità e rispondano prontamente al feedback.
-
-Questa politica garantisce chiarezza e integrazione efficiente.
-
-## IV. Legale
-
-### Accordo di contributo
-
-Inviando una pull request, accetti che i tuoi contributi siano concessi in licenza sotto la [Licenza Apache 2.0](LICENSE) (o la licenza attuale del progetto), come il progetto.
+Inviando una pull request, accetti che i tuoi contributi siano concessi in licenza sotto la Licenza Apache 2.0, in linea con la licenza di Roo Code.
