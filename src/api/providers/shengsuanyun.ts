@@ -6,21 +6,21 @@ import {
 	ApiHandlerOptions,
 	ModelRecord,
 	PROMPT_CACHING_MODELS,
-	OPTIONAL_PROMPT_CACHING_MODELS,
 	REASONING_MODELS,
 	shengSuanYunDefaultModelId,
 	shengSuanYunDefaultModelInfo,
 } from "../../shared/api"
+
 import { convertToOpenAiMessages } from "../transform/openai-format"
 import { ApiStreamChunk } from "../transform/stream"
 import { convertToR1Format } from "../transform/r1-format"
+import { addCacheBreakpoints as addAnthropicCacheBreakpoints } from "../transform/caching/anthropic"
+import { addCacheBreakpoints as addGeminiCacheBreakpoints } from "../transform/caching/gemini"
 
 import { getModelParams, SingleCompletionHandler } from "../index"
 import { DEFAULT_HEADERS, DEEP_SEEK_DEFAULT_TEMPERATURE } from "./constants"
 import { BaseProvider } from "./base-provider"
-import { getModels } from "./fetchers/cache"
-
-const OPENROUTER_DEFAULT_PROVIDER_NAME = "[default]"
+import { getModels } from "./fetchers/modelCache"
 
 // Add custom interface for OpenRouter params.
 type OpenRouterChatCompletionParams = OpenAI.Chat.ChatCompletionCreateParams & {
@@ -51,7 +51,7 @@ interface CompletionUsage {
 	cost?: number
 }
 
-export class ShengsuanyunHandler extends BaseProvider implements SingleCompletionHandler {
+export class ShengSuanYunHandler extends BaseProvider implements SingleCompletionHandler {
 	protected options: ApiHandlerOptions
 	private client: OpenAI
 	protected models: ModelRecord = {}
@@ -59,8 +59,10 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 	constructor(options: ApiHandlerOptions) {
 		super()
 		this.options = options
+
 		const baseURL = "https://router.shengsuanyun.com/api/v1"
 		const apiKey = this.options.shengSuanYunApiKey ?? "not-provided"
+
 		this.client = new OpenAI({ baseURL, apiKey, defaultHeaders: DEFAULT_HEADERS })
 	}
 
@@ -89,61 +91,25 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 			openAiMessages = convertToR1Format([{ role: "user", content: systemPrompt }, ...messages])
 		}
 
-		const isCacheAvailable = promptCache.supported && (!promptCache.optional || !this.options.promptCachingDisabled)
+		const isCacheAvailable = promptCache.supported
 
-		// Prompt caching: https://openrouter.ai/docs/prompt-caching
-		// Now with Gemini support: https://openrouter.ai/docs/features/prompt-caching
-		// Note that we don't check the `ModelInfo` object because it is cached
-		// in the settings for OpenRouter and the value could be stale.
+		// https://openrouter.ai/docs/features/prompt-caching
 		if (isCacheAvailable) {
-			openAiMessages[0] = {
-				role: "system",
-				// @ts-ignore-next-line
-				content: [{ type: "text", text: systemPrompt, cache_control: { type: "ephemeral" } }],
-			}
-
-			// Add cache_control to the last two user messages
-			// (note: this works because we only ever add one user message at a time, but if we added multiple we'd need to mark the user message before the last assistant message)
-			const lastTwoUserMessages = openAiMessages.filter((msg) => msg.role === "user").slice(-2)
-
-			lastTwoUserMessages.forEach((msg) => {
-				if (typeof msg.content === "string") {
-					msg.content = [{ type: "text", text: msg.content }]
-				}
-
-				if (Array.isArray(msg.content)) {
-					// NOTE: This is fine since env details will always be added
-					// at the end. But if it wasn't there, and the user added a
-					// image_url type message, it would pop a text part before
-					// it and then move it after to the end.
-					let lastTextPart = msg.content.filter((part) => part.type === "text").pop()
-
-					if (!lastTextPart) {
-						lastTextPart = { type: "text", text: "..." }
-						msg.content.push(lastTextPart)
-					}
-
-					// @ts-ignore-next-line
-					lastTextPart["cache_control"] = { type: "ephemeral" }
-				}
-			})
+			modelId.startsWith("google")
+				? addGeminiCacheBreakpoints(systemPrompt, openAiMessages)
+				: addAnthropicCacheBreakpoints(systemPrompt, openAiMessages)
 		}
 
 		// https://openrouter.ai/docs/transforms
 		const completionParams: OpenRouterChatCompletionParams = {
 			model: modelId,
-			max_tokens: maxTokens,
+			...(maxTokens && maxTokens > 0 && { max_tokens: maxTokens }),
 			temperature,
 			thinking, // OpenRouter is temporarily supporting this.
 			top_p: topP,
 			messages: openAiMessages,
 			stream: true,
 			stream_options: { include_usage: true },
-			// Only include provider if openRouterSpecificProvider is not "[default]".
-			...(this.options.openRouterSpecificProvider &&
-				this.options.openRouterSpecificProvider !== OPENROUTER_DEFAULT_PROVIDER_NAME && {
-					provider: { order: [this.options.openRouterSpecificProvider] },
-				}),
 			// This way, the transforms field will only be included in the parameters when openRouterUseMiddleOutTransform is true.
 			...((this.options.openRouterUseMiddleOutTransform ?? true) && { transforms: ["middle-out"] }),
 			...(REASONING_MODELS.has(modelId) && reasoningEffort && { reasoning: { effort: reasoningEffort } }),
@@ -154,11 +120,11 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 		let lastUsage: CompletionUsage | undefined = undefined
 
 		for await (const chunk of stream) {
-			// OpenRouter returns an error object instead of the OpenAI SDK throwing an error.
+			// ShengSuanYun returns an error object instead of the OpenAI SDK throwing an error.
 			if ("error" in chunk) {
 				const error = chunk.error as { message?: string; code?: number }
-				console.error(`OpenRouter API Error: ${error?.code} - ${error?.message}`)
-				throw new Error(`OpenRouter API Error ${error?.code}: ${error?.message}`)
+				console.error(`ShengSuanYun API Error: ${error?.code} - ${error?.message}`)
+				throw new Error(`ShengSuanYun API Error ${error?.code}: ${error?.message}`)
 			}
 
 			const delta = chunk.choices[0]?.delta
@@ -197,8 +163,7 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 
 	override getModel() {
 		const id = this.options.shengSuanYunModelId ?? shengSuanYunDefaultModelId
-		const info = this.models[id] ?? shengSuanYunDefaultModelInfo
-
+		let info = this.models[id] ?? shengSuanYunDefaultModelInfo
 		const isDeepSeekR1 = id.startsWith("deepseek/deepseek-r1") || id === "perplexity/sonar-reasoning"
 
 		return {
@@ -213,7 +178,6 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 			topP: isDeepSeekR1 ? 0.95 : undefined,
 			promptCache: {
 				supported: PROMPT_CACHING_MODELS.has(id),
-				optional: OPTIONAL_PROMPT_CACHING_MODELS.has(id),
 			},
 		}
 	}
@@ -234,7 +198,7 @@ export class ShengsuanyunHandler extends BaseProvider implements SingleCompletio
 
 		if ("error" in response) {
 			const error = response.error as { message?: string; code?: number }
-			throw new Error(`OpenRouter API Error ${error?.code}: ${error?.message}`)
+			throw new Error(`ShengSuanYun API Error ${error?.code}: ${error?.message}`)
 		}
 
 		const completion = response as OpenAI.Chat.ChatCompletion
