@@ -199,6 +199,7 @@ type ProviderName =
 	| "groq"
 	| "chutes"
 	| "litellm"
+	| "shengsuanyun"
 
 export type { ProviderName }
 

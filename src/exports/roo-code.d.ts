@@ -197,6 +197,7 @@ type ProviderName =
 	| "groq"
 	| "chutes"
 	| "litellm"
+	| "shengsuanyun"
 
 type ProviderSettings = {
 	apiProvider?:
@@ -1535,6 +1536,7 @@ declare const providerNames: readonly [
 	"groq",
 	"chutes",
 	"litellm",
+	"shengsuanyun",
 ]
 /**
  * RooCodeEvent
