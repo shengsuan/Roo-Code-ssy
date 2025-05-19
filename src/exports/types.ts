@@ -177,6 +177,32 @@ type GlobalSettings = {
 
 export type { GlobalSettings }
 
+type ProviderName =
+	| "anthropic"
+	| "glama"
+	| "openrouter"
+	| "bedrock"
+	| "vertex"
+	| "openai"
+	| "ollama"
+	| "vscode-lm"
+	| "lmstudio"
+	| "gemini"
+	| "openai-native"
+	| "mistral"
+	| "deepseek"
+	| "unbound"
+	| "requesty"
+	| "human-relay"
+	| "fake-ai"
+	| "xai"
+	| "groq"
+	| "chutes"
+	| "litellm"
+	| "shengsuanyun"
+
+export type { ProviderName }
+
 type ProviderSettings = {
 	apiProvider?:
 		| (

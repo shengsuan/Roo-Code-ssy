@@ -1225,6 +1225,7 @@ export type TypeDefinition = {
 
 export const typeDefinitions: TypeDefinition[] = [
 	{ schema: globalSettingsSchema, identifier: "GlobalSettings" },
+	{ schema: providerNamesSchema, identifier: "ProviderName" },
 	{ schema: providerSettingsSchema, identifier: "ProviderSettings" },
 	{ schema: providerSettingsEntrySchema, identifier: "ProviderSettingsEntry" },
 	{ schema: clineMessageSchema, identifier: "ClineMessage" },
