@@ -48,11 +48,16 @@ export const About = ({ telemetrySetting, setTelemetrySetting, className, ...pro
 						{t("settings:footer.telemetry.label")}
 					</VSCodeCheckbox>
 					<p className="text-vscode-descriptionForeground text-sm mt-0">
-						{t("settings:footer.telemetry.description")}
+						<Trans
+							i18nKey="settings:footer.telemetry.description"
+							components={{
+								privacyLink: <VSCodeLink href="https://roocode.com/privacy" />,
+							}}
+						/>
 					</p>
 				</div>
 
-				<div>
+				<div className="w-full flex flex-col gap-5 justify-center items-center">
 					<Trans
 						i18nKey="settings:footer.feedback"
 						components={{
@@ -60,6 +65,11 @@ export const About = ({ telemetrySetting, setTelemetrySetting, className, ...pro
 							redditLink: <VSCodeLink href="https://reddit.com/r/RooCode" />,
 							discordLink: <VSCodeLink href="https://discord.gg/roocode" />,
 						}}
+					/>
+					<img
+						className="w-30 h-30"
+						src="https://www.shengsuanyun.com/webp/relation-BMfLRnIZ.webp"
+						alt="customer service"
 					/>
 				</div>
 

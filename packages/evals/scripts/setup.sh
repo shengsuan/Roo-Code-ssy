@@ -369,7 +369,7 @@ if ! grep -q "OPENROUTER_API_KEY" .env.local; then
 fi
 
 current_version=$(code --list-extensions --show-versions 2>/dev/null | grep roo)
-read -p "💻 Do you want to build a new version of the Roo Code Chinese SSY extension? [currently $current_version] (y/N): " build_extension
+read -p "💻 Do you want to build a new version of the Roo Code Chinese extension? [currently $current_version] (y/N): " build_extension
 
 if [[ "$build_extension" =~ ^[Yy]$ ]]; then
   build_extension

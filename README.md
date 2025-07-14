@@ -10,7 +10,7 @@
 <div align="center">
   <h1>Roo Code-中文版</h1>
   <p align="center">
-  <img src="https://media.githubusercontent.com/media/RooVetGit/Roo-Code/main/assets/docs/demo.gif" width="100%" />
+  <img src="https://media.githubusercontent.com/media/shengsuan/Roo-Code-ssy/main/assets/docs/demo.gif" width="100%" />
   </p>
   <p>本项目为Roo Code-中文版，增加折扣大模型，可以免费试用，与开发者联系，贡献想法，紧跟最新的 AI 驱动编码工具。</p>
   <a href="https://discord.gg/WzdzX76d" target="_blank"><img src="https://img.shields.io/badge/加入%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="加入 Discord"></a>
@@ -50,7 +50,7 @@ Cline-中文版<br>
 https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.cline-shengsuan<br>
 Kilo SSY Code Agent<br>
 https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.kilo-ssy<br>
-Roo Code Chinese SSY<br>
+Roo Code Chinese<br>
 https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.roo-vibecoding<br>
 以上三种插件，可以直接在供应商中选择折扣模型<br>
 详情点击[胜算云Router](https://router.shengsuanyun.com/)<br>
@@ -129,9 +129,9 @@ MCP 通过允许您添加无限自定义工具来扩展 Roo Code-中文版 的�
 ## 背景
 
 Cline 中文版 开发初衷<br>
-我们推出 Cline 中文版，旨在为国内开发者提供更便捷、高效的 AI 接入体验。在并行 Cline 主线功能开发的同时，「胜算云 Router」特别开放独家专属模型折扣，全面支持国内用户免魔法接入，实现真正的即用即连。<br>
+我们推出 Cline 中文版，旨在为国内开发者提供更便捷、高效的 AI 接入体验。在并行 Cline 主线功能开发的同时，「胜算云」特别开放独家专属模型折扣，全面支持国内用户免魔法接入，实现真正的即用即连。<br>
 
-「胜算云 Router」致力于成为国内 AI 开发者首选工具，让每一个创意都能高效落地，真正实现 开发有胜算，落地有保障。<br>
+「胜算云」致力于成为国内 AI 开发者首选工具，让每一个创意都能高效落地，真正实现 开发有胜算，落地有保障。<br>
 
 ## 欢迎关注我的自媒体账号
 

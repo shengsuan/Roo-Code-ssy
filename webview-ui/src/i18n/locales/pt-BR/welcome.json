@@ -20,7 +20,7 @@
 	"startRouter": "Recomendamos usar um roteador LLM:",
 	"startCustom": "Ou você pode trazer sua própria chave API:",
 	"telemetry": {
-		"title": "Ajude a melhorar o Roo Code Chinese SSY",
+		"title": "Ajude a melhorar o Roo Code Chinese",
 		"anonymousTelemetry": "Envie dados de uso e erros anônimos para nos ajudar a corrigir bugs e melhorar a extensão. Nenhum código, texto ou informação pessoal é enviado.",
 		"changeSettings": "Você sempre pode mudar isso na parte inferior das <settingsLink>configurações</settingsLink>",
 		"settings": "configurações",

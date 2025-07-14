@@ -2,7 +2,7 @@ import { Anthropic } from "@anthropic-ai/sdk"
 import { BetaThinkingConfigParam } from "@anthropic-ai/sdk/resources/beta"
 import OpenAI from "openai"
 
-import { type ModelInfo, shengSuanYunDefaultModelId, shengSuanYunDefaultModelInfo } from "@roo-code/types"
+import { shengSuanYunDefaultModelId, shengSuanYunDefaultModelInfo } from "@roo-code/types"
 
 import { convertToOpenAiMessages } from "../transform/openai-format"
 import { ApiStreamChunk } from "../transform/stream"

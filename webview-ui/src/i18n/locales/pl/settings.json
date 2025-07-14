@@ -31,7 +31,7 @@
 		"prompts": "Podpowiedzi",
 		"experimental": "Eksperymentalne",
 		"language": "Język",
-		"about": "O Roo Code Chinese SSY"
+		"about": "O Roo Code Chinese"
 	},
 	"prompts": {
 		"description": "Skonfiguruj podpowiedzi wsparcia używane do szybkich działań, takich jak ulepszanie podpowiedzi, wyjaśnianie kodu i rozwiązywanie problemów. Te podpowiedzi pomagają Roo zapewnić lepsze wsparcie dla typowych zadań programistycznych."
@@ -44,27 +44,82 @@
 		"selectProviderPlaceholder": "Wybierz dostawcę",
 		"openaiProvider": "OpenAI",
 		"ollamaProvider": "Ollama",
+		"geminiProvider": "Gemini",
+		"geminiApiKeyLabel": "Klucz API:",
+		"geminiApiKeyPlaceholder": "Wprowadź swój klucz API Gemini",
 		"openaiCompatibleProvider": "Kompatybilny z OpenAI",
-		"openaiCompatibleBaseUrlLabel": "Bazowy URL:",
-		"openaiCompatibleApiKeyLabel": "Klucz API:",
-		"openaiCompatibleModelDimensionLabel": "Wymiar Embeddingu:",
-		"openaiCompatibleModelDimensionPlaceholder": "np., 1536",
-		"openaiCompatibleModelDimensionDescription": "Wymiar embeddingu (rozmiar wyjściowy) dla twojego modelu. Sprawdź dokumentację swojego dostawcy, aby uzyskać tę wartość. Typowe wartości: 384, 768, 1536, 3072.",
-		"openaiKeyLabel": "Klucz OpenAI:",
+		"openAiKeyLabel": "Klucz API OpenAI",
+		"openAiKeyPlaceholder": "Wprowadź swój klucz API OpenAI",
+		"openAiCompatibleBaseUrlLabel": "Bazowy URL",
+		"openAiCompatibleApiKeyLabel": "Klucz API",
+		"openAiCompatibleApiKeyPlaceholder": "Wprowadź swój klucz API",
+		"openAiCompatibleModelDimensionLabel": "Wymiar Embeddingu:",
+		"modelDimensionLabel": "Wymiar modelu",
+		"openAiCompatibleModelDimensionPlaceholder": "np., 1536",
+		"openAiCompatibleModelDimensionDescription": "Wymiar embeddingu (rozmiar wyjściowy) dla twojego modelu. Sprawdź dokumentację swojego dostawcy, aby uzyskać tę wartość. Typowe wartości: 384, 768, 1536, 3072.",
 		"modelLabel": "Model",
 		"selectModelPlaceholder": "Wybierz model",
 		"ollamaUrlLabel": "URL Ollama:",
 		"qdrantUrlLabel": "URL Qdrant",
 		"qdrantKeyLabel": "Klucz Qdrant:",
-		"startIndexingButton": "Rozpocznij indeksowanie",
-		"clearIndexDataButton": "Wyczyść dane indeksu",
+		"startIndexingButton": "Rozpocznij",
+		"clearIndexDataButton": "Wyczyść indeks",
 		"unsavedSettingsMessage": "Zapisz swoje ustawienia przed rozpoczęciem procesu indeksowania.",
 		"clearDataDialog": {
 			"title": "Czy jesteś pewien?",
 			"description": "Tej akcji nie można cofnąć. Spowoduje to trwałe usunięcie danych indeksu Twojego kodu.",
 			"cancelButton": "Anuluj",
 			"confirmButton": "Wyczyść dane"
-		}
+		},
+		"description": "Skonfiguruj ustawienia indeksowania bazy kodu, aby włączyć wyszukiwanie semantyczne w swoim projekcie. <0>Dowiedz się więcej</0>",
+		"statusTitle": "Status",
+		"settingsTitle": "Ustawienia indeksowania",
+		"disabledMessage": "Indeksowanie bazy kodu jest obecnie wyłączone. Włącz je w ustawieniach globalnych, aby skonfigurować opcje indeksowania.",
+		"embedderProviderLabel": "Dostawca Embeddera",
+		"modelPlaceholder": "Wprowadź nazwę modelu",
+		"selectModel": "Wybierz model",
+		"ollamaBaseUrlLabel": "Bazowy URL Ollama",
+		"qdrantApiKeyLabel": "Klucz API Qdrant",
+		"qdrantApiKeyPlaceholder": "Wprowadź swój klucz API Qdrant (opcjonalnie)",
+		"setupConfigLabel": "Konfiguracja",
+		"ollamaUrlPlaceholder": "http://localhost:11434",
+		"openAiCompatibleBaseUrlPlaceholder": "https://api.example.com",
+		"modelDimensionPlaceholder": "1536",
+		"qdrantUrlPlaceholder": "http://localhost:6333",
+		"saveError": "Nie udało się zapisać ustawień",
+		"modelDimensions": "({{dimension}} wymiarów)",
+		"saveSuccess": "Ustawienia zapisane pomyślnie",
+		"saving": "Zapisywanie...",
+		"saveSettings": "Zapisz",
+		"indexingStatuses": {
+			"standby": "Gotowość",
+			"indexing": "Indeksowanie",
+			"indexed": "Zaindeksowane",
+			"error": "Błąd"
+		},
+		"close": "Zamknij",
+		"validation": {
+			"invalidQdrantUrl": "Nieprawidłowy URL Qdrant",
+			"invalidOllamaUrl": "Nieprawidłowy URL Ollama",
+			"invalidBaseUrl": "Nieprawidłowy podstawowy URL",
+			"qdrantUrlRequired": "Wymagany jest URL Qdrant",
+			"openaiApiKeyRequired": "Wymagany jest klucz API OpenAI",
+			"modelSelectionRequired": "Wymagany jest wybór modelu",
+			"apiKeyRequired": "Wymagany jest klucz API",
+			"modelIdRequired": "Wymagane jest ID modelu",
+			"modelDimensionRequired": "Wymagany jest wymiar modelu",
+			"geminiApiKeyRequired": "Wymagany jest klucz API Gemini",
+			"ollamaBaseUrlRequired": "Wymagany jest bazowy adres URL Ollama",
+			"baseUrlRequired": "Wymagany jest bazowy adres URL",
+			"modelDimensionMinValue": "Wymiar modelu musi być większy niż 0"
+		},
+		"advancedConfigLabel": "Konfiguracja zaawansowana",
+		"searchMinScoreLabel": "Próg wyniku wyszukiwania",
+		"searchMinScoreDescription": "Minimalny wynik podobieństwa (0.0-1.0) wymagany dla wyników wyszukiwania. Niższe wartości zwracają więcej wyników, ale mogą być mniej trafne. Wyższe wartości zwracają mniej wyników, ale bardziej trafnych.",
+		"searchMinScoreResetTooltip": "Zresetuj do wartości domyślnej (0.4)",
+		"searchMaxResultsLabel": "Maksymalna liczba wyników wyszukiwania",
+		"searchMaxResultsDescription": "Maksymalna liczba wyników wyszukiwania zwracanych podczas zapytania do indeksu bazy kodu. Wyższe wartości zapewniają więcej kontekstu, ale mogą zawierać mniej istotne wyniki.",
+		"resetToDefault": "Przywróć domyślne"
 	},
 	"autoApprove": {
 		"description": "Pozwól Roo na automatyczne wykonywanie operacji bez wymagania zatwierdzenia. Włącz te ustawienia tylko jeśli w pełni ufasz AI i rozumiesz związane z tym zagrożenia bezpieczeństwa.",
@@ -110,6 +165,11 @@
 			"label": "Podzadania",
 			"description": "Zezwalaj na tworzenie i ukończenie podzadań bez konieczności zatwierdzania"
 		},
+		"followupQuestions": {
+			"label": "Pytanie",
+			"description": "Automatycznie wybierz pierwszą sugerowaną odpowiedź na pytania uzupełniające po skonfigurowanym limicie czasu",
+			"timeoutLabel": "Czas oczekiwania przed automatycznym wybraniem pierwszej odpowiedzi"
+		},
 		"execute": {
 			"label": "Wykonaj",
 			"description": "Automatycznie wykonuj dozwolone polecenia terminala bez konieczności zatwierdzania",
@@ -117,6 +177,10 @@
 			"allowedCommandsDescription": "Prefiksy poleceń, które mogą być automatycznie wykonywane, gdy \"Zawsze zatwierdzaj operacje wykonania\" jest włączone. Dodaj * aby zezwolić na wszystkie polecenia (używaj z ostrożnością).",
 			"commandPlaceholder": "Wprowadź prefiks polecenia (np. 'git ')",
 			"addButton": "Dodaj"
+		},
+		"updateTodoList": {
+			"label": "Todo",
+			"description": "Lista zadań jest automatycznie aktualizowana bez zatwierdzenia"
 		},
 		"apiRequestLimit": {
 			"title": "Maksymalna liczba żądań",
@@ -142,6 +206,8 @@
 		"createProfile": "Utwórz profil",
 		"cannotDeleteOnlyProfile": "Nie można usunąć jedynego profilu",
 		"searchPlaceholder": "Szukaj profili",
+		"searchProviderPlaceholder": "Szukaj dostawców",
+		"noProviderMatchFound": "Nie znaleziono dostawców",
 		"noMatchFound": "Nie znaleziono pasujących profili",
 		"vscodeLmDescription": "Interfejs API modelu językowego VS Code umożliwia uruchamianie modeli dostarczanych przez inne rozszerzenia VS Code (w tym, ale nie tylko, GitHub Copilot). Najłatwiejszym sposobem na rozpoczęcie jest zainstalowanie rozszerzeń Copilot i Copilot Chat z VS Code Marketplace.",
 		"awsCustomArnUse": "Wprowadź prawidłowy Amazon Bedrock ARN dla modelu, którego chcesz użyć. Przykłady formatu:",
@@ -229,13 +295,13 @@
 			"draftModelDesc": "Aby dekodowanie spekulacyjne działało poprawnie, model szkicu musi pochodzić z tej samej rodziny modeli.",
 			"selectDraftModel": "Wybierz model szkicu",
 			"noModelsFound": "Nie znaleziono modeli szkicu. Upewnij się, że LM Studio jest uruchomione z włączonym trybem serwera.",
-			"description": "LM Studio pozwala na lokalne uruchamianie modeli na twoim komputerze. Aby rozpocząć, zapoznaj się z ich <a>przewodnikiem szybkiego startu</a>. Będziesz również musiał uruchomić funkcję <b>serwera lokalnego</b> LM Studio, aby używać go z tym rozszerzeniem. <span>Uwaga:</span> Roo Code Chinese SSY używa złożonych podpowiedzi i działa najlepiej z modelami Claude. Modele o niższych możliwościach mogą nie działać zgodnie z oczekiwaniami."
+			"description": "LM Studio pozwala na lokalne uruchamianie modeli na twoim komputerze. Aby rozpocząć, zapoznaj się z ich <a>przewodnikiem szybkiego startu</a>. Będziesz również musiał uruchomić funkcję <b>serwera lokalnego</b> LM Studio, aby używać go z tym rozszerzeniem. <span>Uwaga:</span> Roo Code Chinese używa złożonych podpowiedzi i działa najlepiej z modelami Claude. Modele o niższych możliwościach mogą nie działać zgodnie z oczekiwaniami."
 		},
 		"ollama": {
 			"baseUrl": "URL bazowy (opcjonalnie)",
 			"modelId": "ID modelu",
 			"description": "Ollama pozwala na lokalne uruchamianie modeli na twoim komputerze. Aby rozpocząć, zapoznaj się z przewodnikiem szybkiego startu.",
-			"warning": "Uwaga: Roo Code Chinese SSY używa złożonych podpowiedzi i działa najlepiej z modelami Claude. Modele o niższych możliwościach mogą nie działać zgodnie z oczekiwaniami."
+			"warning": "Uwaga: Roo Code Chinese używa złożonych podpowiedzi i działa najlepiej z modelami Claude. Modele o niższych możliwościach mogą nie działać zgodnie z oczekiwaniami."
 		},
 		"unboundApiKey": "Klucz API Unbound",
 		"getUnboundApiKey": "Uzyskaj klucz API Unbound",
@@ -253,7 +319,7 @@
 			}
 		},
 		"customModel": {
-			"capabilities": "Skonfiguruj możliwości i ceny swojego niestandardowego modelu zgodnego z OpenAI. Zachowaj ostrożność podczas określania możliwości modelu, ponieważ mogą one wpływać na wydajność Roo Code Chinese SSY.",
+			"capabilities": "Skonfiguruj możliwości i ceny swojego niestandardowego modelu zgodnego z OpenAI. Zachowaj ostrożność podczas określania możliwości modelu, ponieważ mogą one wpływać na wydajność Roo Code Chinese.",
 			"maxTokens": {
 				"label": "Maksymalna liczba tokenów wyjściowych",
 				"description": "Maksymalna liczba tokenów, które model może wygenerować w odpowiedzi. (Określ -1, aby pozwolić serwerowi ustawić maksymalną liczbę tokenów.)"
@@ -555,17 +621,17 @@
 		}
 	},
 	"modelPicker": {
-		"automaticFetch": "Rozszerzenie automatycznie pobiera najnowszą listę modeli dostępnych w <serviceLink>{{serviceName}}</serviceLink>. Jeśli nie jesteś pewien, który model wybrać, Roo Code Chinese SSY działa najlepiej z <defaultModelLink>{{defaultModelId}}</defaultModelLink>. Możesz również wyszukać \"free\", aby znaleźć obecnie dostępne opcje bezpłatne.",
+		"automaticFetch": "Rozszerzenie automatycznie pobiera najnowszą listę modeli dostępnych w <serviceLink>{{serviceName}}</serviceLink>. Jeśli nie jesteś pewien, który model wybrać, Roo Code Chinese działa najlepiej z <defaultModelLink>{{defaultModelId}}</defaultModelLink>. Możesz również wyszukać \"free\", aby znaleźć obecnie dostępne opcje bezpłatne.",
 		"label": "Model",
 		"searchPlaceholder": "Wyszukaj",
 		"noMatchFound": "Nie znaleziono dopasowań",
 		"useCustomModel": "Użyj niestandardowy: {{modelId}}"
 	},
 	"footer": {
-		"feedback": "Jeśli masz jakiekolwiek pytania lub opinie, śmiało otwórz zgłoszenie na <githubLink>github.com/RooCodeInc/Roo-Code</githubLink> lub dołącz do <redditLink>reddit.com/r/RooCode</redditLink> lub <discordLink>discord.gg/roocode</discordLink>",
+		"feedback": "Jeśli masz jakiekolwiek pytania lub opinie, śmiało otwórz zgłoszenie na <githubLink>github.com/shengsuan/Roo-Code-ssy</githubLink> lub dołącz do  lub ",
 		"telemetry": {
 			"label": "Zezwól na anonimowe raportowanie błędów i użycia",
-			"description": "Pomóż ulepszyć Roo Code Chinese SSY, wysyłając anonimowe dane o użytkowaniu i raporty o błędach. Nigdy nie są wysyłane kod, podpowiedzi ani informacje osobiste. Zobacz naszą politykę prywatności, aby uzyskać więcej szczegółów."
+			"description": "Pomóż ulepszyć Roo Code Chinese, wysyłając anonimowe dane o użytkowaniu i raporty o błędach. Nigdy nie są wysyłane kod, podpowiedzi ani informacje osobiste. Zobacz naszą politykę prywatności, aby uzyskać więcej szczegółów."
 		},
 		"settings": {
 			"import": "Importuj",

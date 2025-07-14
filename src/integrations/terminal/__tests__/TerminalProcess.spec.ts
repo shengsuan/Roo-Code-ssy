@@ -24,7 +24,7 @@ describe("TerminalProcess", () => {
 			shellIntegration: {
 				executeCommand: vi.fn(),
 			},
-			name: "Roo Code Chinese SSY",
+			name: "Roo Code Chinese",
 			processId: Promise.resolve(123),
 			creationOptions: {},
 			exitStatus: undefined,

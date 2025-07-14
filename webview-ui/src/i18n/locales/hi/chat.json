@@ -1,5 +1,5 @@
 {
-	"greeting": "Roo Code Chinese SSY में आपका स्वागत है",
+	"greeting": "Roo Code Chinese में आपका स्वागत है",
 	"task": {
 		"title": "कार्य",
 		"seeMore": "अधिक देखें",
@@ -16,7 +16,12 @@
 		"shareWithOrganization": "संगठन के साथ साझा करें",
 		"shareWithOrganizationDescription": "केवल आपके संगठन के सदस्य पहुंच सकते हैं",
 		"sharePublicly": "सार्वजनिक रूप से साझा करें",
-		"sharePubliclyDescription": "लिंक वाला कोई भी व्यक्ति पहुंच सकता है"
+		"sharePubliclyDescription": "लिंक वाला कोई भी व्यक्ति पहुंच सकता है",
+		"connectToCloud": "Cloud से कनेक्ट करें",
+		"connectToCloudDescription": "कार्य साझा करने के लिए Roo Code Cloud में साइन इन करें",
+		"sharingDisabledByOrganization": "संगठन द्वारा साझाकरण अक्षम किया गया",
+		"shareSuccessOrganization": "संगठन लिंक क्लिपबोर्ड में कॉपी किया गया",
+		"shareSuccessPublic": "सार्वजनिक लिंक क्लिपबोर्ड में कॉपी किया गया"
 	},
 	"unpin": "पिन करें",
 	"pin": "अवपिन करें",
@@ -100,12 +105,19 @@
 	"enhancePrompt": "अतिरिक्त संदर्भ के साथ प्रॉम्प्ट बढ़ाएँ",
 	"addImages": "संदेश में चित्र जोड़ें",
 	"sendMessage": "संदेश भेजें",
+	"stopTts": "टेक्स्ट-टू-स्पीच बंद करें",
 	"typeMessage": "एक संदेश लिखें...",
 	"typeTask": "अपना कार्य यहां लिखें...",
 	"addContext": "संदर्भ जोड़ने के लिए @, मोड बदलने के लिए /",
 	"dragFiles": "फ़ाइलें खींचने के लिए shift दबाकर रखें",
 	"dragFilesImages": "फ़ाइलें/चित्र खींचने के लिए shift दबाकर रखें",
 	"enhancePromptDescription": "'प्रॉम्प्ट बढ़ाएँ' बटन अतिरिक्त संदर्भ, स्पष्टीकरण या पुनर्विचार प्रदान करके आपके अनुरोध को बेहतर बनाने में मदद करता है। यहां अनुरोध लिखकर देखें और यह कैसे काम करता है यह देखने के लिए बटन पर फिर से क्लिक करें।",
+	"modeSelector": {
+		"title": "मोड्स",
+		"marketplace": "मोड मार्केटप्लेस",
+		"settings": "मोड सेटिंग्स",
+		"description": "विशेष व्यक्तित्व जो Roo के व्यवहार को अनुकूलित करते हैं।"
+	},
 	"errorReadingFile": "फ़ाइल पढ़ने में त्रुटि:",
 	"noValidImages": "कोई मान्य चित्र प्रोसेस नहीं किया गया",
 	"separator": "विभाजक",
@@ -210,7 +222,7 @@
 	"autoApprove": {
 		"title": "स्वत:-स्वीकृति:",
 		"none": "कोई नहीं",
-		"description": "स्वत:-स्वीकृति Roo Code Chinese SSY को अनुमति मांगे बिना क्रियाएँ करने की अनुमति देती है। केवल उन क्रियाओं के लिए सक्षम करें जिन पर आप पूरी तरह से विश्वास करते हैं। अधिक विस्तृत कॉन्फ़िगरेशन <settingsLink>सेटिंग्स</settingsLink> में उपलब्ध है।"
+		"description": "स्वत:-स्वीकृति Roo Code Chinese को अनुमति मांगे बिना क्रियाएँ करने की अनुमति देती है। केवल उन क्रियाओं के लिए सक्षम करें जिन पर आप पूरी तरह से विश्वास करते हैं। अधिक विस्तृत कॉन्फ़िगरेशन <settingsLink>सेटिंग्स</settingsLink> में उपलब्ध है।"
 	},
 	"reasoning": {
 		"thinking": "विचार कर रहा है",
@@ -223,11 +235,13 @@
 		"tokens": "टोकन"
 	},
 	"followUpSuggest": {
-		"copyToInput": "इनपुट में कॉपी करें (या Shift + क्लिक)"
+		"copyToInput": "इनपुट में कॉपी करें (या Shift + क्लिक)",
+		"autoSelectCountdown": "{{count}}s में स्वचालित रूप से चयन हो रहा है",
+		"countdownDisplay": "{{count}}सेकंड"
 	},
 	"announcement": {
-		"title": "🎉 Roo Code Chinese SSY {{version}} रिलीज़ हुआ",
-		"description": "Roo Code Chinese SSY {{version}} आपके फीडबैक के आधार पर नई सुविधाएँ और सुधार लाता है।",
+		"title": "🎉 Roo Code Chinese {{version}} रिलीज़ हुआ",
+		"description": "Roo Code Chinese {{version}} आपके फीडबैक के आधार पर नई सुविधाएँ और सुधार लाता है।",
 		"whatsNew": "नई सुविधाएँ",
 		"feature1": "<bold>Roo Marketplace लॉन्च</bold> - Marketplace अब लाइव है! पहले से कहीं आसान तरीके से modes और MCP खोजें और इंस्टॉल करें।",
 		"feature2": "<bold>Gemini 2.5 Models</bold> - नए Gemini 2.5 Pro, Flash, और Flash Lite models के लिए समर्थन जोड़ा गया।",
@@ -267,10 +281,10 @@
 		}
 	},
 	"systemPromptWarning": "चेतावनी: कस्टम सिस्टम प्रॉम्प्ट ओवरराइड सक्रिय है। यह कार्यक्षमता को गंभीर रूप से बाधित कर सकता है और अनियमित व्यवहार का कारण बन सकता है.",
-	"profileViolationWarning": "वर्तमान प्रोफ़ाइल आपके संगठन की सेटिंग्स का उल्लंघन करती है",
+	"profileViolationWarning": "वर्तमान प्रोफ़ाइल आपके संगठन की सेटिंग्स के साथ संगत नहीं है",
 	"shellIntegration": {
 		"title": "कमांड निष्पादन चेतावनी",
-		"description": "आपका कमांड VSCode टर्मिनल शेल इंटीग्रेशन के बिना निष्पादित हो रहा है। इस चेतावनी को दबाने के लिए आप <settingsLink>Roo Code Chinese SSY सेटिंग्स</settingsLink> के <strong>Terminal</strong> अनुभाग में शेल इंटीग्रेशन को अक्षम कर सकते हैं या नीचे दिए गए लिंक का उपयोग करके VSCode टर्मिनल इंटीग्रेशन की समस्या का समाधान कर सकते हैं।",
+		"description": "आपका कमांड VSCode टर्मिनल शेल इंटीग्रेशन के बिना निष्पादित हो रहा है। इस चेतावनी को दबाने के लिए आप <settingsLink>Roo Code Chinese सेटिंग्स</settingsLink> के <strong>Terminal</strong> अनुभाग में शेल इंटीग्रेशन को अक्षम कर सकते हैं या नीचे दिए गए लिंक का उपयोग करके VSCode टर्मिनल इंटीग्रेशन की समस्या का समाधान कर सकते हैं।",
 		"troubleshooting": "शेल इंटीग्रेशन दस्तावेज़ के लिए यहां क्लिक करें।"
 	},
 	"ask": {
@@ -283,7 +297,9 @@
 	"codebaseSearch": {
 		"wantsToSearch": "Roo कोडबेस में <code>{{query}}</code> खोजना चाहता है:",
 		"wantsToSearchWithPath": "Roo <code>{{path}}</code> में कोडबेस में <code>{{query}}</code> खोजना चाहता है:",
-		"didSearch": "<code>{{query}}</code> के लिए {{count}} परिणाम मिले:"
+		"didSearch_one": "1 परिणाम मिला",
+		"didSearch_other": "{{count}} परिणाम मिले",
+		"resultTooltip": "समानता स्कोर: {{score}} (फ़ाइल खोलने के लिए क्लिक करें)"
 	},
 	"read-batch": {
 		"approve": {
@@ -299,5 +315,8 @@
 		"indexed": "इंडेक्स किया गया",
 		"error": "इंडेक्स त्रुटि",
 		"status": "इंडेक्स स्थिति"
+	},
+	"versionIndicator": {
+		"ariaLabel": "संस्करण {{version}} - रिलीज़ नोट्स देखने के लिए क्लिक करें"
 	}
 }

@@ -11,7 +11,7 @@
 </sub>
 </div>
 
-# Bijdragen aan Roo Code Chinese SSY
+# Bijdragen aan Roo Code Chinese
 
 Roo Code is een door de community gedreven project en we waarderen elke bijdrage enorm. Om de samenwerking te stroomlijnen, werken we volgens een [Issue-First](#issue-first-aanpak) principe, wat betekent dat alle [Pull Requests (PR's)](#een-pull-request-indienen) eerst gekoppeld moeten worden aan een GitHub Issue. Lees deze gids zorgvuldig door.
 
@@ -52,7 +52,7 @@ Onze roadmap bepaalt de richting van het project. Stem je bijdragen af op deze k
 
 Vermeld de afstemming met deze gebieden in je PR's.
 
-### 3. Word lid van de Roo Code Chinese SSY-community
+### 3. Word lid van de Roo Code Chinese-community
 
 - **Hoofdmethode:** Word lid van onze [Discord](https://discord.gg/roocode) en stuur een DM naar **Hannes Rudolph (`hrudolph`)**.
 - **Alternatief:** Ervaren bijdragers kunnen direct meedoen via [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1).

@@ -1,4 +1,143 @@
-# Roo Code Chinese SSY Changelog
+# Roo Code Chinese Changelog
+
+## [3.23.6] - 2025-07-10
+
+- Grok 4
+
+## [3.23.5] - 2025-07-09
+
+- Fix: use decodeURIComponent in openFile (thanks @vivekfyi!)
+- Fix(embeddings): Translate error messages before sending to UI (thanks @daniel-lxs!)
+- Make account tab visible
+
+## [3.23.4] - 2025-07-09
+
+- Update chat area icons for better discoverability & consistency
+- Fix a bug that allowed `list_files` to return directory results that should be excluded by .gitignore
+- Add an overflow header menu to make the UI a little tidier (thanks @dlab-anton)
+- Fix a bug the issue where null custom modes configuration files cause a 'Cannot read properties of null' error (thanks @daniel-lxs!)
+- Replace native title attributes with StandardTooltip component for consistency (thanks @daniel-lxs!)
+
+## [3.23.3] - 2025-07-09
+
+- Remove erroneous line from announcement modal
+
+## [3.23.2] - 2025-07-09
+
+- Fix bug where auto-approval was intermittently failing
+
+## [3.23.1] - 2025-07-09
+
+- Always show the code indexing dot under the chat text area
+
+## [3.23.0] - 2025-07-08
+
+- Move codebase indexing out of experimental (thanks @daniel-lxs and @MuriloFP!)
+- Add todo list tool (thanks @qdaxb!)
+- Fix code index secret persistence and improve settings UX (thanks @daniel-lxs!)
+- Add Gemini embedding provider for codebase indexing (thanks @SannidhyaSah!)
+- Support full endpoint URLs in OpenAI Compatible provider (thanks @SannidhyaSah!)
+- Add markdown support to codebase indexing (thanks @MuriloFP!)
+- Add Search/Filter Functionality to API Provider Selection in Settings (thanks @GOODBOY008!)
+- Add configurable max search results (thanks @MuriloFP!)
+- Add copy prompt button to task actions (thanks @Juice10 and @vultrnerd!)
+- Fix insertContentTool to create new files with content (thanks @Ruakij!)
+- Fix typescript compiler watch path inconsistency (thanks @bbenshalom!)
+- Use actual max_completion_tokens from OpenRouter API (thanks @shariqriazz!)
+- Prevent completion sound from replaying when reopening completed tasks (thanks @SannidhyaSah!)
+- Fix access_mcp_resource fails to handle images correctly (thanks @s97712!)
+- Prevent chatbox focus loss during automated file editing (thanks @hannesrudolph!)
+- Resolve intermittent hangs and lack of clear error feedback in apply_diff tool (thanks @lhish!)
+- Resolve Go duplicate references in tree-sitter queries (thanks @MuriloFP!)
+- Chat UI consistency and layout shifts (thanks @seedlord!)
+- Chat index UI enhancements (thanks @MuriloFP!)
+- Fix model search being prefilled on dropdown (thanks @kevinvandijk!)
+- Improve chat UI - add camera icon margin and make placeholder non-selectable (thanks @MuriloFP!)
+- Delete .roo/rules-{mode} folder when custom mode is deleted
+- Enforce file restrictions for all edit tools in architect mode
+- Add User-Agent header to API providers
+- Fix auto question timer unmount (thanks @liwilliam2021!)
+- Fix new_task tool streaming issue
+- Optimize file listing when maxWorkspaceFiles is 0 (thanks @daniel-lxs!)
+- Correct export/import of OpenAI Compatible codebase indexing settings (thanks @MuriloFP!)
+- Resolve workspace path inconsistency in code indexing for multi-workspace scenarios
+
+## [3.22.6] - 2025-07-02
+
+- Add timer-based auto approve for follow up questions (thanks @liwilliam2021!)
+- Add import/export modes functionality
+- Add persistent version indicator on chat screen
+- Add automatic configuration import on extension startup (thanks @takakoutso!)
+- Add user-configurable search score threshold slider for semantic search (thanks @hannesrudolph!)
+- Add default headers and testing for litellm fetcher (thanks @andrewshu2000!)
+- Fix consistent cancellation error messages for thinking vs streaming phases
+- Fix AWS Bedrock cross-region inference profile mapping (thanks @KevinZhao!)
+- Fix URL loading timeout issues in @ mentions (thanks @MuriloFP!)
+- Fix API retry exponential backoff capped at 10 minutes (thanks @MuriloFP!)
+- Fix Qdrant URL field auto-filling with default value (thanks @SannidhyaSah!)
+- Fix profile context condensation threshold (thanks @PaperBoardOfficial!)
+- Fix apply_diff tool documentation for multi-file capabilities
+- Fix cache files excluded from rules compilation (thanks @MuriloFP!)
+- Add streamlined extension installation and documentation (thanks @devxpain!)
+- Prevent Architect mode from providing time estimates
+- Remove context size from environment details
+- Change default mode to architect for new installations
+- Suppress Mermaid error rendering
+- Improve Mermaid buttons with light background in light mode (thanks @chrarnoldus!)
+- Add .vscode/ to write-protected files/directories
+- Update AWS Bedrock cross-region inference profile mapping (thanks @KevinZhao!)
+
+## [3.22.5] - 2025-06-28
+
+- Remove Gemini CLI provider while we work with Google on a better integration
+
+## [3.22.4] - 2025-06-27
+
+- Fix: resolve E2BIG error by passing large prompts via stdin to Claude CLI (thanks @Fovty!)
+- Add optional mode suggestions to follow-up questions
+- Fix: move StandardTooltip inside PopoverTrigger in ShareButton (thanks @daniel-lxs!)
+
+## [3.22.3] - 2025-06-27
+
+- Restore JSON backwards compatibility for .roomodes files (thanks @daniel-lxs!)
+
+## [3.22.2] - 2025-06-27
+
+- Fix: eliminate XSS vulnerability in CodeBlock component (thanks @KJ7LNW!)
+- Fix terminal keyboard shortcut error when adding content to context (thanks @MuriloFP!)
+- Fix checkpoint popover not opening due to StandardTooltip wrapper conflict (thanks @daniel-lxs!)
+- Fix(i18n): correct gemini cli error translation paths (thanks @daniel-lxs!)
+- Code Index (Qdrant) recreate services when change configurations (thanks @catrielmuller!)
+
+## [3.22.1] - 2025-06-26
+
+- Add Gemini CLI provider (thanks Cline!)
+- Fix undefined mcp command (thanks @qdaxb!)
+- Use upstream_inference_cost for OpenRouter BYOK cost calculation and show cached token count (thanks @chrarnoldus!)
+- Update maxTokens value for qwen/qwen3-32b model on Groq (thanks @KanTakahiro!)
+- Standardize tooltip delays to 300ms
+
+## [3.22.0] - 2025-06-25
+
+- Add 1-click task sharing
+- Add support for loading rules from a global .roo directory (thanks @samhvw8!)
+- Modes selector improvements (thanks @brunobergher!)
+- Use safeWriteJson for all JSON file writes to avoid task history corruption (thanks @KJ7LNW!)
+- Improve YAML error handling when editing modes
+- Register importSettings as VSCode command (thanks @shivamd1810!)
+- Add default task names for empty tasks (thanks @daniel-lxs!)
+- Improve translation workflow to avoid unnecessary file reads (thanks @KJ7LNW!)
+- Allow write_to_file to handle newline-only and empty content (thanks @Githubguy132010!)
+- Address multiple memory leaks in CodeBlock component (thanks @kiwina!)
+- Memory cleanup (thanks @xyOz-dev!)
+- Fix port handling bug in code indexing for HTTPS URLs (thanks @benashby!)
+- Improve Bedrock error handling for throttling and streaming contexts
+- Handle long Claude code messages (thanks @daniel-lxs!)
+- Fixes to Claude Code caching and image upload
+- Disable reasoning budget UI controls for Claude Code provider
+- Remove temperature parameter for Azure OpenAI reasoning models (thanks @ExactDoug!)
+- Allowed commands import/export (thanks @catrielmuller!)
+- Add VS Code setting to disable quick fix context actions (thanks @OlegOAndreev!)
 
 ## [3.21.5] - 2025-06-23
 
@@ -244,7 +383,7 @@
 - Fix vscode-material-icons in the filer picker
 - Fix global settings export
 - Respect user-configured terminal integration timeout (thanks @KJ7LNW)
-- Contex condensing enhancements (thanks @SannidhyaSah)
+- Context condensing enhancements (thanks @SannidhyaSah)
 
 ## [3.18.1] - 2025-05-22
 
@@ -366,7 +505,7 @@
 - Fix display issue of the programming language dropdown in the code block component (thanks @zhangtony239)
 - MCP server errors are now captured and shown in a new "Errors" tab (thanks @robertheadley)
 - Error logging will no longer break MCP functionality if the server is properly connected (thanks @ksze)
-- You can now toggle the `terminal.integrated.inheritEnv` VSCode setting directly for the Roo Code Chinese SSY settings (thanks @KJ7LNW)
+- You can now toggle the `terminal.integrated.inheritEnv` VSCode setting directly for the Roo Code Chinese settings (thanks @KJ7LNW)
 - Add `gemini-2.5-pro-preview-05-06` to the Vertex and Gemini providers (thanks @zetaloop)
 - Ensure evals exercises are up-to-date before running evals (thanks @shariqriazz)
 - Lots of general UI improvements (thanks @elianiva)
@@ -383,7 +522,7 @@
 
 ## [3.15.4] - 2025-05-04
 
-- Fix a nasty bug that would cause Roo Code Chinese SSY to hang, particularly in orchestrator mode
+- Fix a nasty bug that would cause Roo Code Chinese to hang, particularly in orchestrator mode
 - Improve Gemini caching efficiency
 
 ## [3.15.3] - 2025-05-02
@@ -422,8 +561,8 @@
 - Improve the auto-approve toggle buttons for some high-contrast VSCode themes
 - Offload expensive count token operations to a web worker (thanks @samhvw8)
 - Improve support for mult-root workspaces (thanks @snoyiatk)
-- Simplify and streamline Roo Code Chinese SSY's quick actions
-- Allow Roo Code Chinese SSY settings to be imported from the welcome screen (thanks @julionav)
+- Simplify and streamline Roo Code Chinese's quick actions
+- Allow Roo Code Chinese settings to be imported from the welcome screen (thanks @julionav)
 - Remove unused types (thanks @wkordalski)
 - Improve the performance of mode switching (thanks @dlab-anton)
 - Fix importing & exporting of custom modes (thanks @julionav)
@@ -587,7 +726,7 @@
 - Improve readFileTool XML output format (thanks @KJ7LNW!)
 - Add o1-pro support (thanks @arthurauffray!)
 - Follow symlinked rules files/directories to allow for more flexible rule setups
-- Focus Roo Code Chinese SSY in the sidebar when running tasks in the sidebar via the API
+- Focus Roo Code Chinese in the sidebar when running tasks in the sidebar via the API
 - Improve subtasks UI
 
 ## [3.11.10] - 2025-04-08
@@ -609,7 +748,7 @@
 - Enhance Rust tree-sitter parser with advanced language structures (thanks @KJ7LNW!)
 - Persist settings on api.setConfiguration (thanks @gtaylor!)
 - Add deep links to settings sections
-- Add command to focus Roo Code Chinese SSY input field (thanks @axkirillov!)
+- Add command to focus Roo Code Chinese input field (thanks @axkirillov!)
 - Add resize and hover actions to the browser (thanks @SplittyDev!)
 - Add resumeTask and isTaskInHistory to the API (thanks @franekp!)
 - Fix bug displaying boolean/numeric suggested answers
@@ -658,7 +797,7 @@
 - Fix issue where prompts and settings tabs were not scrollable when accessed from dropdown menus
 - Update AWS region dropdown menu to the most recent data (thanks @Smartsheet-JB-Brown!)
 - Fix prompt enhancement for Bedrock (thanks @Smartsheet-JB-Brown!)
-- Allow processes to access the Roo Code Chinese SSY API via a unix socket
+- Allow processes to access the Roo Code Chinese API via a unix socket
 - Improve zh-TW Traditional Chinese translations (thanks @PeterDaveHello!)
 - Add support for Azure AI Inference Service with DeepSeek-V3 model (thanks @thomasjeung!)
 - Fix off-by-one error in tree-sitter line numbers
@@ -695,7 +834,7 @@
 - Fix list_code_definition_names to support files (thanks @KJ7LNW!)
 - Refactor tool-calling logic to make the code a lot easier to work with (thanks @diarmidmackenzie, @bramburn, @KJ7LNW, and everyone else who helped!)
 - Prioritize “Add to Context” in the code actions and include line numbers (thanks @samhvw8!)
-- Add an activation command that other extensions can use to interface with Roo Code Chinese SSY (thanks @gtaylor!)
+- Add an activation command that other extensions can use to interface with Roo Code Chinese (thanks @gtaylor!)
 - Preserve language characters in file @-mentions (thanks @aheizi!)
 - Browser tool improvements (thanks @afshawnlotfi!)
 - Display info about partial reads in the chat row
@@ -756,7 +895,7 @@
 
 ## [3.10.1] - 2025-03-20
 
-- Make the suggested responses optional to not break overriden system prompts
+- Make the suggested responses optional to not break overridden system prompts
 
 ## [3.10.0] - 2025-03-20
 
@@ -787,7 +926,7 @@
 
 ## [3.9.0] - 2025-03-18
 
-- Internationalize Roo Code Chinese SSY into Catalan, German, Spanish, French, Hindi, Italian, Japanese, Korean, Polish, Portuguese, Turkish, Vietnamese, Simplified Chinese, and Traditional Chinese (thanks @feifei325!)
+- Internationalize Roo Code Chinese into Catalan, German, Spanish, French, Hindi, Italian, Japanese, Korean, Polish, Portuguese, Turkish, Vietnamese, Simplified Chinese, and Traditional Chinese (thanks @feifei325!)
 - Bring back support for MCP over SSE (thanks @aheizi!)
 - Add a text-to-speech option to have Roo talk to you as it works (thanks @heyseth!)
 - Choose a specific provider when using OpenRouter (thanks PhunkyBob!)
@@ -867,17 +1006,17 @@
 
 ## [3.8.0] - 2025-03-07
 
-- Add opt-in telemetry to help us improve Roo Code Chinese SSY faster (thanks Cline!)
+- Add opt-in telemetry to help us improve Roo Code Chinese faster (thanks Cline!)
 - Fix terminal overload / gray screen of death, and other terminal issues
 - Add a new experimental diff editing strategy that applies multiple diff edits at once (thanks @qdaxb!)
-- Add support for a .rooignore to prevent Roo Code Chinese SSY from read/writing certain files, with a setting to also exclude them from search/lists (thanks Cline!)
+- Add support for a .rooignore to prevent Roo Code Chinese from read/writing certain files, with a setting to also exclude them from search/lists (thanks Cline!)
 - Update the new_task tool to return results to the parent task on completion, supporting better orchestration (thanks @shaybc!)
 - Support running Roo in multiple editor windows simultaneously (thanks @samhvw8!)
 - Make checkpoints asynchronous and exclude more files to speed them up
 - Redesign the settings page to make it easier to navigate
 - Add credential-based authentication for Vertex AI, enabling users to easily switch between Google Cloud accounts (thanks @eonghk!)
 - Update the DeepSeek provider with the correct baseUrl and track caching correctly (thanks @olweraltuve!)
-- Add a new “Human Relay” provider that allows you to manually copy information to a Web AI when needed, and then paste the AI's response back into Roo Code Chinese SSY (thanks @NyxJae)!
+- Add a new “Human Relay” provider that allows you to manually copy information to a Web AI when needed, and then paste the AI's response back into Roo Code Chinese (thanks @NyxJae)!
 - Add observability for OpenAI providers (thanks @refactorthis!)
 - Support speculative decoding for LM Studio local models (thanks @adamwlarson!)
 - Improve UI for mode/provider selectors in chat
@@ -966,7 +1105,7 @@
 
 ## [3.7.0] - 2025-02-24
 
-- Introducing Roo Code Chinese SSY 3.7, with support for the new Claude Sonnet 3.7. Because who cares about skipping version numbers anymore? Thanks @lupuletic and @cte for the PRs!
+- Introducing Roo Code Chinese 3.7, with support for the new Claude Sonnet 3.7. Because who cares about skipping version numbers anymore? Thanks @lupuletic and @cte for the PRs!
 
 ## [3.3.26] - 2025-02-27
 
@@ -1155,7 +1294,7 @@
 - Ask and Architect modes can now edit markdown files
 - Custom modes can now be restricted to specific file patterns (for example, a technical writer who can only edit markdown files 👋)
 - Support for configuring the Bedrock provider with AWS Profiles
-- New Roo Code Chinese SSY community Discord at https://roocode.com/discord!
+- New Roo Code Chinese community Discord at https://roocode.com/discord!
 
 ## [3.2.8]
 
@@ -1187,9 +1326,9 @@
 
 ## [3.2.0 - 3.2.2]
 
-- **Name Change From Roo Cline to Roo Code Chinese SSY:** We're excited to announce our new name! After growing beyond 50,000 installations, we've rebranded from Roo Cline to Roo Code Chinese SSY to better reflect our identity as we chart our own course.
+- **Name Change From Roo Cline to Roo Code Chinese:** We're excited to announce our new name! After growing beyond 50,000 installations, we've rebranded from Roo Cline to Roo Code Chinese to better reflect our identity as we chart our own course.
 
-- **Custom Modes:** Create your own personas for Roo Code Chinese SSY! While our built-in modes (Code, Architect, Ask) are still here, you can now shape entirely new ones:
+- **Custom Modes:** Create your own personas for Roo Code Chinese! While our built-in modes (Code, Architect, Ask) are still here, you can now shape entirely new ones:
     - Define custom prompts
     - Choose which tools each mode can access
     - Create specialized assistants for any workflow
@@ -1248,7 +1387,7 @@ Join us at https://www.reddit.com/r/RooCode to share your custom modes and be pa
 
 ## [3.0.0]
 
-- This release adds chat modes! Now you can ask Roo Code Chinese SSY questions about system architecture or the codebase without immediately jumping into writing code. You can even assign different API configuration profiles to each mode if you prefer to use different models for thinking vs coding. Would love feedback in the new Roo Code Chinese SSY Reddit! https://www.reddit.com/r/RooCode
+- This release adds chat modes! Now you can ask Roo Code Chinese questions about system architecture or the codebase without immediately jumping into writing code. You can even assign different API configuration profiles to each mode if you prefer to use different models for thinking vs coding. Would love feedback in the new Roo Code Chinese Reddit! https://www.reddit.com/r/RooCode
 
 ## [2.2.46]
 

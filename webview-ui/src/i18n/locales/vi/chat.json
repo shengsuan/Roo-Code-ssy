@@ -1,5 +1,5 @@
 {
-	"greeting": "Chào mừng đến với Roo Code Chinese SSY",
+	"greeting": "Chào mừng đến với Roo Code Chinese",
 	"task": {
 		"title": "Nhiệm vụ",
 		"seeMore": "Xem thêm",
@@ -16,7 +16,12 @@
 		"shareWithOrganization": "Chia sẻ với tổ chức",
 		"shareWithOrganizationDescription": "Chỉ thành viên tổ chức của bạn mới có thể truy cập",
 		"sharePublicly": "Chia sẻ công khai",
-		"sharePubliclyDescription": "Bất kỳ ai có liên kết đều có thể truy cập"
+		"sharePubliclyDescription": "Bất kỳ ai có liên kết đều có thể truy cập",
+		"connectToCloud": "Kết nối với Cloud",
+		"connectToCloudDescription": "Đăng nhập vào Roo Code Cloud để chia sẻ tác vụ",
+		"sharingDisabledByOrganization": "Chia sẻ bị tổ chức vô hiệu hóa",
+		"shareSuccessOrganization": "Liên kết tổ chức đã được sao chép vào clipboard",
+		"shareSuccessPublic": "Liên kết công khai đã được sao chép vào clipboard"
 	},
 	"unpin": "Bỏ ghim khỏi đầu",
 	"pin": "Ghim lên đầu",
@@ -100,12 +105,19 @@
 	"enhancePrompt": "Nâng cao yêu cầu với ngữ cảnh bổ sung",
 	"addImages": "Thêm hình ảnh vào tin nhắn",
 	"sendMessage": "Gửi tin nhắn",
+	"stopTts": "Dừng chuyển văn bản thành giọng nói",
 	"typeMessage": "Nhập tin nhắn...",
 	"typeTask": "Nhập nhiệm vụ của bạn tại đây...",
 	"addContext": "@ để thêm ngữ cảnh, / để chuyển chế độ",
 	"dragFiles": "giữ shift để kéo tệp",
 	"dragFilesImages": "giữ shift để kéo tệp/hình ảnh",
 	"enhancePromptDescription": "Nút 'Nâng cao yêu cầu' giúp cải thiện yêu cầu của bạn bằng cách cung cấp ngữ cảnh bổ sung, làm rõ hoặc diễn đạt lại. Hãy thử nhập yêu cầu tại đây và nhấp vào nút một lần nữa để xem cách thức hoạt động.",
+	"modeSelector": {
+		"title": "Chế độ",
+		"marketplace": "Chợ Chế độ",
+		"settings": "Cài đặt Chế độ",
+		"description": "Các nhân cách chuyên biệt điều chỉnh hành vi của Roo."
+	},
 	"errorReadingFile": "Lỗi khi đọc tệp:",
 	"noValidImages": "Không có hình ảnh hợp lệ nào được xử lý",
 	"separator": "Dấu phân cách",
@@ -210,7 +222,7 @@
 	"autoApprove": {
 		"title": "Tự động phê duyệt:",
 		"none": "Không",
-		"description": "Tự động phê duyệt cho phép Roo Code Chinese SSY thực hiện hành động mà không cần xin phép. Chỉ bật cho các hành động bạn hoàn toàn tin tưởng. Cấu hình chi tiết hơn có sẵn trong <settingsLink>Cài đặt</settingsLink>."
+		"description": "Tự động phê duyệt cho phép Roo Code Chinese thực hiện hành động mà không cần xin phép. Chỉ bật cho các hành động bạn hoàn toàn tin tưởng. Cấu hình chi tiết hơn có sẵn trong <settingsLink>Cài đặt</settingsLink>."
 	},
 	"reasoning": {
 		"thinking": "Đang suy nghĩ",
@@ -223,15 +235,17 @@
 		"tokens": "token"
 	},
 	"followUpSuggest": {
-		"copyToInput": "Sao chép vào ô nhập liệu (hoặc Shift + nhấp chuột)"
+		"copyToInput": "Sao chép vào ô nhập liệu (hoặc Shift + nhấp chuột)",
+		"autoSelectCountdown": "Tự động chọn sau {{count}}s",
+		"countdownDisplay": "{{count}}s"
 	},
 	"announcement": {
-		"title": "🎉 Roo Code Chinese SSY {{version}} Đã phát hành",
-		"description": "Roo Code Chinese SSY 3{{version}} mang đến các tính năng và cải tiến mới dựa trên phản hồi của bạn.",
+		"title": "🎉 Roo Code Chinese {{version}} Đã phát hành",
+		"description": "Roo Code Chinese 3{{version}} mang đến các tính năng và cải tiến mới dựa trên phản hồi của bạn.",
 		"whatsNew": "Có gì mới",
-		"feature1": "<bold>Ra mắt Roo Marketplace</bold> - Marketplace hiện đã hoạt động! Khám phá và cài đặt các chế độ và MCP dễ dàng hơn bao giờ hết.",
-		"feature2": "<bold>Các mô hình Gemini 2.5</bold> - Đã thêm hỗ trợ cho các mô hình Gemini 2.5 Pro, Flash và Flash Lite mới.",
-		"feature3": "<bold>Hỗ trợ tệp Excel & Nhiều hơn nữa</bold> - Đã thêm hỗ trợ tệp Excel (.xlsx) và vô số sửa lỗi cùng cải tiến!",
+		"feature1": "<bold>Lập chỉ mục Codebase Tốt nghiệp từ Thử nghiệm</bold>: Lập chỉ mục codebase đầy đủ hiện đã ổn định và sẵn sàng cho sử dụng sản xuất với tìm kiếm cải tiến và hiểu biết ngữ cảnh.",
+		"feature2": "<bold>Tính năng Danh sách Todo Mới</bold>: Giữ nhiệm vụ của bạn đúng hướng với quản lý todo tích hợp giúp bạn duy trì tổ chức và tập trung vào mục tiêu phát triển.",
+		"feature3": "<bold>Cải thiện Chuyển đổi từ Architect sang Code</bold>: Chuyển đổi mượt mà từ lập kế hoạch trong chế độ Architect sang triển khai trong chế độ Code.",
 		"hideButton": "Ẩn thông báo",
 		"detailsDiscussLinks": "Nhận thêm chi tiết và thảo luận tại <discordLink>Discord</discordLink> và <redditLink>Reddit</redditLink> 🚀"
 	},
@@ -267,10 +281,10 @@
 		}
 	},
 	"systemPromptWarning": "CẢNH BÁO: Đã kích hoạt ghi đè lệnh nhắc hệ thống tùy chỉnh. Điều này có thể phá vỡ nghiêm trọng chức năng và gây ra hành vi không thể dự đoán.",
-	"profileViolationWarning": "Hồ sơ hiện tại vi phạm cài đặt của tổ chức của bạn",
+	"profileViolationWarning": "Hồ sơ hiện tại không tương thích với cài đặt của tổ chức của bạn",
 	"shellIntegration": {
 		"title": "Cảnh báo thực thi lệnh",
-		"description": "Lệnh của bạn đang được thực thi mà không có tích hợp shell terminal VSCode. Để ẩn cảnh báo này, bạn có thể vô hiệu hóa tích hợp shell trong phần <strong>Terminal</strong> của <settingsLink>cài đặt Roo Code Chinese SSY</settingsLink> hoặc khắc phục sự cố tích hợp terminal VSCode bằng liên kết bên dưới.",
+		"description": "Lệnh của bạn đang được thực thi mà không có tích hợp shell terminal VSCode. Để ẩn cảnh báo này, bạn có thể vô hiệu hóa tích hợp shell trong phần <strong>Terminal</strong> của <settingsLink>cài đặt Roo Code Chinese</settingsLink> hoặc khắc phục sự cố tích hợp terminal VSCode bằng liên kết bên dưới.",
 		"troubleshooting": "Nhấp vào đây để xem tài liệu tích hợp shell."
 	},
 	"ask": {
@@ -283,7 +297,9 @@
 	"codebaseSearch": {
 		"wantsToSearch": "Roo muốn tìm kiếm trong cơ sở mã cho <code>{{query}}</code>:",
 		"wantsToSearchWithPath": "Roo muốn tìm kiếm trong cơ sở mã cho <code>{{query}}</code> trong <code>{{path}}</code>:",
-		"didSearch": "Đã tìm thấy {{count}} kết quả cho <code>{{query}}</code>:"
+		"didSearch_one": "Đã tìm thấy 1 kết quả",
+		"didSearch_other": "Đã tìm thấy {{count}} kết quả",
+		"resultTooltip": "Điểm tương tự: {{score}} (nhấp để mở tệp)"
 	},
 	"read-batch": {
 		"approve": {
@@ -299,5 +315,8 @@
 		"indexed": "Đã lập chỉ mục",
 		"error": "Lỗi chỉ mục",
 		"status": "Trạng thái chỉ mục"
+	},
+	"versionIndicator": {
+		"ariaLabel": "Phiên bản {{version}} - Nhấp để xem ghi chú phát hành"
 	}
 }

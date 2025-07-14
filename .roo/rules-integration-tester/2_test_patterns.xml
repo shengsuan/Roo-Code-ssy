@@ -294,7 +294,6 @@
           console.log('Workspace files:', fs.readdirSync(testWorkspaceDir));
           console.log('Current working directory:', process.cwd());
           console.log('Task status:', api.getTaskStatus?.() || 'unknown');
-          console.log('========================');
         }
         ```
       </example>

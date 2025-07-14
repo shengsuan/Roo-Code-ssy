@@ -20,7 +20,7 @@
 	"startRouter": "Bir LLM yönlendiricisi kullanmanı öneririz:",
 	"startCustom": "Veya kendi API anahtarını kullanabilirsin:",
 	"telemetry": {
-		"title": "Roo Code Chinese SSY'u Geliştirmeye Yardım Et",
+		"title": "Roo Code Chinese'u Geliştirmeye Yardım Et",
 		"anonymousTelemetry": "Hataları düzeltmemize ve eklentiyi geliştirmemize yardımcı olmak için anonim hata ve kullanım verileri gönder. Hiçbir zaman kod, metin veya kişisel bilgi gönderilmez.",
 		"changeSettings": "Bunu her zaman <settingsLink>ayarlar</settingsLink>ın altından değiştirebilirsin",
 		"settings": "ayarlar",

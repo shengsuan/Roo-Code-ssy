@@ -563,7 +563,7 @@ export class McpHub {
 		try {
 			const client = new Client(
 				{
-					name: "Roo Code Chinese SSY",
+					name: "Roo Code Chinese",
 					version: this.providerRef.deref()?.context.extension?.packageJSON?.version ?? "1.0.0",
 				},
 				{

@@ -1,4 +1,4 @@
-# Roo Code Chinese SSY API
+# Roo Code Chinese API
 
 The Roo Code extension exposes an API that can be used by other extensions.
 To use this API in your extension:
@@ -23,7 +23,7 @@ if (!api) {
 }
 
 // Start a new task with an initial message.
-await api.startNewTask("Hello, Roo Code Chinese SSY API! Let's make a new project...")
+await api.startNewTask("Hello, Roo Code Chinese API! Let's make a new project...")
 
 // Start a new task with an initial message and images.
 await api.startNewTask("Use this design language", ["data:image/webp;base64,..."])

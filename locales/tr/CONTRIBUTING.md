@@ -11,7 +11,7 @@
 </sub>
 </div>
 
-# Roo Code Chinese SSY'a Katkıda Bulunma
+# Roo Code Chinese'a Katkıda Bulunma
 
 Roo Code, topluluk odaklı bir projedir ve her katkıyı çok önemsiyoruz. İşbirliğini kolaylaştırmak için [Issue-First](#issue-first-yaklaşımı) yaklaşımıyla çalışıyoruz; bu, tüm [Pull Request'lerin (PR'lar)](#pull-request-gönderme) önce bir GitHub Issue'ya bağlanması gerektiği anlamına gelir. Lütfen bu rehberi dikkatlice incele.
 
@@ -52,7 +52,7 @@ Yol haritamız projenin yönünü belirler. Katkılarını bu temel hedeflerle u
 
 PR'larında bu alanlarla olan bağlantıyı belirt.
 
-### 3. Roo Code Chinese SSY Topluluğuna Katıl
+### 3. Roo Code Chinese Topluluğuna Katıl
 
 - **Ana yöntem:** [Discord](https://discord.gg/roocode)'umuza katıl ve **Hannes Rudolph (`hrudolph`)**'a DM gönder.
 - **Alternatif:** Deneyimli katkı sağlayanlar [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1) üzerinden doğrudan katılabilir.

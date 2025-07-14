@@ -1,6 +1,6 @@
 # VSCode Integration Tests
 
-This document describes the integration test setup for the Roo Code Chinese SSY VSCode extension.
+This document describes the integration test setup for the Roo Code Chinese VSCode extension.
 
 ## Overview
 

@@ -45,6 +45,9 @@ export const globalSettingsSchema = z.object({
 	alwaysAllowModeSwitch: z.boolean().optional(),
 	alwaysAllowSubtasks: z.boolean().optional(),
 	alwaysAllowExecute: z.boolean().optional(),
+	alwaysAllowFollowupQuestions: z.boolean().optional(),
+	followupAutoApproveTimeoutMs: z.number().optional(),
+	alwaysAllowUpdateTodoList: z.boolean().optional(),
 	allowedCommands: z.array(z.string()).optional(),
 	allowedMaxRequests: z.number().nullish(),
 	autoCondenseContext: z.boolean().optional(),
@@ -104,6 +107,9 @@ export const globalSettingsSchema = z.object({
 	enhancementApiConfigId: z.string().optional(),
 	historyPreviewCollapsed: z.boolean().optional(),
 	profileThresholds: z.record(z.string(), z.number()).optional(),
+	hasOpenedModeSelector: z.boolean().optional(),
+	lastModeExportPath: z.string().optional(),
+	lastModeImportPath: z.string().optional(),
 })
 
 export type GlobalSettings = z.infer<typeof globalSettingsSchema>
@@ -142,6 +148,8 @@ export const SECRET_STATE_KEYS = [
 	"codeIndexOpenAiKey",
 	"codeIndexQdrantApiKey",
 	"codebaseIndexOpenAiCompatibleApiKey",
+	"codebaseIndexGeminiApiKey",
+	"shengSuanYunApiKey",
 ] as const satisfies readonly (keyof ProviderSettings)[]
 export type SecretState = Pick<ProviderSettings, (typeof SECRET_STATE_KEYS)[number]>
 
@@ -167,7 +175,7 @@ export const isGlobalStateKey = (key: string): key is Keys<GlobalState> =>
 
 // Default settings when running evals (unless overridden).
 export const EVALS_SETTINGS: RooCodeSettings = {
-	apiProvider: "openrouter",
+	apiProvider: "shengsuanyun",
 	openRouterUseMiddleOutTransform: false,
 
 	lastShownAnnouncementId: "may-29-2025-3-19",
@@ -188,6 +196,9 @@ export const EVALS_SETTINGS: RooCodeSettings = {
 	alwaysAllowModeSwitch: true,
 	alwaysAllowSubtasks: true,
 	alwaysAllowExecute: true,
+	alwaysAllowFollowupQuestions: true,
+	alwaysAllowUpdateTodoList: true,
+	followupAutoApproveTimeoutMs: 0,
 	allowedCommands: ["*"],
 
 	browserToolEnabled: false,
@@ -222,7 +233,7 @@ export const EVALS_SETTINGS: RooCodeSettings = {
 	showRooIgnoredFiles: true,
 	maxReadFileLine: -1, // -1 to enable full file reading.
 
-	language: "en",
+	language: "zh-CN",
 	telemetrySetting: "enabled",
 
 	mcpEnabled: false,

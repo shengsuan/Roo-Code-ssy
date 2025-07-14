@@ -31,7 +31,7 @@
 		"prompts": "Promptlar",
 		"experimental": "Deneysel",
 		"language": "Dil",
-		"about": "Roo Code Chinese SSY Hakkında"
+		"about": "Roo Code Chinese Hakkında"
 	},
 	"prompts": {
 		"description": "Prompt geliştirme, kod açıklama ve sorun çözme gibi hızlı eylemler için kullanılan destek promptlarını yapılandırın. Bu promptlar, Roo'nun yaygın geliştirme görevleri için daha iyi destek sağlamasına yardımcı olur."
@@ -44,27 +44,82 @@
 		"selectProviderPlaceholder": "Sağlayıcı seç",
 		"openaiProvider": "OpenAI",
 		"ollamaProvider": "Ollama",
+		"geminiProvider": "Gemini",
+		"geminiApiKeyLabel": "API Anahtarı:",
+		"geminiApiKeyPlaceholder": "Gemini API anahtarınızı girin",
 		"openaiCompatibleProvider": "OpenAI Uyumlu",
-		"openaiCompatibleBaseUrlLabel": "Temel URL:",
-		"openaiCompatibleApiKeyLabel": "API Anahtarı:",
-		"openaiCompatibleModelDimensionLabel": "Gömme Boyutu:",
-		"openaiCompatibleModelDimensionPlaceholder": "örn., 1536",
-		"openaiCompatibleModelDimensionDescription": "Modeliniz için gömme boyutu (çıktı boyutu). Bu değer için sağlayıcınızın belgelerine bakın. Yaygın değerler: 384, 768, 1536, 3072.",
-		"openaiKeyLabel": "OpenAI Anahtarı:",
+		"openAiKeyLabel": "OpenAI API Anahtarı",
+		"openAiKeyPlaceholder": "OpenAI API anahtarınızı girin",
+		"openAiCompatibleBaseUrlLabel": "Temel URL",
+		"openAiCompatibleApiKeyLabel": "API Anahtarı",
+		"openAiCompatibleApiKeyPlaceholder": "API anahtarınızı girin",
+		"openAiCompatibleModelDimensionLabel": "Gömme Boyutu:",
+		"modelDimensionLabel": "Model Boyutu",
+		"openAiCompatibleModelDimensionPlaceholder": "örn., 1536",
+		"openAiCompatibleModelDimensionDescription": "Modeliniz için gömme boyutu (çıktı boyutu). Bu değer için sağlayıcınızın belgelerine bakın. Yaygın değerler: 384, 768, 1536, 3072.",
 		"modelLabel": "Model",
 		"selectModelPlaceholder": "Model seç",
 		"ollamaUrlLabel": "Ollama URL:",
 		"qdrantUrlLabel": "Qdrant URL",
 		"qdrantKeyLabel": "Qdrant Anahtarı:",
-		"startIndexingButton": "İndekslemeyi Başlat",
-		"clearIndexDataButton": "İndeks Verilerini Temizle",
+		"startIndexingButton": "Başlat",
+		"clearIndexDataButton": "İndeks Temizle",
 		"unsavedSettingsMessage": "İndeksleme işlemini başlatmadan önce lütfen ayarlarını kaydet.",
 		"clearDataDialog": {
 			"title": "Emin misiniz?",
 			"description": "Bu işlem geri alınamaz. Bu, kod tabanı indeks verilerinizi kalıcı olarak silecektir.",
 			"cancelButton": "İptal",
 			"confirmButton": "Verileri Temizle"
-		}
+		},
+		"description": "Projenizin anlamsal aramasını etkinleştirmek için kod tabanı indeksleme ayarlarını yapılandırın. <0>Daha fazla bilgi</0>",
+		"statusTitle": "Durum",
+		"settingsTitle": "İndeksleme Ayarları",
+		"disabledMessage": "Kod tabanı indeksleme şu anda devre dışı. İndeksleme seçeneklerini yapılandırmak için genel ayarlarda etkinleştirin.",
+		"embedderProviderLabel": "Gömücü Sağlayıcı",
+		"modelPlaceholder": "Model adını girin",
+		"selectModel": "Bir model seçin",
+		"ollamaBaseUrlLabel": "Ollama Temel URL",
+		"qdrantApiKeyLabel": "Qdrant API Anahtarı",
+		"qdrantApiKeyPlaceholder": "Qdrant API anahtarınızı girin (isteğe bağlı)",
+		"setupConfigLabel": "Kurulum",
+		"ollamaUrlPlaceholder": "http://localhost:11434",
+		"openAiCompatibleBaseUrlPlaceholder": "https://api.example.com",
+		"modelDimensionPlaceholder": "1536",
+		"qdrantUrlPlaceholder": "http://localhost:6333",
+		"saveError": "Ayarlar kaydedilemedi",
+		"modelDimensions": "({{dimension}} boyut)",
+		"saveSuccess": "Ayarlar başarıyla kaydedildi",
+		"saving": "Kaydediliyor...",
+		"saveSettings": "Kaydet",
+		"indexingStatuses": {
+			"standby": "Bekleme",
+			"indexing": "İndeksleniyor",
+			"indexed": "İndekslendi",
+			"error": "Hata"
+		},
+		"close": "Kapat",
+		"validation": {
+			"invalidQdrantUrl": "Geçersiz Qdrant URL'si",
+			"invalidOllamaUrl": "Geçersiz Ollama URL'si",
+			"invalidBaseUrl": "Geçersiz temel URL'si",
+			"qdrantUrlRequired": "Qdrant URL'si gereklidir",
+			"openaiApiKeyRequired": "OpenAI API anahtarı gereklidir",
+			"modelSelectionRequired": "Model seçimi gereklidir",
+			"apiKeyRequired": "API anahtarı gereklidir",
+			"modelIdRequired": "Model kimliği gereklidir",
+			"modelDimensionRequired": "Model boyutu gereklidir",
+			"geminiApiKeyRequired": "Gemini API anahtarı gereklidir",
+			"ollamaBaseUrlRequired": "Ollama temel URL'si gereklidir",
+			"baseUrlRequired": "Temel URL'si gereklidir",
+			"modelDimensionMinValue": "Model boyutu 0'dan büyük olmalıdır"
+		},
+		"advancedConfigLabel": "Gelişmiş Yapılandırma",
+		"searchMinScoreLabel": "Arama Skoru Eşiği",
+		"searchMinScoreDescription": "Arama sonuçları için gereken minimum benzerlik puanı (0.0-1.0). Düşük değerler daha fazla sonuç döndürür ancak daha az alakalı olabilir. Yüksek değerler daha az ancak daha alakalı sonuçlar döndürür.",
+		"searchMinScoreResetTooltip": "Varsayılan değere sıfırla (0.4)",
+		"searchMaxResultsLabel": "Maksimum Arama Sonuçları",
+		"searchMaxResultsDescription": "Kod tabanı dizinini sorgularken döndürülecek maksimum arama sonucu sayısı. Daha yüksek değerler daha fazla bağlam sağlar ancak daha az alakalı sonuçlar içerebilir.",
+		"resetToDefault": "Varsayılana sıfırla"
 	},
 	"autoApprove": {
 		"description": "Roo'nun onay gerektirmeden otomatik olarak işlemler gerçekleştirmesine izin verin. Bu ayarları yalnızca yapay zekaya tamamen güveniyorsanız ve ilgili güvenlik risklerini anlıyorsanız etkinleştirin.",
@@ -110,6 +165,11 @@
 			"label": "Alt Görevler",
 			"description": "Onay gerektirmeden alt görevlerin oluşturulmasına ve tamamlanmasına izin ver"
 		},
+		"followupQuestions": {
+			"label": "Soru",
+			"description": "Yapılandırılan zaman aşımından sonra takip sorularına ilişkin ilk önerilen yanıtı otomatik olarak seç",
+			"timeoutLabel": "İlk yanıtı otomatik olarak seçmeden önce beklenecek süre"
+		},
 		"execute": {
 			"label": "Yürüt",
 			"description": "Onay gerektirmeden otomatik olarak izin verilen terminal komutlarını yürüt",
@@ -117,6 +177,10 @@
 			"allowedCommandsDescription": "\"Yürütme işlemlerini her zaman onayla\" etkinleştirildiğinde otomatik olarak yürütülebilen komut önekleri. Tüm komutlara izin vermek için * ekleyin (dikkatli kullanın).",
 			"commandPlaceholder": "Komut öneki girin (örn. 'git ')",
 			"addButton": "Ekle"
+		},
+		"updateTodoList": {
+			"label": "Todo",
+			"description": "Yapılacaklar listesi onay gerektirmeden otomatik olarak güncellenir"
 		},
 		"apiRequestLimit": {
 			"title": "Maksimum İstek",
@@ -142,6 +206,8 @@
 		"createProfile": "Profil oluştur",
 		"cannotDeleteOnlyProfile": "Yalnızca tek profili silemezsiniz",
 		"searchPlaceholder": "Profilleri ara",
+		"searchProviderPlaceholder": "Sağlayıcıları ara",
+		"noProviderMatchFound": "Eşleşen sağlayıcı bulunamadı",
 		"noMatchFound": "Eşleşen profil bulunamadı",
 		"vscodeLmDescription": "VS Code Dil Modeli API'si, diğer VS Code uzantıları tarafından sağlanan modelleri çalıştırmanıza olanak tanır (GitHub Copilot dahil ancak bunlarla sınırlı değildir). Başlamanın en kolay yolu, VS Code Marketplace'ten Copilot ve Copilot Chat uzantılarını yüklemektir.",
 		"awsCustomArnUse": "Kullanmak istediğiniz model için geçerli bir Amazon Bedrock ARN'si girin. Format örnekleri:",
@@ -229,13 +295,13 @@
 			"draftModelDesc": "Spekülatif kod çözmenin doğru çalışması için taslak model aynı model ailesinden olmalıdır.",
 			"selectDraftModel": "Taslak Model Seç",
 			"noModelsFound": "Taslak model bulunamadı. Lütfen LM Studio'nun Sunucu Modu etkinken çalıştığından emin olun.",
-			"description": "LM Studio, modelleri bilgisayarınızda yerel olarak çalıştırmanıza olanak tanır. Başlamak için <a>hızlı başlangıç kılavuzlarına</a> bakın. Bu uzantıyla kullanmak için LM Studio'nun <b>yerel sunucu</b> özelliğini de başlatmanız gerekecektir. <span>Not:</span> Roo Code Chinese SSY karmaşık istemler kullanır ve Claude modelleriyle en iyi şekilde çalışır. Daha az yetenekli modeller beklendiği gibi çalışmayabilir."
+			"description": "LM Studio, modelleri bilgisayarınızda yerel olarak çalıştırmanıza olanak tanır. Başlamak için <a>hızlı başlangıç kılavuzlarına</a> bakın. Bu uzantıyla kullanmak için LM Studio'nun <b>yerel sunucu</b> özelliğini de başlatmanız gerekecektir. <span>Not:</span> Roo Code Chinese karmaşık istemler kullanır ve Claude modelleriyle en iyi şekilde çalışır. Daha az yetenekli modeller beklendiği gibi çalışmayabilir."
 		},
 		"ollama": {
 			"baseUrl": "Temel URL (İsteğe bağlı)",
 			"modelId": "Model Kimliği",
 			"description": "Ollama, modelleri bilgisayarınızda yerel olarak çalıştırmanıza olanak tanır. Başlamak için hızlı başlangıç kılavuzlarına bakın.",
-			"warning": "Not: Roo Code Chinese SSY karmaşık istemler kullanır ve Claude modelleriyle en iyi şekilde çalışır. Daha az yetenekli modeller beklendiği gibi çalışmayabilir."
+			"warning": "Not: Roo Code Chinese karmaşık istemler kullanır ve Claude modelleriyle en iyi şekilde çalışır. Daha az yetenekli modeller beklendiği gibi çalışmayabilir."
 		},
 		"unboundApiKey": "Unbound API Anahtarı",
 		"getUnboundApiKey": "Unbound API Anahtarı Al",
@@ -253,7 +319,7 @@
 			}
 		},
 		"customModel": {
-			"capabilities": "Özel OpenAI uyumlu modelinizin yeteneklerini ve fiyatlandırmasını yapılandırın. Model yeteneklerini belirtirken dikkatli olun, çünkü bunlar Roo Code Chinese SSY'un performansını etkileyebilir.",
+			"capabilities": "Özel OpenAI uyumlu modelinizin yeteneklerini ve fiyatlandırmasını yapılandırın. Model yeteneklerini belirtirken dikkatli olun, çünkü bunlar Roo Code Chinese'un performansını etkileyebilir.",
 			"maxTokens": {
 				"label": "Maksimum Çıktı Token'ları",
 				"description": "Modelin bir yanıtta üretebileceği maksimum token sayısı. (Sunucunun maksimum token'ları ayarlamasına izin vermek için -1 belirtin.)"
@@ -555,17 +621,17 @@
 		}
 	},
 	"modelPicker": {
-		"automaticFetch": "Uzantı <serviceLink>{{serviceName}}</serviceLink> üzerinde bulunan mevcut modellerin en güncel listesini otomatik olarak alır. Hangi modeli seçeceğinizden emin değilseniz, Roo Code Chinese SSY <defaultModelLink>{{defaultModelId}}</defaultModelLink> ile en iyi şekilde çalışır. Şu anda mevcut olan ücretsiz seçenekleri bulmak için \"free\" araması da yapabilirsiniz.",
+		"automaticFetch": "Uzantı <serviceLink>{{serviceName}}</serviceLink> üzerinde bulunan mevcut modellerin en güncel listesini otomatik olarak alır. Hangi modeli seçeceğinizden emin değilseniz, Roo Code Chinese <defaultModelLink>{{defaultModelId}}</defaultModelLink> ile en iyi şekilde çalışır. Şu anda mevcut olan ücretsiz seçenekleri bulmak için \"free\" araması da yapabilirsiniz.",
 		"label": "Model",
 		"searchPlaceholder": "Ara",
 		"noMatchFound": "Eşleşme bulunamadı",
 		"useCustomModel": "Özel kullan: {{modelId}}"
 	},
 	"footer": {
-		"feedback": "Herhangi bir sorunuz veya geri bildiriminiz varsa, <githubLink>github.com/RooCodeInc/Roo-Code</githubLink> adresinde bir konu açmaktan veya <redditLink>reddit.com/r/RooCode</redditLink> ya da <discordLink>discord.gg/roocode</discordLink>'a katılmaktan çekinmeyin",
+		"feedback": "Herhangi bir sorunuz veya geri bildiriminiz varsa, <githubLink>github.com/shengsuan/Roo-Code-ssy</githubLink> adresinde bir konu açmaktan veya  ya da 'a katılmaktan çekinmeyin",
 		"telemetry": {
 			"label": "Anonim hata ve kullanım raporlamaya izin ver",
-			"description": "Anonim kullanım verileri ve hata raporları göndererek Roo Code Chinese SSY'u geliştirmeye yardımcı olun. Hiçbir kod, istem veya kişisel bilgi asla gönderilmez. Daha fazla ayrıntı için gizlilik politikamıza bakın."
+			"description": "Anonim kullanım verileri ve hata raporları göndererek Roo Code Chinese'u geliştirmeye yardımcı olun. Hiçbir kod, istem veya kişisel bilgi asla gönderilmez. Daha fazla ayrıntı için gizlilik politikamıza bakın."
 		},
 		"settings": {
 			"import": "İçe Aktar",

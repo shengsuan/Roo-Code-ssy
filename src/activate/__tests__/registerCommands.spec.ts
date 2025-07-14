@@ -16,6 +16,15 @@ vi.mock("vscode", () => ({
 	window: {
 		createTextEditorDecorationType: vi.fn().mockReturnValue({ dispose: vi.fn() }),
 	},
+	workspace: {
+		workspaceFolders: [
+			{
+				uri: {
+					fsPath: "/mock/workspace",
+				},
+			},
+		],
+	},
 }))
 
 vi.mock("../../core/webview/ClineProvider")
@@ -53,8 +62,6 @@ describe("getVisibleProviderOrLog", () => {
 		const result = getVisibleProviderOrLog(mockOutputChannel)
 
 		expect(result).toBeUndefined()
-		expect(mockOutputChannel.appendLine).toHaveBeenCalledWith(
-			"Cannot find any visible Roo Code Chinese SSY instances.",
-		)
+		expect(mockOutputChannel.appendLine).toHaveBeenCalledWith("Cannot find any visible Roo Code Chinese instances.")
 	})
 })

@@ -20,7 +20,7 @@
 	"startRouter": "We raden aan om een LLM-router te gebruiken:",
 	"startCustom": "Of je kunt je eigen API-sleutel gebruiken:",
 	"telemetry": {
-		"title": "Help Roo Code Chinese SSY verbeteren",
+		"title": "Help Roo Code Chinese verbeteren",
 		"anonymousTelemetry": "Stuur anonieme fout- en gebruiksgegevens om ons te helpen bugs op te lossen en de extensie te verbeteren. Er worden nooit code, prompts of persoonlijke gegevens verzonden.",
 		"changeSettings": "Je kunt dit altijd wijzigen onderaan de <settingsLink>instellingen</settingsLink>",
 		"settings": "instellingen",

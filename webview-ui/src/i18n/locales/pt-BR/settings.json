@@ -44,27 +44,82 @@
 		"selectProviderPlaceholder": "Selecionar provedor",
 		"openaiProvider": "OpenAI",
 		"ollamaProvider": "Ollama",
+		"geminiProvider": "Gemini",
+		"geminiApiKeyLabel": "Chave de API:",
+		"geminiApiKeyPlaceholder": "Digite sua chave de API do Gemini",
 		"openaiCompatibleProvider": "Compatível com OpenAI",
-		"openaiCompatibleBaseUrlLabel": "URL Base:",
-		"openaiCompatibleApiKeyLabel": "Chave de API:",
-		"openaiCompatibleModelDimensionLabel": "Dimensão de Embedding:",
-		"openaiCompatibleModelDimensionPlaceholder": "ex., 1536",
-		"openaiCompatibleModelDimensionDescription": "A dimensão de embedding (tamanho de saída) para seu modelo. Verifique a documentação do seu provedor para este valor. Valores comuns: 384, 768, 1536, 3072.",
-		"openaiKeyLabel": "Chave OpenAI:",
+		"openAiKeyLabel": "Chave de API OpenAI",
+		"openAiKeyPlaceholder": "Digite sua chave de API OpenAI",
+		"openAiCompatibleBaseUrlLabel": "URL Base",
+		"openAiCompatibleApiKeyLabel": "Chave de API",
+		"openAiCompatibleApiKeyPlaceholder": "Digite sua chave de API",
+		"openAiCompatibleModelDimensionLabel": "Dimensão de Embedding:",
+		"modelDimensionLabel": "Dimensão do Modelo",
+		"openAiCompatibleModelDimensionPlaceholder": "ex., 1536",
+		"openAiCompatibleModelDimensionDescription": "A dimensão de embedding (tamanho de saída) para seu modelo. Verifique a documentação do seu provedor para este valor. Valores comuns: 384, 768, 1536, 3072.",
 		"modelLabel": "Modelo",
 		"selectModelPlaceholder": "Selecionar modelo",
 		"ollamaUrlLabel": "URL Ollama:",
 		"qdrantUrlLabel": "URL Qdrant",
 		"qdrantKeyLabel": "Chave Qdrant:",
-		"startIndexingButton": "Iniciar Indexação",
-		"clearIndexDataButton": "Limpar Dados de Índice",
+		"startIndexingButton": "Iniciar",
+		"clearIndexDataButton": "Limpar Índice",
 		"unsavedSettingsMessage": "Por favor, salve suas configurações antes de iniciar o processo de indexação.",
 		"clearDataDialog": {
 			"title": "Tem certeza?",
 			"description": "Esta ação não pode ser desfeita. Isso excluirá permanentemente os dados de índice da sua base de código.",
 			"cancelButton": "Cancelar",
 			"confirmButton": "Limpar Dados"
-		}
+		},
+		"description": "Configure as configurações de indexação da base de código para habilitar a pesquisa semântica do seu projeto. <0>Saiba mais</0>",
+		"statusTitle": "Status",
+		"settingsTitle": "Configurações de Indexação",
+		"disabledMessage": "A indexação da base de código está atualmente desativada. Ative-a nas configurações globais para configurar as opções de indexação.",
+		"embedderProviderLabel": "Provedor de Embedder",
+		"modelPlaceholder": "Insira o nome do modelo",
+		"selectModel": "Selecione um modelo",
+		"ollamaBaseUrlLabel": "URL Base do Ollama",
+		"qdrantApiKeyLabel": "Chave da API Qdrant",
+		"qdrantApiKeyPlaceholder": "Insira sua chave da API Qdrant (opcional)",
+		"setupConfigLabel": "Configuração",
+		"ollamaUrlPlaceholder": "http://localhost:11434",
+		"openAiCompatibleBaseUrlPlaceholder": "https://api.example.com",
+		"modelDimensionPlaceholder": "1536",
+		"qdrantUrlPlaceholder": "http://localhost:6333",
+		"saveError": "Falha ao salvar configurações",
+		"modelDimensions": "({{dimension}} dimensões)",
+		"saveSuccess": "Configurações salvas com sucesso",
+		"saving": "Salvando...",
+		"saveSettings": "Salvar",
+		"indexingStatuses": {
+			"standby": "Em espera",
+			"indexing": "Indexando",
+			"indexed": "Indexado",
+			"error": "Erro"
+		},
+		"close": "Fechar",
+		"validation": {
+			"invalidQdrantUrl": "URL do Qdrant inválida",
+			"invalidOllamaUrl": "URL do Ollama inválida",
+			"invalidBaseUrl": "URL base inválida",
+			"qdrantUrlRequired": "A URL do Qdrant é obrigatória",
+			"openaiApiKeyRequired": "A chave de API da OpenAI é obrigatória",
+			"modelSelectionRequired": "A seleção do modelo é obrigatória",
+			"apiKeyRequired": "A chave de API é obrigatória",
+			"modelIdRequired": "O ID do modelo é obrigatório",
+			"modelDimensionRequired": "A dimensão do modelo é obrigatória",
+			"geminiApiKeyRequired": "A chave de API do Gemini é obrigatória",
+			"ollamaBaseUrlRequired": "A URL base do Ollama é obrigatória",
+			"baseUrlRequired": "A URL base é obrigatória",
+			"modelDimensionMinValue": "A dimensão do modelo deve ser maior que 0"
+		},
+		"advancedConfigLabel": "Configuração Avançada",
+		"searchMinScoreLabel": "Limite de pontuação de busca",
+		"searchMinScoreDescription": "Pontuação mínima de similaridade (0.0-1.0) necessária para os resultados da busca. Valores mais baixos retornam mais resultados, mas podem ser menos relevantes. Valores mais altos retornam menos resultados, mas mais relevantes.",
+		"searchMinScoreResetTooltip": "Redefinir para o valor padrão (0.4)",
+		"searchMaxResultsLabel": "Resultados máximos de busca",
+		"searchMaxResultsDescription": "Número máximo de resultados de busca a retornar ao consultar o índice de código. Valores mais altos fornecem mais contexto, mas podem incluir resultados menos relevantes.",
+		"resetToDefault": "Redefinir para o padrão"
 	},
 	"autoApprove": {
 		"description": "Permitir que o Roo realize operações automaticamente sem exigir aprovação. Ative essas configurações apenas se confiar totalmente na IA e compreender os riscos de segurança associados.",
@@ -110,6 +165,11 @@
 			"label": "Subtarefas",
 			"description": "Permitir a criação e conclusão de subtarefas sem exigir aprovação"
 		},
+		"followupQuestions": {
+			"label": "Pergunta",
+			"description": "Selecionar automaticamente a primeira resposta sugerida para perguntas de acompanhamento após o tempo limite configurado",
+			"timeoutLabel": "Tempo de espera antes de selecionar automaticamente a primeira resposta"
+		},
 		"execute": {
 			"label": "Executar",
 			"description": "Executar automaticamente comandos de terminal permitidos sem exigir aprovação",
@@ -117,6 +177,10 @@
 			"allowedCommandsDescription": "Prefixos de comando que podem ser auto-executados quando \"Aprovar sempre operações de execução\" está ativado. Adicione * para permitir todos os comandos (use com cautela).",
 			"commandPlaceholder": "Digite o prefixo do comando (ex. 'git ')",
 			"addButton": "Adicionar"
+		},
+		"updateTodoList": {
+			"label": "Todo",
+			"description": "A lista de tarefas é atualizada automaticamente sem aprovação"
 		},
 		"apiRequestLimit": {
 			"title": "Máximo de Solicitações",
@@ -142,6 +206,8 @@
 		"createProfile": "Criar perfil",
 		"cannotDeleteOnlyProfile": "Não é possível excluir o único perfil",
 		"searchPlaceholder": "Pesquisar perfis",
+		"searchProviderPlaceholder": "Pesquisar provedores",
+		"noProviderMatchFound": "Nenhum provedor encontrado",
 		"noMatchFound": "Nenhum perfil correspondente encontrado",
 		"vscodeLmDescription": "A API do Modelo de Linguagem do VS Code permite executar modelos fornecidos por outras extensões do VS Code (incluindo, mas não se limitando, ao GitHub Copilot). A maneira mais fácil de começar é instalar as extensões Copilot e Copilot Chat no VS Code Marketplace.",
 		"awsCustomArnUse": "Insira um ARN Amazon Bedrock válido para o modelo que deseja usar. Exemplos de formato:",
@@ -229,13 +295,13 @@
 			"draftModelDesc": "O modelo de rascunho deve ser da mesma família de modelos para que a decodificação especulativa funcione corretamente.",
 			"selectDraftModel": "Selecionar Modelo de Rascunho",
 			"noModelsFound": "Nenhum modelo de rascunho encontrado. Certifique-se de que o LM Studio esteja em execução com o Modo Servidor ativado.",
-			"description": "O LM Studio permite que você execute modelos localmente em seu computador. Para instruções sobre como começar, veja o <a>guia de início rápido</a> deles. Você também precisará iniciar o recurso de <b>servidor local</b> do LM Studio para usá-lo com esta extensão. <span>Nota:</span> O Roo Code Chinese SSY usa prompts complexos e funciona melhor com modelos Claude. Modelos menos capazes podem não funcionar como esperado."
+			"description": "O LM Studio permite que você execute modelos localmente em seu computador. Para instruções sobre como começar, veja o <a>guia de início rápido</a> deles. Você também precisará iniciar o recurso de <b>servidor local</b> do LM Studio para usá-lo com esta extensão. <span>Nota:</span> O Roo Code Chinese usa prompts complexos e funciona melhor com modelos Claude. Modelos menos capazes podem não funcionar como esperado."
 		},
 		"ollama": {
 			"baseUrl": "URL Base (opcional)",
 			"modelId": "ID do Modelo",
 			"description": "O Ollama permite que você execute modelos localmente em seu computador. Para instruções sobre como começar, veja o guia de início rápido deles.",
-			"warning": "Nota: O Roo Code Chinese SSY usa prompts complexos e funciona melhor com modelos Claude. Modelos menos capazes podem não funcionar como esperado."
+			"warning": "Nota: O Roo Code Chinese usa prompts complexos e funciona melhor com modelos Claude. Modelos menos capazes podem não funcionar como esperado."
 		},
 		"unboundApiKey": "Chave de API Unbound",
 		"getUnboundApiKey": "Obter chave de API Unbound",
@@ -253,7 +319,7 @@
 			}
 		},
 		"customModel": {
-			"capabilities": "Configure as capacidades e preços para seu modelo personalizado compatível com OpenAI. Tenha cuidado ao especificar as capacidades do modelo, pois elas podem afetar como o Roo Code Chinese SSY funciona.",
+			"capabilities": "Configure as capacidades e preços para seu modelo personalizado compatível com OpenAI. Tenha cuidado ao especificar as capacidades do modelo, pois elas podem afetar como o Roo Code Chinese funciona.",
 			"maxTokens": {
 				"label": "Máximo de Tokens de Saída",
 				"description": "Número máximo de tokens que o modelo pode gerar em uma resposta. (Especifique -1 para permitir que o servidor defina o máximo de tokens.)"
@@ -555,17 +621,17 @@
 		}
 	},
 	"modelPicker": {
-		"automaticFetch": "A extensão busca automaticamente a lista mais recente de modelos disponíveis em <serviceLink>{{serviceName}}</serviceLink>. Se você não tem certeza sobre qual modelo escolher, o Roo Code Chinese SSY funciona melhor com <defaultModelLink>{{defaultModelId}}</defaultModelLink>. Você também pode pesquisar por \"free\" para encontrar opções gratuitas atualmente disponíveis.",
+		"automaticFetch": "A extensão busca automaticamente a lista mais recente de modelos disponíveis em <serviceLink>{{serviceName}}</serviceLink>. Se você não tem certeza sobre qual modelo escolher, o Roo Code Chinese funciona melhor com <defaultModelLink>{{defaultModelId}}</defaultModelLink>. Você também pode pesquisar por \"free\" para encontrar opções gratuitas atualmente disponíveis.",
 		"label": "Modelo",
 		"searchPlaceholder": "Pesquisar",
 		"noMatchFound": "Nenhuma correspondência encontrada",
 		"useCustomModel": "Usar personalizado: {{modelId}}"
 	},
 	"footer": {
-		"feedback": "Se tiver alguma dúvida ou feedback, sinta-se à vontade para abrir um problema em <githubLink>github.com/RooCodeInc/Roo-Code</githubLink> ou juntar-se a <redditLink>reddit.com/r/RooCode</redditLink> ou <discordLink>discord.gg/roocode</discordLink>",
+		"feedback": "Se tiver alguma dúvida ou feedback, sinta-se à vontade para abrir um problema em <githubLink>github.com/shengsuan/Roo-Code-ssy</githubLink> ou juntar-se a  ou ",
 		"telemetry": {
 			"label": "Permitir relatórios anônimos de erros e uso",
-			"description": "Ajude a melhorar o Roo Code Chinese SSY enviando dados de uso anônimos e relatórios de erros. Nunca são enviados código, prompts ou informações pessoais. Consulte nossa política de privacidade para mais detalhes."
+			"description": "Ajude a melhorar o Roo Code Chinese enviando dados de uso anônimos e relatórios de erros. Nunca são enviados código, prompts ou informações pessoais. Consulte nossa política de privacidade para mais detalhes."
 		},
 		"settings": {
 			"import": "Importar",

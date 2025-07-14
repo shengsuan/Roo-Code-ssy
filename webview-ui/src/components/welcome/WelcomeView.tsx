@@ -35,7 +35,6 @@ const WelcomeView = () => {
 			setErrorMessage(error)
 			return
 		}
-
 		setErrorMessage(undefined)
 		vscode.postMessage({ type: "upsertApiConfiguration", text: currentApiConfigName, apiConfiguration })
 	}
@@ -77,7 +76,7 @@ const WelcomeView = () => {
 								},
 								{
 									slug: "shengsuanyun",
-									name: "胜算云 Router",
+									name: "胜算云",
 									description: t("welcome:routers.shengsuanyun.description"),
 									authUrl: getShengSuanYunAuthUrl(uriScheme),
 								},

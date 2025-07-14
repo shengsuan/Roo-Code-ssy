@@ -11,7 +11,7 @@
 </sub>
 </div>
 
-# Đóng góp cho Roo Code Chinese SSY
+# Đóng góp cho Roo Code Chinese
 
 Roo Code là một dự án do cộng đồng dẫn dắt và chúng mình rất trân trọng mọi đóng góp. Để đơn giản hóa quy trình hợp tác, chúng mình áp dụng cách tiếp cận [Issue-First](#cách-tiếp-cận-issue-first), nghĩa là tất cả [Pull Request (PR)](#gửi-pull-request) phải được liên kết với một GitHub Issue trước. Vui lòng đọc kỹ hướng dẫn này.
 
@@ -52,7 +52,7 @@ Lộ trình của chúng mình định hướng dự án. Hãy điều chỉnh �
 
 Đề cập đến sự liên quan với các lĩnh vực này trong PR của bạn.
 
-### 3. Tham gia cộng đồng Roo Code Chinese SSY
+### 3. Tham gia cộng đồng Roo Code Chinese
 
 - **Cách chính:** Tham gia [Discord](https://discord.gg/roocode) của chúng mình và nhắn tin trực tiếp cho **Hannes Rudolph (`hrudolph`)**.
 - **Cách thay thế:** Cộng tác viên có kinh nghiệm có thể tham gia trực tiếp qua [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1).

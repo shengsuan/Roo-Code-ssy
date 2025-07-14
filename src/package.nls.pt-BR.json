@@ -1,5 +1,5 @@
 {
-	"extension.displayName": "Roo Code Chinese SSY",
+	"extension.displayName": "Roo Code Chinese",
 	"extension.description": "Uma equipe completa de desenvolvimento de agentes de IA no seu editor.",
 	"command.newTask.title": "Nova Tarefa",
 	"command.explainCode.title": "Explicar Código",
@@ -9,6 +9,7 @@
 	"command.openInNewTab.title": "Abrir em Nova Aba",
 	"command.focusInput.title": "Focar Campo de Entrada",
 	"command.setCustomStoragePath.title": "Definir Caminho de Armazenamento Personalizado",
+	"command.importSettings.title": "Importar Configurações",
 	"command.terminal.addToContext.title": "Adicionar Conteúdo do Terminal ao Contexto",
 	"command.terminal.fixCommand.title": "Corrigir Este Comando",
 	"command.terminal.explainCommand.title": "Explicar Este Comando",
@@ -24,12 +25,12 @@
 	"command.openInEditor.title": "Abrir no Editor",
 	"command.settings.title": "Configurações",
 	"command.documentation.title": "Documentação",
-	"configuration.title": "Roo Code Chinese SSY",
+	"configuration.title": "Roo Code Chinese",
 	"commands.allowedCommands.description": "Comandos que podem ser executados automaticamente quando 'Sempre aprovar operações de execução' está ativado",
 	"settings.vsCodeLmModelSelector.description": "Configurações para a API do modelo de linguagem do VSCode",
 	"settings.vsCodeLmModelSelector.vendor.description": "O fornecedor do modelo de linguagem (ex: copilot)",
 	"settings.vsCodeLmModelSelector.family.description": "A família do modelo de linguagem (ex: gpt-4)",
 	"settings.customStoragePath.description": "Caminho de armazenamento personalizado. Deixe vazio para usar o local padrão. Suporta caminhos absolutos (ex: 'D:\\RooCodeStorage')",
-	"settings.rooCodeCloudEnabled.description": "Habilitar Roo Code Cloud.",
-	"settings.enableCodeActions.description": "Habilitar correções rápidas do Roo Code."
+	"settings.enableCodeActions.description": "Habilitar correções rápidas do Roo Code.",
+	"settings.autoImportSettingsPath.description": "Caminho para um arquivo de configuração do RooCode para importar automaticamente na inicialização da extensão. Suporta caminhos absolutos e caminhos relativos ao diretório inicial (por exemplo, '~/Documents/roo-code-settings.json'). Deixe em branco para desativar a importação automática."
 }

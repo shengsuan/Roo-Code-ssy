@@ -1,4 +1,4 @@
-name: Code QA Roo Code Chinese SSY
+name: Code QA Roo Code Chinese
 
 on:
     workflow_dispatch:

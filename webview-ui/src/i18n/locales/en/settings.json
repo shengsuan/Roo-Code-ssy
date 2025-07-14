@@ -31,31 +31,55 @@
 		"prompts": "Prompts",
 		"experimental": "Experimental",
 		"language": "Language",
-		"about": "About Roo Code Chinese SSY"
+		"about": "About Roo Code Chinese"
 	},
 	"prompts": {
 		"description": "Configure support prompts that are used for quick actions like enhancing prompts, explaining code, and fixing issues. These prompts help Roo provide better assistance for common development tasks."
 	},
 	"codeIndex": {
 		"title": "Codebase Indexing",
+		"description": "Configure codebase indexing settings to enable semantic search of your project. <0>Learn more</0>",
+		"statusTitle": "Status",
 		"enableLabel": "Enable Codebase Indexing",
 		"enableDescription": "<0>Codebase Indexing</0> is an experimental feature that creates a semantic search index of your project using AI embeddings. This enables Roo Code to better understand and navigate large codebases by finding relevant code based on meaning rather than just keywords.",
+		"settingsTitle": "Indexing Settings",
+		"disabledMessage": "Codebase indexing is currently disabled. Enable it in the global settings to configure indexing options.",
 		"providerLabel": "Embeddings Provider",
+		"embedderProviderLabel": "Embedder Provider",
 		"selectProviderPlaceholder": "Select provider",
 		"openaiProvider": "OpenAI",
 		"ollamaProvider": "Ollama",
+		"geminiProvider": "Gemini",
+		"geminiApiKeyLabel": "API Key:",
+		"geminiApiKeyPlaceholder": "Enter your Gemini API key",
 		"openaiCompatibleProvider": "OpenAI Compatible",
-		"openaiKeyLabel": "OpenAI Key:",
-		"openaiCompatibleBaseUrlLabel": "Base URL:",
-		"openaiCompatibleApiKeyLabel": "API Key:",
-		"openaiCompatibleModelDimensionLabel": "Embedding Dimension:",
-		"openaiCompatibleModelDimensionPlaceholder": "e.g., 1536",
-		"openaiCompatibleModelDimensionDescription": "The embedding dimension (output size) for your model. Check your provider's documentation for this value. Common values: 384, 768, 1536, 3072.",
+		"openAiKeyLabel": "OpenAI API Key",
+		"openAiKeyPlaceholder": "Enter your OpenAI API key",
+		"openAiCompatibleBaseUrlLabel": "Base URL",
+		"openAiCompatibleApiKeyLabel": "API Key",
+		"openAiCompatibleApiKeyPlaceholder": "Enter your API key",
+		"openAiCompatibleModelDimensionLabel": "Embedding Dimension:",
+		"modelDimensionLabel": "Model Dimension",
+		"openAiCompatibleModelDimensionPlaceholder": "e.g., 1536",
+		"openAiCompatibleModelDimensionDescription": "The embedding dimension (output size) for your model. Check your provider's documentation for this value. Common values: 384, 768, 1536, 3072.",
 		"modelLabel": "Model",
+		"modelPlaceholder": "Enter model name",
+		"selectModel": "Select a model",
 		"selectModelPlaceholder": "Select model",
 		"ollamaUrlLabel": "Ollama URL:",
+		"ollamaBaseUrlLabel": "Ollama Base URL",
 		"qdrantUrlLabel": "Qdrant URL",
 		"qdrantKeyLabel": "Qdrant Key:",
+		"qdrantApiKeyLabel": "Qdrant API Key",
+		"qdrantApiKeyPlaceholder": "Enter your Qdrant API key (optional)",
+		"setupConfigLabel": "Setup",
+		"advancedConfigLabel": "Advanced Configuration",
+		"searchMinScoreLabel": "Search Score Threshold",
+		"searchMinScoreDescription": "Minimum similarity score (0.0-1.0) required for search results. Lower values return more results but may be less relevant. Higher values return fewer but more relevant results.",
+		"searchMinScoreResetTooltip": "Reset to default value (0.4)",
+		"searchMaxResultsLabel": "Maximum Search Results",
+		"searchMaxResultsDescription": "Maximum number of search results to return when querying the codebase index. Higher values provide more context but may include less relevant results.",
+		"resetToDefault": "Reset to default",
 		"startIndexingButton": "Start Indexing",
 		"clearIndexDataButton": "Clear Index Data",
 		"unsavedSettingsMessage": "Please save your settings before starting the indexing process.",
@@ -64,6 +88,37 @@
 			"description": "This action cannot be undone. This will permanently delete your codebase index data.",
 			"cancelButton": "Cancel",
 			"confirmButton": "Clear Data"
+		},
+		"ollamaUrlPlaceholder": "http://localhost:11434",
+		"openAiCompatibleBaseUrlPlaceholder": "https://api.example.com",
+		"modelDimensionPlaceholder": "1536",
+		"qdrantUrlPlaceholder": "http://localhost:6333",
+		"saveError": "Failed to save settings",
+		"modelDimensions": "({{dimension}} dimensions)",
+		"saveSuccess": "Settings saved successfully",
+		"saving": "Saving...",
+		"saveSettings": "Save",
+		"indexingStatuses": {
+			"standby": "Standby",
+			"indexing": "Indexing",
+			"indexed": "Indexed",
+			"error": "Error"
+		},
+		"close": "Close",
+		"validation": {
+			"qdrantUrlRequired": "Qdrant URL is required",
+			"invalidQdrantUrl": "Invalid Qdrant URL",
+			"invalidOllamaUrl": "Invalid Ollama URL",
+			"invalidBaseUrl": "Invalid base URL",
+			"openaiApiKeyRequired": "OpenAI API key is required",
+			"modelSelectionRequired": "Model selection is required",
+			"apiKeyRequired": "API key is required",
+			"modelIdRequired": "Model ID is required",
+			"modelDimensionRequired": "Model dimension is required",
+			"geminiApiKeyRequired": "Gemini API key is required",
+			"ollamaBaseUrlRequired": "Ollama base URL is required",
+			"baseUrlRequired": "Base URL is required",
+			"modelDimensionMinValue": "Model dimension must be greater than 0"
 		}
 	},
 	"autoApprove": {
@@ -110,6 +165,11 @@
 			"label": "Subtasks",
 			"description": "Allow creation and completion of subtasks without requiring approval"
 		},
+		"followupQuestions": {
+			"label": "Question",
+			"description": "Automatically select the first suggested answer for follow-up questions after the configured timeout",
+			"timeoutLabel": "Time to wait before auto-selecting the first answer"
+		},
 		"execute": {
 			"label": "Execute",
 			"description": "Automatically execute allowed terminal commands without requiring approval",
@@ -117,6 +177,10 @@
 			"allowedCommandsDescription": "Command prefixes that can be auto-executed when \"Always approve execute operations\" is enabled. Add * to allow all commands (use with caution).",
 			"commandPlaceholder": "Enter command prefix (e.g., 'git ')",
 			"addButton": "Add"
+		},
+		"updateTodoList": {
+			"label": "Todo",
+			"description": "Automatically update the to-do list without requiring approval"
 		},
 		"apiRequestLimit": {
 			"title": "Max Requests",
@@ -142,6 +206,8 @@
 		"createProfile": "Create Profile",
 		"cannotDeleteOnlyProfile": "Cannot delete the only profile",
 		"searchPlaceholder": "Search profiles",
+		"searchProviderPlaceholder": "Search providers",
+		"noProviderMatchFound": "No providers found",
 		"noMatchFound": "No matching profiles found",
 		"vscodeLmDescription": " The VS Code Language Model API allows you to run models provided by other VS Code extensions (including but not limited to GitHub Copilot). The easiest way to get started is to install the Copilot and Copilot Chat extensions from the VS Code Marketplace.",
 		"awsCustomArnUse": "Enter a valid Amazon Bedrock ARN for the model you want to use. Format examples:",
@@ -229,13 +295,13 @@
 			"draftModelDesc": "Draft model must be from the same model family for speculative decoding to work correctly.",
 			"selectDraftModel": "Select Draft Model",
 			"noModelsFound": "No draft models found. Please ensure LM Studio is running with Server Mode enabled.",
-			"description": "LM Studio allows you to run models locally on your computer. For instructions on how to get started, see their <a>quickstart guide</a>. You will also need to start LM Studio's <b>local server</b> feature to use it with this extension. <span>Note:</span> Roo Code Chinese SSY uses complex prompts and works best with Claude models. Less capable models may not work as expected."
+			"description": "LM Studio allows you to run models locally on your computer. For instructions on how to get started, see their <a>quickstart guide</a>. You will also need to start LM Studio's <b>local server</b> feature to use it with this extension. <span>Note:</span> Roo Code Chinese uses complex prompts and works best with Claude models. Less capable models may not work as expected."
 		},
 		"ollama": {
 			"baseUrl": "Base URL (optional)",
 			"modelId": "Model ID",
 			"description": "Ollama allows you to run models locally on your computer. For instructions on how to get started, see their quickstart guide.",
-			"warning": "Note: Roo Code Chinese SSY uses complex prompts and works best with Claude models. Less capable models may not work as expected."
+			"warning": "Note: Roo Code Chinese uses complex prompts and works best with Claude models. Less capable models may not work as expected."
 		},
 		"unboundApiKey": "Unbound API Key",
 		"getUnboundApiKey": "Get Unbound API Key",
@@ -253,7 +319,7 @@
 			}
 		},
 		"customModel": {
-			"capabilities": "Configure the capabilities and pricing for your custom OpenAI-compatible model. Be careful when specifying the model capabilities, as they can affect how Roo Code Chinese SSY performs.",
+			"capabilities": "Configure the capabilities and pricing for your custom OpenAI-compatible model. Be careful when specifying the model capabilities, as they can affect how Roo Code Chinese performs.",
 			"maxTokens": {
 				"label": "Max Output Tokens",
 				"description": "Maximum number of tokens the model can generate in a response. (Specify -1 to allow the server to set the max tokens.)"
@@ -555,17 +621,17 @@
 		}
 	},
 	"modelPicker": {
-		"automaticFetch": "The extension automatically fetches the latest list of models available on <serviceLink>{{serviceName}}</serviceLink>. If you're unsure which model to choose, Roo Code Chinese SSY works best with <defaultModelLink>{{defaultModelId}}</defaultModelLink>. You can also try searching \"free\" for no-cost options currently available.",
+		"automaticFetch": "The extension automatically fetches the latest list of models available on <serviceLink>{{serviceName}}</serviceLink>. If you're unsure which model to choose, Roo Code Chinese works best with <defaultModelLink>{{defaultModelId}}</defaultModelLink>. You can also try searching \"free\" for no-cost options currently available.",
 		"label": "Model",
 		"searchPlaceholder": "Search",
 		"noMatchFound": "No match found",
 		"useCustomModel": "Use custom: {{modelId}}"
 	},
 	"footer": {
-		"feedback": "If you have any questions or feedback, feel free to open an issue at <githubLink>github.com/RooCodeInc/Roo-Code</githubLink> or join <redditLink>reddit.com/r/RooCode</redditLink> or <discordLink>discord.gg/roocode</discordLink>",
+		"feedback": "If you have any questions or feedback, feel free to open an issue at <githubLink>github.com/shengsuan/Roo-Code-ssy</githubLink> or Contact customer service. ",
 		"telemetry": {
 			"label": "Allow anonymous error and usage reporting",
-			"description": "Help improve Roo Code Chinese SSY by sending anonymous usage data and error reports. No code, prompts, or personal information is ever sent. See our privacy policy for more details."
+			"description": "Help improve Roo Code Chinese by sending anonymous usage data and error reports. No code, prompts, or personal information is ever sent. See our privacy policy for more details."
 		},
 		"settings": {
 			"import": "Import",

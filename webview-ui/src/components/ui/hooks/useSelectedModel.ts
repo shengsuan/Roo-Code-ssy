@@ -32,6 +32,8 @@ import {
 	litellmDefaultModelId,
 	shengSuanYunDefaultModelId,
 	shengSuanYunDefaultModelInfo,
+	claudeCodeDefaultModelId,
+	claudeCodeModels,
 } from "@roo-code/types"
 
 import type { RouterModels } from "@roo/api"
@@ -205,6 +207,12 @@ function getSelectedModel({
 			const id = apiConfiguration.shengSuanYunModelId ?? shengSuanYunDefaultModelId
 			const info = routerModels.shengsuanyun[id]
 			return info ? { id, info } : { id: shengSuanYunDefaultModelId, info: shengSuanYunDefaultModelInfo }
+		}
+		case "claude-code": {
+			// Claude Code models extend anthropic models but with images and prompt caching disabled
+			const id = apiConfiguration.apiModelId ?? claudeCodeDefaultModelId
+			const info = claudeCodeModels[id as keyof typeof claudeCodeModels]
+			return { id, info: { ...openAiModelInfoSaneDefaults, ...info } }
 		}
 		// case "anthropic":
 		// case "human-relay":

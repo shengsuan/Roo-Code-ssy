@@ -31,7 +31,7 @@
 		"prompts": "Промпты",
 		"experimental": "Экспериментальное",
 		"language": "Язык",
-		"about": "О Roo Code Chinese SSY"
+		"about": "О Roo Code Chinese"
 	},
 	"prompts": {
 		"description": "Настройте промпты поддержки, используемые для быстрых действий, таких как улучшение промптов, объяснение кода и исправление проблем. Эти промпты помогают Roo обеспечить лучшую поддержку для общих задач разработки."
@@ -44,27 +44,82 @@
 		"selectProviderPlaceholder": "Выберите провайдера",
 		"openaiProvider": "OpenAI",
 		"ollamaProvider": "Ollama",
+		"geminiProvider": "Gemini",
+		"geminiApiKeyLabel": "Ключ API:",
+		"geminiApiKeyPlaceholder": "Введите свой API-ключ Gemini",
 		"openaiCompatibleProvider": "OpenAI-совместимый",
-		"openaiCompatibleBaseUrlLabel": "Базовый URL:",
-		"openaiCompatibleApiKeyLabel": "Ключ API:",
-		"openaiCompatibleModelDimensionLabel": "Размерность эмбеддинга:",
-		"openaiCompatibleModelDimensionPlaceholder": "напр., 1536",
-		"openaiCompatibleModelDimensionDescription": "Размерность эмбеддинга (размер выходных данных) для вашей модели. Проверьте документацию вашего провайдера для этого значения. Распространенные значения: 384, 768, 1536, 3072.",
-		"openaiKeyLabel": "Ключ OpenAI:",
+		"openAiKeyLabel": "Ключ API OpenAI",
+		"openAiKeyPlaceholder": "Введите ваш ключ API OpenAI",
+		"openAiCompatibleBaseUrlLabel": "Базовый URL",
+		"openAiCompatibleApiKeyLabel": "Ключ API",
+		"openAiCompatibleApiKeyPlaceholder": "Введите ваш ключ API",
+		"openAiCompatibleModelDimensionLabel": "Размерность эмбеддинга:",
+		"modelDimensionLabel": "Размерность модели",
+		"openAiCompatibleModelDimensionPlaceholder": "напр., 1536",
+		"openAiCompatibleModelDimensionDescription": "Размерность эмбеддинга (размер выходных данных) для вашей модели. Проверьте документацию вашего провайдера для этого значения. Распространенные значения: 384, 768, 1536, 3072.",
 		"modelLabel": "Модель",
 		"selectModelPlaceholder": "Выберите модель",
 		"ollamaUrlLabel": "URL Ollama:",
 		"qdrantUrlLabel": "URL Qdrant",
 		"qdrantKeyLabel": "Ключ Qdrant:",
-		"startIndexingButton": "Начать индексацию",
-		"clearIndexDataButton": "Очистить данные индекса",
+		"startIndexingButton": "Начать",
+		"clearIndexDataButton": "Очистить индекс",
 		"unsavedSettingsMessage": "Пожалуйста, сохрани настройки перед запуском процесса индексации.",
 		"clearDataDialog": {
 			"title": "Вы уверены?",
 			"description": "Это действие нельзя отменить. Оно навсегда удалит данные индекса вашей кодовой базы.",
 			"cancelButton": "Отмена",
 			"confirmButton": "Очистить данные"
-		}
+		},
+		"description": "Настройте параметры индексации кодовой базы для включения семантического поиска в вашем проекте. <0>Узнать больше</0>",
+		"statusTitle": "Статус",
+		"settingsTitle": "Настройки индексации",
+		"disabledMessage": "Индексация кодовой базы в настоящее время отключена. Включите ее в глобальных настройках для настройки параметров индексации.",
+		"embedderProviderLabel": "Провайдер эмбеддера",
+		"modelPlaceholder": "Введите название модели",
+		"selectModel": "Выберите модель",
+		"ollamaBaseUrlLabel": "Базовый URL Ollama",
+		"qdrantApiKeyLabel": "API-ключ Qdrant",
+		"qdrantApiKeyPlaceholder": "Введите ваш API-ключ Qdrant (необязательно)",
+		"setupConfigLabel": "Настройка",
+		"ollamaUrlPlaceholder": "http://localhost:11434",
+		"openAiCompatibleBaseUrlPlaceholder": "https://api.example.com",
+		"modelDimensionPlaceholder": "1536",
+		"qdrantUrlPlaceholder": "http://localhost:6333",
+		"saveError": "Не удалось сохранить настройки",
+		"modelDimensions": "({{dimension}} измерений)",
+		"saveSuccess": "Настройки успешно сохранены",
+		"saving": "Сохранение...",
+		"saveSettings": "Сохранить",
+		"indexingStatuses": {
+			"standby": "Ожидание",
+			"indexing": "Индексация",
+			"indexed": "Проиндексировано",
+			"error": "Ошибка"
+		},
+		"close": "Закрыть",
+		"validation": {
+			"invalidQdrantUrl": "Неверный URL Qdrant",
+			"invalidOllamaUrl": "Неверный URL Ollama",
+			"invalidBaseUrl": "Неверный базовый URL",
+			"qdrantUrlRequired": "Требуется URL Qdrant",
+			"openaiApiKeyRequired": "Требуется ключ API OpenAI",
+			"modelSelectionRequired": "Требуется выбор модели",
+			"apiKeyRequired": "Требуется ключ API",
+			"modelIdRequired": "Требуется идентификатор модели",
+			"modelDimensionRequired": "Требуется размерность модели",
+			"geminiApiKeyRequired": "Требуется ключ API Gemini",
+			"ollamaBaseUrlRequired": "Требуется базовый URL Ollama",
+			"baseUrlRequired": "Требуется базовый URL",
+			"modelDimensionMinValue": "Размерность модели должна быть больше 0"
+		},
+		"advancedConfigLabel": "Расширенная конфигурация",
+		"searchMinScoreLabel": "Порог оценки поиска",
+		"searchMinScoreDescription": "Минимальный балл сходства (0.0-1.0), необходимый для результатов поиска. Более низкие значения возвращают больше результатов, но они могут быть менее релевантными. Более высокие значения возвращают меньше результатов, но более релевантных.",
+		"searchMinScoreResetTooltip": "Сбросить к значению по умолчанию (0.4)",
+		"searchMaxResultsLabel": "Максимальное количество результатов поиска",
+		"searchMaxResultsDescription": "Максимальное количество результатов поиска, возвращаемых при запросе индекса кодовой базы. Более высокие значения предоставляют больше контекста, но могут включать менее релевантные результаты.",
+		"resetToDefault": "Сбросить к значению по умолчанию"
 	},
 	"autoApprove": {
 		"description": "Разрешить Roo автоматически выполнять операции без необходимости одобрения. Включайте эти параметры только если полностью доверяете ИИ и понимаете связанные с этим риски безопасности.",
@@ -110,6 +165,11 @@
 			"label": "Подзадачи",
 			"description": "Разрешить создание и выполнение подзадач без необходимости одобрения"
 		},
+		"followupQuestions": {
+			"label": "Вопрос",
+			"description": "Автоматически выбирать первый предложенный ответ на дополнительные вопросы после настроенного тайм-аута",
+			"timeoutLabel": "Время ожидания перед автоматическим выбором первого ответа"
+		},
 		"execute": {
 			"label": "Выполнение",
 			"description": "Автоматически выполнять разрешённые команды терминала без необходимости одобрения",
@@ -117,6 +177,10 @@
 			"allowedCommandsDescription": "Префиксы команд, которые могут быть автоматически выполнены при включённом параметре \"Всегда одобрять выполнение операций\". Добавьте * для разрешения всех команд (используйте с осторожностью).",
 			"commandPlaceholder": "Введите префикс команды (например, 'git ')",
 			"addButton": "Добавить"
+		},
+		"updateTodoList": {
+			"label": "Todo",
+			"description": "Список дел обновляется автоматически без подтверждения"
 		},
 		"apiRequestLimit": {
 			"title": "Максимум запросов",
@@ -142,6 +206,8 @@
 		"createProfile": "Создать профиль",
 		"cannotDeleteOnlyProfile": "Нельзя удалить единственный профиль",
 		"searchPlaceholder": "Поиск профилей",
+		"searchProviderPlaceholder": "Поиск провайдеров",
+		"noProviderMatchFound": "Провайдеры не найдены",
 		"noMatchFound": "Совпадений не найдено",
 		"vscodeLmDescription": "API языковой модели VS Code позволяет запускать модели, предоставляемые другими расширениями VS Code (включая, но не ограничиваясь GitHub Copilot). Для начала установите расширения Copilot и Copilot Chat из VS Code Marketplace.",
 		"awsCustomArnUse": "Введите действительный Amazon Bedrock ARN для используемой модели. Примеры формата:",
@@ -230,13 +296,13 @@
 			"draftModelDesc": "Черновая модель должна быть из той же семьи моделей для корректной работы speculative decoding.",
 			"selectDraftModel": "Выбрать черновую модель",
 			"noModelsFound": "Черновых моделей не найдено. Проверьте, что LM Studio запущен с включённым серверным режимом.",
-			"description": "LM Studio позволяет запускать модели локально на вашем компьютере. Для начала ознакомьтесь с <a>кратким руководством</a>. Также необходимо включить <b>локальный сервер</b> LM Studio для работы с этим расширением. <span>Примечание:</span> Roo Code Chinese SSY использует сложные подсказки и лучше всего работает с моделями Claude. Менее мощные модели могут работать некорректно."
+			"description": "LM Studio позволяет запускать модели локально на вашем компьютере. Для начала ознакомьтесь с <a>кратким руководством</a>. Также необходимо включить <b>локальный сервер</b> LM Studio для работы с этим расширением. <span>Примечание:</span> Roo Code Chinese использует сложные подсказки и лучше всего работает с моделями Claude. Менее мощные модели могут работать некорректно."
 		},
 		"ollama": {
 			"baseUrl": "Базовый URL (опционально)",
 			"modelId": "ID модели",
 			"description": "Ollama позволяет запускать модели локально на вашем компьютере. Для начала ознакомьтесь с кратким руководством.",
-			"warning": "Примечание: Roo Code Chinese SSY использует сложные подсказки и лучше всего работает с моделями Claude. Менее мощные модели могут работать некорректно."
+			"warning": "Примечание: Roo Code Chinese использует сложные подсказки и лучше всего работает с моделями Claude. Менее мощные модели могут работать некорректно."
 		},
 		"unboundApiKey": "Unbound API-ключ",
 		"getUnboundApiKey": "Получить Unbound API-ключ",
@@ -254,7 +320,7 @@
 			}
 		},
 		"customModel": {
-			"capabilities": "Настройте возможности и стоимость вашей пользовательской модели, совместимой с OpenAI. Будьте осторожны при указании возможностей модели, это может повлиять на работу Roo Code Chinese SSY.",
+			"capabilities": "Настройте возможности и стоимость вашей пользовательской модели, совместимой с OpenAI. Будьте осторожны при указании возможностей модели, это может повлиять на работу Roo Code Chinese.",
 			"maxTokens": {
 				"label": "Максимум токенов на вывод",
 				"description": "Максимальное количество токенов, которые модель может сгенерировать в ответе. (Укажите -1, чтобы сервер сам определил максимум.)"
@@ -556,17 +622,17 @@
 		}
 	},
 	"modelPicker": {
-		"automaticFetch": "Расширение автоматически получает актуальный список моделей на <serviceLink>{{serviceName}}</serviceLink>. Если не уверены, что выбрать, Roo Code Chinese SSY лучше всего работает с <defaultModelLink>{{defaultModelId}}</defaultModelLink>. Также попробуйте поискать \"free\" для бесплатных вариантов.",
+		"automaticFetch": "Расширение автоматически получает актуальный список моделей на <serviceLink>{{serviceName}}</serviceLink>. Если не уверены, что выбрать, Roo Code Chinese лучше всего работает с <defaultModelLink>{{defaultModelId}}</defaultModelLink>. Также попробуйте поискать \"free\" для бесплатных вариантов.",
 		"label": "Модель",
 		"searchPlaceholder": "Поиск",
 		"noMatchFound": "Совпадений не найдено",
 		"useCustomModel": "Использовать пользовательскую: {{modelId}}"
 	},
 	"footer": {
-		"feedback": "Если у вас есть вопросы или предложения, откройте issue на <githubLink>github.com/RooCodeInc/Roo-Code</githubLink> или присоединяйтесь к <redditLink>reddit.com/r/RooCode</redditLink> или <discordLink>discord.gg/roocode</discordLink>",
+		"feedback": "Если у вас есть вопросы или предложения, откройте issue на <githubLink>github.com/shengsuan/Roo-Code-ssy</githubLink> или присоединяйтесь к  или ",
 		"telemetry": {
 			"label": "Разрешить анонимную отправку ошибок и статистики использования",
-			"description": "Помогите улучшить Roo Code Chinese SSY, отправляя анонимные данные об ошибках и использовании. Код, подсказки и личная информация не отправляются. Подробнее — в политике конфиденциальности."
+			"description": "Помогите улучшить Roo Code Chinese, отправляя анонимные данные об ошибках и использовании. Код, подсказки и личная информация не отправляются. Подробнее — в политике конфиденциальности."
 		},
 		"settings": {
 			"import": "Импорт",

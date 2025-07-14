@@ -70,7 +70,7 @@ describe("generatePackageJson", () => {
 							{
 								command: "roo-vibecoding.accountButtonClicked",
 								group: "navigation@6",
-								when: "activeWebviewPanelId == roo-vibecoding.TabPanelProvider && config.roo-vibecoding.rooCodeCloudEnabled",
+								when: "activeWebviewPanelId == roo-vibecoding.TabPanelProvider",
 							},
 						],
 					},
@@ -183,7 +183,7 @@ describe("generatePackageJson", () => {
 						{
 							command: "roo-code-nightly.accountButtonClicked",
 							group: "navigation@6",
-							when: "activeWebviewPanelId == roo-code-nightly.TabPanelProvider && config.roo-code-nightly.rooCodeCloudEnabled",
+							when: "activeWebviewPanelId == roo-code-nightly.TabPanelProvider",
 						},
 					],
 				},

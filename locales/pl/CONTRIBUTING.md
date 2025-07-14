@@ -11,7 +11,7 @@
 </sub>
 </div>
 
-# Współtworzenie Roo Code Chinese SSY
+# Współtworzenie Roo Code Chinese
 
 Roo Code to projekt napędzany przez społeczność i bardzo cenimy każdy wkład. Aby usprawnić współpracę, działamy według zasady [Issue-First](#podejście-issue-first), co oznacza, że wszystkie [Pull Requesty (PR)](#zgłaszanie-pull-requesta) muszą najpierw być powiązane z GitHub Issue. Prosimy o uważne zapoznanie się z tym przewodnikiem.
 
@@ -52,7 +52,7 @@ Nasza roadmapa wyznacza kierunek projektu. Dostosuj swój wkład do tych kluczow
 
 Wspomnij o powiązaniu z tymi obszarami w swoich PR.
 
-### 3. Dołącz do społeczności Roo Code Chinese SSY
+### 3. Dołącz do społeczności Roo Code Chinese
 
 - **Główna metoda:** Dołącz do naszego [Discorda](https://discord.gg/roocode) i wyślij wiadomość prywatną do **Hannes Rudolph (`hrudolph`)**.
 - **Alternatywa:** Doświadczeni współtwórcy mogą angażować się bezpośrednio przez [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1).

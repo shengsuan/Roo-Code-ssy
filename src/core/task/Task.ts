@@ -20,6 +20,7 @@ import {
 	type ToolProgressStatus,
 	type HistoryItem,
 	TelemetryEventName,
+	TodoItem,
 } from "@roo-code/types"
 import { TelemetryService } from "@roo-code/telemetry"
 import { CloudService } from "@roo-code/cloud"
@@ -85,6 +86,10 @@ import { processUserContentMentions } from "../mentions/processUserContentMentio
 import { ApiMessage } from "../task-persistence/apiMessages"
 import { getMessagesSinceLastSummary, summarizeConversation } from "../condense"
 import { maybeRemoveImageBlocks } from "../../api/transform/image-cleaning"
+import { restoreTodoListForTask } from "../tools/updateTodoListTool"
+
+// Constants
+const MAX_EXPONENTIAL_BACKOFF_SECONDS = 600 // 10 minutes
 
 export type ClineEvents = {
 	message: [{ action: "created" | "updated"; message: ClineMessage }]
@@ -119,6 +124,7 @@ export type TaskOptions = {
 }
 
 export class Task extends EventEmitter<ClineEvents> {
+	todoList?: TodoItem[]
 	readonly taskId: string
 	readonly instanceId: string
 
@@ -367,6 +373,7 @@ export class Task extends EventEmitter<ClineEvents> {
 
 	public async overwriteClineMessages(newMessages: ClineMessage[]) {
 		this.clineMessages = newMessages
+		restoreTodoListForTask(this)
 		await this.saveClineMessages()
 	}
 
@@ -1425,10 +1432,15 @@ export class Task extends EventEmitter<ClineEvents> {
 					// cancel task.
 					this.abortTask()
 
-					await abortStream(
-						"streaming_failed",
-						error.message ?? JSON.stringify(serializeError(error), null, 2),
-					)
+					// Check if this was a user-initiated cancellation
+					// If this.abort is true, it means the user clicked cancel, so we should
+					// treat this as "user_cancelled" rather than "streaming_failed"
+					const cancelReason = this.abort ? "user_cancelled" : "streaming_failed"
+					const streamingFailedMessage = this.abort
+						? undefined
+						: (error.message ?? JSON.stringify(serializeError(error), null, 2))
+
+					await abortStream(cancelReason, streamingFailedMessage)
 
 					const history = await provider?.getTaskWithId(this.taskId)
 
@@ -1708,6 +1720,10 @@ export class Task extends EventEmitter<ClineEvents> {
 
 			const contextWindow = modelInfo.contextWindow
 
+			const currentProfileId =
+				state?.listApiConfigMeta.find((profile) => profile.name === state?.currentApiConfigName)?.id ??
+				"default"
+
 			const truncateResult = await truncateConversationIfNeeded({
 				messages: this.apiConversationHistory,
 				totalTokens: contextTokens,
@@ -1721,7 +1737,7 @@ export class Task extends EventEmitter<ClineEvents> {
 				customCondensingPrompt,
 				condensingApiHandler,
 				profileThresholds,
-				currentProfileId: state?.currentApiConfigName || "default",
+				currentProfileId,
 			})
 			if (truncateResult.messages !== this.apiConversationHistory) {
 				await this.overwriteApiConversationHistory(truncateResult.messages)
@@ -1792,7 +1808,10 @@ export class Task extends EventEmitter<ClineEvents> {
 				}
 
 				const baseDelay = requestDelaySeconds || 5
-				let exponentialDelay = Math.ceil(baseDelay * Math.pow(2, retryAttempt))
+				let exponentialDelay = Math.min(
+					Math.ceil(baseDelay * Math.pow(2, retryAttempt)),
+					MAX_EXPONENTIAL_BACKOFF_SECONDS,
+				)
 
 				// If the error is a 429, and the error details contain a retry delay, use that delay instead of exponential backoff
 				if (error.status === 429) {

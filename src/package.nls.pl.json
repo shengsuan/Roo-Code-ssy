@@ -1,5 +1,5 @@
 {
-	"extension.displayName": "Roo Code Chinese SSY",
+	"extension.displayName": "Roo Code Chinese",
 	"extension.description": "Pełny zespół programistów AI w twoim edytorze.",
 	"command.newTask.title": "Nowe Zadanie",
 	"command.explainCode.title": "Wyjaśnij Kod",
@@ -9,6 +9,7 @@
 	"command.openInNewTab.title": "Otwórz w Nowej Karcie",
 	"command.focusInput.title": "Fokus na Pole Wprowadzania",
 	"command.setCustomStoragePath.title": "Ustaw Niestandardową Ścieżkę Przechowywania",
+	"command.importSettings.title": "Importuj Ustawienia",
 	"command.terminal.addToContext.title": "Dodaj Zawartość Terminala do Kontekstu",
 	"command.terminal.fixCommand.title": "Napraw tę Komendę",
 	"command.terminal.explainCommand.title": "Wyjaśnij tę Komendę",
@@ -24,12 +25,12 @@
 	"command.openInEditor.title": "Otwórz w Edytorze",
 	"command.settings.title": "Ustawienia",
 	"command.documentation.title": "Dokumentacja",
-	"configuration.title": "Roo Code Chinese SSY",
+	"configuration.title": "Roo Code Chinese",
 	"commands.allowedCommands.description": "Polecenia, które mogą być wykonywane automatycznie, gdy włączona jest opcja 'Zawsze zatwierdzaj operacje wykonania'",
 	"settings.vsCodeLmModelSelector.description": "Ustawienia dla API modelu językowego VSCode",
 	"settings.vsCodeLmModelSelector.vendor.description": "Dostawca modelu językowego (np. copilot)",
 	"settings.vsCodeLmModelSelector.family.description": "Rodzina modelu językowego (np. gpt-4)",
 	"settings.customStoragePath.description": "Niestandardowa ścieżka przechowywania. Pozostaw puste, aby użyć domyślnej lokalizacji. Obsługuje ścieżki bezwzględne (np. 'D:\\RooCodeStorage')",
-	"settings.rooCodeCloudEnabled.description": "Włącz Roo Code Cloud.",
-	"settings.enableCodeActions.description": "Włącz szybkie poprawki Roo Code."
+	"settings.enableCodeActions.description": "Włącz szybkie poprawki Roo Code.",
+	"settings.autoImportSettingsPath.description": "Ścieżka do pliku konfiguracyjnego RooCode, który ma być automatycznie importowany podczas uruchamiania rozszerzenia. Obsługuje ścieżki bezwzględne i ścieżki względne do katalogu domowego (np. '~/Documents/roo-code-settings.json'). Pozostaw puste, aby wyłączyć automatyczne importowanie."
 }

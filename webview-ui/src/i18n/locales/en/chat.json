@@ -16,7 +16,12 @@
 		"shareWithOrganization": "Share with Organization",
 		"shareWithOrganizationDescription": "Only members of your organization can access",
 		"sharePublicly": "Share Publicly",
-		"sharePubliclyDescription": "Anyone with the link can access"
+		"sharePubliclyDescription": "Anyone with the link can access",
+		"connectToCloud": "Connect to Cloud",
+		"connectToCloudDescription": "Sign in to Roo Code Cloud to share tasks",
+		"sharingDisabledByOrganization": "Sharing disabled by organization",
+		"shareSuccessOrganization": "Organization link copied to clipboard",
+		"shareSuccessPublic": "Public link copied to clipboard"
 	},
 	"unpin": "Unpin",
 	"pin": "Pin",
@@ -106,9 +111,16 @@
 	"selectMode": "Select mode for interaction",
 	"selectApiConfig": "Select API configuration",
 	"enhancePrompt": "Enhance prompt with additional context",
+	"modeSelector": {
+		"title": "Modes",
+		"marketplace": "Mode Marketplace",
+		"settings": "Mode Settings",
+		"description": "Specialized personas that tailor Roo's behavior."
+	},
 	"enhancePromptDescription": "The 'Enhance Prompt' button helps improve your prompt by providing additional context, clarification, or rephrasing. Try typing a prompt in here and clicking the button again to see how it works.",
 	"addImages": "Add images to message",
 	"sendMessage": "Send message",
+	"stopTts": "Stop text-to-speech",
 	"typeMessage": "Type a message...",
 	"typeTask": "Type your task here...",
 	"addContext": "@ to add context, / to switch modes",
@@ -150,7 +162,7 @@
 		"tokens": "tokens"
 	},
 	"instructions": {
-		"wantsToFetch": "Roo Code Chinese SSY wants to fetch detailed instructions to assist with the current task"
+		"wantsToFetch": "Roo Code Chinese wants to fetch detailed instructions to assist with the current task"
 	},
 	"fileOperations": {
 		"wantsToRead": "Roo wants to read this file:",
@@ -190,24 +202,26 @@
 	"codebaseSearch": {
 		"wantsToSearch": "Roo wants to search the codebase for <code>{{query}}</code>:",
 		"wantsToSearchWithPath": "Roo wants to search the codebase for <code>{{query}}</code> in <code>{{path}}</code>:",
-		"didSearch": "Found {{count}} result(s) for <code>{{query}}</code>:"
+		"didSearch_one": "Found 1 result",
+		"didSearch_other": "Found {{count}} results",
+		"resultTooltip": "Similarity score: {{score}} (click to open file)"
 	},
 	"commandOutput": "Command Output",
 	"response": "Response",
 	"arguments": "Arguments",
 	"mcp": {
-		"wantsToUseTool": "Roo Code Chinese SSY wants to use a tool on the {{serverName}} MCP server:",
+		"wantsToUseTool": "Roo Code Chinese wants to use a tool on the {{serverName}} MCP server:",
 		"wantsToAccessResource": "Roo wants to access a resource on the {{serverName}} MCP server:"
 	},
 	"modes": {
-		"wantsToSwitch": "Roo Code Chinese SSY wants to switch to {{mode}} mode",
-		"wantsToSwitchWithReason": "Roo Code Chinese SSY wants to switch to {{mode}} mode because: {{reason}}",
-		"didSwitch": "Roo Code Chinese SSY switched to {{mode}} mode",
-		"didSwitchWithReason": "Roo Code Chinese SSY switched to {{mode}} mode because: {{reason}}"
+		"wantsToSwitch": "Roo Code Chinese wants to switch to {{mode}} mode",
+		"wantsToSwitchWithReason": "Roo Code Chinese wants to switch to {{mode}} mode because: {{reason}}",
+		"didSwitch": "Roo Code Chinese switched to {{mode}} mode",
+		"didSwitchWithReason": "Roo Code Chinese switched to {{mode}} mode because: {{reason}}"
 	},
 	"subtasks": {
-		"wantsToCreate": "Roo Code Chinese SSY wants to create a new subtask in {{mode}} mode:",
-		"wantsToFinish": "Roo Code Chinese SSY wants to finish this subtask",
+		"wantsToCreate": "Roo Code Chinese wants to create a new subtask in {{mode}} mode:",
+		"wantsToFinish": "Roo Code Chinese wants to finish this subtask",
 		"newTaskContent": "Subtask Instructions",
 		"completionContent": "Subtask Completed",
 		"resultContent": "Subtask Results",
@@ -215,29 +229,28 @@
 		"completionInstructions": "Subtask completed! You can review the results and suggest any corrections or next steps. If everything looks good, confirm to return the result to the parent task."
 	},
 	"questions": {
-		"hasQuestion": "Roo Code Chinese SSY has a question:"
+		"hasQuestion": "Roo Code Chinese has a question:"
 	},
 	"taskCompleted": "Task Completed",
 	"error": "Error",
 	"diffError": {
 		"title": "Edit Unsuccessful"
 	},
-	"troubleMessage": "Roo Code Chinese SSY is having trouble...",
+	"troubleMessage": "Roo Code Chinese is having trouble...",
 	"powershell": {
 		"issues": "It seems like you're having Windows PowerShell issues, please see this"
 	},
 	"autoApprove": {
 		"title": "Auto-approve:",
 		"none": "None",
-		"description": "Auto-approve allows Roo Code Chinese SSY to perform actions without asking for permission. Only enable for actions you fully trust. More detailed configuration available in <settingsLink>Settings</settingsLink>."
+		"description": "Auto-approve allows Roo Code Chinese to perform actions without asking for permission. Only enable for actions you fully trust. More detailed configuration available in <settingsLink>Settings</settingsLink>."
 	},
 	"announcement": {
 		"title": "🎉 Roo Code {{version}} Released",
-		"description": "Roo Code {{version}} brings major new features and improvements based on your feedback.",
+		"description": "Roo Code {{version}} brings powerful new features and significant improvements to enhance your development workflow.",
 		"whatsNew": "What's New",
-		"feature1": "<bold>Roo Marketplace Launch</bold>: The marketplace is now live! Discover and install modes and MCPs easier than ever before.",
-		"feature2": "<bold>Gemini 2.5 Models</bold>: Added support for new Gemini 2.5 Pro, Flash, and Flash Lite models.",
-		"feature3": "<bold>Excel File Support & More</bold>: Added Excel (.xlsx) file support and numerous bug fixes and improvements!",
+		"feature1": "<bold>Codebase Indexing Graduated from Experimental</bold>: Full codebase indexing is now stable and ready for production use with improved search and context understanding.",
+		"feature2": "<bold>New Todo List Feature</bold>: Keep your tasks on track with integrated todo management that helps you stay organized and focused on your development goals.",
 		"hideButton": "Hide announcement",
 		"detailsDiscussLinks": "Get more details and discuss in <discordLink>Discord</discordLink> and <redditLink>Reddit</redditLink> 🚀"
 	},
@@ -246,7 +259,9 @@
 		"seconds": "{{count}}s"
 	},
 	"followUpSuggest": {
-		"copyToInput": "Copy to input (same as shift + click)"
+		"copyToInput": "Copy to input (same as shift + click)",
+		"autoSelectCountdown": "Auto-selecting in {{count}}s",
+		"countdownDisplay": "{{count}}s"
 	},
 	"browser": {
 		"rooWantsToUse": "Roo wants to use the browser:",
@@ -280,10 +295,10 @@
 		}
 	},
 	"systemPromptWarning": "WARNING: Custom system prompt override active. This can severely break functionality and cause unpredictable behavior.",
-	"profileViolationWarning": "The current profile violates your organization's settings",
+	"profileViolationWarning": "The current profile isn't compatible with your organization's settings",
 	"shellIntegration": {
 		"title": "Command Execution Warning",
-		"description": "Your command is being executed without VSCode terminal shell integration. To suppress this warning you can disable shell integration in the <strong>Terminal</strong> section of the <settingsLink>Roo Code Chinese SSY settings</settingsLink> or troubleshoot VSCode terminal integration using the link below.",
+		"description": "Your command is being executed without VSCode terminal shell integration. To suppress this warning you can disable shell integration in the <strong>Terminal</strong> section of the <settingsLink>Roo Code Chinese settings</settingsLink> or troubleshoot VSCode terminal integration using the link below.",
 		"troubleshooting": "Click here for shell integration documentation."
 	},
 	"ask": {
@@ -299,5 +314,8 @@
 		"indexed": "Indexed",
 		"error": "Index error",
 		"status": "Index status"
+	},
+	"versionIndicator": {
+		"ariaLabel": "Version {{version}} - Click to view release notes"
 	}
 }

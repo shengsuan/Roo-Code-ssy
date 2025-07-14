@@ -1,10 +1,10 @@
-# Run Roo Code Chinese SSY Evals
+# Run Roo Code Chinese Evals
 
 ## Get Started
 
 NOTE: This is MacOS only for now!
 
-Clone the Roo Code Chinese SSY repo:
+Clone the Roo Code Chinese repo:
 
 ```sh
 git clone https://github.com/RooCodeInc/Roo-Code.git

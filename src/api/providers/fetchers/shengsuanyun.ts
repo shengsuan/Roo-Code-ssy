@@ -28,6 +28,6 @@ export async function getShengSuanYunModels(): Promise<Record<string, ModelInfo>
 			`Error fetching ShengSuanYun models: ${JSON.stringify(error, Object.getOwnPropertyNames(error), 2)}`,
 		)
 	}
-
+	console.log("ShengSuanYun models", models)
 	return models
 }

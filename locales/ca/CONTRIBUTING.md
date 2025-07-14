@@ -11,7 +11,7 @@
 </sub>
 </div>
 
-# Contribuir a Roo Code Chinese SSY
+# Contribuir a Roo Code Chinese
 
 Roo Code és un projecte impulsat per la comunitat i valorem molt cada contribució. Per simplificar la col·laboració, treballem amb un enfoc [Issue-First](#enfoc-issue-first), que significa que tots els [Pull Requests (PRs)](#enviar-un-pull-request) han d'estar primer vinculats a una Issue de GitHub. Si us plau, llegeix aquesta guia amb atenció.
 
@@ -52,7 +52,7 @@ La nostra fulla de ruta orienta la direcció del projecte. Alinea les teves cont
 
 Esmenta la relació amb aquestes àrees als teus PRs.
 
-### 3. Uneix-te a la comunitat Roo Code Chinese SSY
+### 3. Uneix-te a la comunitat Roo Code Chinese
 
 - **Principal:** Uneix-te al nostre [Discord](https://discord.gg/roocode) i envia un DM a **Hannes Rudolph (`hrudolph`)**.
 - **Alternativa:** Els col·laboradors experimentats poden participar directament via [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1).

@@ -44,7 +44,7 @@ const TelemetryBanner = () => {
 		window.postMessage({
 			type: "action",
 			action: "settingsButtonClicked",
-			values: { section: "advanced" }, // Link directly to advanced settings with telemetry controls
+			values: { section: "about" }, // Link directly to about settings with telemetry controls
 		})
 	}
 
@@ -53,7 +53,12 @@ const TelemetryBanner = () => {
 			<div>
 				<strong>{t("welcome:telemetry.title")}</strong>
 				<div className="mt-1">
-					{t("welcome:telemetry.anonymousTelemetry")}
+					<Trans
+						i18nKey="welcome:telemetry.anonymousTelemetry"
+						components={{
+							privacyLink: <VSCodeLink href="https://roocode.com/privacy" />,
+						}}
+					/>
 					<div className="mt-1">
 						<Trans
 							i18nKey="welcome:telemetry.changeSettings"

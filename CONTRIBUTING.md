@@ -11,7 +11,7 @@
 </sub>
 </div>
 
-# Contributing to Roo Code Chinese SSY
+# Contributing to Roo Code Chinese
 
 Roo Code is a community-driven project, and we deeply value every contribution. To streamline collaboration, we operate on an [Issue-First](#issue-first-approach) basis, meaning all [Pull Requests (PRs)](#submitting-a-pull-request) must first be linked to a GitHub Issue. Please review this guide carefully.
 
@@ -52,7 +52,7 @@ Our roadmap guides the project's direction. Align your contributions with these 
 
 Mention alignment with these areas in your PRs.
 
-### 3. Join the Roo Code Chinese SSY Community
+### 3. Join the Roo Code Chinese Community
 
 - **Primary:** Join our [Discord](https://discord.gg/roocode) and DM **Hannes Rudolph (`hrudolph`)**.
 - **Alternative:** Experienced contributors can engage directly via [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1).

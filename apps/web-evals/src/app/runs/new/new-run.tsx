@@ -259,7 +259,7 @@ export function NewRun() {
 										<div className="flex items-center gap-1 p-2 border-b">
 											<CircleCheck className="size-4 text-ring" />
 											<div className="text-sm">
-												Imported valid Roo Code Chinese SSY settings. Showing differences from
+												Imported valid Roo Code Chinese settings. Showing differences from
 												default settings.
 											</div>
 										</div>
