@@ -3,7 +3,7 @@
 	"displayName": "%extension.displayName%",
 	"description": "%extension.description%",
 	"publisher": "shengsuan-cloud",
-	"version": "3.23.6",
+	"version": "3.23.19",
 	"icon": "assets/icons/icon.png",
 	"galleryBanner": {
 		"color": "#617A91",
@@ -225,13 +225,18 @@
 					"when": "view == roo-vibecoding.SidebarProvider"
 				},
 				{
-					"command": "roo-vibecoding.settingsButtonClicked",
+					"command": "roo-vibecoding.marketplaceButtonClicked",
 					"group": "navigation@2",
 					"when": "view == roo-vibecoding.SidebarProvider"
 				},
 				{
-					"command": "roo-vibecoding.accountButtonClicked",
+					"command": "roo-vibecoding.settingsButtonClicked",
 					"group": "navigation@3",
+					"when": "view == roo-vibecoding.SidebarProvider"
+				},
+				{
+					"command": "roo-vibecoding.accountButtonClicked",
+					"group": "navigation@4",
 					"when": "view == roo-vibecoding.SidebarProvider"
 				},
 				{
@@ -240,23 +245,18 @@
 					"when": "view == roo-vibecoding.SidebarProvider"
 				},
 				{
-					"command": "roo-vibecoding.marketplaceButtonClicked",
+					"command": "roo-vibecoding.promptsButtonClicked",
 					"group": "overflow@2",
 					"when": "view == roo-vibecoding.SidebarProvider"
 				},
 				{
-					"command": "roo-vibecoding.promptsButtonClicked",
+					"command": "roo-vibecoding.mcpButtonClicked",
 					"group": "overflow@3",
 					"when": "view == roo-vibecoding.SidebarProvider"
 				},
 				{
-					"command": "roo-vibecoding.mcpButtonClicked",
-					"group": "overflow@4",
-					"when": "view == roo-vibecoding.SidebarProvider"
-				},
-				{
 					"command": "roo-vibecoding.popoutButtonClicked",
-					"group": "overflow@5",
+					"group": "overflow@4",
 					"when": "view == roo-vibecoding.SidebarProvider"
 				}
 			],
@@ -267,13 +267,18 @@
 					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
 				},
 				{
-					"command": "roo-vibecoding.settingsButtonClicked",
+					"command": "roo-vibecoding.marketplaceButtonClicked",
 					"group": "navigation@2",
 					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
 				},
 				{
-					"command": "roo-vibecoding.accountButtonClicked",
+					"command": "roo-vibecoding.settingsButtonClicked",
 					"group": "navigation@3",
+					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
+				},
+				{
+					"command": "roo-vibecoding.accountButtonClicked",
+					"group": "navigation@4",
 					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
 				},
 				{
@@ -282,23 +287,18 @@
 					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
 				},
 				{
-					"command": "roo-vibecoding.marketplaceButtonClicked",
+					"command": "roo-vibecoding.promptsButtonClicked",
 					"group": "overflow@2",
 					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
 				},
 				{
-					"command": "roo-vibecoding.promptsButtonClicked",
+					"command": "roo-vibecoding.mcpButtonClicked",
 					"group": "overflow@3",
 					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
 				},
 				{
-					"command": "roo-vibecoding.mcpButtonClicked",
-					"group": "overflow@4",
-					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
-				},
-				{
 					"command": "roo-vibecoding.popoutButtonClicked",
-					"group": "overflow@5",
+					"group": "overflow@4",
 					"when": "activeWebviewPanelId == roo-vibecoding.TabPanelProvider"
 				}
 			]
@@ -331,6 +331,34 @@
 					],
 					"description": "%commands.allowedCommands.description%"
 				},
+				"roo-vibecoding.deniedCommands": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "%commands.deniedCommands.description%"
+				},
+				"roo-vibecoding.commandExecutionTimeout": {
+					"type": "number",
+					"default": 0,
+					"minimum": 0,
+					"maximum": 600,
+					"description": "%commands.commandExecutionTimeout.description%"
+				},
+				"roo-vibecoding.commandTimeoutAllowlist": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [],
+					"description": "%commands.commandTimeoutAllowlist.description%"
+				},
+				"roo-vibecoding.preventCompletionWithOpenTodos": {
+					"type": "boolean",
+					"default": false,
+					"description": "%commands.preventCompletionWithOpenTodos.description%"
+				},
 				"roo-vibecoding.vsCodeLmModelSelector": {
 					"type": "object",
 					"properties": {
@@ -359,6 +387,11 @@
 					"type": "string",
 					"default": "",
 					"description": "%settings.autoImportSettingsPath.description%"
+				},
+				"roo-vibecoding.useAgentRules": {
+					"type": "boolean",
+					"default": true,
+					"description": "%settings.useAgentRules.description%"
 				}
 			}
 		}
