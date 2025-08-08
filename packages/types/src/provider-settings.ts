@@ -24,6 +24,7 @@ export const providerNames = [
 	"mistral",
 	"moonshot",
 	"deepseek",
+	"doubao",
 	"unbound",
 	"requesty",
 	"human-relay",
@@ -34,6 +35,10 @@ export const providerNames = [
 	"litellm",
 	"shengsuanyun",
 	"huggingface",
+	"cerebras",
+	"sambanova",
+	"zai",
+	"fireworks",
 ] as const
 
 export const providerNamesSchema = z.enum(providerNames)
@@ -194,6 +199,11 @@ const deepSeekSchema = apiModelIdProviderModelSchema.extend({
 	deepSeekApiKey: z.string().optional(),
 })
 
+const doubaoSchema = apiModelIdProviderModelSchema.extend({
+	doubaoBaseUrl: z.string().optional(),
+	doubaoApiKey: z.string().optional(),
+})
+
 const moonshotSchema = apiModelIdProviderModelSchema.extend({
 	moonshotBaseUrl: z
 		.union([z.literal("https://api.moonshot.ai/v1"), z.literal("https://api.moonshot.cn/v1")])
@@ -244,7 +254,25 @@ const litellmSchema = baseProviderSettingsSchema.extend({
 
 const shengSuanYunSchema = baseProviderSettingsSchema.extend({
 	shengSuanYunApiKey: z.string().optional(),
+	shengSuanYunToken: z.string().optional(),
 	shengSuanYunModelId: z.string().optional(),
+})
+
+const cerebrasSchema = apiModelIdProviderModelSchema.extend({
+	cerebrasApiKey: z.string().optional(),
+})
+
+const sambaNovaSchema = apiModelIdProviderModelSchema.extend({
+	sambaNovaApiKey: z.string().optional(),
+})
+
+const zaiSchema = apiModelIdProviderModelSchema.extend({
+	zaiApiKey: z.string().optional(),
+	zaiApiLine: z.union([z.literal("china"), z.literal("international")]).optional(),
+})
+
+const fireworksSchema = apiModelIdProviderModelSchema.extend({
+	fireworksApiKey: z.string().optional(),
 })
 
 const defaultSchema = z.object({
@@ -267,6 +295,7 @@ export const providerSettingsSchemaDiscriminated = z.discriminatedUnion("apiProv
 	openAiNativeSchema.merge(z.object({ apiProvider: z.literal("openai-native") })),
 	mistralSchema.merge(z.object({ apiProvider: z.literal("mistral") })),
 	deepSeekSchema.merge(z.object({ apiProvider: z.literal("deepseek") })),
+	doubaoSchema.merge(z.object({ apiProvider: z.literal("doubao") })),
 	moonshotSchema.merge(z.object({ apiProvider: z.literal("moonshot") })),
 	unboundSchema.merge(z.object({ apiProvider: z.literal("unbound") })),
 	requestySchema.merge(z.object({ apiProvider: z.literal("requesty") })),
@@ -278,6 +307,10 @@ export const providerSettingsSchemaDiscriminated = z.discriminatedUnion("apiProv
 	chutesSchema.merge(z.object({ apiProvider: z.literal("chutes") })),
 	litellmSchema.merge(z.object({ apiProvider: z.literal("litellm") })),
 	shengSuanYunSchema.merge(z.object({ apiProvider: z.literal("shengsuanyun") })),
+	cerebrasSchema.merge(z.object({ apiProvider: z.literal("cerebras") })),
+	sambaNovaSchema.merge(z.object({ apiProvider: z.literal("sambanova") })),
+	zaiSchema.merge(z.object({ apiProvider: z.literal("zai") })),
+	fireworksSchema.merge(z.object({ apiProvider: z.literal("fireworks") })),
 	defaultSchema,
 ])
 
@@ -298,6 +331,7 @@ export const providerSettingsSchema = z.object({
 	...openAiNativeSchema.shape,
 	...mistralSchema.shape,
 	...deepSeekSchema.shape,
+	...doubaoSchema.shape,
 	...moonshotSchema.shape,
 	...unboundSchema.shape,
 	...requestySchema.shape,
@@ -309,10 +343,21 @@ export const providerSettingsSchema = z.object({
 	...chutesSchema.shape,
 	...litellmSchema.shape,
 	...shengSuanYunSchema.shape,
+	...cerebrasSchema.shape,
+	...sambaNovaSchema.shape,
+	...zaiSchema.shape,
+	...fireworksSchema.shape,
 	...codebaseIndexProviderSchema.shape,
 })
 
 export type ProviderSettings = z.infer<typeof providerSettingsSchema>
+
+export const providerSettingsWithIdSchema = providerSettingsSchema.extend({ id: z.string().optional() })
+export const discriminatedProviderSettingsWithIdSchema = providerSettingsSchemaDiscriminated.and(
+	z.object({ id: z.string().optional() }),
+)
+export type ProviderSettingsWithId = z.infer<typeof providerSettingsWithIdSchema>
+
 export const PROVIDER_SETTINGS_KEYS = providerSettingsSchema.keyof().options
 
 export const MODEL_ID_KEYS: Partial<keyof ProviderSettings>[] = [

@@ -25,6 +25,8 @@ import { AccountView } from "./components/account/AccountView"
 import { useAddNonInteractiveClickListener } from "./components/ui/hooks/useNonInteractiveClick"
 import { TooltipProvider } from "./components/ui/tooltip"
 import { STANDARD_TOOLTIP_DELAY } from "./components/ui/standard-tooltip"
+import { AccountViewSSY } from "./components/account/AccountViewSSY"
+import { getShengSuanYunAuthUrl } from "./oauth/urls"
 
 type Tab = "settings" | "history" | "mcp" | "modes" | "chat" | "marketplace" | "account"
 
@@ -69,9 +71,7 @@ const App = () => {
 		telemetrySetting,
 		telemetryKey,
 		machineId,
-		cloudUserInfo,
-		cloudIsAuthenticated,
-		cloudApiUrl,
+		apiConfiguration,
 		renderContext,
 		mdmCompliant,
 	} = useExtensionState()
@@ -247,10 +247,9 @@ const App = () => {
 				/>
 			)}
 			{tab === "account" && (
-				<AccountView
-					userInfo={cloudUserInfo}
-					isAuthenticated={cloudIsAuthenticated}
-					cloudApiUrl={cloudApiUrl}
+				<AccountViewSSY
+					token={apiConfiguration?.shengSuanYunToken}
+					cloudApiUrl={getShengSuanYunAuthUrl()}
 					onDone={() => switchTab("chat")}
 				/>
 			)}

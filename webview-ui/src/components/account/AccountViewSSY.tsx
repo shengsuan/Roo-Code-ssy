@@ -1,54 +1,75 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { VSCodeButton } from "@vscode/webview-ui-toolkit/react"
 
-import type { CloudUserInfo } from "@roo-code/types"
 import { TelemetryEventName } from "@roo-code/types"
 
 import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { vscode } from "@src/utils/vscode"
 import { telemetryClient } from "@src/utils/TelemetryClient"
+import axios from "axios"
 
 type AccountViewSSYProps = {
-	userInfo: CloudUserInfo | null
-	isAuthenticated: boolean
-	cloudApiUrl?: string
+	token: string | undefined
+	cloudApiUrl: string
 	onDone: () => void
 }
 
-export const AccountViewSSY = ({ userInfo, isAuthenticated, cloudApiUrl, onDone }: AccountViewSSYProps) => {
+export const AccountViewSSY = ({ token, cloudApiUrl, onDone }: AccountViewSSYProps) => {
 	const { t } = useAppTranslation()
 	const wasAuthenticatedRef = useRef(false)
+	const [userInfo, setUserInfo] = useState<any>(null)
+	const [loading, setLoading] = useState(false)
 
-	const rooLogoUri = (window as any).IMAGES_BASE_URI + "/roo-logo.svg"
+	const rooLogoUri = (window as any).IMAGES_BASE_URI + "/ssy-logo.svg"
 
 	// Track authentication state changes to detect successful logout
 	useEffect(() => {
-		if (isAuthenticated) {
+		if (token) {
 			wasAuthenticatedRef.current = true
-		} else if (wasAuthenticatedRef.current && !isAuthenticated) {
+			fetchUserInfo(token)
+		} else if (wasAuthenticatedRef.current && !token) {
 			// User just logged out successfully
 			telemetryClient.capture(TelemetryEventName.ACCOUNT_LOGOUT_SUCCESS)
 			wasAuthenticatedRef.current = false
 		}
-	}, [isAuthenticated])
+	}, [token])
 
 	const handleConnectClick = () => {
 		// Send telemetry for account connect action
 		telemetryClient.capture(TelemetryEventName.ACCOUNT_CONNECT_CLICKED)
-		vscode.postMessage({ type: "rooCloudSignIn" })
+		vscode.postMessage({ type: "openExternal", url: cloudApiUrl })
 	}
 
 	const handleLogoutClick = () => {
 		// Send telemetry for account logout action
 		telemetryClient.capture(TelemetryEventName.ACCOUNT_LOGOUT_CLICKED)
-		vscode.postMessage({ type: "rooCloudSignOut" })
+		vscode.postMessage({ type: "shengSuanYunSignOut" })
 	}
 
 	const handleVisitCloudWebsite = () => {
 		// Send telemetry for cloud website visit
 		telemetryClient.capture(TelemetryEventName.ACCOUNT_CONNECT_CLICKED)
-		const cloudUrl = cloudApiUrl || "https://app.roocode.com"
-		vscode.postMessage({ type: "openExternal", url: cloudUrl })
+		vscode.postMessage({ type: "openExternal", url: "https://console.shengsuanyun.com/user/overview" })
+	}
+
+	const fetchUserInfo = (token: string) => {
+		if (!token) return
+		setLoading(true)
+		axios
+			.get(`https://api.shengsuanyun.com/user/info`, { headers: { "x-token": `${token}` } })
+			.then((res) => {
+				if (res.data && res.data.data) {
+					setUserInfo(res.data.data)
+				} else {
+					console.error("Invalid response from ShengSuanYun API", res.data)
+				}
+			})
+			.catch((error) => {
+				console.error("Error fetching user info from ShengSuanYun API", error)
+			})
+			.finally(() => {
+				setLoading(() => false)
+			})
 	}
 
 	return (
@@ -59,48 +80,46 @@ export const AccountViewSSY = ({ userInfo, isAuthenticated, cloudApiUrl, onDone 
 					{t("settings:common.done")}
 				</VSCodeButton>
 			</div>
-			{isAuthenticated ? (
+			{token ? (
 				<>
 					{userInfo && (
-						<div className="flex flex-col items-center mb-6">
-							<div className="w-16 h-16 mb-3 rounded-full overflow-hidden">
-								{userInfo?.picture ? (
-									<img
-										src={userInfo.picture}
-										alt={t("account:profilePicture")}
-										className="w-full h-full object-cover"
-									/>
-								) : (
-									<div className="w-full h-full flex items-center justify-center bg-vscode-button-background text-vscode-button-foreground text-xl">
-										{userInfo?.name?.charAt(0) || userInfo?.email?.charAt(0) || "?"}
-									</div>
-								)}
-							</div>
-							{userInfo.name && (
-								<h2 className="text-lg font-medium text-vscode-foreground mb-0">{userInfo.name}</h2>
-							)}
-							{userInfo?.email && (
-								<p className="text-sm text-vscode-descriptionForeground">{userInfo?.email}</p>
-							)}
-							{userInfo?.organizationName && (
-								<div className="flex items-center gap-2 text-sm text-vscode-descriptionForeground">
-									{userInfo.organizationImageUrl && (
+						<div className="flex flex-col mb-6">
+							<div className="w-full flex items-end">
+								<div className="w-16 h-16 mb-3 rounded-full overflow-hidden">
+									{userInfo?.HeadImg ? (
 										<img
-											src={userInfo.organizationImageUrl}
-											alt={userInfo.organizationName}
-											className="w-4 h-4 rounded object-cover"
+											src={userInfo.HeadImg}
+											alt={t("account:profilePicture")}
+											className="w-full h-full object-cover"
 										/>
+									) : (
+										<div className="w-full h-full flex items-center justify-center bg-vscode-button-background text-vscode-button-foreground text-xl">
+											{userInfo?.Nickname?.charAt(0) || userInfo?.Email?.charAt(0) || "?"}
+										</div>
 									)}
-									<span>{userInfo.organizationName}</span>
+								</div>
+
+								<div className="flex flex-col gap-3 ml-4">
+									<h2 className="text-lg font-medium text-vscode-foreground mb-0">
+										{userInfo?.Nickname || userInfo?.Username}
+									</h2>
+									{userInfo?.Email && (
+										<p className="text-sm text-vscode-descriptionForeground">{userInfo?.Email}</p>
+									)}
+								</div>
+							</div>
+							{userInfo?.Wallet && (
+								<div className="w-full flex items-center justify-center gap-2 text-sm text-vscode-descriptionForeground">
+									<p className="text-lg">￥{(userInfo.Wallet.Assets / 10000).toFixed(2)}</p>
 								</div>
 							)}
 						</div>
 					)}
-					<div className="flex flex-col gap-2 mt-4">
-						<VSCodeButton appearance="secondary" onClick={handleVisitCloudWebsite} className="w-full">
+					<div className="flex gap-2 justify-between">
+						<VSCodeButton appearance="secondary" onClick={handleVisitCloudWebsite} className="w-[160px]">
 							{t("account:visitCloudWebsite")}
 						</VSCodeButton>
-						<VSCodeButton appearance="secondary" onClick={handleLogoutClick} className="w-full">
+						<VSCodeButton appearance="secondary" onClick={handleLogoutClick} className="w-[160px]">
 							{t("account:logOut")}
 						</VSCodeButton>
 					</div>
@@ -128,7 +147,7 @@ export const AccountViewSSY = ({ userInfo, isAuthenticated, cloudApiUrl, onDone 
 						<h2 className="text-lg font-medium text-vscode-foreground mb-2">
 							{t("account:cloudBenefitsTitle")}
 						</h2>
-						<p className="text-md text-vscode-descriptionForeground mb-4">
+						{/* <p className="text-md text-vscode-descriptionForeground mb-4">
 							{t("account:cloudBenefitsSubtitle")}
 						</p>
 						<ul className="text-sm text-vscode-descriptionForeground space-y-2 max-w-xs mx-auto">
@@ -144,7 +163,7 @@ export const AccountViewSSY = ({ userInfo, isAuthenticated, cloudApiUrl, onDone 
 								<span className="mr-2 text-vscode-foreground">•</span>
 								{t("account:cloudBenefitMetrics")}
 							</li>
-						</ul>
+						</ul> */}
 					</div>
 
 					<div className="flex flex-col gap-4">
