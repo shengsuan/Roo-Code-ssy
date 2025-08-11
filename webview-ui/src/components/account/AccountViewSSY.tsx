@@ -20,7 +20,7 @@ export const AccountViewSSY = ({ token, cloudApiUrl, onDone }: AccountViewSSYPro
 	const [userInfo, setUserInfo] = useState<any>(null)
 	const [loading, setLoading] = useState(false)
 
-	const rooLogoUri = (window as any).IMAGES_BASE_URI + "/ssy-logo.svg"
+	const rooLogoUri = (window as any).IMAGES_BASE_URI + "/shengsuanyun.png"
 
 	// Track authentication state changes to detect successful logout
 	useEffect(() => {
@@ -82,7 +82,7 @@ export const AccountViewSSY = ({ token, cloudApiUrl, onDone }: AccountViewSSYPro
 			</div>
 			{token ? (
 				<>
-					{userInfo && (
+					{userInfo && !loading && (
 						<div className="flex flex-col mb-6">
 							<div className="w-full flex items-end">
 								<div className="w-16 h-16 mb-3 rounded-full overflow-hidden">

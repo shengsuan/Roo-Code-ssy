@@ -3,7 +3,7 @@ import { useState } from "react"
 const RooHero = () => {
 	const [imagesBaseUri] = useState(() => {
 		const w = window as any
-		return w.IMAGES_BASE_URI || ""
+		return w.ICONS_BASE_URI || ""
 	})
 
 	return (
@@ -11,15 +11,15 @@ const RooHero = () => {
 			<div
 				style={{
 					backgroundColor: "var(--vscode-foreground)",
-					WebkitMaskImage: `url('${imagesBaseUri}/panel_dark.png')`,
+					WebkitMaskImage: `url('${imagesBaseUri}/icon-nightly.png')`,
 					WebkitMaskRepeat: "no-repeat",
 					WebkitMaskSize: "contain",
-					maskImage: `url('${imagesBaseUri}/panel_dark.png')`,
+					maskImage: `url('${imagesBaseUri}/icon-nightly.png')`,
 					maskRepeat: "no-repeat",
 					maskSize: "contain",
 				}}
 				className="mx-auto">
-				<img src={imagesBaseUri + "/panel_dark.png"} alt="shengsuanyun" className="h-8 opacity-0" />
+				<img src={imagesBaseUri + "/icon-nightly.png"} alt="shengsuanyun" className="h-8 opacity-0" />
 			</div>
 		</div>
 	)

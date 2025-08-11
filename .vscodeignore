@@ -27,11 +27,12 @@
 !integrations/theme/default-themes/**
 
 # Include icons and images
-!assets/codicons/**
-!assets/vscode-material-icons/**
-!assets/icons/**
-!assets/images/**
+!src/assets/codicons/**
+!src/assets/vscode-material-icons/**
+!src/assets/icons/**
+!src/assets/images/**
 
 # Include .env file for telemetry
 !.env
-assets/docs/**
+
+src/assets/docs/**

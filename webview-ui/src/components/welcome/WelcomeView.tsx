@@ -8,12 +8,12 @@ import { useExtensionState } from "@src/context/ExtensionStateContext"
 import { validateApiConfiguration } from "@src/utils/validate"
 import { vscode } from "@src/utils/vscode"
 import { useAppTranslation } from "@src/i18n/TranslationContext"
-import { getRequestyAuthUrl, getShengSuanYunAuthUrl } from "@src/oauth/urls"
+import { getShengSuanYunAuthUrl } from "@src/oauth/urls"
 
 import ApiOptions from "../settings/ApiOptions"
 import { Tab, TabContent } from "../common/Tab"
 
-import RooHero from "./RooHero"
+// import RooHero from "./RooHero"
 
 const WelcomeView = () => {
 	const { apiConfiguration, currentApiConfigName, setApiConfiguration, uriScheme } = useExtensionState()
@@ -47,33 +47,18 @@ const WelcomeView = () => {
 
 	return (
 		<Tab>
-			<TabContent className="flex flex-col gap-5 p-16">
-				<RooHero />
-				<h2 className="mt-0 mb-0">{t("welcome:greeting")}</h2>
-
-				<div className="font-bold">
-					<p>
-						<Trans i18nKey="welcome:introduction" />
-					</p>
-					<p>
-						<Trans i18nKey="welcome:chooseProvider" />
-					</p>
-				</div>
+			<TabContent className="flex flex-col gap-4 p-12">
+				{/* <RooHero /> */}
+				<h4 className="mt-0 mb-0">
+					{t("welcome:greeting")}
+					<Trans i18nKey="welcome:introduction" />
+				</h4>
 
 				<div className="mb-4">
-					<p className="font-bold mt-0">{t("welcome:startRouter")}</p>
-
+					{/* <p className="font-bold mt-0">{t("welcome:startRouter")}</p> */}
 					<div>
-						{/* Define the providers */}
 						{(() => {
-							// Provider card configuration
 							const providers = [
-								{
-									slug: "requesty",
-									name: "Requesty",
-									description: t("welcome:routers.requesty.description"),
-									authUrl: getRequestyAuthUrl(uriScheme),
-								},
 								{
 									slug: "shengsuanyun",
 									name: "胜算云",
@@ -87,17 +72,17 @@ const WelcomeView = () => {
 								<a
 									key={index}
 									href={provider.authUrl}
-									className="flex-1 border border-vscode-panel-border hover:bg-secondary rounded-lg py-4 px-6 mb-2 flex flex-row gap-4 cursor-pointer transition-all no-underline text-inherit"
+									className="flex-1 border border-vscode-panel-border hover:bg-secondary rounded-lg p-5 mb-2 flex flex-row gap-4 cursor-pointer transition-all no-underline text-inherit"
 									target="_blank"
 									rel="noopener noreferrer">
-									<div className="w-10 h-10">
+									<div className="w-20 h-20">
 										<img
 											src={`${imagesBaseUri}/${provider.slug}.png`}
 											alt={provider.name}
 											className="w-full h-full object-contain"
 										/>
 									</div>
-									<div>
+									<div className="flex flex-col gap-2">
 										<div className="font-bold text-vscode-foreground">{provider.name}</div>
 										<div>
 											<div className="text-xs text-vscode-descriptionForeground">

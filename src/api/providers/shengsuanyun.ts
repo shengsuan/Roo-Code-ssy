@@ -69,7 +69,15 @@ export class ShengSuanYunHandler extends BaseProvider implements SingleCompletio
 		]
 
 		// DeepSeek highly recommends using user instead of system role.
-		if (modelId.startsWith("deepseek/deepseek-r1") || modelId === "perplexity/sonar-reasoning") {
+		if (
+			modelId.startsWith("deepseek/deepseek-r1") ||
+			modelId.startsWith("deepseek/deepseek-v3") ||
+			modelId.startsWith("deepseek/deepseek-chat") ||
+			modelId.startsWith("deepseek/deepseek-reason") ||
+			modelId === "perplexity/sonar-reasoning" ||
+			modelId === "qwen/qwq-32b:free" ||
+			modelId === "qwen/qwq-32b"
+		) {
 			openAiMessages = convertToR1Format([{ role: "user", content: systemPrompt }, ...messages])
 		}
 		// https://openrouter.ai/docs/features/prompt-caching
@@ -80,13 +88,64 @@ export class ShengSuanYunHandler extends BaseProvider implements SingleCompletio
 				addAnthropicCacheBreakpoints(systemPrompt, openAiMessages)
 			}
 		}
+
+		let maxTokens: number | undefined | null = info.maxTokens
+		switch (modelId) {
+			case "anthropic/claude-sonnet-4:thinking":
+			case "anthropic/claude-sonnet-4":
+			case "anthropic/claude-opus-4":
+			case "anthropic/claude-opus-4.1":
+			case "anthropic/claude-3.7-sonnet":
+			case "anthropic/claude-3.7-sonnet:beta":
+			case "anthropic/claude-3.7-sonnet:thinking":
+			case "anthropic/claude-3-7-sonnet":
+			case "anthropic/claude-3-7-sonnet:beta":
+			case "anthropic/claude-3.5-sonnet":
+			case "anthropic/claude-3.5-sonnet:beta":
+			case "anthropic/claude-3.5-sonnet-20240620":
+			case "anthropic/claude-3.5-sonnet-20240620:beta":
+			case "anthropic/claude-3-5-haiku":
+			case "anthropic/claude-3-5-haiku:beta":
+			case "anthropic/claude-3-5-haiku-20241022":
+			case "anthropic/claude-3-5-haiku-20241022:beta":
+				maxTokens = 8_192
+				break
+		}
+
+		let reasoning: { max_tokens: number } | undefined = undefined
+		switch (modelId) {
+			case "anthropic/claude-3.7-sonnet":
+			case "anthropic/claude-3.7-sonnet:beta":
+			case "anthropic/claude-3.7-sonnet:thinking":
+			case "anthropic/claude-3-7-sonnet":
+			case "anthropic/claude-sonnet-4:thinking":
+			case "anthropic/claude-3-7-sonnet:beta": {
+				let budget_tokens = this.options.modelMaxThinkingTokens || 0
+				const reasoningOn = budget_tokens !== 0 ? true : false
+				if (reasoningOn) {
+					reasoning = { max_tokens: budget_tokens }
+				}
+				break
+			}
+		}
+		// DeepSeek highly recommends using user instead of system role.
+		if (modelId.startsWith("deepseek/deepseek-r1") || modelId === "perplexity/sonar-reasoning") {
+			openAiMessages = convertToR1Format([{ role: "user", content: systemPrompt }, ...messages])
+		}
+
+		let shouldApplyMiddleOutTransform = this.options.openRouterUseMiddleOutTransform
+		if (modelId === "deepseek/deepseek-chat") {
+			shouldApplyMiddleOutTransform = true
+		}
+
 		// Similar to OpenRouter's params
 		const completionParams: ShengSuanYunChatCompletionParams = {
 			model: modelId,
-			...(info.maxTokens && info.maxTokens > 0 && { max_tokens: info.maxTokens }),
+			...(maxTokens && maxTokens > 0 && { max_tokens: maxTokens }),
 			top_p: topP,
 			messages: openAiMessages,
 			stream: true,
+			reasoning: reasoning,
 			stream_options: { include_usage: true },
 		}
 
