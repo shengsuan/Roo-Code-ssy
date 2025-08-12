@@ -8,7 +8,6 @@ import type {
 	Experiments,
 	ClineMessage,
 	OrganizationAllowList,
-	CloudUserInfo,
 	ShareVisibility,
 } from "@roo-code/types"
 
@@ -182,7 +181,7 @@ export interface ExtensionMessage {
 	value?: any
 	hasContent?: boolean // For checkRulesDirectoryResult
 	items?: MarketplaceItem[]
-	userInfo?: CloudUserInfo
+	userInfo?: any
 	organizationAllowList?: OrganizationAllowList
 	tab?: string
 	marketplaceItems?: MarketplaceItem[]
@@ -310,7 +309,7 @@ export type ExtensionState = Pick<
 	settingsImportedAt?: number
 	historyPreviewCollapsed?: boolean
 
-	cloudUserInfo: CloudUserInfo | null
+	cloudUserInfo: any | null
 	cloudIsAuthenticated: boolean
 	cloudApiUrl?: string
 	sharingEnabled: boolean

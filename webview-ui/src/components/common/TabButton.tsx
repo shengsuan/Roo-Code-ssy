@@ -1,8 +1,8 @@
 interface TabButtonProps {
-	icon: string
-	label: string
-	isActive: boolean
-	onClick: () => void
+	icon?: string
+	label?: string
+	isActive?: boolean
+	onClick?: () => void
 }
 
 export function TabButton({ icon, label, isActive, onClick }: TabButtonProps) {

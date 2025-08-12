@@ -369,6 +369,15 @@ export const ExtensionStateContextProvider: React.FC<{ children: React.ReactNode
 					}
 					break
 				}
+				case "authenticatedUser": {
+					if (message.userInfo) {
+						setState((prevState) => ({
+							...prevState,
+							cloudUserInfo: message.userInfo,
+						}))
+					}
+					break
+				}
 			}
 		},
 		[setListApiConfigMeta],

@@ -5,6 +5,7 @@ import * as fs from "fs/promises"
 import pWaitFor from "p-wait-for"
 import * as vscode from "vscode"
 import * as yaml from "yaml"
+import axios from "axios"
 
 import {
 	type Language,
@@ -50,7 +51,7 @@ import { getModels, flushModels } from "../../api/providers/fetchers/modelCache"
 import { GetModelsOptions } from "../../shared/api"
 import { generateSystemPrompt } from "./generateSystemPrompt"
 import { getCommand } from "../../utils/commands"
-
+import { fetchUserInfo } from "../../services/SSYUser"
 const ALLOWED_VSCODE_SETTINGS = new Set(["terminal.integrated.inheritEnv"])
 
 import { MarketplaceManager, MarketplaceItemType } from "../../services/marketplace"
@@ -2008,11 +2009,32 @@ export const webviewMessageHandler = async (
 			break
 		}
 
+		case "shengSuanYunSignIn": {
+			try {
+				TelemetryService.instance.captureEvent(TelemetryEventName.AUTHENTICATION_INITIATED)
+				const token = await provider.getValue("shengSuanYunToken")
+				if (token) {
+					const userInfo = await fetchUserInfo(token)
+					if (userInfo) {
+						provider.postMessageToWebview({ type: "authenticatedUser", userInfo })
+						await provider.postStateToWebview()
+					} else {
+						vscode.window.showErrorMessage("Failed to fetch user information.")
+					}
+				}
+			} catch (error) {
+				provider.log(`AuthService#login failed: ${error}`)
+				vscode.window.showErrorMessage("Sign in failed.")
+			}
+
+			break
+		}
+
 		case "shengSuanYunSignOut": {
 			try {
 				await provider.setValue("shengSuanYunToken", undefined)
 				await provider.postStateToWebview()
-				provider.postMessageToWebview({ type: "authenticatedUser", userInfo: undefined })
+				// provider.postMessageToWebview({ type: "authenticatedUser", userInfo: undefined })
 			} catch (error) {
 				provider.log(`AuthService#logout failed: ${error}`)
 				vscode.window.showErrorMessage("Sign out failed.")

@@ -73,3 +73,21 @@ export const formatTimeAgo = (timestamp: number) => {
 
 	return i18next.t("common:time_ago.just_now")
 }
+
+export function formatCreditsBalance(microcredits: number): number {
+	return microcredits / 10000
+}
+
+export function formatTimestamp(timestamp: string, tz: string = "en-US"): string {
+	const date = new Date(timestamp)
+
+	const dateFormatter = new Intl.DateTimeFormat(tz, {
+		month: "2-digit",
+		day: "2-digit",
+		year: "2-digit",
+		hour: "numeric",
+		minute: "2-digit",
+		hour12: true,
+	})
+	return dateFormatter.format(date)
+}

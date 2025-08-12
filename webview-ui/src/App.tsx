@@ -70,11 +70,11 @@ const App = () => {
 		telemetrySetting,
 		telemetryKey,
 		machineId,
-		apiConfiguration,
 		renderContext,
 		mdmCompliant,
+		cloudUserInfo,
 	} = useExtensionState()
-
+	console.log("cloudUserInfo : ", cloudUserInfo)
 	// Create a persistent state manager
 	const marketplaceStateManager = useMemo(() => new MarketplaceViewStateManager(), [])
 
@@ -247,7 +247,7 @@ const App = () => {
 			)}
 			{tab === "account" && (
 				<AccountViewSSY
-					token={apiConfiguration?.shengSuanYunToken}
+					cloudUser={cloudUserInfo}
 					cloudApiUrl={getShengSuanYunAuthUrl()}
 					onDone={() => switchTab("chat")}
 				/>
