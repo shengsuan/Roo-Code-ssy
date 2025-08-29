@@ -7,8 +7,8 @@ import type {
 	TelemetrySetting,
 	Experiments,
 	ClineMessage,
-	OrganizationAllowList,
-	ShareVisibility,
+	MarketplaceItem,
+	TodoItem,
 } from "@roo-code/types"
 
 import { GitCommit } from "../utils/git"
@@ -16,12 +16,12 @@ import { GitCommit } from "../utils/git"
 import { McpServer } from "./mcp"
 import { Mode } from "./modes"
 import { ModelRecord, RouterModels } from "./api"
-import type { MarketplaceItem } from "@roo-code/types"
+import { OrganizationAllowList, ShareVisibility } from "./cloud"
 
 // Command interface for frontend/backend communication
 export interface Command {
 	name: string
-	source: "global" | "project"
+	source: "global" | "project" | "built-in"
 	filePath?: string
 	description?: string
 	argumentHint?: string
@@ -270,10 +270,12 @@ export type ExtensionState = Pick<
 	| "profileThresholds"
 	| "includeDiagnosticMessages"
 	| "maxDiagnosticMessages"
+	| "remoteControlEnabled"
 > & {
 	version: string
 	clineMessages: ClineMessage[]
 	currentTaskItem?: HistoryItem
+	currentTaskTodos?: TodoItem[] // Initial todos for the current task
 	apiConfiguration?: ProviderSettings
 	uriScheme?: string
 	shouldShowAnnouncement: boolean

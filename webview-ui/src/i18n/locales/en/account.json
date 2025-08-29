@@ -10,5 +10,7 @@
 	"cloudBenefitHistory": "Online task history",
 	"cloudBenefitSharing": "Sharing and collaboration features",
 	"cloudBenefitMetrics": "Task, token, and cost-based usage metrics",
-	"visitCloudWebsite": "Visit Roo Code ShengSuanYun"
+	"visitCloudWebsite": "Visit Roo Code ShengSuanYun",
+	"remoteControl": "Roomote Control",
+	"remoteControlDescription": "Enable following and interacting with tasks in this workspace with Roo Code Cloud"
 }

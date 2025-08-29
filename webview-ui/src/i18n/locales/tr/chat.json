@@ -2,6 +2,8 @@
 	"greeting": "Roo Code Chinese'a Hoş Geldiniz",
 	"task": {
 		"title": "Görev",
+		"expand": "Görevi genişlet",
+		"collapse": "Görevi daralt",
 		"seeMore": "Daha fazla gör",
 		"seeLess": "Daha az gör",
 		"tokens": "Tokenlar",
@@ -262,8 +264,14 @@
 		"countdownDisplay": "{{count}}sn"
 	},
 	"announcement": {
-		"title": "🎉 Roo Code Chinese {{version}} Yayınlandı",
-		"description": "Roo Code Chinese {{version}} geri bildirimlerinize dayalı yeni özellikler ve iyileştirmeler getiriyor.",
+		"title": "🎉 Roo Code {{version}} Yayınlandı",
+		"stealthModel": {
+			"feature": "Sonic gizli model artık <bold>Grok Code Fast</bold>! Bu yüksek performanslı akıl yürütme modeli <bold>xAI (Grok)</bold> sağlayıcısı altında <code>grok-code-fast-1</code> olarak mevcut.",
+			"note": "Sonic hakkındaki tüm yararlı geri bildirimler için teşekkür olarak, xAI <code>grok-code-fast-1</code>'e ücretsiz erişimi <bold>Roo Code Cloud</bold> sağlayıcısı üzerinden bir hafta daha uzatıyor.",
+			"connectButton": "ShengSuanYun'a bağlan",
+			"selectModel": "Sağlayıcı yapılandırmanızı güncellemek için <settingsLink>Ayarlar</settingsLink>'ı ziyaret edin."
+		},
+		"description": "Roo Code {{version}}, geliştirme iş akışınızı geliştirmek için güçlü yeni özellikler ve önemli iyileştirmeler getiriyor.",
 		"whatsNew": "Yenilikler",
 		"feature1": "<bold>Mesaj Kuyruğu</bold>: Roo çalışırken birden fazla mesajı kuyruğa alın, iş akışınızı kesintisiz olarak planlamaya devam etmenizi sağlar.",
 		"feature2": "<bold>Özel Slash Komutları</bold>: Sık kullanılan promptlara ve iş akışlarına hızlı erişim için kişiselleştirilmiş slash komutları oluşturun, tam UI yönetimi ile.",
@@ -347,9 +355,9 @@
 		"ariaLabel": "Sürüm {{version}} - Sürüm notlarını görüntülemek için tıklayın"
 	},
 	"rooCloudCTA": {
-		"title": "Roo Code Cloud yakında geliyor!",
+		"title": "Roo Code Cloud gelişiyor!",
 		"description": "Bulutta uzak ajanlar çalıştırın, görevlerinize her yerden erişin, başkalarıyla işbirliği yapın ve daha fazlası.",
-		"joinWaitlist": "Erken erişim için bekleme listesine katılın."
+		"joinWaitlist": "En son güncellemeleri almak için kaydolun."
 	},
 	"editMessage": {
 		"placeholder": "Mesajını düzenle..."
@@ -360,7 +368,8 @@
 	"slashCommands": {
 		"tooltip": "Eğik çizgi komutlarını yönet",
 		"title": "Eğik Çizgi Komutları",
-		"description": "Sık kullanılan komut istemleri ve iş akışlarına hızlı erişim için özel eğik çizgi komutları oluşturun. <DocsLink>Belgeler</DocsLink>",
+		"description": "Yerleşik eğik çizgi komutlarını kullanın veya sık kullanılan komut istemleri ve iş akışlarına hızlı erişim için özel komutlar oluşturun. <DocsLink>Belgeler</DocsLink>",
+		"builtInCommands": "Yerleşik Komutlar",
 		"globalCommands": "Genel Komutlar",
 		"workspaceCommands": "Çalışma Alanı Komutları",
 		"globalCommand": "Genel komut",

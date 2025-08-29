@@ -1,7 +1,31 @@
 import { z } from "zod"
 
-import { reasoningEffortsSchema, modelInfoSchema } from "./model.js"
+import { modelInfoSchema, reasoningEffortWithMinimalSchema, verbosityLevelsSchema } from "./model.js"
 import { codebaseIndexProviderSchema } from "./codebase-index.js"
+import {
+	anthropicModels,
+	bedrockModels,
+	cerebrasModels,
+	chutesModels,
+	claudeCodeModels,
+	deepSeekModels,
+	doubaoModels,
+	featherlessModels,
+	fireworksModels,
+	geminiModels,
+	groqModels,
+	ioIntelligenceModels,
+	mistralModels,
+	moonshotModels,
+	openAiNativeModels,
+	qwenCodeModels,
+	rooModels,
+	sambaNovaModels,
+	vertexModels,
+	vscodeLlmModels,
+	xaiModels,
+	internationalZAiModels,
+} from "./providers/index.js"
 
 /**
  * ProviderName
@@ -25,6 +49,7 @@ export const providerNames = [
 	"moonshot",
 	"deepseek",
 	"doubao",
+	"qwen-code",
 	"unbound",
 	"requesty",
 	"human-relay",
@@ -39,6 +64,10 @@ export const providerNames = [
 	"sambanova",
 	"zai",
 	"fireworks",
+	"featherless",
+	"io-intelligence",
+	"roo",
+	"vercel-ai-gateway",
 ] as const
 
 export const providerNamesSchema = z.enum(providerNames)
@@ -77,9 +106,12 @@ const baseProviderSettingsSchema = z.object({
 
 	// Model reasoning.
 	enableReasoningEffort: z.boolean().optional(),
-	reasoningEffort: reasoningEffortsSchema.optional(),
+	reasoningEffort: reasoningEffortWithMinimalSchema.optional(),
 	modelMaxTokens: z.number().optional(),
 	modelMaxThinkingTokens: z.number().optional(),
+
+	// Model verbosity.
+	verbosity: verbosityLevelsSchema.optional(),
 })
 
 // Several of the providers share common model config properties.
@@ -91,6 +123,7 @@ const anthropicSchema = apiModelIdProviderModelSchema.extend({
 	apiKey: z.string().optional(),
 	anthropicBaseUrl: z.string().optional(),
 	anthropicUseAuthToken: z.boolean().optional(),
+	anthropicBeta1MContext: z.boolean().optional(), // Enable 'context-1m-2025-08-07' beta for 1M context window
 })
 
 const claudeCodeSchema = apiModelIdProviderModelSchema.extend({
@@ -126,6 +159,7 @@ const bedrockSchema = apiModelIdProviderModelSchema.extend({
 	awsModelContextWindow: z.number().optional(),
 	awsBedrockEndpointEnabled: z.boolean().optional(),
 	awsBedrockEndpoint: z.string().optional(),
+	awsBedrock1MContext: z.boolean().optional(), // Enable 'context-1m-2025-08-07' beta for 1M context window
 })
 
 const vertexSchema = apiModelIdProviderModelSchema.extend({
@@ -133,6 +167,8 @@ const vertexSchema = apiModelIdProviderModelSchema.extend({
 	vertexJsonCredentials: z.string().optional(),
 	vertexProjectId: z.string().optional(),
 	vertexRegion: z.string().optional(),
+	enableUrlContext: z.boolean().optional(),
+	enableGrounding: z.boolean().optional(),
 })
 
 const openAiSchema = baseProviderSettingsSchema.extend({
@@ -217,6 +253,7 @@ const unboundSchema = baseProviderSettingsSchema.extend({
 })
 
 const requestySchema = baseProviderSettingsSchema.extend({
+	requestyBaseUrl: z.string().optional(),
 	requestyApiKey: z.string().optional(),
 	requestyModelId: z.string().optional(),
 })
@@ -275,6 +312,28 @@ const fireworksSchema = apiModelIdProviderModelSchema.extend({
 	fireworksApiKey: z.string().optional(),
 })
 
+const featherlessSchema = apiModelIdProviderModelSchema.extend({
+	featherlessApiKey: z.string().optional(),
+})
+
+const ioIntelligenceSchema = apiModelIdProviderModelSchema.extend({
+	ioIntelligenceModelId: z.string().optional(),
+	ioIntelligenceApiKey: z.string().optional(),
+})
+
+const qwenCodeSchema = apiModelIdProviderModelSchema.extend({
+	qwenCodeOauthPath: z.string().optional(),
+})
+
+const rooSchema = apiModelIdProviderModelSchema.extend({
+	// No additional fields needed - uses cloud authentication
+})
+
+const vercelAiGatewaySchema = baseProviderSettingsSchema.extend({
+	vercelAiGatewayApiKey: z.string().optional(),
+	vercelAiGatewayModelId: z.string().optional(),
+})
+
 const defaultSchema = z.object({
 	apiProvider: z.undefined(),
 })
@@ -311,6 +370,11 @@ export const providerSettingsSchemaDiscriminated = z.discriminatedUnion("apiProv
 	sambaNovaSchema.merge(z.object({ apiProvider: z.literal("sambanova") })),
 	zaiSchema.merge(z.object({ apiProvider: z.literal("zai") })),
 	fireworksSchema.merge(z.object({ apiProvider: z.literal("fireworks") })),
+	featherlessSchema.merge(z.object({ apiProvider: z.literal("featherless") })),
+	ioIntelligenceSchema.merge(z.object({ apiProvider: z.literal("io-intelligence") })),
+	qwenCodeSchema.merge(z.object({ apiProvider: z.literal("qwen-code") })),
+	rooSchema.merge(z.object({ apiProvider: z.literal("roo") })),
+	vercelAiGatewaySchema.merge(z.object({ apiProvider: z.literal("vercel-ai-gateway") })),
 	defaultSchema,
 ])
 
@@ -347,6 +411,11 @@ export const providerSettingsSchema = z.object({
 	...sambaNovaSchema.shape,
 	...zaiSchema.shape,
 	...fireworksSchema.shape,
+	...featherlessSchema.shape,
+	...ioIntelligenceSchema.shape,
+	...qwenCodeSchema.shape,
+	...rooSchema.shape,
+	...vercelAiGatewaySchema.shape,
 	...codebaseIndexProviderSchema.shape,
 })
 
@@ -373,6 +442,8 @@ export const MODEL_ID_KEYS: Partial<keyof ProviderSettings>[] = [
 	"litellmModelId",
 	"shengSuanYunModelId",
 	"huggingFaceModelId",
+	"ioIntelligenceModelId",
+	"vercelAiGatewayModelId",
 ]
 
 export const getModelId = (settings: ProviderSettings): string | undefined => {
@@ -380,21 +451,136 @@ export const getModelId = (settings: ProviderSettings): string | undefined => {
 	return modelIdKey ? (settings[modelIdKey] as string) : undefined
 }
 
-// Providers that use Anthropic-style API protocol
+// Providers that use Anthropic-style API protocol.
 export const ANTHROPIC_STYLE_PROVIDERS: ProviderName[] = ["anthropic", "claude-code", "bedrock"]
 
-// Helper function to determine API protocol for a provider and model
 export const getApiProtocol = (provider: ProviderName | undefined, modelId?: string): "anthropic" | "openai" => {
-	// First check if the provider is an Anthropic-style provider
 	if (provider && ANTHROPIC_STYLE_PROVIDERS.includes(provider)) {
 		return "anthropic"
 	}
 
-	// For vertex provider, check if the model ID contains "claude" (case-insensitive)
 	if (provider && provider === "vertex" && modelId && modelId.toLowerCase().includes("claude")) {
 		return "anthropic"
 	}
 
-	// Default to OpenAI protocol
+	// Vercel AI Gateway uses anthropic protocol for anthropic models
+	if (provider && provider === "vercel-ai-gateway" && modelId && modelId.toLowerCase().startsWith("anthropic/")) {
+		return "anthropic"
+	}
+
 	return "openai"
 }
+
+export const MODELS_BY_PROVIDER: Record<
+	Exclude<ProviderName, "fake-ai" | "human-relay" | "gemini-cli" | "lmstudio" | "openai" | "ollama">,
+	{ id: ProviderName; label: string; models: string[] }
+> = {
+	anthropic: {
+		id: "anthropic",
+		label: "Anthropic",
+		models: Object.keys(anthropicModels),
+	},
+	bedrock: {
+		id: "bedrock",
+		label: "Amazon Bedrock",
+		models: Object.keys(bedrockModels),
+	},
+	cerebras: {
+		id: "cerebras",
+		label: "Cerebras",
+		models: Object.keys(cerebrasModels),
+	},
+	chutes: {
+		id: "chutes",
+		label: "Chutes AI",
+		models: Object.keys(chutesModels),
+	},
+	"claude-code": { id: "claude-code", label: "Claude Code", models: Object.keys(claudeCodeModels) },
+	deepseek: {
+		id: "deepseek",
+		label: "DeepSeek",
+		models: Object.keys(deepSeekModels),
+	},
+	doubao: { id: "doubao", label: "Doubao", models: Object.keys(doubaoModels) },
+	featherless: {
+		id: "featherless",
+		label: "Featherless",
+		models: Object.keys(featherlessModels),
+	},
+	fireworks: {
+		id: "fireworks",
+		label: "Fireworks",
+		models: Object.keys(fireworksModels),
+	},
+	gemini: {
+		id: "gemini",
+		label: "Google Gemini",
+		models: Object.keys(geminiModels),
+	},
+	groq: { id: "groq", label: "Groq", models: Object.keys(groqModels) },
+	"io-intelligence": {
+		id: "io-intelligence",
+		label: "IO Intelligence",
+		models: Object.keys(ioIntelligenceModels),
+	},
+	mistral: {
+		id: "mistral",
+		label: "Mistral",
+		models: Object.keys(mistralModels),
+	},
+	moonshot: {
+		id: "moonshot",
+		label: "Moonshot",
+		models: Object.keys(moonshotModels),
+	},
+	"openai-native": {
+		id: "openai-native",
+		label: "OpenAI",
+		models: Object.keys(openAiNativeModels),
+	},
+	"qwen-code": { id: "qwen-code", label: "Qwen Code", models: Object.keys(qwenCodeModels) },
+	roo: { id: "roo", label: "Roo", models: Object.keys(rooModels) },
+	sambanova: {
+		id: "sambanova",
+		label: "SambaNova",
+		models: Object.keys(sambaNovaModels),
+	},
+	vertex: {
+		id: "vertex",
+		label: "GCP Vertex AI",
+		models: Object.keys(vertexModels),
+	},
+	"vscode-lm": {
+		id: "vscode-lm",
+		label: "VS Code LM API",
+		models: Object.keys(vscodeLlmModels),
+	},
+	xai: { id: "xai", label: "xAI (Grok)", models: Object.keys(xaiModels) },
+	zai: { id: "zai", label: "Zai", models: Object.keys(internationalZAiModels) },
+
+	// Dynamic providers; models pulled from the respective APIs.
+	glama: { id: "glama", label: "Glama", models: [] },
+	huggingface: { id: "huggingface", label: "Hugging Face", models: [] },
+	litellm: { id: "litellm", label: "LiteLLM", models: [] },
+	openrouter: { id: "openrouter", label: "OpenRouter", models: [] },
+	requesty: { id: "requesty", label: "Requesty", models: [] },
+	shengsuanyun: { id: "shengsuanyun", label: "胜算云", models: [] },
+	unbound: { id: "unbound", label: "Unbound", models: [] },
+	"vercel-ai-gateway": { id: "vercel-ai-gateway", label: "Vercel AI Gateway", models: [] },
+}
+
+export const dynamicProviders = [
+	"glama",
+	"huggingface",
+	"litellm",
+	"openrouter",
+	"requesty",
+	"unbound",
+	"shengsuanyun",
+	"vercel-ai-gateway",
+] as const satisfies readonly ProviderName[]
+
+export type DynamicProvider = (typeof dynamicProviders)[number]
+
+export const isDynamicProvider = (key: string): key is DynamicProvider =>
+	dynamicProviders.includes(key as DynamicProvider)

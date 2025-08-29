@@ -1,16 +1,16 @@
 import { z } from "zod"
 
-import type {
-	ProviderSettings,
-	PromptComponent,
-	ModeConfig,
-	InstallMarketplaceItemOptions,
-	MarketplaceItem,
-	ShareVisibility,
+import {
+	type ProviderSettings,
+	type PromptComponent,
+	type ModeConfig,
+	type InstallMarketplaceItemOptions,
+	type MarketplaceItem,
+	marketplaceItemSchema,
 } from "@roo-code/types"
-import { marketplaceItemSchema } from "@roo-code/types"
 
 import { Mode } from "./modes"
+import { ShareVisibility } from "./cloud"
 
 export type ClineAskResponse = "yesButtonClicked" | "noButtonClicked" | "messageResponse" | "objectResponse"
 
@@ -130,6 +130,7 @@ export interface WebviewMessage {
 		| "terminalCompressProgressBar"
 		| "mcpEnabled"
 		| "enableMcpServerCreation"
+		| "remoteControlEnabled"
 		| "searchCommits"
 		| "alwaysApproveResubmit"
 		| "requestDelaySeconds"
@@ -212,6 +213,7 @@ export interface WebviewMessage {
 		| "deleteCommand"
 		| "createCommand"
 		| "insertTextIntoTextarea"
+		| "showMdmAuthRequiredNotification"
 	text?: string
 	editedMessageContent?: string
 	tab?: "settings" | "history" | "mcp" | "modes" | "chat" | "marketplace" | "account"

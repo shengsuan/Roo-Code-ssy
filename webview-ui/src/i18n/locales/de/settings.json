@@ -233,6 +233,8 @@
 		"awsCustomArnDesc": "Stellen Sie sicher, dass die Region in der ARN mit Ihrer oben ausgewählten AWS-Region übereinstimmt.",
 		"openRouterApiKey": "OpenRouter API-Schlüssel",
 		"getOpenRouterApiKey": "OpenRouter API-Schlüssel erhalten",
+		"vercelAiGatewayApiKey": "Vercel AI Gateway API-Schlüssel",
+		"getVercelAiGatewayApiKey": "Vercel AI Gateway API-Schlüssel erhalten",
 		"doubaoApiKey": "Doubao API-Schlüssel",
 		"getDoubaoApiKey": "Doubao API-Schlüssel erhalten",
 		"apiKeyStorageNotice": "API-Schlüssel werden sicher im VSCode Secret Storage gespeichert",
@@ -256,16 +258,27 @@
 		},
 		"getShengSuanYunApiKey": "ShengSuanYun API-Schlüssel erhalten",
 		"getRequestyApiKey": "Requesty API-Schlüssel erhalten",
+		"getRequestyBaseUrl": "Basis-URL",
+		"requestyUseCustomBaseUrl": "Benutzerdefinierte Basis-URL verwenden",
 		"openRouterTransformsText": "Prompts und Nachrichtenketten auf Kontextgröße komprimieren (<a>OpenRouter Transformationen</a>)",
 		"anthropicApiKey": "Anthropic API-Schlüssel",
 		"getAnthropicApiKey": "Anthropic API-Schlüssel erhalten",
 		"anthropicUseAuthToken": "Anthropic API-Schlüssel als Authorization-Header anstelle von X-Api-Key übergeben",
+		"anthropic1MContextBetaLabel": "1M Kontextfenster aktivieren (Beta)",
+		"anthropic1MContextBetaDescription": "Erweitert das Kontextfenster für Claude Sonnet 4 auf 1 Million Token",
+		"awsBedrock1MContextBetaLabel": "1M Kontextfenster aktivieren (Beta)",
+		"awsBedrock1MContextBetaDescription": "Erweitert das Kontextfenster für Claude Sonnet 4 auf 1 Million Token",
 		"cerebrasApiKey": "Cerebras API-Schlüssel",
 		"getCerebrasApiKey": "Cerebras API-Schlüssel erhalten",
 		"chutesApiKey": "Chutes API-Schlüssel",
 		"getChutesApiKey": "Chutes API-Schlüssel erhalten",
 		"fireworksApiKey": "Fireworks API-Schlüssel",
 		"getFireworksApiKey": "Fireworks API-Schlüssel erhalten",
+		"featherlessApiKey": "Featherless API-Schlüssel",
+		"getFeatherlessApiKey": "Featherless API-Schlüssel erhalten",
+		"ioIntelligenceApiKey": "IO Intelligence API-Schlüssel",
+		"ioIntelligenceApiKeyPlaceholder": "Gib deinen IO Intelligence API-Schlüssel ein",
+		"getIoIntelligenceApiKey": "IO Intelligence API-Schlüssel erhalten",
 		"deepSeekApiKey": "DeepSeek API-Schlüssel",
 		"getDeepSeekApiKey": "DeepSeek API-Schlüssel erhalten",
 		"moonshotApiKey": "Moonshot API-Schlüssel",
@@ -369,6 +382,10 @@
 			"description": "Es ist kein API-Schlüssel erforderlich, aber der Benutzer muss beim Kopieren und Einfügen der Informationen in den Web-Chat-KI helfen.",
 			"instructions": "Während der Verwendung wird ein Dialogfeld angezeigt und die aktuelle Nachricht wird automatisch in die Zwischenablage kopiert. Du musst diese in Web-Versionen von KI (wie ChatGPT oder Claude) einfügen, dann die Antwort der KI zurück in das Dialogfeld kopieren und auf die Bestätigungsschaltfläche klicken."
 		},
+		"roo": {
+			"authenticatedMessage": "Sicher authentifiziert über dein Roo Code Cloud-Konto.",
+			"connectButton": "Mit Roo Code Cloud verbinden"
+		},
 		"openRouter": {
 			"providerRouting": {
 				"title": "OpenRouter Anbieter-Routing",
@@ -430,9 +447,17 @@
 		},
 		"reasoningEffort": {
 			"label": "Modell-Denkaufwand",
+			"minimal": "Minimal (schnellste)",
 			"high": "Hoch",
 			"medium": "Mittel",
 			"low": "Niedrig"
+		},
+		"verbosity": {
+			"label": "Ausgabe-Ausführlichkeit",
+			"high": "Hoch",
+			"medium": "Mittel",
+			"low": "Niedrig",
+			"description": "Steuert, wie detailliert die Antworten des Modells sind. Niedrige Ausführlichkeit erzeugt knappe Antworten, während hohe Ausführlichkeit gründliche Erklärungen liefert."
 		},
 		"setReasoningLevel": "Denkaufwand aktivieren",
 		"claudeCode": {
@@ -697,6 +722,10 @@
 		"ASSISTANT_MESSAGE_PARSER": {
 			"name": "Neuen Nachrichtenparser verwenden",
 			"description": "Aktiviere den experimentellen Streaming-Nachrichtenparser, der lange Antworten durch effizientere Verarbeitung spürbar schneller macht."
+		},
+		"NEW_TASK_REQUIRE_TODOS": {
+			"name": "'todos'-Liste für neue Aufgaben anfordern",
+			"description": "Wenn aktiviert, erfordert das new_task-Tool die Angabe eines todos-Parameters. Dies stellt sicher, dass alle neuen Aufgaben mit einer klaren Zielliste beginnen. Wenn deaktiviert (Standard), bleibt der todos-Parameter aus Gründen der Abwärtskompatibilität optional."
 		}
 	},
 	"promptCaching": {
@@ -715,6 +744,7 @@
 		"noComputerUse": "Unterstützt keine Computernutzung",
 		"supportsPromptCache": "Unterstützt Prompt-Cache",
 		"noPromptCache": "Unterstützt keinen Prompt-Cache",
+		"contextWindow": "Kontextfenster:",
 		"maxOutput": "Maximale Ausgabe",
 		"inputPrice": "Eingabepreis",
 		"outputPrice": "Ausgabepreis",
@@ -768,7 +798,8 @@
 		"modelAvailability": "Die von dir angegebene Modell-ID ({{modelId}}) ist nicht verfügbar. Bitte wähle ein anderes Modell.",
 		"providerNotAllowed": "Anbieter '{{provider}}' ist von deiner Organisation nicht erlaubt",
 		"modelNotAllowed": "Modell '{{model}}' ist für Anbieter '{{provider}}' von deiner Organisation nicht erlaubt",
-		"profileInvalid": "Dieses Profil enthält einen Anbieter oder ein Modell, das von deiner Organisation nicht erlaubt ist"
+		"profileInvalid": "Dieses Profil enthält einen Anbieter oder ein Modell, das von deiner Organisation nicht erlaubt ist",
+		"qwenCodeOauthPath": "Du musst einen gültigen OAuth-Anmeldedaten-Pfad angeben"
 	},
 	"placeholders": {
 		"apiKey": "API-Schlüssel eingeben...",

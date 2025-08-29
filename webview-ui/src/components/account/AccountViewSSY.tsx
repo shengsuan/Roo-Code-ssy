@@ -89,8 +89,8 @@ export const AccountViewSSY = ({ cloudUser, cloudApiUrl, onDone }: AccountViewSS
 								<div className="text-[var(--vscode-descriptionForeground)]">加载中...</div>
 							) : (
 								<>
-									<span>$</span>
-									<StyledCreditDisplaySSY balance={userInfo.Wallet.Assets / 10000} />
+									<span>￥</span>
+									<StyledCreditDisplaySSY balance={userInfo?.Wallet?.Assets / 10000} />
 									<VSCodeButton
 										appearance="icon"
 										className="mt-1"

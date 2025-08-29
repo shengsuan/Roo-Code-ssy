@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
-
-import { type ProviderSettings, type OrganizationAllowList, shengSuanYunDefaultModelId } from "@roo-code/types"
+import type { OrganizationAllowList } from "@roo/cloud"
+import { type ProviderSettings, shengSuanYunDefaultModelId } from "@roo-code/types"
 import type { RouterModels } from "@roo/api"
 import { vscode } from "@src/utils/vscode"
 import { useAppTranslation } from "@src/i18n/TranslationContext"

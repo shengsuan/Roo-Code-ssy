@@ -1,32 +1,32 @@
 import { Anthropic } from "@anthropic-ai/sdk"
-import { BetaThinkingConfigParam } from "@anthropic-ai/sdk/resources/beta"
 import OpenAI from "openai"
 
-import { shengSuanYunDefaultModelId, shengSuanYunDefaultModelInfo } from "@roo-code/types"
+import {
+	DEEP_SEEK_DEFAULT_TEMPERATURE,
+	OPEN_ROUTER_PROMPT_CACHING_MODELS,
+	shengSuanYunDefaultModelId,
+	shengSuanYunDefaultModelInfo,
+} from "@roo-code/types"
 
 import { convertToOpenAiMessages } from "../transform/openai-format"
 import { ApiStreamChunk } from "../transform/stream"
-import { convertToR1Format } from "../transform/r1-format"
 import { addCacheBreakpoints as addAnthropicCacheBreakpoints } from "../transform/caching/anthropic"
 import { addCacheBreakpoints as addGeminiCacheBreakpoints } from "../transform/caching/gemini"
-
 import { SingleCompletionHandler } from "../index"
 import { DEFAULT_HEADERS } from "./constants"
 import { BaseProvider } from "./base-provider"
 import { getModels } from "./fetchers/modelCache"
-import { console } from "node:inspector"
 import { ApiHandlerOptions, ModelRecord } from "../../shared/api"
+import { getApiRequestTimeout } from "./utils/timeout-config"
+import { getModelParams } from "../transform/model-params"
+import { OpenRouterReasoningParams } from "../transform/reasoning"
+import { convertToR1Format } from "../transform/r1-format"
 
-// Add custom interface for ShengSuanYun params (same as OpenRouter's params)
-type ShengSuanYunChatCompletionParams = OpenAI.Chat.ChatCompletionCreateParams & {
+type CompletionParams = OpenAI.Chat.ChatCompletionCreateParams & {
 	transforms?: string[]
 	include_reasoning?: boolean
-	thinking?: BetaThinkingConfigParam
-	reasoning?: {
-		effort?: "high" | "medium" | "low"
-		max_tokens?: number
-		exclude?: boolean
-	}
+	// https://openrouter.ai/docs/use-cases/reasoning-tokens
+	reasoning?: OpenRouterReasoningParams
 }
 
 // Same interface as OpenRouter's CompletionUsage
@@ -41,6 +41,9 @@ interface CompletionUsage {
 	}
 	total_tokens?: number
 	cost?: number
+	cost_details?: {
+		upstream_inference_cost?: number
+	}
 }
 
 export class ShengSuanYunHandler extends BaseProvider implements SingleCompletionHandler {
@@ -53,15 +56,22 @@ export class ShengSuanYunHandler extends BaseProvider implements SingleCompletio
 		this.options = options
 		const baseURL = "https://router.shengsuanyun.com/api/v1"
 		const apiKey = this.options.shengSuanYunApiKey ?? "not-provided"
-		this.client = new OpenAI({ baseURL, apiKey, defaultHeaders: DEFAULT_HEADERS })
+		const timeout = getApiRequestTimeout()
+		this.client = new OpenAI({ baseURL, apiKey, defaultHeaders: DEFAULT_HEADERS, timeout })
 	}
 
 	async *createMessage(
 		systemPrompt: string,
 		messages: Anthropic.Messages.MessageParam[],
 	): AsyncGenerator<ApiStreamChunk> {
-		this.models = await getModels({ provider: "shengsuanyun" })
-		let { id: modelId, info, topP } = this.getModel()
+		let { id: modelId, maxTokens, temperature, topP, reasoning } = await this.fetchModel()
+		if (
+			(modelId === "google/gemini-2.5-pro-preview" || modelId === "google/gemini-2.5-pro") &&
+			typeof reasoning === "undefined"
+		) {
+			reasoning = { exclude: true }
+		}
+
 		// Convert Anthropic messages to OpenAI format.
 		let openAiMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
 			{ role: "system", content: systemPrompt },
@@ -69,19 +79,13 @@ export class ShengSuanYunHandler extends BaseProvider implements SingleCompletio
 		]
 
 		// DeepSeek highly recommends using user instead of system role.
-		if (
-			modelId.startsWith("deepseek/deepseek-r1") ||
-			modelId.startsWith("deepseek/deepseek-v3") ||
-			modelId.startsWith("deepseek/deepseek-chat") ||
-			modelId.startsWith("deepseek/deepseek-reason") ||
-			modelId === "perplexity/sonar-reasoning" ||
-			modelId === "qwen/qwq-32b:free" ||
-			modelId === "qwen/qwq-32b"
-		) {
+		if (modelId.startsWith("deepseek/deepseek-r1") || modelId === "perplexity/sonar-reasoning") {
 			openAiMessages = convertToR1Format([{ role: "user", content: systemPrompt }, ...messages])
 		}
+
 		// https://openrouter.ai/docs/features/prompt-caching
-		if (info.supportsPromptCache) {
+		// TODO: Add a `promptCacheStratey` field to `ModelInfo`.
+		if (OPEN_ROUTER_PROMPT_CACHING_MODELS.has(modelId)) {
 			if (modelId.startsWith("google")) {
 				addGeminiCacheBreakpoints(systemPrompt, openAiMessages)
 			} else {
@@ -89,76 +93,29 @@ export class ShengSuanYunHandler extends BaseProvider implements SingleCompletio
 			}
 		}
 
-		let maxTokens: number | undefined | null = info.maxTokens
-		switch (modelId) {
-			case "anthropic/claude-sonnet-4:thinking":
-			case "anthropic/claude-sonnet-4":
-			case "anthropic/claude-opus-4":
-			case "anthropic/claude-opus-4.1":
-			case "anthropic/claude-3.7-sonnet":
-			case "anthropic/claude-3.7-sonnet:beta":
-			case "anthropic/claude-3.7-sonnet:thinking":
-			case "anthropic/claude-3-7-sonnet":
-			case "anthropic/claude-3-7-sonnet:beta":
-			case "anthropic/claude-3.5-sonnet":
-			case "anthropic/claude-3.5-sonnet:beta":
-			case "anthropic/claude-3.5-sonnet-20240620":
-			case "anthropic/claude-3.5-sonnet-20240620:beta":
-			case "anthropic/claude-3-5-haiku":
-			case "anthropic/claude-3-5-haiku:beta":
-			case "anthropic/claude-3-5-haiku-20241022":
-			case "anthropic/claude-3-5-haiku-20241022:beta":
-				maxTokens = 8_192
-				break
-		}
-
-		let reasoning: { max_tokens: number } | undefined = undefined
-		switch (modelId) {
-			case "anthropic/claude-3.7-sonnet":
-			case "anthropic/claude-3.7-sonnet:beta":
-			case "anthropic/claude-3.7-sonnet:thinking":
-			case "anthropic/claude-3-7-sonnet":
-			case "anthropic/claude-sonnet-4:thinking":
-			case "anthropic/claude-3-7-sonnet:beta": {
-				let budget_tokens = this.options.modelMaxThinkingTokens || 0
-				const reasoningOn = budget_tokens !== 0 ? true : false
-				if (reasoningOn) {
-					reasoning = { max_tokens: budget_tokens }
-				}
-				break
-			}
-		}
-		// DeepSeek highly recommends using user instead of system role.
-		if (modelId.startsWith("deepseek/deepseek-r1") || modelId === "perplexity/sonar-reasoning") {
-			openAiMessages = convertToR1Format([{ role: "user", content: systemPrompt }, ...messages])
-		}
-
-		let shouldApplyMiddleOutTransform = this.options.openRouterUseMiddleOutTransform
-		if (modelId === "deepseek/deepseek-chat") {
-			shouldApplyMiddleOutTransform = true
-		}
-
-		// Similar to OpenRouter's params
-		const completionParams: ShengSuanYunChatCompletionParams = {
+		const transforms = (this.options.openRouterUseMiddleOutTransform ?? true) ? ["middle-out"] : undefined
+		const completionParams: CompletionParams = {
 			model: modelId,
 			...(maxTokens && maxTokens > 0 && { max_tokens: maxTokens }),
+			temperature,
 			top_p: topP,
 			messages: openAiMessages,
 			stream: true,
-			reasoning: reasoning,
 			stream_options: { include_usage: true },
+			...(transforms && { transforms }),
+			...(reasoning && { reasoning }),
 		}
 
-		const stream: any = await this.client.chat.completions.create(completionParams)
+		const stream = await this.client.chat.completions.create(completionParams)
 
 		let lastUsage: CompletionUsage | undefined = undefined
 
 		for await (const chunk of stream) {
-			// Returns an error object instead of the OpenAI SDK throwing an error.
+			// OpenRouter returns an error object instead of the OpenAI SDK throwing an error.
 			if ("error" in chunk) {
 				const error = chunk.error as { message?: string; code?: number }
-				console.error(`ShengSuanYun API Error: ${error?.code} - ${error?.message}`)
-				throw new Error(`ShengSuanYun API Error ${error?.code}: ${error?.message}`)
+				console.error(`OpenRouter API Error: ${error?.code} - ${error?.message}`)
+				throw new Error(`OpenRouter API Error ${error?.code}: ${error?.message}`)
 			}
 
 			const delta = chunk.choices[0]?.delta
@@ -181,37 +138,49 @@ export class ShengSuanYunHandler extends BaseProvider implements SingleCompletio
 				type: "usage",
 				inputTokens: lastUsage.prompt_tokens || 0,
 				outputTokens: lastUsage.completion_tokens || 0,
+				cacheReadTokens: lastUsage.prompt_tokens_details?.cached_tokens,
 				reasoningTokens: lastUsage.completion_tokens_details?.reasoning_tokens,
-				totalCost: lastUsage.cost || 0,
+				totalCost: (lastUsage.cost_details?.upstream_inference_cost || 0) + (lastUsage.cost || 0),
 			}
 		}
 	}
 
-	getModel() {
+	public async fetchModel() {
+		this.models = await getModels({ provider: "shengsuanyun" })
+		return this.getModel()
+	}
+
+	override getModel() {
 		const id = this.options.shengSuanYunModelId ?? shengSuanYunDefaultModelId
 		let info = this.models[id] ?? shengSuanYunDefaultModelInfo
+
 		const isDeepSeekR1 = id.startsWith("deepseek/deepseek-r1") || id === "perplexity/sonar-reasoning"
-		return {
-			id,
-			info,
-			topP: isDeepSeekR1 ? 0.95 : undefined,
-		}
+		const params = getModelParams({
+			format: "openrouter",
+			modelId: id,
+			model: info,
+			settings: this.options,
+			defaultTemperature: isDeepSeekR1 ? DEEP_SEEK_DEFAULT_TEMPERATURE : 0,
+		})
+		return { id, info, topP: isDeepSeekR1 ? 0.95 : undefined, ...params }
 	}
 
 	async completePrompt(prompt: string) {
-		let { id: modelId, info } = this.getModel()
-		const completionParams: ShengSuanYunChatCompletionParams = {
+		let { id: modelId, maxTokens, temperature, reasoning } = await this.fetchModel()
+		const completionParams: CompletionParams = {
 			model: modelId,
-			max_tokens: info.maxTokens,
+			max_tokens: maxTokens,
+			temperature,
 			messages: [{ role: "user", content: prompt }],
 			stream: false,
+			...(reasoning && { reasoning }),
 		}
 
 		const response = await this.client.chat.completions.create(completionParams)
 
 		if ("error" in response) {
 			const error = response.error as { message?: string; code?: number }
-			throw new Error(`ShengSuanYun API Error ${error?.code}: ${error?.message}`)
+			throw new Error(`OpenRouter API Error ${error?.code}: ${error?.message}`)
 		}
 
 		const completion = response as OpenAI.Chat.ChatCompletion

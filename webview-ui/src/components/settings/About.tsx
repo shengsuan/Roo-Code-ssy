@@ -68,7 +68,7 @@ export const About = ({ telemetrySetting, setTelemetrySetting, className, ...pro
 					/>
 					<img
 						className="w-30 h-30"
-						src="https://www.shengsuanyun.com/webp/relation-BMfLRnIZ.webp"
+						src="https://www.shengsuanyun.com/relation.webp"
 						alt="customer service"
 					/>
 				</div>

@@ -4,8 +4,9 @@ import Anthropic from "@anthropic-ai/sdk"
 import * as vscode from "vscode"
 import axios from "axios"
 
-import { type ProviderSettingsEntry, type ClineMessage, ORGANIZATION_ALLOW_ALL } from "@roo-code/types"
+import { type ProviderSettingsEntry, type ClineMessage } from "@roo-code/types"
 import { TelemetryService } from "@roo-code/telemetry"
+import { ORGANIZATION_ALLOW_ALL } from "@roo-code/cloud"
 
 import { ExtensionMessage, ExtensionState } from "../../../shared/ExtensionMessage"
 import { defaultModeSlug } from "../../../shared/modes"
@@ -17,10 +18,8 @@ import { safeWriteJson } from "../../../utils/safeWriteJson"
 
 import { ClineProvider } from "../ClineProvider"
 
-// Mock setup must come before imports
+// Mock setup must come before imports.
 vi.mock("../../prompts/sections/custom-instructions")
-
-vi.mock("vscode")
 
 vi.mock("p-wait-for", () => ({
 	__esModule: true,
@@ -95,7 +94,7 @@ vi.mock("../../../services/browser/browserDiscovery", () => ({
 	testBrowserConnection: vi.fn(),
 }))
 
-// Remove duplicate mock - it's already defined below
+// Remove duplicate mock - it's already defined below.
 
 const mockAddCustomInstructions = vi.fn().mockResolvedValue("Combined instructions")
 
@@ -228,7 +227,6 @@ vi.mock("../../../integrations/misc/extract-text", () => ({
 	}),
 }))
 
-// Mock getModels for router model tests
 vi.mock("../../../api/providers/fetchers/modelCache", () => ({
 	getModels: vi.fn().mockResolvedValue({}),
 	flushModels: vi.fn(),
@@ -324,6 +322,10 @@ vi.mock("@roo-code/cloud", () => ({
 		},
 	},
 	getRooCodeApiUrl: vi.fn().mockReturnValue("https://app.roocode.com"),
+	ORGANIZATION_ALLOW_ALL: {
+		allowAll: true,
+		providers: {},
+	},
 }))
 
 afterAll(() => {
@@ -577,13 +579,13 @@ describe("ClineProvider", () => {
 		await provider.addClineToStack(mockCline)
 
 		// get the stack size before the abort call
-		const stackSizeBeforeAbort = provider.getClineStackSize()
+		const stackSizeBeforeAbort = provider.getTaskStackSize()
 
 		// call the removeClineFromStack method so it will call the current cline abort and remove it from the stack
 		await provider.removeClineFromStack()
 
 		// get the stack size after the abort call
-		const stackSizeAfterAbort = provider.getClineStackSize()
+		const stackSizeAfterAbort = provider.getTaskStackSize()
 
 		// check if the abort method was called
 		expect(mockCline.abortTask).toHaveBeenCalled()
@@ -689,7 +691,7 @@ describe("ClineProvider", () => {
 			await provider.addClineToStack(mockCline)
 
 			// Verify stack size is 1
-			expect(provider.getClineStackSize()).toBe(1)
+			expect(provider.getTaskStackSize()).toBe(1)
 
 			// Get the message handler
 			const messageHandler = (mockWebviewView.webview.onDidReceiveMessage as any).mock.calls[0][0]
@@ -715,10 +717,10 @@ describe("ClineProvider", () => {
 		await provider.addClineToStack(mockCline2)
 
 		// verify cline instances were added to the stack
-		expect(provider.getClineStackSize()).toBe(2)
+		expect(provider.getTaskStackSize()).toBe(2)
 
 		// verify current cline instance is the last one added
-		expect(provider.getCurrentCline()).toBe(mockCline2)
+		expect(provider.getCurrentTask()).toBe(mockCline2)
 	})
 
 	test("getState returns correct initial state", async () => {
@@ -1202,8 +1204,8 @@ describe("ClineProvider", () => {
 				historyItem: { id: "test-task-id" },
 			})
 
-			// Mock initClineWithHistoryItem
-			;(provider as any).initClineWithHistoryItem = vi.fn()
+			// Mock createTaskWithHistoryItem
+			;(provider as any).createTaskWithHistoryItem = vi.fn()
 
 			// Trigger message deletion
 			const messageHandler = (mockWebviewView.webview.onDidReceiveMessage as any).mock.calls[0][0]
@@ -1227,8 +1229,8 @@ describe("ClineProvider", () => {
 				mockApiHistory[1],
 			])
 
-			// Verify initClineWithHistoryItem was called
-			expect((provider as any).initClineWithHistoryItem).toHaveBeenCalledWith({ id: "test-task-id" })
+			// Verify createTaskWithHistoryItem was called
+			expect((provider as any).createTaskWithHistoryItem).toHaveBeenCalledWith({ id: "test-task-id" })
 		})
 
 		test("handles case when no current task exists", async () => {
@@ -1657,7 +1659,7 @@ describe("ClineProvider", () => {
 		})
 	})
 
-	describe("initClineWithHistoryItem mode validation", () => {
+	describe("createTaskWithHistoryItem mode validation", () => {
 		test("validates and falls back to default mode when restored mode no longer exists", async () => {
 			await provider.resolveWebviewView(mockWebviewView)
 
@@ -1708,7 +1710,7 @@ describe("ClineProvider", () => {
 			}
 
 			// Initialize with history item
-			await provider.initClineWithHistoryItem(historyItem)
+			await provider.createTaskWithHistoryItem(historyItem)
 
 			// Verify mode validation occurred
 			expect(mockCustomModesManager.getCustomModes).toHaveBeenCalled()
@@ -1777,7 +1779,7 @@ describe("ClineProvider", () => {
 			}
 
 			// Initialize with history item
-			await provider.initClineWithHistoryItem(historyItem)
+			await provider.createTaskWithHistoryItem(historyItem)
 
 			// Verify mode validation occurred
 			expect(mockCustomModesManager.getCustomModes).toHaveBeenCalled()
@@ -1829,7 +1831,7 @@ describe("ClineProvider", () => {
 			}
 
 			// Initialize with history item
-			await provider.initClineWithHistoryItem(historyItem)
+			await provider.createTaskWithHistoryItem(historyItem)
 
 			// Verify mode was preserved
 			expect(mockContext.globalState.update).toHaveBeenCalledWith("mode", "architect")
@@ -1860,7 +1862,7 @@ describe("ClineProvider", () => {
 			}
 
 			// Initialize with history item
-			await provider.initClineWithHistoryItem(historyItem)
+			await provider.createTaskWithHistoryItem(historyItem)
 
 			// Verify no mode validation occurred (mode update not called)
 			expect(mockContext.globalState.update).not.toHaveBeenCalledWith("mode", expect.any(String))
@@ -1910,7 +1912,7 @@ describe("ClineProvider", () => {
 			}
 
 			// Initialize with history item - should not throw
-			await expect(provider.initClineWithHistoryItem(historyItem)).resolves.not.toThrow()
+			await expect(provider.createTaskWithHistoryItem(historyItem)).resolves.not.toThrow()
 
 			// Verify error was logged but task restoration continued
 			expect(logSpy).toHaveBeenCalledWith(
@@ -2666,6 +2668,7 @@ describe("ClineProvider - Router Models", () => {
 		expect(getModels).toHaveBeenCalledWith({ provider: "requesty", apiKey: "requesty-key" })
 		expect(getModels).toHaveBeenCalledWith({ provider: "glama" })
 		expect(getModels).toHaveBeenCalledWith({ provider: "unbound", apiKey: "unbound-key" })
+		expect(getModels).toHaveBeenCalledWith({ provider: "vercel-ai-gateway" })
 		expect(getModels).toHaveBeenCalledWith({
 			provider: "litellm",
 			apiKey: "litellm-key",
@@ -2683,6 +2686,7 @@ describe("ClineProvider - Router Models", () => {
 				litellm: mockModels,
 				ollama: {},
 				lmstudio: {},
+				"vercel-ai-gateway": mockModels,
 			},
 		})
 	})
@@ -2713,6 +2717,7 @@ describe("ClineProvider - Router Models", () => {
 			.mockRejectedValueOnce(new Error("Requesty API error")) // requesty fail
 			.mockResolvedValueOnce(mockModels) // glama success
 			.mockRejectedValueOnce(new Error("Unbound API error")) // unbound fail
+			.mockResolvedValueOnce(mockModels) // vercel-ai-gateway success
 			.mockRejectedValueOnce(new Error("LiteLLM connection failed")) // litellm fail
 
 		await messageHandler({ type: "requestRouterModels" })
@@ -2728,6 +2733,7 @@ describe("ClineProvider - Router Models", () => {
 				ollama: {},
 				lmstudio: {},
 				litellm: {},
+				"vercel-ai-gateway": mockModels,
 			},
 		})
 
@@ -2838,6 +2844,7 @@ describe("ClineProvider - Router Models", () => {
 				litellm: {},
 				ollama: {},
 				lmstudio: {},
+				"vercel-ai-gateway": mockModels,
 			},
 		})
 	})
@@ -3232,7 +3239,7 @@ describe("ClineProvider - Comprehensive Edit/Delete Edge Cases", () => {
 
 		test("handles edit permission failures", async () => {
 			// Mock no current cline (simulating permission failure)
-			vi.spyOn(provider, "getCurrentCline").mockReturnValue(undefined)
+			vi.spyOn(provider, "getCurrentTask").mockReturnValue(undefined)
 
 			const messageHandler = (mockWebviewView.webview.onDidReceiveMessage as any).mock.calls[0][0]
 
@@ -3651,7 +3658,7 @@ describe("ClineProvider - Comprehensive Edit/Delete Edge Cases", () => {
 				;(provider as any).getTaskWithId = vi.fn().mockResolvedValue({
 					historyItem: { id: "test-task-id" },
 				})
-				;(provider as any).initClineWithHistoryItem = vi.fn()
+				;(provider as any).createTaskWithHistoryItem = vi.fn()
 
 				const messageHandler = (mockWebviewView.webview.onDidReceiveMessage as any).mock.calls[0][0]
 
@@ -3668,7 +3675,7 @@ describe("ClineProvider - Comprehensive Edit/Delete Edge Cases", () => {
 
 				// Verify successful operation completed
 				expect(mockCline.overwriteClineMessages).toHaveBeenCalled()
-				expect(provider.initClineWithHistoryItem).toHaveBeenCalled()
+				expect(provider.createTaskWithHistoryItem).toHaveBeenCalled()
 				expect(vscode.window.showErrorMessage).not.toHaveBeenCalled()
 			})
 
