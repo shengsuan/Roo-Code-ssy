@@ -3,7 +3,7 @@ import { z } from "zod"
 import { RooCodeEventName } from "./events.js"
 import { type ClineMessage, type TokenUsage } from "./message.js"
 import { type ToolUsage, type ToolName } from "./tool.js"
-import type { StaticAppProperties, GitProperties, TelemetryProperties } from "./telemetry.js"
+import type { StaticAppProperties, GitProperties } from "./telemetry.js"
 
 /**
  * TaskProviderLike
@@ -31,7 +31,7 @@ export interface TaskProviderLike {
 	postStateToWebview(): Promise<void>
 	postMessageToWebview(message: unknown): Promise<void>
 
-	getTelemetryProperties(): Promise<TelemetryProperties>
+	// getTelemetryProperties(): Promise<TelemetryProperties>
 
 	on<K extends keyof TaskProviderEvents>(
 		event: K,

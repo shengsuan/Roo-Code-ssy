@@ -24,7 +24,7 @@ import {
 	type ToolProgressStatus,
 	type HistoryItem,
 	RooCodeEventName,
-	TelemetryEventName,
+	// TelemetryEventName,
 	TaskStatus,
 	TodoItem,
 	DEFAULT_CONSECUTIVE_MISTAKE_LIMIT,
@@ -34,8 +34,8 @@ import {
 	isInteractiveAsk,
 	isResumableAsk,
 } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
-import { CloudService, ExtensionBridgeService } from "@roo-code/cloud"
+// import { TelemetryService } from "@roo-code/telemetry"
+// import { CloudService, ExtensionBridgeService } from "@roo-code/cloud"
 
 // api
 import { ApiHandler, ApiHandlerCreateMessageMetadata, buildApiHandler } from "../../api"
@@ -255,7 +255,7 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 
 	// Task Bridge
 	enableTaskBridge: boolean
-	bridgeService: ExtensionBridgeService | null = null
+	// bridgeService: ExtensionBridgeService | null = null
 
 	// Streaming
 	isWaitingForFirstChunk = false
@@ -346,12 +346,12 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 		if (historyItem) {
 			this._taskMode = historyItem.mode || defaultModeSlug
 			this.taskModeReady = Promise.resolve()
-			TelemetryService.instance.captureTaskRestarted(this.taskId)
+			// TelemetryService.instance.captureTaskRestarted(this.taskId)
 		} else {
 			// For new tasks, don't set the mode yet - wait for async initialization.
 			this._taskMode = undefined
 			this.taskModeReady = this.initializeTaskMode(provider)
-			TelemetryService.instance.captureTaskCreated(this.taskId)
+			// TelemetryService.instance.captureTaskCreated(this.taskId)
 		}
 
 		// Initialize the assistant message parser
@@ -578,14 +578,14 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 		this.emit(RooCodeEventName.Message, { action: "created", message })
 		await this.saveClineMessages()
 
-		const shouldCaptureMessage = message.partial !== true && CloudService.isEnabled()
+		// const shouldCaptureMessage = message.partial !== true && CloudService.isEnabled()
 
-		if (shouldCaptureMessage) {
-			CloudService.instance.captureEvent({
-				event: TelemetryEventName.TASK_MESSAGE,
-				properties: { taskId: this.taskId, message },
-			})
-		}
+		// if (shouldCaptureMessage) {
+		// 	CloudService.instance.captureEvent({
+		// 		event: TelemetryEventName.TASK_MESSAGE,
+		// 		properties: { taskId: this.taskId, message },
+		// 	})
+		// }
 	}
 
 	public async overwriteClineMessages(newMessages: ClineMessage[]) {
@@ -599,14 +599,14 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 		await provider?.postMessageToWebview({ type: "messageUpdated", clineMessage: message })
 		this.emit(RooCodeEventName.Message, { action: "updated", message })
 
-		const shouldCaptureMessage = message.partial !== true && CloudService.isEnabled()
+		// const shouldCaptureMessage = message.partial !== true && CloudService.isEnabled()
 
-		if (shouldCaptureMessage) {
-			CloudService.instance.captureEvent({
-				event: TelemetryEventName.TASK_MESSAGE,
-				properties: { taskId: this.taskId, message },
-			})
-		}
+		// if (shouldCaptureMessage) {
+		// 	CloudService.instance.captureEvent({
+		// 		event: TelemetryEventName.TASK_MESSAGE,
+		// 		properties: { taskId: this.taskId, message },
+		// 	})
+		// }
 	}
 
 	private async saveClineMessages() {
@@ -1067,11 +1067,10 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 	private async startTask(task?: string, images?: string[]): Promise<void> {
 		if (this.enableTaskBridge) {
 			try {
-				this.bridgeService = this.bridgeService || ExtensionBridgeService.getInstance()
-
-				if (this.bridgeService) {
-					await this.bridgeService.subscribeToTask(this)
-				}
+				// this.bridgeService = this.bridgeService || ExtensionBridgeService.getInstance()
+				// if (this.bridgeService) {
+				// 	await this.bridgeService.subscribeToTask(this)
+				// }
 			} catch (error) {
 				console.error(
 					`[Task#startTask] subscribeToTask failed - ${error instanceof Error ? error.message : String(error)}`,
@@ -1137,19 +1136,19 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 	}
 
 	private async resumeTaskFromHistory() {
-		if (this.enableTaskBridge) {
-			try {
-				this.bridgeService = this.bridgeService || ExtensionBridgeService.getInstance()
+		// if (this.enableTaskBridge) {
+		// 	try {
+		// 		this.bridgeService = this.bridgeService || ExtensionBridgeService.getInstance()
 
-				if (this.bridgeService) {
-					await this.bridgeService.subscribeToTask(this)
-				}
-			} catch (error) {
-				console.error(
-					`[Task#resumeTaskFromHistory] subscribeToTask failed - ${error instanceof Error ? error.message : String(error)}`,
-				)
-			}
-		}
+		// 		if (this.bridgeService) {
+		// 			await this.bridgeService.subscribeToTask(this)
+		// 		}
+		// 	} catch (error) {
+		// 		console.error(
+		// 			`[Task#resumeTaskFromHistory] subscribeToTask failed - ${error instanceof Error ? error.message : String(error)}`,
+		// 		)
+		// 	}
+		// }
 
 		const modifiedClineMessages = await this.getSavedClineMessages()
 
@@ -1404,12 +1403,12 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 		}
 
 		// Unsubscribe from TaskBridge service.
-		if (this.bridgeService) {
-			this.bridgeService
-				.unsubscribeFromTask(this.taskId)
-				.catch((error: unknown) => console.error("Error unsubscribing from task bridge:", error))
-			this.bridgeService = null
-		}
+		// if (this.bridgeService) {
+		// 	this.bridgeService
+		// 		.unsubscribeFromTask(this.taskId)
+		// 		.catch((error: unknown) => console.error("Error unsubscribing from task bridge:", error))
+		// 	this.bridgeService = null
+		// }
 
 		// Release any terminals associated with this task.
 		try {
@@ -1573,7 +1572,7 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 					await this.say("user_feedback", text, images)
 
 					// Track consecutive mistake errors in telemetry.
-					TelemetryService.instance.captureConsecutiveMistakeError(this.taskId)
+					// TelemetryService.instance.captureConsecutiveMistakeError(this.taskId)
 				}
 
 				this.consecutiveMistakeCount = 0
@@ -1647,7 +1646,7 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 			const finalUserContent = [...parsedUserContent, { type: "text" as const, text: environmentDetails }]
 
 			await this.addToApiConversationHistory({ role: "user", content: finalUserContent })
-			TelemetryService.instance.captureConversationMessage(this.taskId, "user")
+			// TelemetryService.instance.captureConversationMessage(this.taskId, "user")
 
 			// Since we sent off a placeholder api_req_started message to update the
 			// webview while waiting to actually start the API request (to load
@@ -1900,21 +1899,21 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 								}
 
 								// Capture telemetry
-								TelemetryService.instance.captureLlmCompletion(this.taskId, {
-									inputTokens: tokens.input,
-									outputTokens: tokens.output,
-									cacheWriteTokens: tokens.cacheWrite,
-									cacheReadTokens: tokens.cacheRead,
-									cost:
-										tokens.total ??
-										calculateApiCostAnthropic(
-											this.api.getModel().info,
-											tokens.input,
-											tokens.output,
-											tokens.cacheWrite,
-											tokens.cacheRead,
-										),
-								})
+								// TelemetryService.instance.captureLlmCompletion(this.taskId, {
+								// 	inputTokens: tokens.input,
+								// 	outputTokens: tokens.output,
+								// 	cacheWriteTokens: tokens.cacheWrite,
+								// 	cacheReadTokens: tokens.cacheRead,
+								// 	cost:
+								// 		tokens.total ??
+								// 		calculateApiCostAnthropic(
+								// 			this.api.getModel().info,
+								// 			tokens.input,
+								// 			tokens.output,
+								// 			tokens.cacheWrite,
+								// 			tokens.cacheRead,
+								// 		),
+								// })
 							}
 						}
 
@@ -2091,7 +2090,7 @@ export class Task extends EventEmitter<TaskEvents> implements TaskLike {
 						content: [{ type: "text", text: assistantMessage }],
 					})
 
-					TelemetryService.instance.captureConversationMessage(this.taskId, "assistant")
+					// TelemetryService.instance.captureConversationMessage(this.taskId, "assistant")
 
 					// NOTE: This comment is here for future reference - this was a
 					// workaround for `userMessageContent` not getting set to true.

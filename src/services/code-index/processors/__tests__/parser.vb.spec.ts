@@ -3,13 +3,13 @@ import { CodeParser } from "../parser"
 import * as path from "path"
 
 // Mock TelemetryService
-vi.mock("../../../../../packages/telemetry/src/TelemetryService", () => ({
-	TelemetryService: {
-		instance: {
-			captureEvent: vi.fn(),
-		},
-	},
-}))
+// vi.mock("../../../../../packages/telemetry/src/TelemetryService", () => ({
+// 	TelemetryService: {
+// 		instance: {
+// 			captureEvent: vi.fn(),
+// 		},
+// 	},
+// }))
 
 import { shouldUseFallbackChunking } from "../../shared/supported-extensions"
 

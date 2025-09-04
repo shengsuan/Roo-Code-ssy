@@ -1,6 +1,6 @@
 import { Anthropic } from "@anthropic-ai/sdk"
 
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 
 import { ApiHandler } from "../../api"
 import { MAX_CONDENSE_THRESHOLD, MIN_CONDENSE_THRESHOLD, summarizeConversation, SummarizeResponse } from "../condense"
@@ -39,7 +39,7 @@ export async function estimateTokenCount(
  * @returns {ApiMessage[]} The truncated conversation messages.
  */
 export function truncateConversation(messages: ApiMessage[], fracToRemove: number, taskId: string): ApiMessage[] {
-	TelemetryService.instance.captureSlidingWindowTruncation(taskId)
+	// TelemetryService.instance.captureSlidingWindowTruncation(taskId)
 	const truncatedMessages = [messages[0]]
 	const rawMessagesToRemove = Math.floor((messages.length - 1) * fracToRemove)
 	const messagesToRemove = rawMessagesToRemove - (rawMessagesToRemove % 2)

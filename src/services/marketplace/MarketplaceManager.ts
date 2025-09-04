@@ -5,8 +5,8 @@ import * as vscode from "vscode"
 import * as yaml from "yaml"
 
 import type { MarketplaceItem, MarketplaceItemType, McpMarketplaceItem } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
-import { type OrganizationSettings, CloudService } from "@roo-code/cloud"
+// import { TelemetryService } from "@roo-code/telemetry"
+import { type OrganizationSettings } from "@roo-code/cloud"
 
 import { GlobalFileNames } from "../../shared/globalFileNames"
 import { ensureSettingsDirectoryExists } from "../../utils/globalContext"
@@ -40,15 +40,15 @@ export class MarketplaceManager {
 
 			let orgSettings: OrganizationSettings | undefined
 
-			try {
-				if (CloudService.hasInstance() && CloudService.instance.isAuthenticated()) {
-					orgSettings = CloudService.instance.getOrganizationSettings()
-				}
-			} catch (orgError) {
-				console.warn("Failed to load organization settings:", orgError)
-				const orgErrorMessage = orgError instanceof Error ? orgError.message : String(orgError)
-				errors.push(`Organization settings: ${orgErrorMessage}`)
-			}
+			// try {
+			// 	if (CloudService.hasInstance() && CloudService.instance.isAuthenticated()) {
+			// 		orgSettings = CloudService.instance.getOrganizationSettings()
+			// 	}
+			// } catch (orgError) {
+			// 	console.warn("Failed to load organization settings:", orgError)
+			// 	const orgErrorMessage = orgError instanceof Error ? orgError.message : String(orgError)
+			// 	errors.push(`Organization settings: ${orgErrorMessage}`)
+			// }
 
 			const allMarketplaceItems = await this.configLoader.loadAllItems(orgSettings?.hideMarketplaceMcps)
 			let organizationMcps: MarketplaceItem[] = []
@@ -163,13 +163,13 @@ export class MarketplaceManager {
 				}
 			}
 
-			TelemetryService.instance.captureMarketplaceItemInstalled(
-				item.id,
-				item.type,
-				item.name,
-				target,
-				telemetryProperties,
-			)
+			// TelemetryService.instance.captureMarketplaceItemInstalled(
+			// 	item.id,
+			// 	item.type,
+			// 	item.name,
+			// 	target,
+			// 	telemetryProperties,
+			// )
 
 			// Open the config file that was modified, optionally at the specific line
 			const document = await vscode.workspace.openTextDocument(result.filePath)
@@ -205,7 +205,7 @@ export class MarketplaceManager {
 			vscode.window.showInformationMessage(t("marketplace:installation.removeSuccess", { itemName: item.name }))
 
 			// Capture telemetry for successful removal
-			TelemetryService.instance.captureMarketplaceItemRemoved(item.id, item.type, item.name, target)
+			// TelemetryService.instance.captureMarketplaceItemRemoved(item.id, item.type, item.name, target)
 		} catch (error) {
 			const errorMessage = error instanceof Error ? error.message : String(error)
 			vscode.window.showErrorMessage(

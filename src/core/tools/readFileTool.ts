@@ -209,7 +209,6 @@ export async function readFileTool(
 	try {
 		// First validate all files and prepare for batch approval
 		const filesToApprove: FileResult[] = []
-
 		for (let i = 0; i < fileResults.length; i++) {
 			const fileResult = fileResults[i]
 			const relPath = fileResult.path

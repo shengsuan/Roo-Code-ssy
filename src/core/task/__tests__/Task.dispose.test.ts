@@ -25,14 +25,14 @@ vi.mock("../../../api", () => ({
 vi.mock("./AutoApprovalHandler")
 
 // Mock TelemetryService
-vi.mock("@roo-code/telemetry", () => ({
-	TelemetryService: {
-		instance: {
-			captureTaskCreated: vi.fn(),
-			captureTaskRestarted: vi.fn(),
-		},
-	},
-}))
+// vi.mock("@roo-code/telemetry", () => ({
+// 	TelemetryService: {
+// 		instance: {
+// 			captureTaskCreated: vi.fn(),
+// 			captureTaskRestarted: vi.fn(),
+// 		},
+// 	},
+// }))
 
 describe("Task dispose method", () => {
 	let mockProvider: any

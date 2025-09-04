@@ -74,18 +74,18 @@ const mockHasInstance = vitest.fn()
 const mockGetSessionTokenFn = vitest.fn()
 const mockHasInstanceFn = vitest.fn()
 
-vitest.mock("@roo-code/cloud", () => ({
-	CloudService: {
-		hasInstance: () => mockHasInstanceFn(),
-		get instance() {
-			return {
-				authService: {
-					getSessionToken: () => mockGetSessionTokenFn(),
-				},
-			}
-		},
-	},
-}))
+// vitest.mock("@roo-code/cloud", () => ({
+// 	CloudService: {
+// 		hasInstance: () => mockHasInstanceFn(),
+// 		get instance() {
+// 			return {
+// 				authService: {
+// 					getSessionToken: () => mockGetSessionTokenFn(),
+// 				},
+// 			}
+// 		},
+// 	},
+// }))
 
 // Mock i18n
 vitest.mock("../../../i18n", () => ({

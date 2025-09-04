@@ -14,8 +14,8 @@ import {
 	type ClineMessage,
 	TelemetryEventName,
 } from "@roo-code/types"
-import { CloudService } from "@roo-code/cloud"
-import { TelemetryService } from "@roo-code/telemetry"
+// import { CloudService } from "@roo-code/cloud"
+// import { TelemetryService } from "@roo-code/telemetry"
 import { type ApiMessage } from "../task-persistence/apiMessages"
 
 import { ClineProvider } from "./ClineProvider"
@@ -277,11 +277,11 @@ export const webviewMessageHandler = async (
 				)
 
 			// If user already opted in to telemetry, enable telemetry service
-			provider.getStateToPostToWebview().then((state) => {
-				const { telemetrySetting } = state
-				const isOptedIn = telemetrySetting === "enabled"
-				TelemetryService.instance.updateTelemetryState(isOptedIn)
-			})
+			// provider.getStateToPostToWebview().then((state) => {
+			// 	const { telemetrySetting } = state
+			// 	// const isOptedIn = telemetrySetting === "enabled"
+			// 	// TelemetryService.instance.updateTelemetryState(isOptedIn)
+			// })
 
 			provider.isViewLaunched = true
 			break
@@ -425,35 +425,35 @@ export const webviewMessageHandler = async (
 
 			try {
 				const visibility = message.visibility || "organization"
-				const result = await CloudService.instance.shareTask(shareTaskId, visibility, clineMessages)
+				// const result = await CloudService.instance.shareTask(shareTaskId, visibility, clineMessages)
 
-				if (result.success && result.shareUrl) {
-					// Show success notification
-					const messageKey =
-						visibility === "public"
-							? "common:info.public_share_link_copied"
-							: "common:info.organization_share_link_copied"
-					vscode.window.showInformationMessage(t(messageKey))
+				// if (result.success && result.shareUrl) {
+				// 	// Show success notification
+				// 	const messageKey =
+				// 		visibility === "public"
+				// 			? "common:info.public_share_link_copied"
+				// 			: "common:info.organization_share_link_copied"
+				// 	vscode.window.showInformationMessage(t(messageKey))
 
-					// Send success feedback to webview for inline display
-					await provider.postMessageToWebview({
-						type: "shareTaskSuccess",
-						visibility,
-						text: result.shareUrl,
-					})
-				} else {
-					// Handle error
-					const errorMessage = result.error || "Failed to create share link"
-					if (errorMessage.includes("Authentication")) {
-						vscode.window.showErrorMessage(t("common:errors.share_auth_required"))
-					} else if (errorMessage.includes("sharing is not enabled")) {
-						vscode.window.showErrorMessage(t("common:errors.share_not_enabled"))
-					} else if (errorMessage.includes("not found")) {
-						vscode.window.showErrorMessage(t("common:errors.share_task_not_found"))
-					} else {
-						vscode.window.showErrorMessage(errorMessage)
-					}
-				}
+				// 	// Send success feedback to webview for inline display
+				// 	await provider.postMessageToWebview({
+				// 		type: "shareTaskSuccess",
+				// 		visibility,
+				// 		text: result.shareUrl,
+				// 	})
+				// } else {
+				// 	// Handle error
+				// 	const errorMessage = result.error || "Failed to create share link"
+				// 	if (errorMessage.includes("Authentication")) {
+				// 		vscode.window.showErrorMessage(t("common:errors.share_auth_required"))
+				// 	} else if (errorMessage.includes("sharing is not enabled")) {
+				// 		vscode.window.showErrorMessage(t("common:errors.share_not_enabled"))
+				// 	} else if (errorMessage.includes("not found")) {
+				// 		vscode.window.showErrorMessage(t("common:errors.share_task_not_found"))
+				// 	} else {
+				// 		vscode.window.showErrorMessage(errorMessage)
+				// 	}
+				// }
 			} catch (error) {
 				provider.log(`[shareCurrentTask] Unexpected error: ${error}`)
 				vscode.window.showErrorMessage(t("common:errors.share_task_failed"))
@@ -1243,20 +1243,20 @@ export const webviewMessageHandler = async (
 				}
 				provider.postMessageToWebview({ type: "state", state: stateWithPrompts })
 
-				if (TelemetryService.hasInstance()) {
-					// Determine which setting was changed by comparing objects
-					const oldPrompt = existingPrompts[message.promptMode] || {}
-					const newPrompt = message.customPrompt
-					const changedSettings = Object.keys(newPrompt).filter(
-						(key) =>
-							JSON.stringify((oldPrompt as Record<string, unknown>)[key]) !==
-							JSON.stringify((newPrompt as Record<string, unknown>)[key]),
-					)
+				// if (TelemetryService.hasInstance()) {
+				// 	// Determine which setting was changed by comparing objects
+				// 	const oldPrompt = existingPrompts[message.promptMode] || {}
+				// 	const newPrompt = message.customPrompt
+				// 	const changedSettings = Object.keys(newPrompt).filter(
+				// 		(key) =>
+				// 			JSON.stringify((oldPrompt as Record<string, unknown>)[key]) !==
+				// 			JSON.stringify((newPrompt as Record<string, unknown>)[key]),
+				// 	)
 
-					if (changedSettings.length > 0) {
-						TelemetryService.instance.captureModeSettingChanged(changedSettings[0])
-					}
-				}
+				// 	if (changedSettings.length > 0) {
+				// 		TelemetryService.instance.captureModeSettingChanged(changedSettings[0])
+				// 	}
+				// }
 			}
 			break
 		case "deleteMessage": {
@@ -1423,7 +1423,7 @@ export const webviewMessageHandler = async (
 
 					if (result.success && result.enhancedText) {
 						// Capture telemetry for prompt enhancement
-						MessageEnhancer.captureTelemetry(currentCline?.taskId, includeTaskHistoryInEnhance)
+						// MessageEnhancer.captureTelemetry(currentCline?.taskId, includeTaskHistoryInEnhance)
 						await provider.postMessageToWebview({ type: "enhancedPrompt", text: result.enhancedText })
 					} else {
 						throw new Error(result.error || "Unknown error")
@@ -1710,29 +1710,29 @@ export const webviewMessageHandler = async (
 				await provider.postStateToWebview()
 
 				// Track telemetry for custom mode creation or update
-				if (TelemetryService.hasInstance()) {
-					if (isNewMode) {
-						// This is a new custom mode
-						TelemetryService.instance.captureCustomModeCreated(
-							message.modeConfig.slug,
-							message.modeConfig.name,
-						)
-					} else {
-						// Determine which setting was changed by comparing objects
-						const existingMode = existingModes.find((mode) => mode.slug === message.modeConfig?.slug)
-						const changedSettings = existingMode
-							? Object.keys(message.modeConfig).filter(
-									(key) =>
-										JSON.stringify((existingMode as Record<string, unknown>)[key]) !==
-										JSON.stringify((message.modeConfig as Record<string, unknown>)[key]),
-								)
-							: []
+				// if (TelemetryService.hasInstance()) {
+				// 	if (isNewMode) {
+				// 		// This is a new custom mode
+				// 		// TelemetryService.instance.captureCustomModeCreated(
+				// 		// 	message.modeConfig.slug,
+				// 		// 	message.modeConfig.name,
+				// 		// )
+				// 	} else {
+				// 		// Determine which setting was changed by comparing objects
+				// 		const existingMode = existingModes.find((mode) => mode.slug === message.modeConfig?.slug)
+				// 		const changedSettings = existingMode
+				// 			? Object.keys(message.modeConfig).filter(
+				// 					(key) =>
+				// 						JSON.stringify((existingMode as Record<string, unknown>)[key]) !==
+				// 						JSON.stringify((message.modeConfig as Record<string, unknown>)[key]),
+				// 				)
+				// 			: []
 
-						if (changedSettings.length > 0) {
-							TelemetryService.instance.captureModeSettingChanged(changedSettings[0])
-						}
-					}
-				}
+				// 		// if (changedSettings.length > 0) {
+				// 		// 	TelemetryService.instance.captureModeSettingChanged(changedSettings[0])
+				// 		// }
+				// 	}
+				// }
 			}
 			break
 		case "deleteCustomMode":
@@ -2015,7 +2015,7 @@ export const webviewMessageHandler = async (
 			const telemetrySetting = message.text as TelemetrySetting
 			await updateGlobalState("telemetrySetting", telemetrySetting)
 			const isOptedIn = telemetrySetting === "enabled"
-			TelemetryService.instance.updateTelemetryState(isOptedIn)
+			// TelemetryService.instance.updateTelemetryState(isOptedIn)
 			await provider.postStateToWebview()
 			break
 		}
@@ -2026,8 +2026,8 @@ export const webviewMessageHandler = async (
 		}
 		case "rooCloudSignIn": {
 			try {
-				TelemetryService.instance.captureEvent(TelemetryEventName.AUTHENTICATION_INITIATED)
-				await CloudService.instance.login()
+				// TelemetryService.instance.captureEvent(TelemetryEventName.AUTHENTICATION_INITIATED)
+				// await CloudService.instance.login()
 			} catch (error) {
 				provider.log(`AuthService#login failed: ${error}`)
 				vscode.window.showErrorMessage("Sign in failed.")
@@ -2037,7 +2037,7 @@ export const webviewMessageHandler = async (
 		}
 		case "rooCloudSignOut": {
 			try {
-				await CloudService.instance.logout()
+				// await CloudService.instance.logout()
 				await provider.postStateToWebview()
 				provider.postMessageToWebview({ type: "authenticatedUser", userInfo: undefined })
 			} catch (error) {
@@ -2050,7 +2050,7 @@ export const webviewMessageHandler = async (
 
 		case "shengSuanYunSignIn": {
 			try {
-				TelemetryService.instance.captureEvent(TelemetryEventName.AUTHENTICATION_INITIATED)
+				// TelemetryService.instance.captureEvent(TelemetryEventName.AUTHENTICATION_INITIATED)
 				const token = await provider.getValue("shengSuanYunToken")
 				if (token) {
 					const userInfo = await fetchUserInfo(token)
@@ -2477,9 +2477,9 @@ export const webviewMessageHandler = async (
 		case "switchTab": {
 			if (message.tab) {
 				// Capture tab shown event for all switchTab messages (which are user-initiated)
-				if (TelemetryService.hasInstance()) {
-					TelemetryService.instance.captureTabShown(message.tab)
-				}
+				// if (TelemetryService.hasInstance()) {
+				// 	TelemetryService.instance.captureTabShown(message.tab)
+				// }
 
 				await provider.postMessageToWebview({ type: "action", action: "switchTab", tab: message.tab })
 			}

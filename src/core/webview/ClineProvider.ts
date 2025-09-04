@@ -38,7 +38,7 @@ import {
 	DEFAULT_TERMINAL_OUTPUT_CHARACTER_LIMIT,
 	DEFAULT_WRITE_DELAY_MS,
 } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 import { type CloudUserInfo, CloudService, ORGANIZATION_ALLOW_ALL, getRooCodeApiUrl } from "@roo-code/cloud"
 
 import { Package } from "../../shared/package"
@@ -146,7 +146,7 @@ export class ClineProvider
 
 		// Register this provider with the telemetry service to enable it to add
 		// properties like mode and provider.
-		TelemetryService.instance.setProvider(this)
+		// TelemetryService.instance.setProvider(this)
 
 		this._workspaceTracker = new WorkspaceTracker(this)
 
@@ -240,14 +240,13 @@ export class ClineProvider
 	private async initializeCloudProfileSync() {
 		try {
 			// Check if authenticated and sync profiles
-			if (CloudService.hasInstance() && CloudService.instance.isAuthenticated()) {
-				await this.syncCloudProfiles()
-			}
-
-			// Set up listener for future updates
-			if (CloudService.hasInstance()) {
-				CloudService.instance.on("settings-updated", this.handleCloudSettingsUpdate)
-			}
+			// if (CloudService.hasInstance() && CloudService.instance.isAuthenticated()) {
+			// 	await this.syncCloudProfiles()
+			// }
+			// // Set up listener for future updates
+			// if (CloudService.hasInstance()) {
+			// 	CloudService.instance.on("settings-updated", this.handleCloudSettingsUpdate)
+			// }
 		} catch (error) {
 			this.log(`Error in initializeCloudProfileSync: ${error}`)
 		}
@@ -567,7 +566,7 @@ export class ClineProvider
 		params: Record<string, string | any[]>,
 	): Promise<void> {
 		// Capture telemetry for code action usage
-		TelemetryService.instance.captureCodeActionUsed(promptType)
+		// TelemetryService.instance.captureCodeActionUsed(promptType)
 
 		const visibleProvider = await ClineProvider.getInstance()
 
@@ -593,7 +592,7 @@ export class ClineProvider
 		promptType: TerminalActionPromptType,
 		params: Record<string, string | any[]>,
 	): Promise<void> {
-		TelemetryService.instance.captureCodeActionUsed(promptType)
+		// TelemetryService.instance.captureCodeActionUsed(promptType)
 
 		const visibleProvider = await ClineProvider.getInstance()
 
@@ -1090,7 +1089,7 @@ export class ClineProvider
 		const cline = this.getCurrentTask()
 
 		if (cline) {
-			TelemetryService.instance.captureModeSwitch(cline.taskId, newMode)
+			// TelemetryService.instance.captureModeSwitch(cline.taskId, newMode)
 			cline.emit(RooCodeEventName.TaskModeSwitched, cline.taskId, newMode)
 
 			// Store the current mode in case we need to rollback
@@ -1960,13 +1959,13 @@ export class ClineProvider
 
 		let organizationAllowList = ORGANIZATION_ALLOW_ALL
 
-		try {
-			organizationAllowList = await CloudService.instance.getAllowList()
-		} catch (error) {
-			console.error(
-				`[getState] failed to get organization allow list: ${error instanceof Error ? error.message : String(error)}`,
-			)
-		}
+		// try {
+		// 	organizationAllowList = CloudService.instance.getAllowList()
+		// } catch (error) {
+		// 	console.error(
+		// 		`[getState] failed to get organization allow list: ${error instanceof Error ? error.message : String(error)}`,
+		// 	)
+		// }
 
 		let cloudUserInfo: CloudUserInfo | null = this.user
 
@@ -1995,26 +1994,26 @@ export class ClineProvider
 
 		let sharingEnabled: boolean = false
 
-		try {
-			sharingEnabled = await CloudService.instance.canShareTask()
-		} catch (error) {
-			console.error(
-				`[getState] failed to get sharing enabled state: ${error instanceof Error ? error.message : String(error)}`,
-			)
-		}
+		// try {
+		// 	sharingEnabled = await CloudService.instance.canShareTask()
+		// } catch (error) {
+		// 	console.error(
+		// 		`[getState] failed to get sharing enabled state: ${error instanceof Error ? error.message : String(error)}`,
+		// 	)
+		// }
 
 		let organizationSettingsVersion: number = -1
 
-		try {
-			if (CloudService.hasInstance()) {
-				const settings = CloudService.instance.getOrganizationSettings()
-				organizationSettingsVersion = settings?.version ?? -1
-			}
-		} catch (error) {
-			console.error(
-				`[getState] failed to get organization settings version: ${error instanceof Error ? error.message : String(error)}`,
-			)
-		}
+		// try {
+		// 	if (CloudService.hasInstance()) {
+		// 		const settings = CloudService.instance.getOrganizationSettings()
+		// 		organizationSettingsVersion = settings?.version ?? -1
+		// 	}
+		// } catch (error) {
+		// 	console.error(
+		// 		`[getState] failed to get organization settings version: ${error instanceof Error ? error.message : String(error)}`,
+		// 	)
+		// }
 
 		// Return the same structure as before
 		return {
@@ -2264,38 +2263,38 @@ export class ClineProvider
 			(message: string) => this.log(message),
 		)
 
-		if (isRemoteControlEnabled(userInfo, enabled)) {
-			const currentTask = this.getCurrentTask()
+		// if (isRemoteControlEnabled(userInfo, enabled)) {
+		// 	const currentTask = this.getCurrentTask()
 
-			if (currentTask && !currentTask.bridgeService) {
-				try {
-					currentTask.bridgeService = ExtensionBridgeService.getInstance()
+		// 	// if (currentTask && !currentTask.bridgeService) {
+		// 	// 	try {
+		// 	// 		currentTask.bridgeService = ExtensionBridgeService.getInstance()
 
-					if (currentTask.bridgeService) {
-						await currentTask.bridgeService.subscribeToTask(currentTask)
-					}
-				} catch (error) {
-					const message = `[ClineProvider#handleRemoteControlToggle] subscribeToTask failed - ${error instanceof Error ? error.message : String(error)}`
-					this.log(message)
-					console.error(message)
-				}
-			}
-		} else {
-			for (const task of this.clineStack) {
-				if (task.bridgeService) {
-					try {
-						await task.bridgeService.unsubscribeFromTask(task.taskId)
-						task.bridgeService = null
-					} catch (error) {
-						const message = `[ClineProvider#handleRemoteControlToggle] unsubscribeFromTask failed - ${error instanceof Error ? error.message : String(error)}`
-						this.log(message)
-						console.error(message)
-					}
-				}
-			}
+		// 	// 		if (currentTask.bridgeService) {
+		// 	// 			await currentTask.bridgeService.subscribeToTask(currentTask)
+		// 	// 		}
+		// 	// 	} catch (error) {
+		// 	// 		const message = `[ClineProvider#handleRemoteControlToggle] subscribeToTask failed - ${error instanceof Error ? error.message : String(error)}`
+		// 	// 		this.log(message)
+		// 	// 		console.error(message)
+		// 	// 	}
+		// 	// }
+		// } else {
+		// 	for (const task of this.clineStack) {
+		// 		if (task.bridgeService) {
+		// 			try {
+		// 				await task.bridgeService.unsubscribeFromTask(task.taskId)
+		// 				task.bridgeService = null
+		// 			} catch (error) {
+		// 				const message = `[ClineProvider#handleRemoteControlToggle] unsubscribeFromTask failed - ${error instanceof Error ? error.message : String(error)}`
+		// 				this.log(message)
+		// 				console.error(message)
+		// 			}
+		// 		}
+		// 	}
 
-			ExtensionBridgeService.resetInstance()
-		}
+		// 	ExtensionBridgeService.resetInstance()
+		// }
 	}
 
 	private _appProperties?: StaticAppProperties
@@ -2323,14 +2322,14 @@ export class ClineProvider
 	private getCloudProperties(): CloudAppProperties {
 		let cloudIsAuthenticated: boolean | undefined
 
-		try {
-			if (CloudService.hasInstance()) {
-				cloudIsAuthenticated = CloudService.instance.isAuthenticated()
-			}
-		} catch (error) {
-			// Silently handle errors to avoid breaking telemetry collection.
-			this.log(`[getTelemetryProperties] Failed to get cloud auth state: ${error}`)
-		}
+		// try {
+		// 	if (CloudService.hasInstance()) {
+		// 		cloudIsAuthenticated = CloudService.instance.isAuthenticated()
+		// 	}
+		// } catch (error) {
+		// 	// Silently handle errors to avoid breaking telemetry collection.
+		// 	this.log(`[getTelemetryProperties] Failed to get cloud auth state: ${error}`)
+		// }
 
 		return {
 			cloudIsAuthenticated,

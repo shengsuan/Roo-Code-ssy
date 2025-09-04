@@ -1,5 +1,5 @@
 {
-	"greeting": "欢迎使用 Roo Code-中文版胜算云",
+	"greeting": "欢迎使用 Roo Code-中文版",
 	"task": {
 		"title": "任务",
 		"expand": "展开任务",
@@ -133,7 +133,7 @@
 	"diffError": {
 		"title": "编辑失败"
 	},
-	"troubleMessage": "Roo Code-中文版胜算云遇到问题...",
+	"troubleMessage": "Roo Code 中文版遇到问题...",
 	"apiRequest": {
 		"title": "API请求",
 		"failed": "API请求失败",
@@ -158,7 +158,7 @@
 		"current": "当前"
 	},
 	"instructions": {
-		"wantsToFetch": "Roo Code-中文版胜算云想要获取详细指示以协助当前任务"
+		"wantsToFetch": "Roo Code 中文版想要获取详细指示以协助当前任务"
 	},
 	"fileOperations": {
 		"wantsToRead": "需要读取文件:",
@@ -182,8 +182,8 @@
 		"didViewTopLevel": "已查看目录文件列表:",
 		"wantsToViewRecursive": "需要查看目录所有文件:",
 		"didViewRecursive": "已查看目录所有文件:",
-		"wantsToViewDefinitions": "Roo Code-中文版胜算云想查看此目录中使用的源代码定义名称:",
-		"didViewDefinitions": "Roo Code-中文版胜算云已查看此目录中使用的源代码定义名称:",
+		"wantsToViewDefinitions": "Roo Code 中文版想查看此目录中使用的源代码定义名称:",
+		"didViewDefinitions": "Roo Code 中文版已查看此目录中使用的源代码定义名称:",
 		"wantsToSearch": "需要搜索内容: {{regex}}",
 		"didSearch": "已完成内容搜索: {{regex}}",
 		"wantsToSearchOutsideWorkspace": "需要搜索内容（工作区外）: {{regex}}",
@@ -215,8 +215,8 @@
 	"response": "响应",
 	"arguments": "参数",
 	"mcp": {
-		"wantsToUseTool": "Roo Code-中文版胜算云想在{{serverName}} MCP上使用工具:",
-		"wantsToAccessResource": "Roo Code-中文版胜算云想访问{{serverName}} MCP服务上的资源:"
+		"wantsToUseTool": "Roo Code 中文版想在{{serverName}} MCP上使用工具:",
+		"wantsToAccessResource": "Roo Code 中文版想访问{{serverName}} MCP服务上的资源:"
 	},
 	"modes": {
 		"wantsToSwitch": "即将切换至{{mode}}模式",
@@ -225,8 +225,8 @@
 		"didSwitchWithReason": "已切换至{{mode}}模式（原因：{{reason}}）"
 	},
 	"subtasks": {
-		"wantsToCreate": "Roo Code-中文版胜算云想在<code>{{mode}}</code>模式下创建新子任务:",
-		"wantsToFinish": "Roo Code-中文版胜算云想完成此子任务",
+		"wantsToCreate": "Roo Code 中文版想在<code>{{mode}}</code>模式下创建新子任务:",
+		"wantsToFinish": "Roo Code 中文版想完成此子任务",
 		"newTaskContent": "子任务说明",
 		"completionContent": "子任务已完成",
 		"resultContent": "子任务结果",
@@ -234,7 +234,7 @@
 		"completionInstructions": "子任务已完成！您可以查看结果并提出修改或下一步建议。如果一切正常，请确认以将结果返回给主任务。"
 	},
 	"questions": {
-		"hasQuestion": "Roo Code-中文版胜算云有一个问题:"
+		"hasQuestion": "Roo Code 中文版有一个问题:"
 	},
 	"taskCompleted": "任务完成",
 	"powershell": {
@@ -280,7 +280,7 @@
 		"detailsDiscussLinks": "在 <discordLink>Discord</discordLink> 和 <redditLink>Reddit</redditLink> 获取更多详情并参与讨论 🚀"
 	},
 	"browser": {
-		"rooWantsToUse": "Roo Code-中文版胜算云想使用浏览器:",
+		"rooWantsToUse": "Roo Code 中文版想使用浏览器:",
 		"consoleLogs": "控制台日志",
 		"noNewLogs": "(没有新日志)",
 		"screenshot": "浏览器截图",
@@ -314,7 +314,7 @@
 	"profileViolationWarning": "当前配置文件与您的组织设置不兼容",
 	"shellIntegration": {
 		"title": "命令执行警告",
-		"description": "您的命令正在没有 VSCode 终端 shell 集成的情况下执行。要隐藏此警告，您可以在 <settingsLink>Roo Code-中文版胜算云设置</settingsLink>的 <strong>Terminal</strong> 部分禁用 shell 集成，或使用下方链接排查 VSCode 终端集成问题。",
+		"description": "您的命令正在没有 VSCode 终端 shell 集成的情况下执行。要隐藏此警告，您可以在 <settingsLink>Roo Code 中文版设置</settingsLink>的 <strong>Terminal</strong> 部分禁用 shell 集成，或使用下方链接排查 VSCode 终端集成问题。",
 		"troubleshooting": "点击此处查看 shell 集成文档。"
 	},
 	"ask": {

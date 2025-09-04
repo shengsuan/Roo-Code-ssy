@@ -23,7 +23,7 @@ import { codeParser } from "./parser"
 import { CacheManager } from "../cache-manager"
 import { generateNormalizedAbsolutePath, generateRelativeFilePath } from "../shared/get-relative-path"
 import { isPathInIgnoredDirectory } from "../../glob/ignore-utils"
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 import { TelemetryEventName } from "@roo-code/types"
 import { sanitizeErrorMessage } from "../shared/validation-helpers"
 
@@ -209,12 +209,12 @@ export class FileWatcher implements IFileWatcher {
 				const errorMessage = error instanceof Error ? error.message : String(error)
 
 				// Log telemetry for deletion error
-				TelemetryService.instance.captureEvent(TelemetryEventName.CODE_INDEX_ERROR, {
-					error: sanitizeErrorMessage(errorMessage),
-					location: "deletePointsByMultipleFilePaths",
-					errorType: "deletion_error",
-					errorStatus: errorStatus,
-				})
+				// TelemetryService.instance.captureEvent(TelemetryEventName.CODE_INDEX_ERROR, {
+				// 	error: sanitizeErrorMessage(errorMessage),
+				// 	location: "deletePointsByMultipleFilePaths",
+				// 	errorType: "deletion_error",
+				// 	errorStatus: errorStatus,
+				// })
 
 				// Mark all paths as error
 				overallBatchError = error as Error
@@ -355,12 +355,12 @@ export class FileWatcher implements IFileWatcher {
 							retryCount++
 							if (retryCount === MAX_BATCH_RETRIES) {
 								// Log telemetry for upsert failure
-								TelemetryService.instance.captureEvent(TelemetryEventName.CODE_INDEX_ERROR, {
-									error: sanitizeErrorMessage(upsertError.message),
-									location: "upsertPoints",
-									errorType: "upsert_retry_exhausted",
-									retryCount: MAX_BATCH_RETRIES,
-								})
+								// TelemetryService.instance.captureEvent(TelemetryEventName.CODE_INDEX_ERROR, {
+								// 	error: sanitizeErrorMessage(upsertError.message),
+								// 	location: "upsertPoints",
+								// 	errorType: "upsert_retry_exhausted",
+								// 	retryCount: MAX_BATCH_RETRIES,
+								// })
 								throw new Error(
 									`Failed to upsert batch after ${MAX_BATCH_RETRIES} retries: ${upsertError.message}`,
 								)
@@ -382,12 +382,12 @@ export class FileWatcher implements IFileWatcher {
 				const err = error as Error
 				overallBatchError = overallBatchError || err
 				// Log telemetry for batch upsert error
-				TelemetryService.instance.captureEvent(TelemetryEventName.CODE_INDEX_ERROR, {
-					error: sanitizeErrorMessage(err.message),
-					location: "executeBatchUpsertOperations",
-					errorType: "batch_upsert_error",
-					affectedFiles: successfullyProcessedForUpsert.length,
-				})
+				// TelemetryService.instance.captureEvent(TelemetryEventName.CODE_INDEX_ERROR, {
+				// 	error: sanitizeErrorMessage(err.message),
+				// 	location: "executeBatchUpsertOperations",
+				// 	errorType: "batch_upsert_error",
+				// 	affectedFiles: successfullyProcessedForUpsert.length,
+				// })
 				for (const { path } of successfullyProcessedForUpsert) {
 					batchResults.push({ path, status: "error", error: err })
 				}

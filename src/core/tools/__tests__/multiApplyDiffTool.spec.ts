@@ -14,17 +14,17 @@ vi.mock("../applyDiffTool", () => ({
 }))
 
 // Mock TelemetryService
-vi.mock("@roo-code/telemetry", () => ({
-	TelemetryService: {
-		get instance() {
-			return {
-				trackEvent: vi.fn(),
-				trackError: vi.fn(),
-				captureDiffApplicationError: vi.fn(),
-			}
-		},
-	},
-}))
+// vi.mock("@roo-code/telemetry", () => ({
+// 	TelemetryService: {
+// 		get instance() {
+// 			return {
+// 				trackEvent: vi.fn(),
+// 				trackError: vi.fn(),
+// 				captureDiffApplicationError: vi.fn(),
+// 			}
+// 		},
+// 	},
+// }))
 
 describe("multiApplyDiffTool", () => {
 	let mockCline: any

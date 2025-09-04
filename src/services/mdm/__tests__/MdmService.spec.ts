@@ -60,11 +60,11 @@ import * as fs from "fs"
 import * as os from "os"
 import * as vscode from "vscode"
 import { MdmService } from "../MdmService"
-import { CloudService, getClerkBaseUrl, PRODUCTION_CLERK_BASE_URL } from "@roo-code/cloud"
+import { getClerkBaseUrl, PRODUCTION_CLERK_BASE_URL } from "@roo-code/cloud"
 
 const mockFs = fs as any
 const mockOs = os as any
-const mockCloudService = CloudService as any
+// const mockCloudService = CloudService as any
 const mockVscode = vscode as any
 const mockGetClerkBaseUrl = getClerkBaseUrl as any
 
@@ -256,8 +256,8 @@ describe("MdmService", () => {
 			mockFs.existsSync.mockReturnValue(true)
 			mockFs.readFileSync.mockReturnValue(JSON.stringify(mockConfig))
 
-			mockCloudService.hasInstance.mockReturnValue(true)
-			mockCloudService.instance.hasOrIsAcquiringActiveSession.mockReturnValue(true)
+			// mockCloudService.hasInstance.mockReturnValue(true)
+			// mockCloudService.instance.hasOrIsAcquiringActiveSession.mockReturnValue(true)
 
 			const service = await MdmService.createInstance()
 			const compliance = service.isCompliant()
@@ -271,7 +271,7 @@ describe("MdmService", () => {
 			mockFs.readFileSync.mockReturnValue(JSON.stringify(mockConfig))
 
 			// Mock CloudService to indicate no instance or no active session
-			mockCloudService.hasInstance.mockReturnValue(false)
+			// mockCloudService.hasInstance.mockReturnValue(false)
 
 			const service = await MdmService.createInstance()
 			const compliance = service.isCompliant()
@@ -291,9 +291,9 @@ describe("MdmService", () => {
 			mockFs.readFileSync.mockReturnValue(JSON.stringify(mockConfig))
 
 			// Mock CloudService to have instance and active session but wrong org
-			mockCloudService.hasInstance.mockReturnValue(true)
-			mockCloudService.instance.hasOrIsAcquiringActiveSession.mockReturnValue(true)
-			mockCloudService.instance.getOrganizationId.mockReturnValue("different-org-456")
+			// mockCloudService.hasInstance.mockReturnValue(true)
+			// mockCloudService.instance.hasOrIsAcquiringActiveSession.mockReturnValue(true)
+			// mockCloudService.instance.getOrganizationId.mockReturnValue("different-org-456")
 
 			const service = await MdmService.createInstance()
 			const compliance = service.isCompliant()
@@ -314,9 +314,9 @@ describe("MdmService", () => {
 			mockFs.existsSync.mockReturnValue(true)
 			mockFs.readFileSync.mockReturnValue(JSON.stringify(mockConfig))
 
-			mockCloudService.hasInstance.mockReturnValue(true)
-			mockCloudService.instance.hasOrIsAcquiringActiveSession.mockReturnValue(true)
-			mockCloudService.instance.getOrganizationId.mockReturnValue("correct-org-123")
+			// mockCloudService.hasInstance.mockReturnValue(true)
+			// mockCloudService.instance.hasOrIsAcquiringActiveSession.mockReturnValue(true)
+			// mockCloudService.instance.getOrganizationId.mockReturnValue("correct-org-123")
 
 			const service = await MdmService.createInstance()
 			const compliance = service.isCompliant()
@@ -329,9 +329,9 @@ describe("MdmService", () => {
 			mockFs.existsSync.mockReturnValue(true)
 			mockFs.readFileSync.mockReturnValue(JSON.stringify(mockConfig))
 
-			mockCloudService.hasInstance.mockReturnValue(true)
-			// Mock attempting session (not active, but acquiring)
-			mockCloudService.instance.hasOrIsAcquiringActiveSession.mockReturnValue(true)
+			// mockCloudService.hasInstance.mockReturnValue(true)
+			// // Mock attempting session (not active, but acquiring)
+			// mockCloudService.instance.hasOrIsAcquiringActiveSession.mockReturnValue(true)
 
 			const service = await MdmService.createInstance()
 			const compliance = service.isCompliant()

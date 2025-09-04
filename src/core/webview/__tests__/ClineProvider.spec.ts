@@ -5,7 +5,7 @@ import * as vscode from "vscode"
 import axios from "axios"
 
 import { type ProviderSettingsEntry, type ClineMessage } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 import { ORGANIZATION_ALLOW_ALL } from "@roo-code/cloud"
 
 import { ExtensionMessage, ExtensionState } from "../../../shared/ExtensionMessage"
@@ -345,9 +345,9 @@ describe("ClineProvider", () => {
 	beforeEach(() => {
 		vi.clearAllMocks()
 
-		if (!TelemetryService.hasInstance()) {
-			TelemetryService.createInstance([])
-		}
+		// if (!TelemetryService.hasInstance()) {
+		// 	TelemetryService.createInstance([])
+		// }
 
 		const globalState: Record<string, string | undefined> = {
 			mode: "architect",
@@ -2411,9 +2411,9 @@ describe("getTelemetryProperties", () => {
 		vi.clearAllMocks()
 
 		// Initialize TelemetryService if not already initialized
-		if (!TelemetryService.hasInstance()) {
-			TelemetryService.createInstance([])
-		}
+		// if (!TelemetryService.hasInstance()) {
+		// 	TelemetryService.createInstance([])
+		// }
 
 		// Setup basic mocks
 		mockContext = {
@@ -2620,9 +2620,9 @@ describe("ClineProvider - Router Models", () => {
 			onDidChangeVisibility: vi.fn().mockImplementation(() => ({ dispose: vi.fn() })),
 		} as unknown as vscode.WebviewView
 
-		if (!TelemetryService.hasInstance()) {
-			TelemetryService.createInstance([])
-		}
+		// if (!TelemetryService.hasInstance()) {
+		// 	TelemetryService.createInstance([])
+		// }
 
 		provider = new ClineProvider(mockContext, mockOutputChannel, "sidebar", new ContextProxy(mockContext))
 	})
@@ -2888,9 +2888,9 @@ describe("ClineProvider - Comprehensive Edit/Delete Edge Cases", () => {
 	beforeEach(() => {
 		vi.clearAllMocks()
 
-		if (!TelemetryService.hasInstance()) {
-			TelemetryService.createInstance([])
-		}
+		// if (!TelemetryService.hasInstance()) {
+		// 	TelemetryService.createInstance([])
+		// }
 
 		const globalState: Record<string, string | undefined> = {
 			mode: "code",

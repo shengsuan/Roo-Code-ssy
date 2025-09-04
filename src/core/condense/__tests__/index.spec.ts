@@ -2,7 +2,7 @@
 
 import type { Mock } from "vitest"
 
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 
 import { ApiHandler } from "../../../api"
 import { ApiMessage } from "../../task-persistence/apiMessages"
@@ -13,13 +13,13 @@ vi.mock("../../../api/transform/image-cleaning", () => ({
 	maybeRemoveImageBlocks: vi.fn((messages: ApiMessage[], _apiHandler: ApiHandler) => [...messages]),
 }))
 
-vi.mock("@roo-code/telemetry", () => ({
-	TelemetryService: {
-		instance: {
-			captureContextCondensed: vi.fn(),
-		},
-	},
-}))
+// vi.mock("@roo-code/telemetry", () => ({
+// 	TelemetryService: {
+// 		instance: {
+// 			captureContextCondensed: vi.fn(),
+// 		},
+// 	},
+// }))
 
 const taskId = "test-task-id"
 const DEFAULT_PREV_CONTEXT_TOKENS = 1000
@@ -531,7 +531,7 @@ describe("summarizeConversation with custom settings", () => {
 		vi.clearAllMocks()
 
 		// Reset telemetry mock
-		;(TelemetryService.instance.captureContextCondensed as Mock).mockClear()
+		// ;(TelemetryService.instance.captureContextCondensed as Mock).mockClear()
 
 		// Setup mock API handlers
 		mockMainApiHandler = {
@@ -736,12 +736,12 @@ describe("summarizeConversation with custom settings", () => {
 		)
 
 		// Verify telemetry was called with custom prompt flag
-		expect(TelemetryService.instance.captureContextCondensed).toHaveBeenCalledWith(
-			taskId,
-			false,
-			true, // usedCustomPrompt
-			false, // usedCustomApiHandler
-		)
+		// expect(TelemetryService.instance.captureContextCondensed).toHaveBeenCalledWith(
+		// 	taskId,
+		// 	false,
+		// 	true, // usedCustomPrompt
+		// 	false, // usedCustomApiHandler
+		// )
 	})
 
 	/**
@@ -760,12 +760,12 @@ describe("summarizeConversation with custom settings", () => {
 		)
 
 		// Verify telemetry was called with custom API handler flag
-		expect(TelemetryService.instance.captureContextCondensed).toHaveBeenCalledWith(
-			taskId,
-			false,
-			false, // usedCustomPrompt
-			true, // usedCustomApiHandler
-		)
+		// expect(TelemetryService.instance.captureContextCondensed).toHaveBeenCalledWith(
+		// 	taskId,
+		// 	false,
+		// 	false, // usedCustomPrompt
+		// 	true, // usedCustomApiHandler
+		// )
 	})
 
 	/**
@@ -784,11 +784,11 @@ describe("summarizeConversation with custom settings", () => {
 		)
 
 		// Verify telemetry was called with both flags
-		expect(TelemetryService.instance.captureContextCondensed).toHaveBeenCalledWith(
-			taskId,
-			true, // isAutomaticTrigger
-			true, // usedCustomPrompt
-			true, // usedCustomApiHandler
-		)
+		// expect(TelemetryService.instance.captureContextCondensed).toHaveBeenCalledWith(
+		// 	taskId,
+		// 	true, // isAutomaticTrigger
+		// 	true, // usedCustomPrompt
+		// 	true, // usedCustomApiHandler
+		// )
 	})
 })

@@ -7,13 +7,13 @@ import { OpenAICompatibleEmbedder } from "../openai-compatible"
 vitest.mock("../openai-compatible")
 
 // Mock TelemetryService
-vitest.mock("@roo-code/telemetry", () => ({
-	TelemetryService: {
-		instance: {
-			captureEvent: vitest.fn(),
-		},
-	},
-}))
+// vitest.mock("@roo-code/telemetry", () => ({
+// 	TelemetryService: {
+// 		instance: {
+// 			captureEvent: vitest.fn(),
+// 		},
+// 	},
+// }))
 
 const MockedOpenAICompatibleEmbedder = OpenAICompatibleEmbedder as MockedClass<typeof OpenAICompatibleEmbedder>
 

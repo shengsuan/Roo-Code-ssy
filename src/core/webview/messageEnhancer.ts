@@ -1,9 +1,8 @@
-import { ProviderSettings, ClineMessage, GlobalState, TelemetryEventName } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+import { ProviderSettings, ClineMessage, TelemetryEventName } from "@roo-code/types"
+// import { TelemetryService } from "@roo-code/telemetry"
 import { supportPrompt } from "../../shared/support-prompt"
 import { singleCompletionHandler } from "../../utils/single-completion-handler"
 import { ProviderSettingsManager } from "../config/ProviderSettingsManager"
-import { ClineProvider } from "./ClineProvider"
 
 export interface MessageEnhancerOptions {
 	text: string
@@ -131,13 +130,13 @@ export class MessageEnhancer {
 	 * @param taskId Optional task ID for telemetry tracking
 	 * @param includeTaskHistory Whether task history was included in the enhancement
 	 */
-	static captureTelemetry(taskId?: string, includeTaskHistory?: boolean): void {
-		if (TelemetryService.hasInstance()) {
-			// Use captureEvent directly to include the includeTaskHistory property
-			TelemetryService.instance.captureEvent(TelemetryEventName.PROMPT_ENHANCED, {
-				...(taskId && { taskId }),
-				includeTaskHistory: includeTaskHistory ?? false,
-			})
-		}
-	}
+	// static captureTelemetry(taskId?: string, includeTaskHistory?: boolean): void {
+	// 	if (TelemetryService.hasInstance()) {
+	// 		// Use captureEvent directly to include the includeTaskHistory property
+	// 		TelemetryService.instance.captureEvent(TelemetryEventName.PROMPT_ENHANCED, {
+	// 			...(taskId && { taskId }),
+	// 			includeTaskHistory: includeTaskHistory ?? false,
+	// 		})
+	// 	}
+	// }
 }

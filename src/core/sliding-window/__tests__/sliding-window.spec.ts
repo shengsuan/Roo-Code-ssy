@@ -3,7 +3,7 @@
 import { Anthropic } from "@anthropic-ai/sdk"
 
 import type { ModelInfo } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 
 import { BaseProvider } from "../../../api/providers/base-provider"
 import { ApiMessage } from "../../task-persistence/apiMessages"
@@ -50,11 +50,11 @@ const mockApiHandler = new MockApiHandler()
 const taskId = "test-task-id"
 
 describe("Sliding Window", () => {
-	beforeEach(() => {
-		if (!TelemetryService.hasInstance()) {
-			TelemetryService.createInstance([])
-		}
-	})
+	// beforeEach(() => {
+	// 	if (!TelemetryService.hasInstance()) {
+	// 		TelemetryService.createInstance([])
+	// 	}
+	// })
 	/**
 	 * Tests for the truncateConversation function
 	 */

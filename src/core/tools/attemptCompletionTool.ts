@@ -2,7 +2,7 @@ import Anthropic from "@anthropic-ai/sdk"
 import * as vscode from "vscode"
 
 import { RooCodeEventName } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 
 import { Task } from "../task/Task"
 import {
@@ -69,7 +69,7 @@ export async function attemptCompletionTool(
 					// we have command string, which means we have the result as well, so finish it (doesnt have to exist yet)
 					await cline.say("completion_result", removeClosingTag("result", result), undefined, false)
 
-					TelemetryService.instance.captureTaskCompleted(cline.taskId)
+					// TelemetryService.instance.captureTaskCompleted(cline.taskId)
 					cline.emit(RooCodeEventName.TaskCompleted, cline.taskId, cline.getTokenUsage(), cline.toolUsage)
 
 					await cline.ask("command", removeClosingTag("command", command), block.partial).catch(() => {})
@@ -92,7 +92,7 @@ export async function attemptCompletionTool(
 			// Command execution is permanently disabled in attempt_completion
 			// Users must use execute_command tool separately before attempt_completion
 			await cline.say("completion_result", result, undefined, false)
-			TelemetryService.instance.captureTaskCompleted(cline.taskId)
+			// TelemetryService.instance.captureTaskCompleted(cline.taskId)
 			cline.emit(RooCodeEventName.TaskCompleted, cline.taskId, cline.getTokenUsage(), cline.toolUsage)
 
 			if (cline.parentTask) {

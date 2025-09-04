@@ -12,8 +12,8 @@ try {
 	console.warn("Failed to load environment variables:", e)
 }
 
-import { CloudService, ExtensionBridgeService } from "@roo-code/cloud"
-import { TelemetryService, PostHogTelemetryClient } from "@roo-code/telemetry"
+// import { ExtensionBridgeService } from "@roo-code/cloud"
+// import { TelemetryService, PostHogTelemetryClient } from "@roo-code/telemetry"
 
 import "./utils/path" // Necessary to have access to String.prototype.toPosix.
 import { createOutputChannelLogger, createDualLogger } from "./utils/outputChannelLogger"
@@ -29,7 +29,7 @@ import { CodeIndexManager } from "./services/code-index/manager"
 import { MdmService } from "./services/mdm/MdmService"
 import { migrateSettings } from "./utils/migrateSettings"
 import { autoImportSettings } from "./utils/autoImportSettings"
-import { isRemoteControlEnabled } from "./utils/remoteControl"
+// import { isRemoteControlEnabled } from "./utils/remoteControl"
 import { API } from "./extension/api"
 
 import {
@@ -62,15 +62,14 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	// Migrate old settings to new
 	await migrateSettings(context, outputChannel)
-
 	// Initialize telemetry service.
-	const telemetryService = TelemetryService.createInstance()
+	// const telemetryService = TelemetryService.createInstance()
 
-	try {
-		telemetryService.register(new PostHogTelemetryClient())
-	} catch (error) {
-		console.warn("Failed to register PostHogTelemetryClient:", error)
-	}
+	// try {
+	// 	telemetryService.register(new PostHogTelemetryClient())
+	// } catch (error) {
+	// 	console.warn("Failed to register PostHogTelemetryClient:", error)
+	// }
 
 	// Create logger for cloud services.
 	const cloudLogger = createDualLogger(createOutputChannelLogger(outputChannel))
@@ -114,46 +113,46 @@ export async function activate(context: vscode.ExtensionContext) {
 	}
 
 	// Initialize Roo Code Cloud service.
-	const cloudService = await CloudService.createInstance(context, cloudLogger)
+	// const cloudService = await CloudService.createInstance(context, cloudLogger)
 
-	try {
-		if (cloudService.telemetryClient) {
-			TelemetryService.instance.register(cloudService.telemetryClient)
-		}
-	} catch (error) {
-		outputChannel.appendLine(
-			`[CloudService] Failed to register TelemetryClient: ${error instanceof Error ? error.message : String(error)}`,
-		)
-	}
+	// try {
+	// 	if (cloudService.telemetryClient) {
+	// 		TelemetryService.instance.register(cloudService.telemetryClient)
+	// 	}
+	// } catch (error) {
+	// 	outputChannel.appendLine(
+	// 		`[CloudService] Failed to register TelemetryClient: ${error instanceof Error ? error.message : String(error)}`,
+	// 	)
+	// }
 
 	const postStateListener = () => ClineProvider.getVisibleInstance()?.postStateToWebview()
 
-	cloudService.on("auth-state-changed", postStateListener)
-	cloudService.on("settings-updated", postStateListener)
+	// cloudService.on("auth-state-changed", postStateListener)
+	// cloudService.on("settings-updated", postStateListener)
 
-	cloudService.on("user-info", async ({ userInfo }) => {
-		postStateListener()
+	// cloudService.on("user-info", async ({ userInfo }) => {
+	// 	postStateListener()
 
-		const bridgeConfig = await cloudService.cloudAPI?.bridgeConfig().catch(() => undefined)
+	// 	const bridgeConfig = await cloudService.cloudAPI?.bridgeConfig().catch(() => undefined)
 
-		if (!bridgeConfig) {
-			outputChannel.appendLine("[CloudService] Failed to get bridge config")
-			return
-		}
-		console.log('cloudService.on("user-info,', userInfo)
-		// ExtensionBridgeService.handleRemoteControlState(
-		// 	userInfo,
-		// 	contextProxy.getValue("remoteControlEnabled"),
-		// 	{ ...bridgeConfig, provider , sessionId: vscode.env.sessionId },
-		// 	(message: string) => outputChannel.appendLine(message),
-		// )
-	})
+	// 	if (!bridgeConfig) {
+	// 		outputChannel.appendLine("[CloudService] Failed to get bridge config")
+	// 		return
+	// 	}
+	// 	console.log('cloudService.on("user-info,', userInfo)
+	// 	// ExtensionBridgeService.handleRemoteControlState(
+	// 	// 	userInfo,
+	// 	// 	contextProxy.getValue("remoteControlEnabled"),
+	// 	// 	{ ...bridgeConfig, provider , sessionId: vscode.env.sessionId },
+	// 	// 	(message: string) => outputChannel.appendLine(message),
+	// 	// )
+	// })
 
-	// Add to subscriptions for proper cleanup on deactivate.
-	context.subscriptions.push(cloudService)
+	// // Add to subscriptions for proper cleanup on deactivate.
+	// context.subscriptions.push(cloudService)
 
 	const provider = new ClineProvider(context, outputChannel, "sidebar", contextProxy, mdmService)
-	TelemetryService.instance.setProvider(provider)
+	// TelemetryService.instance.setProvider(provider)
 
 	context.subscriptions.push(
 		vscode.window.registerWebviewViewProvider(ClineProvider.sideBarId, provider, {
@@ -280,13 +279,13 @@ export async function activate(context: vscode.ExtensionContext) {
 export async function deactivate() {
 	outputChannel.appendLine(`${Package.name} extension deactivated`)
 
-	const bridgeService = ExtensionBridgeService.getInstance()
+	// const bridgeService = ExtensionBridgeService.getInstance()
 
-	if (bridgeService) {
-		await bridgeService.disconnect()
-	}
+	// if (bridgeService) {
+	// 	await bridgeService.disconnect()
+	// }
 
 	await McpServerManager.cleanup(extensionContext)
-	TelemetryService.instance.shutdown()
+	// TelemetryService.instance.shutdown()
 	TerminalRegistry.cleanup()
 }

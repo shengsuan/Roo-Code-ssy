@@ -1,7 +1,7 @@
 import path from "path"
 import fs from "fs/promises"
 
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 import { DEFAULT_WRITE_DELAY_MS } from "@roo-code/types"
 
 import { ClineSayTool } from "../../shared/ExtensionMessage"
@@ -169,7 +169,7 @@ Expected structure:
 Original error: ${errorMessage}`
 			cline.consecutiveMistakeCount++
 			cline.recordToolError("apply_diff")
-			TelemetryService.instance.captureDiffApplicationError(cline.taskId, cline.consecutiveMistakeCount)
+			// TelemetryService.instance.captureDiffApplicationError(cline.taskId, cline.consecutiveMistakeCount)
 			await cline.say("diff_error", `Failed to parse apply_diff XML: ${errorMessage}`)
 			pushToolResult(detailedError)
 			return
@@ -440,7 +440,7 @@ Original error: ${errorMessage}`
 					const currentCount = (cline.consecutiveMistakeCountForApplyDiff.get(relPath) || 0) + 1
 					cline.consecutiveMistakeCountForApplyDiff.set(relPath, currentCount)
 
-					TelemetryService.instance.captureDiffApplicationError(cline.taskId, currentCount)
+					// TelemetryService.instance.captureDiffApplicationError(cline.taskId, currentCount)
 
 					if (diffResult.failParts && diffResult.failParts.length > 0) {
 						for (let i = 0; i < diffResult.failParts.length; i++) {

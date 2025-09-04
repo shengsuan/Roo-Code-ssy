@@ -7,7 +7,7 @@ import * as vscode from "vscode"
 import { Anthropic } from "@anthropic-ai/sdk"
 
 import type { GlobalState, ProviderSettings, ModelInfo } from "@roo-code/types"
-import { TelemetryService } from "@roo-code/telemetry"
+// import { TelemetryService } from "@roo-code/telemetry"
 
 import { Task } from "../Task"
 import { ClineProvider } from "../../webview/ClineProvider"
@@ -180,9 +180,9 @@ describe("Cline", () => {
 	let mockExtensionContext: vscode.ExtensionContext
 
 	beforeEach(() => {
-		if (!TelemetryService.hasInstance()) {
-			TelemetryService.createInstance([])
-		}
+		// if (!TelemetryService.hasInstance()) {
+		// 	TelemetryService.createInstance([])
+		// }
 
 		// Setup mock extension context
 		const storageUri = {
