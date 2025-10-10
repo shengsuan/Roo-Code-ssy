@@ -1,3 +1,5 @@
+# Roo Code-中文版（Vibe Coding、Claude 4.5、GPT-5、JetBrains、Qwen通义千问、OpenRouter、通义灵码IDE、Lingma、ChatGPT、Copilot、Cursor AI  Agent智能体、Java、Python、代码聊天、助手、补全、生成器、Mode、上下文、编码编程助手）
+
 <div align="center">
 <sub>
 
